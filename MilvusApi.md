@@ -31,6 +31,7 @@ Record vectors of float values
 | ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
 | metric_type | `N` | `string`  | `L2` | Specify vector metric type. `L1`, `L2`, `IP` ... |
 | dimension | `Y` | `integer`  |  | Specify vector dimension. |
+| datatype | `N` | `string`  | `float` | Specify vector element data type. `float`, `integer` |
 
 - [x] **Numeric**
 
@@ -131,7 +132,8 @@ PUT /my-index
     "properties": {
       "face_img_vec": {
         "type": "vector",
-        "dimension": 512,
+        "dimension": 4,
+        "datatype": "float",
         "metric_type": "L2",
         "index": {
             "type": "ivf_sq8",
@@ -141,7 +143,8 @@ PUT /my-index
       },
       "body_img_vec": {
         "type": "vector",
-        "dimension": 256
+        "dimension": 8,
+        "datatype": "float"
       },
       "age": {
         "type": "integer",
@@ -164,8 +167,9 @@ The API returns the following response:
         "properties": {
           "face_img_vec": {
             "type": "vector",
-            "dimension": 512,
+            "dimension": 4,
             "metric_type": "L2",
+            "datatype": "float",
             "index": {
                 "type": "ivf_sq8",
                 "nlist": 8792
@@ -174,7 +178,8 @@ The API returns the following response:
           },
           "body_img_vec": {
             "type": "vector",
-            "dimension": 256
+            "dimension": 4,
+            "datatype": "float"
           },
           "age": {
             "type": "integer",
@@ -241,3 +246,46 @@ Fields and mapping types do not need to be defined before being used.
 - [x] **Field mappings modification**
 
 Field mappings can be modified after first initialization.
+
+## Document
+### DSL
+#### Create
+```js
+# No _id specified, system will auto generate a unique id
+POST /my-index/_doc
+# Create a doc with _id=87566639989444
+POST /my-index/_doc/87566639989444
+```
+```json
+{
+  "face_img_vec": [0.29, 0.37, 0.87, 0.76],
+  "body_img_vec": [0.29, 0.37, 0.18, 0.94, 0.87, 0.76, 0.45, 0.63],
+  "age": 17
+}
+```
+```json
+{
+  "face_img_vec": [0.39, 0.38, 0.88, 0.76],
+  "body_img_vec": [0.47, 0.37, 0.15, 0.94, 0.77, 0.76, 0.35, 0.62],
+  "age": 28
+}
+```
+Pass Response
+```json
+{
+    "_id": 87566639989444,
+    "_index": "my-index",
+    "_seq_no": 1,
+    "_type": "_doc",
+    "_version": 1,
+    "result": "created"
+}
+```
+Fail Response
+```json
+{
+    "status": 404,
+    "error": {
+    }
+}
+```
