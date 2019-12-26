@@ -2,30 +2,36 @@
 
 ## Field datatypes
 
-### Supported
+###Supported
 
-**Vector**
+>Vector
 `vector` Record vectors of float values
 
-**Numeric**
+>Numeric
 `long`, `integer`, `short`, `byte`, `double`, `float`
 
-**Boolean**
+>Boolean
 `boolean`
 
 ### TODO
 
-**string**
+>string
 `text`
 
-**Binary**
+>Binary
 `binary`
 
-
-**Object**
+>Object
 `object` for single JSON objects
 
-
 ## Mapping
+
+### Supported
+
+### TODO
+
+**
+
+
 ```
 ```
