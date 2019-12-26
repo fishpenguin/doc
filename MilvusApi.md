@@ -32,12 +32,10 @@
 
 ### Parameters for fields
 
-**boost**
-
+- [x] **boost**
 All fields. Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0.
 
-**index**
-
+- [x] **index**
 All fields. Should the field be searchable? Accepts `true`(default) and `false` for numeric fields or `JSON` body `{}`(default) | `{xxx}` for `vector` field.
 
 **null_value**
