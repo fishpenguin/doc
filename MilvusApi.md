@@ -182,8 +182,47 @@ The API returns the following response:
             "index": true
           }
         }
+      },
+      "settings": {
+        "index": {
+            "creation_date": "1576134581399",
+            "provided_name": "my-index",
+            "uuid": "VfR0x-sIT8WP-FL6XU9kRw"
+        }
       }
     }
+}
+```
+#### Delete
+```js
+DELETE /my-index
+DELETE /my-index1,my-index2
+DELETE /_all
+```
+Pass Responses
+```json
+{
+    "acknowledged": true
+}
+```
+Fail Responses
+```json
+{
+    "error": {
+        "index": "my-index",
+        "index_uuid": "_na_",
+        "reason": "no such index [my-index]",
+        "root_cause": [
+            {
+                "index": "my-index",
+                "index_uuid": "_na_",
+                "reason": "no such index [my-index]",
+                "type": "index_not_found_exception"
+            }
+        ],
+        "type": "index_not_found_exception"
+    },
+    "status": 404
 }
 ```
 
