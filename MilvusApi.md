@@ -8,11 +8,13 @@
 {
   "vector_1": {
     "type": "vector",
-    "metric_type": "IP"
+    "metric_type": "IP",
+    "dimension": 512
   },
   "vector_2": {
     "type": "vector",
     "metric_type": "L1",
+    "dimension": 256,
     "index": {
       "type": "IVF_SQ8",
       "nlist": 8792
@@ -28,12 +30,6 @@
 | ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
 | metric_type | `N` | `string`  | `L2` | Specify vector metric type. `L1`, `L2`, `IP` ... |
 | dimension | `Y` | `integer`  |  | Specify vector dimension. |
-| index | `N` | `JSON`  | `{}` | Specify vector index config. |
-
-| Index Para | Required | Type      | Default        | Description                                     |
-| ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
-| type | `Y` | `string`  | `FLAT` | Specify index type. `FLAT`, `IVF_FLAT`, `IVF_SQ8` ... |
-| nlist | `N` | `integer`  | 16384 | Specify ivf nlist. |
 
 - [x] **Numeric**
 
@@ -58,12 +54,60 @@
 ### Parameters for fields
 
 - [x] **boost**
+```json
+{
+  "age": {
+    "type": "integer",
+    "boost": 2.0
+  }
+}
+```
 
-All fields. Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0.
+| Field | Required | Type  | Default     | Description                                     |
+| ---------   | --------- | -------- | -------------- | ----------------------------------------------- |
+| Numeric | `N` | `float`  | `1.0` | Mapping field-level query time boosting |
+| Vector | `N` | `float`  | `1.0` | Mapping field-level query time boosting |
 
 - [x] **index**
+```json
+{
+  "age": {
+    "type": "integer",
+    "index": true
+  }
+}
+```
+```json
+{
+  "vector_1": {
+    "type": "vector",
+    "metric_type": "IP",
+    "dimension": 512
+  },
+  "vector_2": {
+    "type": "vector",
+    "metric_type": "L1",
+    "dimension": 256,
+    "index": {
+      "type": "IVF_SQ8",
+      "nlist": 8792
+    }
+  }
+}
+```
+>*vector_1*: `vector`, `IP`, 512, `FLAT`, `16384`
 
-All fields. Should the field be searchable? Accepts `true`(default) and `false` for numeric fields or `JSON` body `{}`(default) | `{xxx}` for `vector` field.
+>*vector_2*: `vector`, `L1`, 256, `IVF_SQ8`, `8792`
+
+| Field | Required | Type  | Default     | Description                                     |
+| ---------   | --------- | -------- | -------------- | ----------------------------------------------- |
+| Numeric | `N` | `boolean`  | `true` | Should the field be indexed |
+| Vector | `N` | `JSON`  | `{}` | Specify the vector index config |
+
+| Vector Index | Required | Type      | Default        | Description                                     |
+| ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
+| type | `Y` | `string`  | `FLAT` | Specify index type. `FLAT`, `IVF_FLAT`, `IVF_SQ8` ... |
+| nlist | `N` | `integer`  | 16384 | Specify ivf nlist. |
 
 - [ ] **null_value**
 
