@@ -20,8 +20,9 @@
   }
 }
 ```
-`vector_1`: `vector`, `IP`, `FLAT`, `16384`
-`vector_2`: `vector`, `L1`, `IVF_SQ8`, `8792`
+>*`vector_1`*: `vector`, `IP`, `FLAT`, `16384`
+
+>*`vector_2`*: `vector`, `L1`, `IVF_SQ8`, `8792`
 
 | Vector Para | Required | Type      | Default        | Description                                     |
 | ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
