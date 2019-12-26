@@ -34,9 +34,23 @@
 
 ### Supported
 
+> **Explicit mappings**
+
+Fields and mapping types need to be defined before being used.
+
+> **Index field mappings can only be initialized once**
+
+Index field mappings can only be initialized at creating index.
+
 ### TODO
 
-**
+> **Dynamic mapping**
+
+Fields and mapping types do not need to be defined before being used.
+
+> **Field mappings modification**
+
+Field mappings can be modified after first initialization.
 
 
 ```
