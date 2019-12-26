@@ -2,8 +2,9 @@
 
 ## Field datatypes
 
-- [x] **Vector** Record vectors of float values
+- [x] **Vector**
 
+Record vectors of float values
 ```json
 {
   "vector_1": {
@@ -120,6 +121,7 @@ Whether the field value should be stored and retrivable separately from the `_so
 ## Mapping
 
 ### DSL
+#### Create
 ```js
 PUT /my-index
 ```
@@ -150,6 +152,41 @@ PUT /my-index
   }
 }
 ```
+#### Get
+```js
+GET /my-index/_mapping
+```
+The API returns the following response:
+```json
+{
+    "my-index": {
+      "mappings": {
+        "properties": {
+          "face_img_vec": {
+            "type": "vector",
+            "dimension": 512,
+            "metric_type": "L2",
+            "index": {
+                "type": "ivf_sq8",
+                "nlist": 8792
+            },
+            "boost": 1.5
+          },
+          "body_img_vec": {
+            "type": "vector",
+            "dimension": 256
+          },
+          "age": {
+            "type": "integer",
+            "boost": 2.0,
+            "index": true
+          }
+        }
+      }
+    }
+}
+```
+
 - [x] **Explicit mappings**
 
 Fields and mapping types need to be defined before being used.
