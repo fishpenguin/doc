@@ -2,9 +2,18 @@
 
 ## Field datatypes
 
-- [x] **Vector**
+- [x] **Vector** Record vectors of float values
 
-`vector` Record vectors of float values
+| Vector Para | Required | Type      | Default        | Description                                     |
+| ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
+| metric_type | `N` | `string`  | `L2` | Specify vector metric type. `L1`, `L2`, `IP` ... |
+| dimension | `Y` | `integer`  |  | Specify vector dimension. |
+| index | `N` | `JSON`  | `{}` | Specify vector index config. |
+
+| Index Para | Required | Type      | Default        | Description                                     |
+| ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
+| type | `Y` | `string`  | `FLAT` | Specify index type. `FLAT`, `IVF_FLAT`, `IVF_SQ8` ... |
+| nlist | `N` | `integer`  | 16384 | Specify ivf nlist. |
 
 - [x] **Numeric**
 
