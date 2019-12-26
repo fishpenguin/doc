@@ -2,31 +2,27 @@
 
 ## Field datatypes
 
-### Supported
-
-**Vector**
+- [x] **Vector**
 
 `vector` Record vectors of float values
 
-**Numeric**
+- [x] **Numeric**
 
 `long`, `integer`, `short`, `byte`, `double`, `float`
 
-**Boolean**
+- [x] **Boolean**
 
 `boolean`
 
-### TODO
-
-**string**
+- [x] **string**
 
 `text`
 
-**Binary**
+- [x] **Binary**
 
 `binary`
 
-**Object**
+- [x] **Object**
 
 `object` for single JSON objects
 
@@ -37,13 +33,14 @@
 All fields. Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0.
 
 - [x] **index**
+
 All fields. Should the field be searchable? Accepts `true`(default) and `false` for numeric fields or `JSON` body `{}`(default) | `{xxx}` for `vector` field.
 
-**null_value**
+- [] **null_value**
 
 Accepts a numeric value of the samve `type` as the field which is substituted for any explicit `null` valus. Defaults to `null`
 
-**store**
+- [] **store**
 
 Whether the field value should be stored and retrivable separately from the `_source` field. Accepts `true` or `false`(default).
 
@@ -80,23 +77,18 @@ PUT /my-index
   }
 }
 ```
-
-### Supported
-
-**Explicit mappings**
+- [x] **Explicit mappings**
 
 Fields and mapping types need to be defined before being used.
 
-**Index field mappings can only be initialized once**
+- [x] **Index field mappings can only be initialized once**
 
 Index field mappings can only be initialized at creating index.
 
-### TODO
-
-**Dynamic mapping**
+- [x] **Dynamic mapping**
 
 Fields and mapping types do not need to be defined before being used.
 
-**Field mappings modification**
+- [x] **Field mappings modification**
 
 Field mappings can be modified after first initialization.
