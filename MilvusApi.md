@@ -1,10 +1,8 @@
 # Milvus DSL Design Doc
 
 ## Field datatypes
-==========================
 
 **Vector**
---------------------------
 `vector` Record vectors of float values
 
 **Numeric**
