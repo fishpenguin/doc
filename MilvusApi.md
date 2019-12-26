@@ -2,9 +2,9 @@
 
 ## Field datatypes
 
-###Supported
+### Supported
 
->Vector
+> *Vector*
 
 `vector` Record vectors of float values
 
