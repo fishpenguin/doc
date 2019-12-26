@@ -30,7 +30,55 @@
 
 `object` for single JSON objects
 
+### Parameters for numeric fields
+
+> **boost**
+
+Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0
+
+> **index**
+
+Should the field be searchable? Accepts `true`(default) and `false`
+
+> **null_value**
+
+Accepts a numeric value of the samve `type` as the field which is substituted for any explicit `null` valus. Defaults to `null`
+
+> **store**
+
+Whether the field value should be stored and retrivable separately from the `_source` field. Accepts `true` or `false`(default).
+
 ## Mapping
+
+### DSL
+```js
+PUT /my-index
+```
+```json
+{
+  "mappings": {
+    "properties": {
+      "face_img_vec": {
+        "type": "vector",
+        "dimension": 512,
+        "metric_type": "L2",
+        "index": {
+            "type": "ivf_sq8",
+            "nlist": 8792
+        },
+        "boost": 1.5
+      },
+      "body_img_vec": {
+        "type": "vector",
+        "dimension": 256
+      },
+      "age": {
+        "type": "integer"
+      }
+    }
+  }
+}
+```
 
 ### Supported
 
@@ -51,7 +99,3 @@ Fields and mapping types do not need to be defined before being used.
 > **Field mappings modification**
 
 Field mappings can be modified after first initialization.
-
-
-```
-```
