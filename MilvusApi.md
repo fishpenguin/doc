@@ -30,15 +30,15 @@
 
 `object` for single JSON objects
 
-### Parameters for numeric fields
+### Parameters for fields
 
 **boost**
 
-Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0
+All fields. Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0.
 
 **index**
 
-Should the field be searchable? Accepts `true`(default) and `false`
+All fields. Should the field be searchable? Accepts `true`(default) and `false` for numeric fields or `JSON` body `{}`(default) | `{xxx}` for `vector` field.
 
 **null_value**
 
@@ -73,7 +73,9 @@ PUT /my-index
         "dimension": 256
       },
       "age": {
-        "type": "integer"
+        "type": "integer",
+        "boost": 2.0,
+        "index": true
       }
     }
   }
