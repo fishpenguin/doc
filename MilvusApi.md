@@ -4,47 +4,47 @@
 
 ### Supported
 
-> **Vector**
+**Vector**
 
 `vector` Record vectors of float values
 
-> **Numeric**
+**Numeric**
 
 `long`, `integer`, `short`, `byte`, `double`, `float`
 
-> **Boolean**
+**Boolean**
 
 `boolean`
 
 ### TODO
 
-> **string**
+**string**
 
 `text`
 
-> **Binary**
+**Binary**
 
 `binary`
 
-> **Object**
+**Object**
 
 `object` for single JSON objects
 
 ### Parameters for numeric fields
 
-> **boost**
+**boost**
 
 Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0
 
-> **index**
+**index**
 
 Should the field be searchable? Accepts `true`(default) and `false`
 
-> **null_value**
+**null_value**
 
 Accepts a numeric value of the samve `type` as the field which is substituted for any explicit `null` valus. Defaults to `null`
 
-> **store**
+**store**
 
 Whether the field value should be stored and retrivable separately from the `_source` field. Accepts `true` or `false`(default).
 
@@ -82,20 +82,20 @@ PUT /my-index
 
 ### Supported
 
-> **Explicit mappings**
+**Explicit mappings**
 
 Fields and mapping types need to be defined before being used.
 
-> **Index field mappings can only be initialized once**
+**Index field mappings can only be initialized once**
 
 Index field mappings can only be initialized at creating index.
 
 ### TODO
 
-> **Dynamic mapping**
+**Dynamic mapping**
 
 Fields and mapping types do not need to be defined before being used.
 
-> **Field mappings modification**
+**Field mappings modification**
 
 Field mappings can be modified after first initialization.
