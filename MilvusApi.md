@@ -4,6 +4,25 @@
 
 - [x] **Vector** Record vectors of float values
 
+```json
+{
+  "vector_1": {
+    "type": "vector",
+    "metric_type": "IP"
+  },
+  "vector_2": {
+    "type": "vector",
+    "metric_type": "L1",
+    "index": {
+      "type": "IVF_SQ8",
+      "nlist": 8792
+    }
+  }
+}
+```
+`vector_1`: `vector`, `IP`, `FLAT`, `16384`
+`vector_2`: `vector`, `L1`, `IVF_SQ8`, `8792`
+
 | Vector Para | Required | Type      | Default        | Description                                     |
 | ---------   | -------- | --------- | -------------- | ----------------------------------------------- |
 | metric_type | `N` | `string`  | `L2` | Specify vector metric type. `L1`, `L2`, `IP` ... |
