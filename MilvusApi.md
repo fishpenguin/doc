@@ -33,6 +33,7 @@
 ### Parameters for fields
 
 - [x] **boost**
+
 All fields. Mapping field-level query time boosting. Accepts a floating point number, defaults to 1.0.
 
 - [x] **index**
