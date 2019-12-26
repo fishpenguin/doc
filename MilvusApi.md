@@ -14,15 +14,15 @@
 
 `boolean`
 
-- [x] **string**
+- [ ] **string**
 
 `text`
 
-- [x] **Binary**
+- [ ] **Binary**
 
 `binary`
 
-- [x] **Object**
+- [ ] **Object**
 
 `object` for single JSON objects
 
@@ -36,11 +36,11 @@ All fields. Mapping field-level query time boosting. Accepts a floating point nu
 
 All fields. Should the field be searchable? Accepts `true`(default) and `false` for numeric fields or `JSON` body `{}`(default) | `{xxx}` for `vector` field.
 
-- [] **null_value**
+- [ ] **null_value**
 
 Accepts a numeric value of the samve `type` as the field which is substituted for any explicit `null` valus. Defaults to `null`
 
-- [] **store**
+- [ ] **store**
 
 Whether the field value should be stored and retrivable separately from the `_source` field. Accepts `true` or `false`(default).
 
