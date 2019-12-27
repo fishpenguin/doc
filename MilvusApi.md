@@ -380,3 +380,52 @@ POST /my-index/_doc/87566639989444
   }
 }
 ```
+
+### Delete Document
+
+#### Request URL
+```js
+DELETE /<index>/_doc/<doc_id>
+```
+
+#### Response Contents
+
+**Success: 204 OK**
+```json
+{
+    "code": 0,
+    "reason": "Deleted",
+    "result": {
+        "_id": 87566639989444,
+        "_index": "my-index",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_version": 1,
+        "_code": "0",
+        "_reason": "Deleted"
+    }
+}
+```
+**Fail**
+```json
+{
+    "code": 40004,
+    "reason": "IndexNotFound",
+    "result": {
+        "_id": 87566639989444,
+        "_index": "my-index",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_code": "40004",
+        "_reason": "IndexNotFound"
+    }
+}
+```
+
+#### Response Status & Code & Reason
+
+| Status | Code | Reason      | Description                                     | TODO |
+| --------- | -------- | -------------- | ----------------------------------------------- | ---- |
+| `204` | `0` | `Deleted` | Doc deleted | |
+| `404` | `40004` | `IndexNotFound` | Specified index not found | |
+| `404` | `40004` | `DocNotFound` | Specified doc not found | ***Need check docid in sync mode*** |
