@@ -257,6 +257,7 @@ POST /<index>/_doc
 POST /<index>/_doc/<doc_id>
 ```
 **`index`** Specify which index to be added
+
 **`doc_id`** Specify the doc id of document to be added. If not specified, system will generate a unique `id` for this document.
 
 **Note**
