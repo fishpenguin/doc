@@ -258,10 +258,9 @@ POST /<index>/_doc/<doc_id>
 ```
 `index` Specify which index to be added
 `doc_id` Specify the doc id of document to be added. If not specified, system will generate a unique `id` for this document.
+
 **Note**
-```js
-If doc_id is specified and there is a document with same doc_id in system, it will update the document.
-```
+>If doc_id is specified and there is a document with same doc_id in system, it will update the document.
 
 **Response Status & Code & Reason**
 
