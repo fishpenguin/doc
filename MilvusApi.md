@@ -326,11 +326,14 @@ POST /<index>/_doc/<doc_id>
 
 #### Response Status & Code & Reason
 
-| Status | Code | Reason      | Description                                     |
-| --------- | -------- | -------------- | ----------------------------------------------- |
-| `201` | `0` | `Created` | New Doc Created |
-| `200` | `0` | `OK` | Doc Updated |
-| `404` | `40004` | `IndexNotFound` | Specified index not found |
+| Status | Code | Reason      | Description                                     | TODO |
+| --------- | -------- | -------------- | ----------------------------------------------- | ---- |
+| `201` | `0` | `Created` | New Doc Created | |
+| `200` | `0` | `OK` | Doc Updated | |
+| `404` | `40004` | `IndexNotFound` | Specified index not found | |
+| `400` | `41000` | `InvalidFieldName` | Invalid field name found | ***Check field name in sync mode***  |
+| `400` | `41001` | `InvalidFieldValue` | Invalid field value found | ***Check field value in sync mode*** |
+| `400` | `41002` | `InvalidFields` | Fields allignment check error | ***Check fields in sync mode*** |
 
 
 #### Example
