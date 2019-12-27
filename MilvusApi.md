@@ -308,7 +308,7 @@ POST /<index>/_doc/<doc_id>
         "_code": "<error code>",
         "_reason": "<error reason>"
       },
-      "..." : "..."
+      "..."
     ]
 }
 ```
@@ -350,7 +350,8 @@ POST /my-index/_doc/87566639989444
 ```json
 {
   "code": 0,
-  "reason": {
+  "reason": "",
+  "result": {
     "_id": 87566639989444,
     "_index": "my-index",
     "_seq_no": 1,
@@ -366,7 +367,7 @@ POST /my-index/_doc/87566639989444
 {
   "code": 40004,
   "reason": "IndexNotFound",
-  {
+  "result" : {
     "_id": 87566639989444,
     "_index": "my-index",
     "_seq_no": 1,
