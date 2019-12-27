@@ -250,7 +250,7 @@ Field mappings can be modified after first initialization.
 ## Document
 ### Add Document
 
-####Request URL
+#### Request URL
 ```js
 POST /<index>/_doc
 
@@ -264,18 +264,18 @@ POST /<index>/_doc/<doc_id>
 
 >If doc_id is specified and there is a document with same doc_id in system, it will update the document.
 
-####Request Payload
+#### Request Payload
 ```json
 {
     "<field1>": "<value1>",
     "<field2>": "<value2>",
-    ...
+    "..." : "...",
     "<fieldN>": "<valueN>"
 }
 ```
 
 
-####Response Contents
+#### Response Contents
 
 **Success**
 ```json
@@ -307,9 +307,8 @@ POST /<index>/_doc/<doc_id>
         "_type": "_doc",
         "_code": "<error code>",
         "_reason": "<error reason>"
-      }
-      ...
-      ...
+      },
+      "..." : "..."
     ]
 }
 ```
@@ -325,7 +324,7 @@ POST /<index>/_doc/<doc_id>
 | `_version` | `Success` | doc version |
 
 
-####Response Status & Code & Reason
+#### Response Status & Code & Reason
 
 | Status | Code | Reason      | Description                                     |
 | --------- | -------- | -------------- | ----------------------------------------------- |
@@ -334,7 +333,7 @@ POST /<index>/_doc/<doc_id>
 | `404` | `40004` | `IndexNotFound` | Specified index not found |
 
 
-####Example
+#### Example
 
 Create a doc with _id=87566639989444
 ```js
