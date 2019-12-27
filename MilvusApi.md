@@ -314,7 +314,7 @@ POST /<index>/_doc/<doc_id>
 ```
 
 | Field | Scope | Description                                     |
-| -------------- | ----------------------------------------------- |
+| --------------| ----------- | --------------------------------- |
 | `_id` | `Success`, `Fail` | Doc id |
 | `_index` | `Success`, `Fail` | Index name |
 | `_code` | `Success`, `Fail` | Error code. 0 for Success |
@@ -335,7 +335,7 @@ POST /<index>/_doc/<doc_id>
 
 #### Example
 
-Create a doc with _id=87566639989444
+**Create a doc with _id=87566639989444**
 ```js
 POST /my-index/_doc/87566639989444
 ```
