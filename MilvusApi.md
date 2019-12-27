@@ -250,9 +250,28 @@ Field mappings can be modified after first initialization.
 ## Document
 ### DSL
 #### Create
+
+**Request URL**
+```bash
+POST /<index>/_doc
+
+POST /<index>/_doc/<doc_id>
+```
+
+
+**Response Status & Code & Reason**
+
+| Status | Code | Reason      | Description                                     |
+| --------- | -------- | -------------- | ----------------------------------------------- |
+| `201` | `0` | `Created` | New Doc Created |
+| `200` | `0` | `OK` | Doc Updated |
+| `404` | `40004` | `IndexNotFound` | Specified index not found |
+| `404` | `40014` | `DocNotFound` | Specified doc not found |
+
 ```js
 # No _id specified, system will auto generate a unique id
 POST /my-index/_doc
+
 # Create a doc with _id=87566639989444
 POST /my-index/_doc/87566639989444
 ```
@@ -270,7 +289,7 @@ POST /my-index/_doc/87566639989444
   "age": 28
 }
 ```
-Pass Response
+Pass Response: `201 Created`
 ```json
 {
     "_id": 87566639989444,
@@ -281,7 +300,7 @@ Pass Response
     "result": "created"
 }
 ```
-Fail Response
+Fail Response: `404 Not Found`
 ```json
 {
     "status": 404,
