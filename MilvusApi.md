@@ -250,7 +250,7 @@ Field mappings can be modified after first initialization.
 ## Document
 ### Add Document
 
-**Request URL**
+####Request URL
 ```js
 POST /<index>/_doc
 
@@ -264,20 +264,80 @@ POST /<index>/_doc/<doc_id>
 
 >If doc_id is specified and there is a document with same doc_id in system, it will update the document.
 
-**Response Status & Code & Reason**
+####Request Payload
+```json
+{
+    "<field1>": "<value1>",
+    "<field2>": "<value2>",
+    ...
+    "<fieldN>": "<valueN>"
+}
+```
+
+
+####Response Contents
+
+**Success**
+```json
+{
+    "code": 0,
+    "reason": "created",
+    "result": {
+        "_id": 87566639989444,
+        "_index": "my-index",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_version": 1,
+        "_code": "0",
+        "_reason": ""
+    }
+}
+```
+
+**Fail**
+```json
+{
+    "code": "<error code>",
+    "reason": "<error reason>",
+    "details": [
+      {
+        "_id": "<id>",
+        "_index": "<index>",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_code": "<error code>",
+        "_reason": "<error reason>"
+      }
+      ...
+      ...
+    ]
+}
+```
+
+| Field | Scope | Description                                     |
+| -------------- | ----------------------------------------------- |
+| `_id` | `Success`, `Fail` | Doc id |
+| `_index` | `Success`, `Fail` | Index name |
+| `_code` | `Success`, `Fail` | Error code. 0 for Success |
+| `_reason` | `Success`, `Fail` | Error reason. ` ` for Success |
+| `_seq_no` | `Success`, `Fail` | Operation sequence number |
+| `_type` | `Success`, `Fail` | Always `_doc` |
+| `_version` | `Success` | doc version |
+
+
+####Response Status & Code & Reason
 
 | Status | Code | Reason      | Description                                     |
 | --------- | -------- | -------------- | ----------------------------------------------- |
 | `201` | `0` | `Created` | New Doc Created |
 | `200` | `0` | `OK` | Doc Updated |
 | `404` | `40004` | `IndexNotFound` | Specified index not found |
-| `404` | `40014` | `DocNotFound` | Specified doc not found |
 
+
+####Example
+
+Create a doc with _id=87566639989444
 ```js
-# No _id specified, system will auto generate a unique id
-POST /my-index/_doc
-
-# Create a doc with _id=87566639989444
 POST /my-index/_doc/87566639989444
 ```
 ```json
@@ -287,29 +347,33 @@ POST /my-index/_doc/87566639989444
   "age": 17
 }
 ```
+**`201 Created`**
 ```json
 {
-  "face_img_vec": [0.39, 0.38, 0.88, 0.76],
-  "body_img_vec": [0.47, 0.37, 0.15, 0.94, 0.77, 0.76, 0.35, 0.62],
-  "age": 28
-}
-```
-Pass Response: `201 Created`
-```json
-{
+  "code": 0,
+  "reason": {
     "_id": 87566639989444,
     "_index": "my-index",
     "_seq_no": 1,
     "_type": "_doc",
     "_version": 1,
-    "result": "created"
+    "_code": 0,
+    "_reason": ""
+  }
 }
 ```
-Fail Response: `404 Not Found`
+**`404 Not Found`**
 ```json
 {
-    "status": 404,
-    "error": {
-    }
+  "code": 40004,
+  "reason": "IndexNotFound",
+  {
+    "_id": 87566639989444,
+    "_index": "my-index",
+    "_seq_no": 1,
+    "_type": "_doc",
+    "_code": 40004,
+    "_reason": "IndexNotFound"
+  }
 }
 ```
