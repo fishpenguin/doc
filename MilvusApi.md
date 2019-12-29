@@ -474,7 +474,7 @@ POST /<index>/_search
 }
 ```
 
-*Range Query*
+*Numeric Range Query*
 ```json
 {
     "query": {
@@ -484,6 +484,44 @@ POST /<index>/_search
                 "lte" : "<max_val>",
                 "boost" : "<max_val>"
             }
+        }
+    }
+}
+```
+
+*Vector Field Query*
+
+| Param | Requried | Default |  Description                                     | TODO |
+| --------- | ---- | ----- | ----------------------------------------------- | ---- |
+| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
+| `boost` | `N` | 1.0 | score boost value | |
+| `score_mode` | `N` | sum | sum, avg, max, min | |
+| `nprobe` | `N` | 32 | Only valid for vector field with ivf index | |
+| `topk` | `N` | 10 | vector topk | |
+| `nq` | `Y` | - | Specify the n query for this search | |
+| `query` | `Y` | - | query vector of shape (nq * dimension) | |
+
+```json
+{
+    "query": {
+        "vector": {
+            "<field1>": {
+                "nprobe": "<nprobe value>",
+                "topk": "<top k value>",
+                "nq": "<n query value>",
+                "query": [
+                    [0.1, 0.2, "..."],
+                    "..."
+                ],
+                "boost": "<boost value>",
+                "min_score": "<min score limit>"
+            },
+            "<field2>": {
+                "...": "..."
+            },
+            "score_mode": "sum",
+            "boost": "<boost value>",
+            "min_score": "<min score limit>"
         }
     }
 }
@@ -568,6 +606,48 @@ POST /<index>/_search
             }
         }
 
+    }
+}
+```
+
+#### Example
+```json
+{
+    "query": {
+        "bool": {
+            "should": {
+                "range": {
+                    "age": {"gte": 18, "lte": 35},
+                    "boost": 5.0
+                },
+                "range": {
+                    "age": {"gte": 36, "lte": 60},
+                    "boost": 2.0
+                },
+                "vector": {
+                    "head": {
+                        "nprobe": 64,
+                        "topk": 100,
+                        "nq": 2,
+                        "query": [
+                            [0.1, 0.2, "..."],
+                            "..."
+                        ],
+                        "boost": 5.0,
+                        "min_score": 2.0
+                    }
+
+                },
+                "minimum_should_match": 1,
+                "boost": 3.0,
+                "score_mode": "sum"
+            },
+            "filter": {
+                "match": {
+                    "sex": "female"
+                }
+            }
+        }
     }
 }
 ```
