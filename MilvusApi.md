@@ -436,7 +436,7 @@ DELETE /<index>/_doc/<doc_id>
 | --------- | ---- | ----- | ----------------------------------------------- | ---- |
 | `from` | `N` | 0 | Defines the offset from the first result to fetch | |
 | `size` | `N` | 10 | Configure the maximum amount of hits to be returned | |
-yy| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
+| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
 | `sort` | `N` | By Score | results below the min score cannot be returned | Support `Mode` and sort by `field` |
 | `_source` | `N` | false | Specify the raw fields info in results | |
 
