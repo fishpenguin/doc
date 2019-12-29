@@ -436,8 +436,11 @@ DELETE /<index>/_doc/<doc_id>
 | --------- | ---- | ----- | ----------------------------------------------- | ---- |
 | `from` | `N` | 0 | Defines the offset from the first result to fetch | |
 | `size` | `N` | 10 | Configure the maximum amount of hits to be returned | |
-| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
+yy| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
 | `sort` | `N` | By Score | results below the min score cannot be returned | Support `Mode` and sort by `field` |
+| `_source` | `N` | false | Specify the raw fields info in results | |
+
+
 
 ### Single Search
 
@@ -532,3 +535,41 @@ POST /<index>/_search
   "size": "<fetch size>"
 }
 ```
+
+*Source Filter*
+```json
+{
+    "_source": false
+}
+```
+```json
+{
+    "_source": ["<field1>", "<field2>"]
+}
+```
+```json
+{
+    "_source": {
+        "exclude": ["<field1>"]
+    }
+}
+```
+
+*Score Mode*
+```json
+{
+    "query": {
+        "bool": {
+            "must": {
+                "match" : {"<field1>": "<query value>"},
+                "match" : {"<field2>": "<query value>"},
+                "score_mode": "sum",
+                "boost": 2.0
+            }
+        }
+
+    }
+}
+```
+
+#### Response
