@@ -429,3 +429,106 @@ DELETE /<index>/_doc/<doc_id>
 | `204` | `0` | `Deleted` | Doc deleted | |
 | `404` | `40004` | `IndexNotFound` | Specified index not found | |
 | `404` | `40004` | `DocNotFound` | Specified doc not found | ***Need check docid in sync mode*** |
+
+## Search
+
+| keyword | Requried | Default |  Description                                     | TODO |
+| --------- | ---- | ----- | ----------------------------------------------- | ---- |
+| `from` | `N` | 0 | Defines the offset from the first result to fetch | |
+| `size` | `N` | 10 | Configure the maximum amount of hits to be returned | |
+| `min_score` | `N` | Infinite | results below the min score cannot be returned | |
+| `sort` | `N` | By Score | results below the min score cannot be returned | Support `Mode` and sort by `field` |
+
+### Single Search
+
+#### Request URL
+```
+POST /<index>/_search
+```
+
+#### Request Body
+
+*Match Query*
+```json
+{
+    "query": {
+        "match" :{
+            "<field>": {
+                "query" : "<query value>",
+                "analyzer": "<analyzer>"
+            }
+        }
+    }
+}
+```
+```json
+{
+    "query": {
+        "match" : {
+            "<field>": "<query value>"
+        }
+    }
+}
+```
+
+*Range Query*
+```json
+{
+    "query": {
+        "range" : {
+            "<field>" : {
+                "gte" : "<min_val>",
+                "lte" : "<max_val>",
+                "boost" : "<max_val>"
+            }
+        }
+    }
+}
+```
+
+*Boolean Query*
+
+| Occur | Description                                     | TODO |
+| --------- |  ----------------------------------------------- | ---- |
+| `must` | The clause (query) must appear in matching documents and will contribute to the score | |
+| `must_not` | The clause (query) must not appear in matching documents. Clauses are executed in filter context meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned. | |
+| `should` | The clause (query) should appear in the matching document. | |
+| `filter` | The clause (query) must appear in matching documents. However unlike must the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching. | |
+
+```json
+{
+  "query": {
+    "bool" : {
+      "must" : {
+        "match" : {
+            "<field1>" : {
+                "query": "<query value>"
+            }
+        }
+      },
+      "filter": {
+        "match" : {
+            "<field2>" : {
+                "query": "<query value>"
+            }
+        }
+      },
+      "must_not" : {
+        "range" : {
+          "<field3>" : { "gte" : "<min value>", "lte" : "<max value>" }
+        }
+      },
+      "should" : [
+        { "match" : { "<field4>" : "<query value>" } },
+        { "match" : { "<field5>" : "<query value>" } }
+      ],
+      "minimum_should_match" : 1,
+      "boost" : 1.0
+    }
+  },
+  "min_score": "<min score limit>",
+  "sort": ["<field1>", "<field2>"],
+  "from": "<offset from first>",
+  "size": "<fetch size>"
+}
+```
