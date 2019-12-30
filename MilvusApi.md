@@ -381,6 +381,32 @@ POST /my-index/_doc/87566639989444
 }
 ```
 
+
+### Batch Add Documents
+
+#### Request URL
+
+POST /<index>/_bulk
+
+
+#### Request Payload
+
+```json
+{
+    "docs": [
+        {
+          "_id": "<id>",
+          "<field1>": "<field1 value>",
+          "<field2>": "<field2 value>",
+          ...: ...
+        },
+        ...
+    ]
+}
+```
+
+### Delete Document
+
 ### Delete Document
 
 #### Request URL
