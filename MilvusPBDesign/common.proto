@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package demo;
+
+enum DataType {
+    NULL = 0;
+    INT8 = 1;
+    INT16 = 2;
+    INT32 = 3;
+    INT64 = 4;
+
+    STRING = 20;
+
+    BOOL = 30;
+
+    FLOAT = 40;
+    HALFFLOAT = 41;
+    DOUBLE = 42;
+
+    VECTOR = 100;
+    UNKNOWN = 9999;
+}
+
+message VectorColumnInfoPB {
+    int64 dimension = 1;
+    DataType element_type = 2;
+}
+
+message ColumnTypePB {
+    DataType type = 1;
+    VectorColumnInfoPB info = 2;
+}
+
+message ColumnSchemaPB {
+    uint64 id = 1;
+    string name = 2;
+    ColumnTypePB type = 3;
+}
+
+message TableSchemaPB {
+    uint64 id = 1;
+    string name = 2;
+    ColumnSchemaPB columns = 3;
+}
+
+message CreateTableRequestPB {
+    uint64 request_id = 1;
+    TableSchemaPB schema = 2;
+}
