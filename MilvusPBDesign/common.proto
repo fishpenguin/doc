@@ -93,6 +93,72 @@ message TermQueryPB {
     repeated ColumnValuePB values = 2;
 }
 
+enum CompareOperator {
+    LT = 0;
+    LTE = 1;
+    EQ = 2;
+    GT = 3;
+    GTE = 4;
+}
+
+message CompareExprPB {
+    CompareOperator operator = 1;
+    ColumnValuePB operand = 2;
+}
+
+message RangeQueryPB {
+    QueryColumnPB field = 1;
+    repeated CompareExprPB operand = 2;
+}
+
+message InnerLeafQueryPB {
+    oneof query {
+        TermQueryPB term_query = 1;
+        RangeQueryPB range_query = 2;
+        /* VectorQueryPB vector_query = 2; */ // TODO
+    }
+}
+
+message LeafQueryPB {
+    InnerLeafQueryPB query = 1;
+    float boost = 2;
+}
+
+message GeneralQueryPB {
+    oneof query {
+        LeafQueryPB leaf = 1;
+        BinaryQueryPB bin = 2;
+    }
+}
+
+enum QueryRelation {
+    R1 = 0;
+    R2 = 1;
+    R3 = 2;
+    R4 = 3;
+}
+
+message BinaryQueryPB {
+    GeneralQueryPB left_query = 1;
+    GeneralQueryPB right_query = 2;
+    QueryRelation relation = 3;
+    float boost = 4;
+}
+
+message QueryRequestPB {
+    uint64 request_id = 1;
+    GeneralQueryPB query = 2;
+}
+
+message QueryResponsePB {
+    Status status = 1;
+    uint64 hits = 2;
+    repeated int64 ids = 3;
+    repeated float score = 4;
+    repeated float distance = 5;
+}
+
 service DemoService {
     rpc CreateTable(CreateTableRequestPB) returns (CreateTableResponsePB) {}
+    rpc Search(QueryRequestPB) returns (QueryResponsePB) {}
 }

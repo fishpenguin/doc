@@ -14,14 +14,20 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BinaryQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BinaryVectorValuePB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnSchemaPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnTypePB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnValuePB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CompareExprPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatVectorValuePB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InnerLeafQueryPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LeafQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryColumnPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_status_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Status_status_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TableSchemaPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_TermQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorColumnInfoPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_VectorColumnValuePB_common_2eproto;
 namespace demo {
@@ -84,7 +90,64 @@ class TermQueryPBDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TermQueryPB> _instance;
 } _TermQueryPB_default_instance_;
+class CompareExprPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CompareExprPB> _instance;
+} _CompareExprPB_default_instance_;
+class RangeQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RangeQueryPB> _instance;
+} _RangeQueryPB_default_instance_;
+class InnerLeafQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InnerLeafQueryPB> _instance;
+  const ::demo::TermQueryPB* term_query_;
+  const ::demo::RangeQueryPB* range_query_;
+} _InnerLeafQueryPB_default_instance_;
+class LeafQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LeafQueryPB> _instance;
+} _LeafQueryPB_default_instance_;
+class GeneralQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GeneralQueryPB> _instance;
+  const ::demo::LeafQueryPB* leaf_;
+  const ::demo::BinaryQueryPB* bin_;
+} _GeneralQueryPB_default_instance_;
+class BinaryQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BinaryQueryPB> _instance;
+} _BinaryQueryPB_default_instance_;
+class QueryRequestPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QueryRequestPB> _instance;
+} _QueryRequestPB_default_instance_;
+class QueryResponsePBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QueryResponsePB> _instance;
+} _QueryResponsePB_default_instance_;
 }  // namespace demo
+static void InitDefaultsscc_info_BinaryQueryPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_GeneralQueryPB_default_instance_;
+    new (ptr) ::demo::GeneralQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  {
+    void* ptr = &::demo::_BinaryQueryPB_default_instance_;
+    new (ptr) ::demo::BinaryQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::GeneralQueryPB::InitAsDefaultInstance();
+  ::demo::BinaryQueryPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BinaryQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BinaryQueryPB_common_2eproto}, {
+      &scc_info_LeafQueryPB_common_2eproto.base,}};
+
 static void InitDefaultsscc_info_BinaryVectorValuePB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -144,6 +207,21 @@ static void InitDefaultsscc_info_ColumnValuePB_common_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ColumnValuePB_common_2eproto}, {
       &scc_info_VectorColumnValuePB_common_2eproto.base,}};
 
+static void InitDefaultsscc_info_CompareExprPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_CompareExprPB_default_instance_;
+    new (ptr) ::demo::CompareExprPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::CompareExprPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CompareExprPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CompareExprPB_common_2eproto}, {
+      &scc_info_ColumnValuePB_common_2eproto.base,}};
+
 static void InitDefaultsscc_info_CreateTableRequestPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -189,6 +267,37 @@ static void InitDefaultsscc_info_FloatVectorValuePB_common_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatVectorValuePB_common_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_FloatVectorValuePB_common_2eproto}, {}};
 
+static void InitDefaultsscc_info_InnerLeafQueryPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_InnerLeafQueryPB_default_instance_;
+    new (ptr) ::demo::InnerLeafQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::InnerLeafQueryPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InnerLeafQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_InnerLeafQueryPB_common_2eproto}, {
+      &scc_info_TermQueryPB_common_2eproto.base,
+      &scc_info_RangeQueryPB_common_2eproto.base,}};
+
+static void InitDefaultsscc_info_LeafQueryPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_LeafQueryPB_default_instance_;
+    new (ptr) ::demo::LeafQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::LeafQueryPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LeafQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_LeafQueryPB_common_2eproto}, {
+      &scc_info_InnerLeafQueryPB_common_2eproto.base,}};
+
 static void InitDefaultsscc_info_QueryColumnPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -203,6 +312,52 @@ static void InitDefaultsscc_info_QueryColumnPB_common_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryColumnPB_common_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QueryColumnPB_common_2eproto}, {
       &scc_info_ColumnValuePB_common_2eproto.base,}};
+
+static void InitDefaultsscc_info_QueryRequestPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_QueryRequestPB_default_instance_;
+    new (ptr) ::demo::QueryRequestPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::QueryRequestPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryRequestPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QueryRequestPB_common_2eproto}, {
+      &scc_info_BinaryQueryPB_common_2eproto.base,}};
+
+static void InitDefaultsscc_info_QueryResponsePB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_QueryResponsePB_default_instance_;
+    new (ptr) ::demo::QueryResponsePB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::QueryResponsePB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryResponsePB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QueryResponsePB_common_2eproto}, {
+      &scc_info_Status_status_2eproto.base,}};
+
+static void InitDefaultsscc_info_RangeQueryPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_RangeQueryPB_default_instance_;
+    new (ptr) ::demo::RangeQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::RangeQueryPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_RangeQueryPB_common_2eproto}, {
+      &scc_info_QueryColumnPB_common_2eproto.base,
+      &scc_info_CompareExprPB_common_2eproto.base,}};
 
 static void InitDefaultsscc_info_TableSchemaPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -265,8 +420,8 @@ static void InitDefaultsscc_info_VectorColumnValuePB_common_2eproto() {
       &scc_info_FloatVectorValuePB_common_2eproto.base,
       &scc_info_BinaryVectorValuePB_common_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_common_2eproto[12];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_common_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_common_2eproto[20];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_common_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_common_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -363,6 +518,69 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, field_),
   PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, values_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::CompareExprPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::CompareExprPB, operator__),
+  PROTOBUF_FIELD_OFFSET(::demo::CompareExprPB, operand_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, field_),
+  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, operand_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::InnerLeafQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::demo::InnerLeafQueryPB, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::demo::InnerLeafQueryPBDefaultTypeInternal, term_query_),
+  offsetof(::demo::InnerLeafQueryPBDefaultTypeInternal, range_query_),
+  PROTOBUF_FIELD_OFFSET(::demo::InnerLeafQueryPB, query_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::LeafQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::LeafQueryPB, query_),
+  PROTOBUF_FIELD_OFFSET(::demo::LeafQueryPB, boost_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::GeneralQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::demo::GeneralQueryPB, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::demo::GeneralQueryPBDefaultTypeInternal, leaf_),
+  offsetof(::demo::GeneralQueryPBDefaultTypeInternal, bin_),
+  PROTOBUF_FIELD_OFFSET(::demo::GeneralQueryPB, query_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryQueryPB, left_query_),
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryQueryPB, right_query_),
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryQueryPB, relation_),
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryQueryPB, boost_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryRequestPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryRequestPB, request_id_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryRequestPB, query_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, status_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, hits_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, ids_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, score_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryResponsePB, distance_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::demo::VectorColumnInfoPB)},
@@ -377,6 +595,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 64, -1, sizeof(::demo::ColumnValuePB)},
   { 79, -1, sizeof(::demo::QueryColumnPB)},
   { 86, -1, sizeof(::demo::TermQueryPB)},
+  { 93, -1, sizeof(::demo::CompareExprPB)},
+  { 100, -1, sizeof(::demo::RangeQueryPB)},
+  { 107, -1, sizeof(::demo::InnerLeafQueryPB)},
+  { 115, -1, sizeof(::demo::LeafQueryPB)},
+  { 122, -1, sizeof(::demo::GeneralQueryPB)},
+  { 130, -1, sizeof(::demo::BinaryQueryPB)},
+  { 139, -1, sizeof(::demo::QueryRequestPB)},
+  { 146, -1, sizeof(::demo::QueryResponsePB)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -392,6 +618,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_ColumnValuePB_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_QueryColumnPB_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_TermQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_CompareExprPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_RangeQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_InnerLeafQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_LeafQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_GeneralQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_BinaryQueryPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_QueryRequestPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_QueryResponsePB_default_instance_),
 };
 
 const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -423,27 +657,58 @@ const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "ue\"A\n\rQueryColumnPB\022\014\n\004name\030\001 \001(\t\022\"\n\005val"
   "ue\030\002 \001(\0132\023.demo.ColumnValuePB\"V\n\013TermQue"
   "ryPB\022\"\n\005field\030\001 \001(\0132\023.demo.QueryColumnPB"
-  "\022#\n\006values\030\002 \003(\0132\023.demo.ColumnValuePB*\225\001"
-  "\n\010DataType\022\010\n\004NULL\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020"
-  "\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n\n\006STRING\020\024\022\010\n\004B"
-  "OOL\020\036\022\t\n\005FLOAT\020(\022\r\n\tHALFFLOAT\020)\022\n\n\006DOUBL"
-  "E\020*\022\n\n\006VECTOR\020d\022\014\n\007UNKNOWN\020\217N2W\n\013DemoSer"
-  "vice\022H\n\013CreateTable\022\032.demo.CreateTableRe"
-  "questPB\032\033.demo.CreateTableResponsePB\"\000b\006"
-  "proto3"
+  "\022#\n\006values\030\002 \003(\0132\023.demo.ColumnValuePB\"^\n"
+  "\rCompareExprPB\022\'\n\010operator\030\001 \001(\0162\025.demo."
+  "CompareOperator\022$\n\007operand\030\002 \001(\0132\023.demo."
+  "ColumnValuePB\"X\n\014RangeQueryPB\022\"\n\005field\030\001"
+  " \001(\0132\023.demo.QueryColumnPB\022$\n\007operand\030\002 \003"
+  "(\0132\023.demo.CompareExprPB\"o\n\020InnerLeafQuer"
+  "yPB\022\'\n\nterm_query\030\001 \001(\0132\021.demo.TermQuery"
+  "PBH\000\022)\n\013range_query\030\002 \001(\0132\022.demo.RangeQu"
+  "eryPBH\000B\007\n\005query\"C\n\013LeafQueryPB\022%\n\005query"
+  "\030\001 \001(\0132\026.demo.InnerLeafQueryPB\022\r\n\005boost\030"
+  "\002 \001(\002\"`\n\016GeneralQueryPB\022!\n\004leaf\030\001 \001(\0132\021."
+  "demo.LeafQueryPBH\000\022\"\n\003bin\030\002 \001(\0132\023.demo.B"
+  "inaryQueryPBH\000B\007\n\005query\"\232\001\n\rBinaryQueryP"
+  "B\022(\n\nleft_query\030\001 \001(\0132\024.demo.GeneralQuer"
+  "yPB\022)\n\013right_query\030\002 \001(\0132\024.demo.GeneralQ"
+  "ueryPB\022%\n\010relation\030\003 \001(\0162\023.demo.QueryRel"
+  "ation\022\r\n\005boost\030\004 \001(\002\"I\n\016QueryRequestPB\022\022"
+  "\n\nrequest_id\030\001 \001(\004\022#\n\005query\030\002 \001(\0132\024.demo"
+  ".GeneralQueryPB\"k\n\017QueryResponsePB\022\034\n\006st"
+  "atus\030\001 \001(\0132\014.demo.Status\022\014\n\004hits\030\002 \001(\004\022\013"
+  "\n\003ids\030\003 \003(\003\022\r\n\005score\030\004 \003(\002\022\020\n\010distance\030\005"
+  " \003(\002*\225\001\n\010DataType\022\010\n\004NULL\020\000\022\010\n\004INT8\020\001\022\t\n"
+  "\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n\n\006STRING"
+  "\020\024\022\010\n\004BOOL\020\036\022\t\n\005FLOAT\020(\022\r\n\tHALFFLOAT\020)\022\n"
+  "\n\006DOUBLE\020*\022\n\n\006VECTOR\020d\022\014\n\007UNKNOWN\020\217N*;\n\017"
+  "CompareOperator\022\006\n\002LT\020\000\022\007\n\003LTE\020\001\022\006\n\002EQ\020\002"
+  "\022\006\n\002GT\020\003\022\007\n\003GTE\020\004*/\n\rQueryRelation\022\006\n\002R1"
+  "\020\000\022\006\n\002R2\020\001\022\006\n\002R3\020\002\022\006\n\002R4\020\0032\220\001\n\013DemoServi"
+  "ce\022H\n\013CreateTable\022\032.demo.CreateTableRequ"
+  "estPB\032\033.demo.CreateTableResponsePB\"\000\0227\n\006"
+  "Search\022\024.demo.QueryRequestPB\032\025.demo.Quer"
+  "yResponsePB\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_common_2eproto_deps[1] = {
   &::descriptor_table_status_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_common_2eproto_sccs[12] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_common_2eproto_sccs[19] = {
+  &scc_info_BinaryQueryPB_common_2eproto.base,
   &scc_info_BinaryVectorValuePB_common_2eproto.base,
   &scc_info_ColumnSchemaPB_common_2eproto.base,
   &scc_info_ColumnTypePB_common_2eproto.base,
   &scc_info_ColumnValuePB_common_2eproto.base,
+  &scc_info_CompareExprPB_common_2eproto.base,
   &scc_info_CreateTableRequestPB_common_2eproto.base,
   &scc_info_CreateTableResponsePB_common_2eproto.base,
   &scc_info_FloatVectorValuePB_common_2eproto.base,
+  &scc_info_InnerLeafQueryPB_common_2eproto.base,
+  &scc_info_LeafQueryPB_common_2eproto.base,
   &scc_info_QueryColumnPB_common_2eproto.base,
+  &scc_info_QueryRequestPB_common_2eproto.base,
+  &scc_info_QueryResponsePB_common_2eproto.base,
+  &scc_info_RangeQueryPB_common_2eproto.base,
   &scc_info_TableSchemaPB_common_2eproto.base,
   &scc_info_TermQueryPB_common_2eproto.base,
   &scc_info_VectorColumnInfoPB_common_2eproto.base,
@@ -452,10 +717,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_com
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_common_2eproto_once;
 static bool descriptor_table_common_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_common_2eproto = {
-  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 1406,
-  &descriptor_table_common_2eproto_once, descriptor_table_common_2eproto_sccs, descriptor_table_common_2eproto_deps, 12, 1,
+  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 2381,
+  &descriptor_table_common_2eproto_once, descriptor_table_common_2eproto_sccs, descriptor_table_common_2eproto_deps, 19, 1,
   schemas, file_default_instances, TableStruct_common_2eproto::offsets,
-  file_level_metadata_common_2eproto, 12, file_level_enum_descriptors_common_2eproto, file_level_service_descriptors_common_2eproto,
+  file_level_metadata_common_2eproto, 20, file_level_enum_descriptors_common_2eproto, file_level_service_descriptors_common_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -479,6 +744,39 @@ bool DataType_IsValid(int value) {
     case 42:
     case 100:
     case 9999:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CompareOperator_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_common_2eproto);
+  return file_level_enum_descriptors_common_2eproto[1];
+}
+bool CompareOperator_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* QueryRelation_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_common_2eproto);
+  return file_level_enum_descriptors_common_2eproto[2];
+}
+bool QueryRelation_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -3647,6 +3945,2190 @@ void TermQueryPB::InternalSwap(TermQueryPB* other) {
 }
 
 
+// ===================================================================
+
+void CompareExprPB::InitAsDefaultInstance() {
+  ::demo::_CompareExprPB_default_instance_._instance.get_mutable()->operand_ = const_cast< ::demo::ColumnValuePB*>(
+      ::demo::ColumnValuePB::internal_default_instance());
+}
+class CompareExprPB::_Internal {
+ public:
+  static const ::demo::ColumnValuePB& operand(const CompareExprPB* msg);
+};
+
+const ::demo::ColumnValuePB&
+CompareExprPB::_Internal::operand(const CompareExprPB* msg) {
+  return *msg->operand_;
+}
+CompareExprPB::CompareExprPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.CompareExprPB)
+}
+CompareExprPB::CompareExprPB(const CompareExprPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_operand()) {
+    operand_ = new ::demo::ColumnValuePB(*from.operand_);
+  } else {
+    operand_ = nullptr;
+  }
+  operator__ = from.operator__;
+  // @@protoc_insertion_point(copy_constructor:demo.CompareExprPB)
+}
+
+void CompareExprPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CompareExprPB_common_2eproto.base);
+  ::memset(&operand_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&operator__) -
+      reinterpret_cast<char*>(&operand_)) + sizeof(operator__));
+}
+
+CompareExprPB::~CompareExprPB() {
+  // @@protoc_insertion_point(destructor:demo.CompareExprPB)
+  SharedDtor();
+}
+
+void CompareExprPB::SharedDtor() {
+  if (this != internal_default_instance()) delete operand_;
+}
+
+void CompareExprPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const CompareExprPB& CompareExprPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CompareExprPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void CompareExprPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.CompareExprPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && operand_ != nullptr) {
+    delete operand_;
+  }
+  operand_ = nullptr;
+  operator__ = 0;
+  _internal_metadata_.Clear();
+}
+
+const char* CompareExprPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.CompareOperator operator = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+          _internal_set_operator_(static_cast<::demo::CompareOperator>(val));
+        } else goto handle_unusual;
+        continue;
+      // .demo.ColumnValuePB operand = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_operand(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CompareExprPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.CompareExprPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.CompareOperator operator = 1;
+  if (this->operator_() != 0) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_operator_(), target);
+  }
+
+  // .demo.ColumnValuePB operand = 2;
+  if (this->has_operand()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::operand(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.CompareExprPB)
+  return target;
+}
+
+size_t CompareExprPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.CompareExprPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .demo.ColumnValuePB operand = 2;
+  if (this->has_operand()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *operand_);
+  }
+
+  // .demo.CompareOperator operator = 1;
+  if (this->operator_() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_operator_());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CompareExprPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.CompareExprPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CompareExprPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CompareExprPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.CompareExprPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.CompareExprPB)
+    MergeFrom(*source);
+  }
+}
+
+void CompareExprPB::MergeFrom(const CompareExprPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.CompareExprPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_operand()) {
+    _internal_mutable_operand()->::demo::ColumnValuePB::MergeFrom(from._internal_operand());
+  }
+  if (from.operator_() != 0) {
+    _internal_set_operator_(from._internal_operator_());
+  }
+}
+
+void CompareExprPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.CompareExprPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CompareExprPB::CopyFrom(const CompareExprPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.CompareExprPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CompareExprPB::IsInitialized() const {
+  return true;
+}
+
+void CompareExprPB::InternalSwap(CompareExprPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(operand_, other->operand_);
+  swap(operator__, other->operator__);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CompareExprPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void RangeQueryPB::InitAsDefaultInstance() {
+  ::demo::_RangeQueryPB_default_instance_._instance.get_mutable()->field_ = const_cast< ::demo::QueryColumnPB*>(
+      ::demo::QueryColumnPB::internal_default_instance());
+}
+class RangeQueryPB::_Internal {
+ public:
+  static const ::demo::QueryColumnPB& field(const RangeQueryPB* msg);
+};
+
+const ::demo::QueryColumnPB&
+RangeQueryPB::_Internal::field(const RangeQueryPB* msg) {
+  return *msg->field_;
+}
+RangeQueryPB::RangeQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.RangeQueryPB)
+}
+RangeQueryPB::RangeQueryPB(const RangeQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      operand_(from.operand_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_field()) {
+    field_ = new ::demo::QueryColumnPB(*from.field_);
+  } else {
+    field_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.RangeQueryPB)
+}
+
+void RangeQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RangeQueryPB_common_2eproto.base);
+  field_ = nullptr;
+}
+
+RangeQueryPB::~RangeQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.RangeQueryPB)
+  SharedDtor();
+}
+
+void RangeQueryPB::SharedDtor() {
+  if (this != internal_default_instance()) delete field_;
+}
+
+void RangeQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RangeQueryPB& RangeQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RangeQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RangeQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.RangeQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  operand_.Clear();
+  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* RangeQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.QueryColumnPB field = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_field(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .demo.CompareExprPB operand = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_operand(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RangeQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.RangeQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.QueryColumnPB field = 1;
+  if (this->has_field()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::field(this), target, stream);
+  }
+
+  // repeated .demo.CompareExprPB operand = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_operand_size()); i < n; i++) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(2, this->_internal_operand(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.RangeQueryPB)
+  return target;
+}
+
+size_t RangeQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.RangeQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .demo.CompareExprPB operand = 2;
+  total_size += 1UL * this->_internal_operand_size();
+  for (const auto& msg : this->operand_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .demo.QueryColumnPB field = 1;
+  if (this->has_field()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *field_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RangeQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.RangeQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RangeQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RangeQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.RangeQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.RangeQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void RangeQueryPB::MergeFrom(const RangeQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.RangeQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  operand_.MergeFrom(from.operand_);
+  if (from.has_field()) {
+    _internal_mutable_field()->::demo::QueryColumnPB::MergeFrom(from._internal_field());
+  }
+}
+
+void RangeQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.RangeQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RangeQueryPB::CopyFrom(const RangeQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.RangeQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RangeQueryPB::IsInitialized() const {
+  return true;
+}
+
+void RangeQueryPB::InternalSwap(RangeQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  operand_.InternalSwap(&other->operand_);
+  swap(field_, other->field_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RangeQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void InnerLeafQueryPB::InitAsDefaultInstance() {
+  ::demo::_InnerLeafQueryPB_default_instance_.term_query_ = const_cast< ::demo::TermQueryPB*>(
+      ::demo::TermQueryPB::internal_default_instance());
+  ::demo::_InnerLeafQueryPB_default_instance_.range_query_ = const_cast< ::demo::RangeQueryPB*>(
+      ::demo::RangeQueryPB::internal_default_instance());
+}
+class InnerLeafQueryPB::_Internal {
+ public:
+  static const ::demo::TermQueryPB& term_query(const InnerLeafQueryPB* msg);
+  static const ::demo::RangeQueryPB& range_query(const InnerLeafQueryPB* msg);
+};
+
+const ::demo::TermQueryPB&
+InnerLeafQueryPB::_Internal::term_query(const InnerLeafQueryPB* msg) {
+  return *msg->query_.term_query_;
+}
+const ::demo::RangeQueryPB&
+InnerLeafQueryPB::_Internal::range_query(const InnerLeafQueryPB* msg) {
+  return *msg->query_.range_query_;
+}
+void InnerLeafQueryPB::set_allocated_term_query(::demo::TermQueryPB* term_query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_query();
+  if (term_query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      term_query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, term_query, submessage_arena);
+    }
+    set_has_term_query();
+    query_.term_query_ = term_query;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.InnerLeafQueryPB.term_query)
+}
+void InnerLeafQueryPB::set_allocated_range_query(::demo::RangeQueryPB* range_query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_query();
+  if (range_query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      range_query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, range_query, submessage_arena);
+    }
+    set_has_range_query();
+    query_.range_query_ = range_query;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.InnerLeafQueryPB.range_query)
+}
+InnerLeafQueryPB::InnerLeafQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.InnerLeafQueryPB)
+}
+InnerLeafQueryPB::InnerLeafQueryPB(const InnerLeafQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_query();
+  switch (from.query_case()) {
+    case kTermQuery: {
+      _internal_mutable_term_query()->::demo::TermQueryPB::MergeFrom(from._internal_term_query());
+      break;
+    }
+    case kRangeQuery: {
+      _internal_mutable_range_query()->::demo::RangeQueryPB::MergeFrom(from._internal_range_query());
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.InnerLeafQueryPB)
+}
+
+void InnerLeafQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InnerLeafQueryPB_common_2eproto.base);
+  clear_has_query();
+}
+
+InnerLeafQueryPB::~InnerLeafQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.InnerLeafQueryPB)
+  SharedDtor();
+}
+
+void InnerLeafQueryPB::SharedDtor() {
+  if (has_query()) {
+    clear_query();
+  }
+}
+
+void InnerLeafQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const InnerLeafQueryPB& InnerLeafQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InnerLeafQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void InnerLeafQueryPB::clear_query() {
+// @@protoc_insertion_point(one_of_clear_start:demo.InnerLeafQueryPB)
+  switch (query_case()) {
+    case kTermQuery: {
+      delete query_.term_query_;
+      break;
+    }
+    case kRangeQuery: {
+      delete query_.range_query_;
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = QUERY_NOT_SET;
+}
+
+
+void InnerLeafQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.InnerLeafQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_query();
+  _internal_metadata_.Clear();
+}
+
+const char* InnerLeafQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.TermQueryPB term_query = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_term_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.RangeQueryPB range_query = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_range_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* InnerLeafQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.InnerLeafQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.TermQueryPB term_query = 1;
+  if (_internal_has_term_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::term_query(this), target, stream);
+  }
+
+  // .demo.RangeQueryPB range_query = 2;
+  if (_internal_has_range_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::range_query(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.InnerLeafQueryPB)
+  return target;
+}
+
+size_t InnerLeafQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.InnerLeafQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (query_case()) {
+    // .demo.TermQueryPB term_query = 1;
+    case kTermQuery: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *query_.term_query_);
+      break;
+    }
+    // .demo.RangeQueryPB range_query = 2;
+    case kRangeQuery: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *query_.range_query_);
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void InnerLeafQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.InnerLeafQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const InnerLeafQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InnerLeafQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.InnerLeafQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.InnerLeafQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void InnerLeafQueryPB::MergeFrom(const InnerLeafQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.InnerLeafQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.query_case()) {
+    case kTermQuery: {
+      _internal_mutable_term_query()->::demo::TermQueryPB::MergeFrom(from._internal_term_query());
+      break;
+    }
+    case kRangeQuery: {
+      _internal_mutable_range_query()->::demo::RangeQueryPB::MergeFrom(from._internal_range_query());
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void InnerLeafQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.InnerLeafQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void InnerLeafQueryPB::CopyFrom(const InnerLeafQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.InnerLeafQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool InnerLeafQueryPB::IsInitialized() const {
+  return true;
+}
+
+void InnerLeafQueryPB::InternalSwap(InnerLeafQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(query_, other->query_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata InnerLeafQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void LeafQueryPB::InitAsDefaultInstance() {
+  ::demo::_LeafQueryPB_default_instance_._instance.get_mutable()->query_ = const_cast< ::demo::InnerLeafQueryPB*>(
+      ::demo::InnerLeafQueryPB::internal_default_instance());
+}
+class LeafQueryPB::_Internal {
+ public:
+  static const ::demo::InnerLeafQueryPB& query(const LeafQueryPB* msg);
+};
+
+const ::demo::InnerLeafQueryPB&
+LeafQueryPB::_Internal::query(const LeafQueryPB* msg) {
+  return *msg->query_;
+}
+LeafQueryPB::LeafQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.LeafQueryPB)
+}
+LeafQueryPB::LeafQueryPB(const LeafQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_query()) {
+    query_ = new ::demo::InnerLeafQueryPB(*from.query_);
+  } else {
+    query_ = nullptr;
+  }
+  boost_ = from.boost_;
+  // @@protoc_insertion_point(copy_constructor:demo.LeafQueryPB)
+}
+
+void LeafQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_LeafQueryPB_common_2eproto.base);
+  ::memset(&query_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&boost_) -
+      reinterpret_cast<char*>(&query_)) + sizeof(boost_));
+}
+
+LeafQueryPB::~LeafQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.LeafQueryPB)
+  SharedDtor();
+}
+
+void LeafQueryPB::SharedDtor() {
+  if (this != internal_default_instance()) delete query_;
+}
+
+void LeafQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const LeafQueryPB& LeafQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LeafQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void LeafQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.LeafQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && query_ != nullptr) {
+    delete query_;
+  }
+  query_ = nullptr;
+  boost_ = 0;
+  _internal_metadata_.Clear();
+}
+
+const char* LeafQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.InnerLeafQueryPB query = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float boost = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          boost_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* LeafQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.LeafQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.InnerLeafQueryPB query = 1;
+  if (this->has_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::query(this), target, stream);
+  }
+
+  // float boost = 2;
+  if (!(this->boost() <= 0 && this->boost() >= 0)) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_boost(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.LeafQueryPB)
+  return target;
+}
+
+size_t LeafQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.LeafQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .demo.InnerLeafQueryPB query = 1;
+  if (this->has_query()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *query_);
+  }
+
+  // float boost = 2;
+  if (!(this->boost() <= 0 && this->boost() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LeafQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.LeafQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LeafQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LeafQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.LeafQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.LeafQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void LeafQueryPB::MergeFrom(const LeafQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.LeafQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_query()) {
+    _internal_mutable_query()->::demo::InnerLeafQueryPB::MergeFrom(from._internal_query());
+  }
+  if (!(from.boost() <= 0 && from.boost() >= 0)) {
+    _internal_set_boost(from._internal_boost());
+  }
+}
+
+void LeafQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.LeafQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LeafQueryPB::CopyFrom(const LeafQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.LeafQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LeafQueryPB::IsInitialized() const {
+  return true;
+}
+
+void LeafQueryPB::InternalSwap(LeafQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(query_, other->query_);
+  swap(boost_, other->boost_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata LeafQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void GeneralQueryPB::InitAsDefaultInstance() {
+  ::demo::_GeneralQueryPB_default_instance_.leaf_ = const_cast< ::demo::LeafQueryPB*>(
+      ::demo::LeafQueryPB::internal_default_instance());
+  ::demo::_GeneralQueryPB_default_instance_.bin_ = const_cast< ::demo::BinaryQueryPB*>(
+      ::demo::BinaryQueryPB::internal_default_instance());
+}
+class GeneralQueryPB::_Internal {
+ public:
+  static const ::demo::LeafQueryPB& leaf(const GeneralQueryPB* msg);
+  static const ::demo::BinaryQueryPB& bin(const GeneralQueryPB* msg);
+};
+
+const ::demo::LeafQueryPB&
+GeneralQueryPB::_Internal::leaf(const GeneralQueryPB* msg) {
+  return *msg->query_.leaf_;
+}
+const ::demo::BinaryQueryPB&
+GeneralQueryPB::_Internal::bin(const GeneralQueryPB* msg) {
+  return *msg->query_.bin_;
+}
+void GeneralQueryPB::set_allocated_leaf(::demo::LeafQueryPB* leaf) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_query();
+  if (leaf) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      leaf = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, leaf, submessage_arena);
+    }
+    set_has_leaf();
+    query_.leaf_ = leaf;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.GeneralQueryPB.leaf)
+}
+void GeneralQueryPB::set_allocated_bin(::demo::BinaryQueryPB* bin) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_query();
+  if (bin) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      bin = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, bin, submessage_arena);
+    }
+    set_has_bin();
+    query_.bin_ = bin;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.GeneralQueryPB.bin)
+}
+GeneralQueryPB::GeneralQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.GeneralQueryPB)
+}
+GeneralQueryPB::GeneralQueryPB(const GeneralQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_query();
+  switch (from.query_case()) {
+    case kLeaf: {
+      _internal_mutable_leaf()->::demo::LeafQueryPB::MergeFrom(from._internal_leaf());
+      break;
+    }
+    case kBin: {
+      _internal_mutable_bin()->::demo::BinaryQueryPB::MergeFrom(from._internal_bin());
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.GeneralQueryPB)
+}
+
+void GeneralQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BinaryQueryPB_common_2eproto.base);
+  clear_has_query();
+}
+
+GeneralQueryPB::~GeneralQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.GeneralQueryPB)
+  SharedDtor();
+}
+
+void GeneralQueryPB::SharedDtor() {
+  if (has_query()) {
+    clear_query();
+  }
+}
+
+void GeneralQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GeneralQueryPB& GeneralQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BinaryQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GeneralQueryPB::clear_query() {
+// @@protoc_insertion_point(one_of_clear_start:demo.GeneralQueryPB)
+  switch (query_case()) {
+    case kLeaf: {
+      delete query_.leaf_;
+      break;
+    }
+    case kBin: {
+      delete query_.bin_;
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = QUERY_NOT_SET;
+}
+
+
+void GeneralQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.GeneralQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_query();
+  _internal_metadata_.Clear();
+}
+
+const char* GeneralQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.LeafQueryPB leaf = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_leaf(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.BinaryQueryPB bin = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_bin(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* GeneralQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.GeneralQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.LeafQueryPB leaf = 1;
+  if (_internal_has_leaf()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::leaf(this), target, stream);
+  }
+
+  // .demo.BinaryQueryPB bin = 2;
+  if (_internal_has_bin()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::bin(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.GeneralQueryPB)
+  return target;
+}
+
+size_t GeneralQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.GeneralQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (query_case()) {
+    // .demo.LeafQueryPB leaf = 1;
+    case kLeaf: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *query_.leaf_);
+      break;
+    }
+    // .demo.BinaryQueryPB bin = 2;
+    case kBin: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *query_.bin_);
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GeneralQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.GeneralQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GeneralQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GeneralQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.GeneralQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.GeneralQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void GeneralQueryPB::MergeFrom(const GeneralQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.GeneralQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.query_case()) {
+    case kLeaf: {
+      _internal_mutable_leaf()->::demo::LeafQueryPB::MergeFrom(from._internal_leaf());
+      break;
+    }
+    case kBin: {
+      _internal_mutable_bin()->::demo::BinaryQueryPB::MergeFrom(from._internal_bin());
+      break;
+    }
+    case QUERY_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void GeneralQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.GeneralQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GeneralQueryPB::CopyFrom(const GeneralQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.GeneralQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GeneralQueryPB::IsInitialized() const {
+  return true;
+}
+
+void GeneralQueryPB::InternalSwap(GeneralQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(query_, other->query_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GeneralQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void BinaryQueryPB::InitAsDefaultInstance() {
+  ::demo::_BinaryQueryPB_default_instance_._instance.get_mutable()->left_query_ = const_cast< ::demo::GeneralQueryPB*>(
+      ::demo::GeneralQueryPB::internal_default_instance());
+  ::demo::_BinaryQueryPB_default_instance_._instance.get_mutable()->right_query_ = const_cast< ::demo::GeneralQueryPB*>(
+      ::demo::GeneralQueryPB::internal_default_instance());
+}
+class BinaryQueryPB::_Internal {
+ public:
+  static const ::demo::GeneralQueryPB& left_query(const BinaryQueryPB* msg);
+  static const ::demo::GeneralQueryPB& right_query(const BinaryQueryPB* msg);
+};
+
+const ::demo::GeneralQueryPB&
+BinaryQueryPB::_Internal::left_query(const BinaryQueryPB* msg) {
+  return *msg->left_query_;
+}
+const ::demo::GeneralQueryPB&
+BinaryQueryPB::_Internal::right_query(const BinaryQueryPB* msg) {
+  return *msg->right_query_;
+}
+BinaryQueryPB::BinaryQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.BinaryQueryPB)
+}
+BinaryQueryPB::BinaryQueryPB(const BinaryQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_left_query()) {
+    left_query_ = new ::demo::GeneralQueryPB(*from.left_query_);
+  } else {
+    left_query_ = nullptr;
+  }
+  if (from._internal_has_right_query()) {
+    right_query_ = new ::demo::GeneralQueryPB(*from.right_query_);
+  } else {
+    right_query_ = nullptr;
+  }
+  ::memcpy(&relation_, &from.relation_,
+    static_cast<size_t>(reinterpret_cast<char*>(&boost_) -
+    reinterpret_cast<char*>(&relation_)) + sizeof(boost_));
+  // @@protoc_insertion_point(copy_constructor:demo.BinaryQueryPB)
+}
+
+void BinaryQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BinaryQueryPB_common_2eproto.base);
+  ::memset(&left_query_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&boost_) -
+      reinterpret_cast<char*>(&left_query_)) + sizeof(boost_));
+}
+
+BinaryQueryPB::~BinaryQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.BinaryQueryPB)
+  SharedDtor();
+}
+
+void BinaryQueryPB::SharedDtor() {
+  if (this != internal_default_instance()) delete left_query_;
+  if (this != internal_default_instance()) delete right_query_;
+}
+
+void BinaryQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BinaryQueryPB& BinaryQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BinaryQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BinaryQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.BinaryQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && left_query_ != nullptr) {
+    delete left_query_;
+  }
+  left_query_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && right_query_ != nullptr) {
+    delete right_query_;
+  }
+  right_query_ = nullptr;
+  ::memset(&relation_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&boost_) -
+      reinterpret_cast<char*>(&relation_)) + sizeof(boost_));
+  _internal_metadata_.Clear();
+}
+
+const char* BinaryQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.GeneralQueryPB left_query = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_left_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.GeneralQueryPB right_query = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_right_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.QueryRelation relation = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+          _internal_set_relation(static_cast<::demo::QueryRelation>(val));
+        } else goto handle_unusual;
+        continue;
+      // float boost = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
+          boost_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BinaryQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.BinaryQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.GeneralQueryPB left_query = 1;
+  if (this->has_left_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::left_query(this), target, stream);
+  }
+
+  // .demo.GeneralQueryPB right_query = 2;
+  if (this->has_right_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::right_query(this), target, stream);
+  }
+
+  // .demo.QueryRelation relation = 3;
+  if (this->relation() != 0) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_relation(), target);
+  }
+
+  // float boost = 4;
+  if (!(this->boost() <= 0 && this->boost() >= 0)) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_boost(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.BinaryQueryPB)
+  return target;
+}
+
+size_t BinaryQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.BinaryQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .demo.GeneralQueryPB left_query = 1;
+  if (this->has_left_query()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *left_query_);
+  }
+
+  // .demo.GeneralQueryPB right_query = 2;
+  if (this->has_right_query()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *right_query_);
+  }
+
+  // .demo.QueryRelation relation = 3;
+  if (this->relation() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_relation());
+  }
+
+  // float boost = 4;
+  if (!(this->boost() <= 0 && this->boost() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BinaryQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.BinaryQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BinaryQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BinaryQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.BinaryQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.BinaryQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void BinaryQueryPB::MergeFrom(const BinaryQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.BinaryQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_left_query()) {
+    _internal_mutable_left_query()->::demo::GeneralQueryPB::MergeFrom(from._internal_left_query());
+  }
+  if (from.has_right_query()) {
+    _internal_mutable_right_query()->::demo::GeneralQueryPB::MergeFrom(from._internal_right_query());
+  }
+  if (from.relation() != 0) {
+    _internal_set_relation(from._internal_relation());
+  }
+  if (!(from.boost() <= 0 && from.boost() >= 0)) {
+    _internal_set_boost(from._internal_boost());
+  }
+}
+
+void BinaryQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.BinaryQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BinaryQueryPB::CopyFrom(const BinaryQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.BinaryQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BinaryQueryPB::IsInitialized() const {
+  return true;
+}
+
+void BinaryQueryPB::InternalSwap(BinaryQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(left_query_, other->left_query_);
+  swap(right_query_, other->right_query_);
+  swap(relation_, other->relation_);
+  swap(boost_, other->boost_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BinaryQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void QueryRequestPB::InitAsDefaultInstance() {
+  ::demo::_QueryRequestPB_default_instance_._instance.get_mutable()->query_ = const_cast< ::demo::GeneralQueryPB*>(
+      ::demo::GeneralQueryPB::internal_default_instance());
+}
+class QueryRequestPB::_Internal {
+ public:
+  static const ::demo::GeneralQueryPB& query(const QueryRequestPB* msg);
+};
+
+const ::demo::GeneralQueryPB&
+QueryRequestPB::_Internal::query(const QueryRequestPB* msg) {
+  return *msg->query_;
+}
+QueryRequestPB::QueryRequestPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.QueryRequestPB)
+}
+QueryRequestPB::QueryRequestPB(const QueryRequestPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_query()) {
+    query_ = new ::demo::GeneralQueryPB(*from.query_);
+  } else {
+    query_ = nullptr;
+  }
+  request_id_ = from.request_id_;
+  // @@protoc_insertion_point(copy_constructor:demo.QueryRequestPB)
+}
+
+void QueryRequestPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QueryRequestPB_common_2eproto.base);
+  ::memset(&query_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&request_id_) -
+      reinterpret_cast<char*>(&query_)) + sizeof(request_id_));
+}
+
+QueryRequestPB::~QueryRequestPB() {
+  // @@protoc_insertion_point(destructor:demo.QueryRequestPB)
+  SharedDtor();
+}
+
+void QueryRequestPB::SharedDtor() {
+  if (this != internal_default_instance()) delete query_;
+}
+
+void QueryRequestPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QueryRequestPB& QueryRequestPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QueryRequestPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QueryRequestPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.QueryRequestPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && query_ != nullptr) {
+    delete query_;
+  }
+  query_ = nullptr;
+  request_id_ = PROTOBUF_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+const char* QueryRequestPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 request_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          request_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.GeneralQueryPB query = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_query(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QueryRequestPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.QueryRequestPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 request_id = 1;
+  if (this->request_id() != 0) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_request_id(), target);
+  }
+
+  // .demo.GeneralQueryPB query = 2;
+  if (this->has_query()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::query(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.QueryRequestPB)
+  return target;
+}
+
+size_t QueryRequestPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.QueryRequestPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .demo.GeneralQueryPB query = 2;
+  if (this->has_query()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *query_);
+  }
+
+  // uint64 request_id = 1;
+  if (this->request_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_request_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QueryRequestPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.QueryRequestPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QueryRequestPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QueryRequestPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.QueryRequestPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.QueryRequestPB)
+    MergeFrom(*source);
+  }
+}
+
+void QueryRequestPB::MergeFrom(const QueryRequestPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.QueryRequestPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_query()) {
+    _internal_mutable_query()->::demo::GeneralQueryPB::MergeFrom(from._internal_query());
+  }
+  if (from.request_id() != 0) {
+    _internal_set_request_id(from._internal_request_id());
+  }
+}
+
+void QueryRequestPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.QueryRequestPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QueryRequestPB::CopyFrom(const QueryRequestPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.QueryRequestPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryRequestPB::IsInitialized() const {
+  return true;
+}
+
+void QueryRequestPB::InternalSwap(QueryRequestPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(query_, other->query_);
+  swap(request_id_, other->request_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QueryRequestPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void QueryResponsePB::InitAsDefaultInstance() {
+  ::demo::_QueryResponsePB_default_instance_._instance.get_mutable()->status_ = const_cast< ::demo::Status*>(
+      ::demo::Status::internal_default_instance());
+}
+class QueryResponsePB::_Internal {
+ public:
+  static const ::demo::Status& status(const QueryResponsePB* msg);
+};
+
+const ::demo::Status&
+QueryResponsePB::_Internal::status(const QueryResponsePB* msg) {
+  return *msg->status_;
+}
+void QueryResponsePB::clear_status() {
+  if (GetArenaNoVirtual() == nullptr && status_ != nullptr) {
+    delete status_;
+  }
+  status_ = nullptr;
+}
+QueryResponsePB::QueryResponsePB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.QueryResponsePB)
+}
+QueryResponsePB::QueryResponsePB(const QueryResponsePB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      ids_(from.ids_),
+      score_(from.score_),
+      distance_(from.distance_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_status()) {
+    status_ = new ::demo::Status(*from.status_);
+  } else {
+    status_ = nullptr;
+  }
+  hits_ = from.hits_;
+  // @@protoc_insertion_point(copy_constructor:demo.QueryResponsePB)
+}
+
+void QueryResponsePB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QueryResponsePB_common_2eproto.base);
+  ::memset(&status_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&hits_) -
+      reinterpret_cast<char*>(&status_)) + sizeof(hits_));
+}
+
+QueryResponsePB::~QueryResponsePB() {
+  // @@protoc_insertion_point(destructor:demo.QueryResponsePB)
+  SharedDtor();
+}
+
+void QueryResponsePB::SharedDtor() {
+  if (this != internal_default_instance()) delete status_;
+}
+
+void QueryResponsePB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QueryResponsePB& QueryResponsePB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QueryResponsePB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QueryResponsePB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.QueryResponsePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ids_.Clear();
+  score_.Clear();
+  distance_.Clear();
+  if (GetArenaNoVirtual() == nullptr && status_ != nullptr) {
+    delete status_;
+  }
+  status_ = nullptr;
+  hits_ = PROTOBUF_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+const char* QueryResponsePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.Status status = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_status(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 hits = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          hits_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated int64 ids = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+          _internal_add_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated float score = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_score(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37) {
+          _internal_add_score(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float distance = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_distance(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45) {
+          _internal_add_distance(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QueryResponsePB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.QueryResponsePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.Status status = 1;
+  if (this->has_status()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::status(this), target, stream);
+  }
+
+  // uint64 hits = 2;
+  if (this->hits() != 0) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_hits(), target);
+  }
+
+  // repeated int64 ids = 3;
+  {
+    int byte_size = _ids_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt64Packed(
+          3, _internal_ids(), byte_size, target);
+    }
+  }
+
+  // repeated float score = 4;
+  if (this->_internal_score_size() > 0) {
+    target = stream->WriteFixedPacked(4, _internal_score(), target);
+  }
+
+  // repeated float distance = 5;
+  if (this->_internal_distance_size() > 0) {
+    target = stream->WriteFixedPacked(5, _internal_distance(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.QueryResponsePB)
+  return target;
+}
+
+size_t QueryResponsePB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.QueryResponsePB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int64 ids = 3;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int64Size(this->ids_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _ids_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float score = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_score_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _score_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float distance = 5;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_distance_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _distance_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // .demo.Status status = 1;
+  if (this->has_status()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *status_);
+  }
+
+  // uint64 hits = 2;
+  if (this->hits() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_hits());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QueryResponsePB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.QueryResponsePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QueryResponsePB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QueryResponsePB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.QueryResponsePB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.QueryResponsePB)
+    MergeFrom(*source);
+  }
+}
+
+void QueryResponsePB::MergeFrom(const QueryResponsePB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.QueryResponsePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  ids_.MergeFrom(from.ids_);
+  score_.MergeFrom(from.score_);
+  distance_.MergeFrom(from.distance_);
+  if (from.has_status()) {
+    _internal_mutable_status()->::demo::Status::MergeFrom(from._internal_status());
+  }
+  if (from.hits() != 0) {
+    _internal_set_hits(from._internal_hits());
+  }
+}
+
+void QueryResponsePB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.QueryResponsePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QueryResponsePB::CopyFrom(const QueryResponsePB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.QueryResponsePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryResponsePB::IsInitialized() const {
+  return true;
+}
+
+void QueryResponsePB::InternalSwap(QueryResponsePB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  ids_.InternalSwap(&other->ids_);
+  score_.InternalSwap(&other->score_);
+  distance_.InternalSwap(&other->distance_);
+  swap(status_, other->status_);
+  swap(hits_, other->hits_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QueryResponsePB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace demo
 PROTOBUF_NAMESPACE_OPEN
@@ -3685,6 +6167,30 @@ template<> PROTOBUF_NOINLINE ::demo::QueryColumnPB* Arena::CreateMaybeMessage< :
 }
 template<> PROTOBUF_NOINLINE ::demo::TermQueryPB* Arena::CreateMaybeMessage< ::demo::TermQueryPB >(Arena* arena) {
   return Arena::CreateInternal< ::demo::TermQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::CompareExprPB* Arena::CreateMaybeMessage< ::demo::CompareExprPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::CompareExprPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::RangeQueryPB* Arena::CreateMaybeMessage< ::demo::RangeQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::RangeQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::InnerLeafQueryPB* Arena::CreateMaybeMessage< ::demo::InnerLeafQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::InnerLeafQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::LeafQueryPB* Arena::CreateMaybeMessage< ::demo::LeafQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::LeafQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::GeneralQueryPB* Arena::CreateMaybeMessage< ::demo::GeneralQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::GeneralQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::BinaryQueryPB* Arena::CreateMaybeMessage< ::demo::BinaryQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::BinaryQueryPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::QueryRequestPB* Arena::CreateMaybeMessage< ::demo::QueryRequestPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::QueryRequestPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::QueryResponsePB* Arena::CreateMaybeMessage< ::demo::QueryResponsePB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::QueryResponsePB >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

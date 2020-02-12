@@ -49,7 +49,7 @@ struct TableStruct_common_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,6 +57,9 @@ struct TableStruct_common_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_common_2eproto;
 namespace demo {
+class BinaryQueryPB;
+class BinaryQueryPBDefaultTypeInternal;
+extern BinaryQueryPBDefaultTypeInternal _BinaryQueryPB_default_instance_;
 class BinaryVectorValuePB;
 class BinaryVectorValuePBDefaultTypeInternal;
 extern BinaryVectorValuePBDefaultTypeInternal _BinaryVectorValuePB_default_instance_;
@@ -69,6 +72,9 @@ extern ColumnTypePBDefaultTypeInternal _ColumnTypePB_default_instance_;
 class ColumnValuePB;
 class ColumnValuePBDefaultTypeInternal;
 extern ColumnValuePBDefaultTypeInternal _ColumnValuePB_default_instance_;
+class CompareExprPB;
+class CompareExprPBDefaultTypeInternal;
+extern CompareExprPBDefaultTypeInternal _CompareExprPB_default_instance_;
 class CreateTableRequestPB;
 class CreateTableRequestPBDefaultTypeInternal;
 extern CreateTableRequestPBDefaultTypeInternal _CreateTableRequestPB_default_instance_;
@@ -78,9 +84,27 @@ extern CreateTableResponsePBDefaultTypeInternal _CreateTableResponsePB_default_i
 class FloatVectorValuePB;
 class FloatVectorValuePBDefaultTypeInternal;
 extern FloatVectorValuePBDefaultTypeInternal _FloatVectorValuePB_default_instance_;
+class GeneralQueryPB;
+class GeneralQueryPBDefaultTypeInternal;
+extern GeneralQueryPBDefaultTypeInternal _GeneralQueryPB_default_instance_;
+class InnerLeafQueryPB;
+class InnerLeafQueryPBDefaultTypeInternal;
+extern InnerLeafQueryPBDefaultTypeInternal _InnerLeafQueryPB_default_instance_;
+class LeafQueryPB;
+class LeafQueryPBDefaultTypeInternal;
+extern LeafQueryPBDefaultTypeInternal _LeafQueryPB_default_instance_;
 class QueryColumnPB;
 class QueryColumnPBDefaultTypeInternal;
 extern QueryColumnPBDefaultTypeInternal _QueryColumnPB_default_instance_;
+class QueryRequestPB;
+class QueryRequestPBDefaultTypeInternal;
+extern QueryRequestPBDefaultTypeInternal _QueryRequestPB_default_instance_;
+class QueryResponsePB;
+class QueryResponsePBDefaultTypeInternal;
+extern QueryResponsePBDefaultTypeInternal _QueryResponsePB_default_instance_;
+class RangeQueryPB;
+class RangeQueryPBDefaultTypeInternal;
+extern RangeQueryPBDefaultTypeInternal _RangeQueryPB_default_instance_;
 class TableSchemaPB;
 class TableSchemaPBDefaultTypeInternal;
 extern TableSchemaPBDefaultTypeInternal _TableSchemaPB_default_instance_;
@@ -95,14 +119,22 @@ class VectorColumnValuePBDefaultTypeInternal;
 extern VectorColumnValuePBDefaultTypeInternal _VectorColumnValuePB_default_instance_;
 }  // namespace demo
 PROTOBUF_NAMESPACE_OPEN
+template<> ::demo::BinaryQueryPB* Arena::CreateMaybeMessage<::demo::BinaryQueryPB>(Arena*);
 template<> ::demo::BinaryVectorValuePB* Arena::CreateMaybeMessage<::demo::BinaryVectorValuePB>(Arena*);
 template<> ::demo::ColumnSchemaPB* Arena::CreateMaybeMessage<::demo::ColumnSchemaPB>(Arena*);
 template<> ::demo::ColumnTypePB* Arena::CreateMaybeMessage<::demo::ColumnTypePB>(Arena*);
 template<> ::demo::ColumnValuePB* Arena::CreateMaybeMessage<::demo::ColumnValuePB>(Arena*);
+template<> ::demo::CompareExprPB* Arena::CreateMaybeMessage<::demo::CompareExprPB>(Arena*);
 template<> ::demo::CreateTableRequestPB* Arena::CreateMaybeMessage<::demo::CreateTableRequestPB>(Arena*);
 template<> ::demo::CreateTableResponsePB* Arena::CreateMaybeMessage<::demo::CreateTableResponsePB>(Arena*);
 template<> ::demo::FloatVectorValuePB* Arena::CreateMaybeMessage<::demo::FloatVectorValuePB>(Arena*);
+template<> ::demo::GeneralQueryPB* Arena::CreateMaybeMessage<::demo::GeneralQueryPB>(Arena*);
+template<> ::demo::InnerLeafQueryPB* Arena::CreateMaybeMessage<::demo::InnerLeafQueryPB>(Arena*);
+template<> ::demo::LeafQueryPB* Arena::CreateMaybeMessage<::demo::LeafQueryPB>(Arena*);
 template<> ::demo::QueryColumnPB* Arena::CreateMaybeMessage<::demo::QueryColumnPB>(Arena*);
+template<> ::demo::QueryRequestPB* Arena::CreateMaybeMessage<::demo::QueryRequestPB>(Arena*);
+template<> ::demo::QueryResponsePB* Arena::CreateMaybeMessage<::demo::QueryResponsePB>(Arena*);
+template<> ::demo::RangeQueryPB* Arena::CreateMaybeMessage<::demo::RangeQueryPB>(Arena*);
 template<> ::demo::TableSchemaPB* Arena::CreateMaybeMessage<::demo::TableSchemaPB>(Arena*);
 template<> ::demo::TermQueryPB* Arena::CreateMaybeMessage<::demo::TermQueryPB>(Arena*);
 template<> ::demo::VectorColumnInfoPB* Arena::CreateMaybeMessage<::demo::VectorColumnInfoPB>(Arena*);
@@ -144,6 +176,61 @@ inline bool DataType_Parse(
     const std::string& name, DataType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DataType>(
     DataType_descriptor(), name, value);
+}
+enum CompareOperator : int {
+  LT = 0,
+  LTE = 1,
+  EQ = 2,
+  GT = 3,
+  GTE = 4,
+  CompareOperator_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  CompareOperator_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool CompareOperator_IsValid(int value);
+constexpr CompareOperator CompareOperator_MIN = LT;
+constexpr CompareOperator CompareOperator_MAX = GTE;
+constexpr int CompareOperator_ARRAYSIZE = CompareOperator_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CompareOperator_descriptor();
+template<typename T>
+inline const std::string& CompareOperator_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CompareOperator>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CompareOperator_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CompareOperator_descriptor(), enum_t_value);
+}
+inline bool CompareOperator_Parse(
+    const std::string& name, CompareOperator* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CompareOperator>(
+    CompareOperator_descriptor(), name, value);
+}
+enum QueryRelation : int {
+  R1 = 0,
+  R2 = 1,
+  R3 = 2,
+  R4 = 3,
+  QueryRelation_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  QueryRelation_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool QueryRelation_IsValid(int value);
+constexpr QueryRelation QueryRelation_MIN = R1;
+constexpr QueryRelation QueryRelation_MAX = R4;
+constexpr int QueryRelation_ARRAYSIZE = QueryRelation_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* QueryRelation_descriptor();
+template<typename T>
+inline const std::string& QueryRelation_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, QueryRelation>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function QueryRelation_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    QueryRelation_descriptor(), enum_t_value);
+}
+inline bool QueryRelation_Parse(
+    const std::string& name, QueryRelation* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<QueryRelation>(
+    QueryRelation_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2095,6 +2182,1326 @@ class TermQueryPB :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CompareExprPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.CompareExprPB) */ {
+ public:
+  CompareExprPB();
+  virtual ~CompareExprPB();
+
+  CompareExprPB(const CompareExprPB& from);
+  CompareExprPB(CompareExprPB&& from) noexcept
+    : CompareExprPB() {
+    *this = ::std::move(from);
+  }
+
+  inline CompareExprPB& operator=(const CompareExprPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CompareExprPB& operator=(CompareExprPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CompareExprPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CompareExprPB* internal_default_instance() {
+    return reinterpret_cast<const CompareExprPB*>(
+               &_CompareExprPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(CompareExprPB& a, CompareExprPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CompareExprPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CompareExprPB* New() const final {
+    return CreateMaybeMessage<CompareExprPB>(nullptr);
+  }
+
+  CompareExprPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CompareExprPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CompareExprPB& from);
+  void MergeFrom(const CompareExprPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CompareExprPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.CompareExprPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOperandFieldNumber = 2,
+    kOperatorFieldNumber = 1,
+  };
+  // .demo.ColumnValuePB operand = 2;
+  bool has_operand() const;
+  private:
+  bool _internal_has_operand() const;
+  public:
+  void clear_operand();
+  const ::demo::ColumnValuePB& operand() const;
+  ::demo::ColumnValuePB* release_operand();
+  ::demo::ColumnValuePB* mutable_operand();
+  void set_allocated_operand(::demo::ColumnValuePB* operand);
+  private:
+  const ::demo::ColumnValuePB& _internal_operand() const;
+  ::demo::ColumnValuePB* _internal_mutable_operand();
+  public:
+
+  // .demo.CompareOperator operator = 1;
+  void clear_operator_();
+  ::demo::CompareOperator operator_() const;
+  void set_operator_(::demo::CompareOperator value);
+  private:
+  ::demo::CompareOperator _internal_operator_() const;
+  void _internal_set_operator_(::demo::CompareOperator value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.CompareExprPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::demo::ColumnValuePB* operand_;
+  int operator__;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RangeQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.RangeQueryPB) */ {
+ public:
+  RangeQueryPB();
+  virtual ~RangeQueryPB();
+
+  RangeQueryPB(const RangeQueryPB& from);
+  RangeQueryPB(RangeQueryPB&& from) noexcept
+    : RangeQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline RangeQueryPB& operator=(const RangeQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RangeQueryPB& operator=(RangeQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const RangeQueryPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RangeQueryPB* internal_default_instance() {
+    return reinterpret_cast<const RangeQueryPB*>(
+               &_RangeQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(RangeQueryPB& a, RangeQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RangeQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RangeQueryPB* New() const final {
+    return CreateMaybeMessage<RangeQueryPB>(nullptr);
+  }
+
+  RangeQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RangeQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RangeQueryPB& from);
+  void MergeFrom(const RangeQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RangeQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.RangeQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOperandFieldNumber = 2,
+    kFieldFieldNumber = 1,
+  };
+  // repeated .demo.CompareExprPB operand = 2;
+  int operand_size() const;
+  private:
+  int _internal_operand_size() const;
+  public:
+  void clear_operand();
+  ::demo::CompareExprPB* mutable_operand(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB >*
+      mutable_operand();
+  private:
+  const ::demo::CompareExprPB& _internal_operand(int index) const;
+  ::demo::CompareExprPB* _internal_add_operand();
+  public:
+  const ::demo::CompareExprPB& operand(int index) const;
+  ::demo::CompareExprPB* add_operand();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB >&
+      operand() const;
+
+  // .demo.QueryColumnPB field = 1;
+  bool has_field() const;
+  private:
+  bool _internal_has_field() const;
+  public:
+  void clear_field();
+  const ::demo::QueryColumnPB& field() const;
+  ::demo::QueryColumnPB* release_field();
+  ::demo::QueryColumnPB* mutable_field();
+  void set_allocated_field(::demo::QueryColumnPB* field);
+  private:
+  const ::demo::QueryColumnPB& _internal_field() const;
+  ::demo::QueryColumnPB* _internal_mutable_field();
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.RangeQueryPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB > operand_;
+  ::demo::QueryColumnPB* field_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class InnerLeafQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.InnerLeafQueryPB) */ {
+ public:
+  InnerLeafQueryPB();
+  virtual ~InnerLeafQueryPB();
+
+  InnerLeafQueryPB(const InnerLeafQueryPB& from);
+  InnerLeafQueryPB(InnerLeafQueryPB&& from) noexcept
+    : InnerLeafQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline InnerLeafQueryPB& operator=(const InnerLeafQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InnerLeafQueryPB& operator=(InnerLeafQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const InnerLeafQueryPB& default_instance();
+
+  enum QueryCase {
+    kTermQuery = 1,
+    kRangeQuery = 2,
+    QUERY_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const InnerLeafQueryPB* internal_default_instance() {
+    return reinterpret_cast<const InnerLeafQueryPB*>(
+               &_InnerLeafQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(InnerLeafQueryPB& a, InnerLeafQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(InnerLeafQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline InnerLeafQueryPB* New() const final {
+    return CreateMaybeMessage<InnerLeafQueryPB>(nullptr);
+  }
+
+  InnerLeafQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<InnerLeafQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const InnerLeafQueryPB& from);
+  void MergeFrom(const InnerLeafQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InnerLeafQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.InnerLeafQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTermQueryFieldNumber = 1,
+    kRangeQueryFieldNumber = 2,
+  };
+  // .demo.TermQueryPB term_query = 1;
+  bool has_term_query() const;
+  private:
+  bool _internal_has_term_query() const;
+  public:
+  void clear_term_query();
+  const ::demo::TermQueryPB& term_query() const;
+  ::demo::TermQueryPB* release_term_query();
+  ::demo::TermQueryPB* mutable_term_query();
+  void set_allocated_term_query(::demo::TermQueryPB* term_query);
+  private:
+  const ::demo::TermQueryPB& _internal_term_query() const;
+  ::demo::TermQueryPB* _internal_mutable_term_query();
+  public:
+
+  // .demo.RangeQueryPB range_query = 2;
+  bool has_range_query() const;
+  private:
+  bool _internal_has_range_query() const;
+  public:
+  void clear_range_query();
+  const ::demo::RangeQueryPB& range_query() const;
+  ::demo::RangeQueryPB* release_range_query();
+  ::demo::RangeQueryPB* mutable_range_query();
+  void set_allocated_range_query(::demo::RangeQueryPB* range_query);
+  private:
+  const ::demo::RangeQueryPB& _internal_range_query() const;
+  ::demo::RangeQueryPB* _internal_mutable_range_query();
+  public:
+
+  void clear_query();
+  QueryCase query_case() const;
+  // @@protoc_insertion_point(class_scope:demo.InnerLeafQueryPB)
+ private:
+  class _Internal;
+  void set_has_term_query();
+  void set_has_range_query();
+
+  inline bool has_query() const;
+  inline void clear_has_query();
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  union QueryUnion {
+    QueryUnion() {}
+    ::demo::TermQueryPB* term_query_;
+    ::demo::RangeQueryPB* range_query_;
+  } query_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LeafQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.LeafQueryPB) */ {
+ public:
+  LeafQueryPB();
+  virtual ~LeafQueryPB();
+
+  LeafQueryPB(const LeafQueryPB& from);
+  LeafQueryPB(LeafQueryPB&& from) noexcept
+    : LeafQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline LeafQueryPB& operator=(const LeafQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LeafQueryPB& operator=(LeafQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const LeafQueryPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LeafQueryPB* internal_default_instance() {
+    return reinterpret_cast<const LeafQueryPB*>(
+               &_LeafQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(LeafQueryPB& a, LeafQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LeafQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LeafQueryPB* New() const final {
+    return CreateMaybeMessage<LeafQueryPB>(nullptr);
+  }
+
+  LeafQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<LeafQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const LeafQueryPB& from);
+  void MergeFrom(const LeafQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LeafQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.LeafQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kQueryFieldNumber = 1,
+    kBoostFieldNumber = 2,
+  };
+  // .demo.InnerLeafQueryPB query = 1;
+  bool has_query() const;
+  private:
+  bool _internal_has_query() const;
+  public:
+  void clear_query();
+  const ::demo::InnerLeafQueryPB& query() const;
+  ::demo::InnerLeafQueryPB* release_query();
+  ::demo::InnerLeafQueryPB* mutable_query();
+  void set_allocated_query(::demo::InnerLeafQueryPB* query);
+  private:
+  const ::demo::InnerLeafQueryPB& _internal_query() const;
+  ::demo::InnerLeafQueryPB* _internal_mutable_query();
+  public:
+
+  // float boost = 2;
+  void clear_boost();
+  float boost() const;
+  void set_boost(float value);
+  private:
+  float _internal_boost() const;
+  void _internal_set_boost(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.LeafQueryPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::demo::InnerLeafQueryPB* query_;
+  float boost_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GeneralQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.GeneralQueryPB) */ {
+ public:
+  GeneralQueryPB();
+  virtual ~GeneralQueryPB();
+
+  GeneralQueryPB(const GeneralQueryPB& from);
+  GeneralQueryPB(GeneralQueryPB&& from) noexcept
+    : GeneralQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline GeneralQueryPB& operator=(const GeneralQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GeneralQueryPB& operator=(GeneralQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GeneralQueryPB& default_instance();
+
+  enum QueryCase {
+    kLeaf = 1,
+    kBin = 2,
+    QUERY_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeneralQueryPB* internal_default_instance() {
+    return reinterpret_cast<const GeneralQueryPB*>(
+               &_GeneralQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(GeneralQueryPB& a, GeneralQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GeneralQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GeneralQueryPB* New() const final {
+    return CreateMaybeMessage<GeneralQueryPB>(nullptr);
+  }
+
+  GeneralQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GeneralQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GeneralQueryPB& from);
+  void MergeFrom(const GeneralQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GeneralQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.GeneralQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeafFieldNumber = 1,
+    kBinFieldNumber = 2,
+  };
+  // .demo.LeafQueryPB leaf = 1;
+  bool has_leaf() const;
+  private:
+  bool _internal_has_leaf() const;
+  public:
+  void clear_leaf();
+  const ::demo::LeafQueryPB& leaf() const;
+  ::demo::LeafQueryPB* release_leaf();
+  ::demo::LeafQueryPB* mutable_leaf();
+  void set_allocated_leaf(::demo::LeafQueryPB* leaf);
+  private:
+  const ::demo::LeafQueryPB& _internal_leaf() const;
+  ::demo::LeafQueryPB* _internal_mutable_leaf();
+  public:
+
+  // .demo.BinaryQueryPB bin = 2;
+  bool has_bin() const;
+  private:
+  bool _internal_has_bin() const;
+  public:
+  void clear_bin();
+  const ::demo::BinaryQueryPB& bin() const;
+  ::demo::BinaryQueryPB* release_bin();
+  ::demo::BinaryQueryPB* mutable_bin();
+  void set_allocated_bin(::demo::BinaryQueryPB* bin);
+  private:
+  const ::demo::BinaryQueryPB& _internal_bin() const;
+  ::demo::BinaryQueryPB* _internal_mutable_bin();
+  public:
+
+  void clear_query();
+  QueryCase query_case() const;
+  // @@protoc_insertion_point(class_scope:demo.GeneralQueryPB)
+ private:
+  class _Internal;
+  void set_has_leaf();
+  void set_has_bin();
+
+  inline bool has_query() const;
+  inline void clear_has_query();
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  union QueryUnion {
+    QueryUnion() {}
+    ::demo::LeafQueryPB* leaf_;
+    ::demo::BinaryQueryPB* bin_;
+  } query_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BinaryQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.BinaryQueryPB) */ {
+ public:
+  BinaryQueryPB();
+  virtual ~BinaryQueryPB();
+
+  BinaryQueryPB(const BinaryQueryPB& from);
+  BinaryQueryPB(BinaryQueryPB&& from) noexcept
+    : BinaryQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline BinaryQueryPB& operator=(const BinaryQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BinaryQueryPB& operator=(BinaryQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BinaryQueryPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BinaryQueryPB* internal_default_instance() {
+    return reinterpret_cast<const BinaryQueryPB*>(
+               &_BinaryQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(BinaryQueryPB& a, BinaryQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BinaryQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BinaryQueryPB* New() const final {
+    return CreateMaybeMessage<BinaryQueryPB>(nullptr);
+  }
+
+  BinaryQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BinaryQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BinaryQueryPB& from);
+  void MergeFrom(const BinaryQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BinaryQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.BinaryQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeftQueryFieldNumber = 1,
+    kRightQueryFieldNumber = 2,
+    kRelationFieldNumber = 3,
+    kBoostFieldNumber = 4,
+  };
+  // .demo.GeneralQueryPB left_query = 1;
+  bool has_left_query() const;
+  private:
+  bool _internal_has_left_query() const;
+  public:
+  void clear_left_query();
+  const ::demo::GeneralQueryPB& left_query() const;
+  ::demo::GeneralQueryPB* release_left_query();
+  ::demo::GeneralQueryPB* mutable_left_query();
+  void set_allocated_left_query(::demo::GeneralQueryPB* left_query);
+  private:
+  const ::demo::GeneralQueryPB& _internal_left_query() const;
+  ::demo::GeneralQueryPB* _internal_mutable_left_query();
+  public:
+
+  // .demo.GeneralQueryPB right_query = 2;
+  bool has_right_query() const;
+  private:
+  bool _internal_has_right_query() const;
+  public:
+  void clear_right_query();
+  const ::demo::GeneralQueryPB& right_query() const;
+  ::demo::GeneralQueryPB* release_right_query();
+  ::demo::GeneralQueryPB* mutable_right_query();
+  void set_allocated_right_query(::demo::GeneralQueryPB* right_query);
+  private:
+  const ::demo::GeneralQueryPB& _internal_right_query() const;
+  ::demo::GeneralQueryPB* _internal_mutable_right_query();
+  public:
+
+  // .demo.QueryRelation relation = 3;
+  void clear_relation();
+  ::demo::QueryRelation relation() const;
+  void set_relation(::demo::QueryRelation value);
+  private:
+  ::demo::QueryRelation _internal_relation() const;
+  void _internal_set_relation(::demo::QueryRelation value);
+  public:
+
+  // float boost = 4;
+  void clear_boost();
+  float boost() const;
+  void set_boost(float value);
+  private:
+  float _internal_boost() const;
+  void _internal_set_boost(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.BinaryQueryPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::demo::GeneralQueryPB* left_query_;
+  ::demo::GeneralQueryPB* right_query_;
+  int relation_;
+  float boost_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class QueryRequestPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.QueryRequestPB) */ {
+ public:
+  QueryRequestPB();
+  virtual ~QueryRequestPB();
+
+  QueryRequestPB(const QueryRequestPB& from);
+  QueryRequestPB(QueryRequestPB&& from) noexcept
+    : QueryRequestPB() {
+    *this = ::std::move(from);
+  }
+
+  inline QueryRequestPB& operator=(const QueryRequestPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline QueryRequestPB& operator=(QueryRequestPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const QueryRequestPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const QueryRequestPB* internal_default_instance() {
+    return reinterpret_cast<const QueryRequestPB*>(
+               &_QueryRequestPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(QueryRequestPB& a, QueryRequestPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(QueryRequestPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline QueryRequestPB* New() const final {
+    return CreateMaybeMessage<QueryRequestPB>(nullptr);
+  }
+
+  QueryRequestPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<QueryRequestPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const QueryRequestPB& from);
+  void MergeFrom(const QueryRequestPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(QueryRequestPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.QueryRequestPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kQueryFieldNumber = 2,
+    kRequestIdFieldNumber = 1,
+  };
+  // .demo.GeneralQueryPB query = 2;
+  bool has_query() const;
+  private:
+  bool _internal_has_query() const;
+  public:
+  void clear_query();
+  const ::demo::GeneralQueryPB& query() const;
+  ::demo::GeneralQueryPB* release_query();
+  ::demo::GeneralQueryPB* mutable_query();
+  void set_allocated_query(::demo::GeneralQueryPB* query);
+  private:
+  const ::demo::GeneralQueryPB& _internal_query() const;
+  ::demo::GeneralQueryPB* _internal_mutable_query();
+  public:
+
+  // uint64 request_id = 1;
+  void clear_request_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 request_id() const;
+  void set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_request_id() const;
+  void _internal_set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.QueryRequestPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::demo::GeneralQueryPB* query_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 request_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class QueryResponsePB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.QueryResponsePB) */ {
+ public:
+  QueryResponsePB();
+  virtual ~QueryResponsePB();
+
+  QueryResponsePB(const QueryResponsePB& from);
+  QueryResponsePB(QueryResponsePB&& from) noexcept
+    : QueryResponsePB() {
+    *this = ::std::move(from);
+  }
+
+  inline QueryResponsePB& operator=(const QueryResponsePB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline QueryResponsePB& operator=(QueryResponsePB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const QueryResponsePB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const QueryResponsePB* internal_default_instance() {
+    return reinterpret_cast<const QueryResponsePB*>(
+               &_QueryResponsePB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(QueryResponsePB& a, QueryResponsePB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(QueryResponsePB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline QueryResponsePB* New() const final {
+    return CreateMaybeMessage<QueryResponsePB>(nullptr);
+  }
+
+  QueryResponsePB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<QueryResponsePB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const QueryResponsePB& from);
+  void MergeFrom(const QueryResponsePB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(QueryResponsePB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.QueryResponsePB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdsFieldNumber = 3,
+    kScoreFieldNumber = 4,
+    kDistanceFieldNumber = 5,
+    kStatusFieldNumber = 1,
+    kHitsFieldNumber = 2,
+  };
+  // repeated int64 ids = 3;
+  int ids_size() const;
+  private:
+  int _internal_ids_size() const;
+  public:
+  void clear_ids();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >&
+      _internal_ids() const;
+  void _internal_add_ids(::PROTOBUF_NAMESPACE_ID::int64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >*
+      _internal_mutable_ids();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::int64 ids(int index) const;
+  void set_ids(int index, ::PROTOBUF_NAMESPACE_ID::int64 value);
+  void add_ids(::PROTOBUF_NAMESPACE_ID::int64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >&
+      ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >*
+      mutable_ids();
+
+  // repeated float score = 4;
+  int score_size() const;
+  private:
+  int _internal_score_size() const;
+  public:
+  void clear_score();
+  private:
+  float _internal_score(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_score() const;
+  void _internal_add_score(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_score();
+  public:
+  float score(int index) const;
+  void set_score(int index, float value);
+  void add_score(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      score() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_score();
+
+  // repeated float distance = 5;
+  int distance_size() const;
+  private:
+  int _internal_distance_size() const;
+  public:
+  void clear_distance();
+  private:
+  float _internal_distance(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_distance() const;
+  void _internal_add_distance(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_distance();
+  public:
+  float distance(int index) const;
+  void set_distance(int index, float value);
+  void add_distance(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      distance() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_distance();
+
+  // .demo.Status status = 1;
+  bool has_status() const;
+  private:
+  bool _internal_has_status() const;
+  public:
+  void clear_status();
+  const ::demo::Status& status() const;
+  ::demo::Status* release_status();
+  ::demo::Status* mutable_status();
+  void set_allocated_status(::demo::Status* status);
+  private:
+  const ::demo::Status& _internal_status() const;
+  ::demo::Status* _internal_mutable_status();
+  public:
+
+  // uint64 hits = 2;
+  void clear_hits();
+  ::PROTOBUF_NAMESPACE_ID::uint64 hits() const;
+  void set_hits(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_hits() const;
+  void _internal_set_hits(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.QueryResponsePB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 > ids_;
+  mutable std::atomic<int> _ids_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > score_;
+  mutable std::atomic<int> _score_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > distance_;
+  mutable std::atomic<int> _distance_cached_byte_size_;
+  ::demo::Status* status_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 hits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
 // ===================================================================
 
 
@@ -3568,9 +4975,989 @@ TermQueryPB::values() const {
   return values_;
 }
 
+// -------------------------------------------------------------------
+
+// CompareExprPB
+
+// .demo.CompareOperator operator = 1;
+inline void CompareExprPB::clear_operator_() {
+  operator__ = 0;
+}
+inline ::demo::CompareOperator CompareExprPB::_internal_operator_() const {
+  return static_cast< ::demo::CompareOperator >(operator__);
+}
+inline ::demo::CompareOperator CompareExprPB::operator_() const {
+  // @@protoc_insertion_point(field_get:demo.CompareExprPB.operator)
+  return _internal_operator_();
+}
+inline void CompareExprPB::_internal_set_operator_(::demo::CompareOperator value) {
+  
+  operator__ = value;
+}
+inline void CompareExprPB::set_operator_(::demo::CompareOperator value) {
+  _internal_set_operator_(value);
+  // @@protoc_insertion_point(field_set:demo.CompareExprPB.operator)
+}
+
+// .demo.ColumnValuePB operand = 2;
+inline bool CompareExprPB::_internal_has_operand() const {
+  return this != internal_default_instance() && operand_ != nullptr;
+}
+inline bool CompareExprPB::has_operand() const {
+  return _internal_has_operand();
+}
+inline void CompareExprPB::clear_operand() {
+  if (GetArenaNoVirtual() == nullptr && operand_ != nullptr) {
+    delete operand_;
+  }
+  operand_ = nullptr;
+}
+inline const ::demo::ColumnValuePB& CompareExprPB::_internal_operand() const {
+  const ::demo::ColumnValuePB* p = operand_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::ColumnValuePB*>(
+      &::demo::_ColumnValuePB_default_instance_);
+}
+inline const ::demo::ColumnValuePB& CompareExprPB::operand() const {
+  // @@protoc_insertion_point(field_get:demo.CompareExprPB.operand)
+  return _internal_operand();
+}
+inline ::demo::ColumnValuePB* CompareExprPB::release_operand() {
+  // @@protoc_insertion_point(field_release:demo.CompareExprPB.operand)
+  
+  ::demo::ColumnValuePB* temp = operand_;
+  operand_ = nullptr;
+  return temp;
+}
+inline ::demo::ColumnValuePB* CompareExprPB::_internal_mutable_operand() {
+  
+  if (operand_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::ColumnValuePB>(GetArenaNoVirtual());
+    operand_ = p;
+  }
+  return operand_;
+}
+inline ::demo::ColumnValuePB* CompareExprPB::mutable_operand() {
+  // @@protoc_insertion_point(field_mutable:demo.CompareExprPB.operand)
+  return _internal_mutable_operand();
+}
+inline void CompareExprPB::set_allocated_operand(::demo::ColumnValuePB* operand) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete operand_;
+  }
+  if (operand) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      operand = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, operand, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  operand_ = operand;
+  // @@protoc_insertion_point(field_set_allocated:demo.CompareExprPB.operand)
+}
+
+// -------------------------------------------------------------------
+
+// RangeQueryPB
+
+// .demo.QueryColumnPB field = 1;
+inline bool RangeQueryPB::_internal_has_field() const {
+  return this != internal_default_instance() && field_ != nullptr;
+}
+inline bool RangeQueryPB::has_field() const {
+  return _internal_has_field();
+}
+inline void RangeQueryPB::clear_field() {
+  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
+}
+inline const ::demo::QueryColumnPB& RangeQueryPB::_internal_field() const {
+  const ::demo::QueryColumnPB* p = field_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::QueryColumnPB*>(
+      &::demo::_QueryColumnPB_default_instance_);
+}
+inline const ::demo::QueryColumnPB& RangeQueryPB::field() const {
+  // @@protoc_insertion_point(field_get:demo.RangeQueryPB.field)
+  return _internal_field();
+}
+inline ::demo::QueryColumnPB* RangeQueryPB::release_field() {
+  // @@protoc_insertion_point(field_release:demo.RangeQueryPB.field)
+  
+  ::demo::QueryColumnPB* temp = field_;
+  field_ = nullptr;
+  return temp;
+}
+inline ::demo::QueryColumnPB* RangeQueryPB::_internal_mutable_field() {
+  
+  if (field_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::QueryColumnPB>(GetArenaNoVirtual());
+    field_ = p;
+  }
+  return field_;
+}
+inline ::demo::QueryColumnPB* RangeQueryPB::mutable_field() {
+  // @@protoc_insertion_point(field_mutable:demo.RangeQueryPB.field)
+  return _internal_mutable_field();
+}
+inline void RangeQueryPB::set_allocated_field(::demo::QueryColumnPB* field) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete field_;
+  }
+  if (field) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, field, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  field_ = field;
+  // @@protoc_insertion_point(field_set_allocated:demo.RangeQueryPB.field)
+}
+
+// repeated .demo.CompareExprPB operand = 2;
+inline int RangeQueryPB::_internal_operand_size() const {
+  return operand_.size();
+}
+inline int RangeQueryPB::operand_size() const {
+  return _internal_operand_size();
+}
+inline void RangeQueryPB::clear_operand() {
+  operand_.Clear();
+}
+inline ::demo::CompareExprPB* RangeQueryPB::mutable_operand(int index) {
+  // @@protoc_insertion_point(field_mutable:demo.RangeQueryPB.operand)
+  return operand_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB >*
+RangeQueryPB::mutable_operand() {
+  // @@protoc_insertion_point(field_mutable_list:demo.RangeQueryPB.operand)
+  return &operand_;
+}
+inline const ::demo::CompareExprPB& RangeQueryPB::_internal_operand(int index) const {
+  return operand_.Get(index);
+}
+inline const ::demo::CompareExprPB& RangeQueryPB::operand(int index) const {
+  // @@protoc_insertion_point(field_get:demo.RangeQueryPB.operand)
+  return _internal_operand(index);
+}
+inline ::demo::CompareExprPB* RangeQueryPB::_internal_add_operand() {
+  return operand_.Add();
+}
+inline ::demo::CompareExprPB* RangeQueryPB::add_operand() {
+  // @@protoc_insertion_point(field_add:demo.RangeQueryPB.operand)
+  return _internal_add_operand();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB >&
+RangeQueryPB::operand() const {
+  // @@protoc_insertion_point(field_list:demo.RangeQueryPB.operand)
+  return operand_;
+}
+
+// -------------------------------------------------------------------
+
+// InnerLeafQueryPB
+
+// .demo.TermQueryPB term_query = 1;
+inline bool InnerLeafQueryPB::_internal_has_term_query() const {
+  return query_case() == kTermQuery;
+}
+inline bool InnerLeafQueryPB::has_term_query() const {
+  return _internal_has_term_query();
+}
+inline void InnerLeafQueryPB::set_has_term_query() {
+  _oneof_case_[0] = kTermQuery;
+}
+inline void InnerLeafQueryPB::clear_term_query() {
+  if (_internal_has_term_query()) {
+    delete query_.term_query_;
+    clear_has_query();
+  }
+}
+inline ::demo::TermQueryPB* InnerLeafQueryPB::release_term_query() {
+  // @@protoc_insertion_point(field_release:demo.InnerLeafQueryPB.term_query)
+  if (has_term_query()) {
+    clear_has_query();
+      ::demo::TermQueryPB* temp = query_.term_query_;
+    query_.term_query_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::TermQueryPB& InnerLeafQueryPB::_internal_term_query() const {
+  return _internal_has_term_query()
+      ? *query_.term_query_
+      : *reinterpret_cast< ::demo::TermQueryPB*>(&::demo::_TermQueryPB_default_instance_);
+}
+inline const ::demo::TermQueryPB& InnerLeafQueryPB::term_query() const {
+  // @@protoc_insertion_point(field_get:demo.InnerLeafQueryPB.term_query)
+  return _internal_term_query();
+}
+inline ::demo::TermQueryPB* InnerLeafQueryPB::_internal_mutable_term_query() {
+  if (!_internal_has_term_query()) {
+    clear_query();
+    set_has_term_query();
+    query_.term_query_ = CreateMaybeMessage< ::demo::TermQueryPB >(
+        GetArenaNoVirtual());
+  }
+  return query_.term_query_;
+}
+inline ::demo::TermQueryPB* InnerLeafQueryPB::mutable_term_query() {
+  // @@protoc_insertion_point(field_mutable:demo.InnerLeafQueryPB.term_query)
+  return _internal_mutable_term_query();
+}
+
+// .demo.RangeQueryPB range_query = 2;
+inline bool InnerLeafQueryPB::_internal_has_range_query() const {
+  return query_case() == kRangeQuery;
+}
+inline bool InnerLeafQueryPB::has_range_query() const {
+  return _internal_has_range_query();
+}
+inline void InnerLeafQueryPB::set_has_range_query() {
+  _oneof_case_[0] = kRangeQuery;
+}
+inline void InnerLeafQueryPB::clear_range_query() {
+  if (_internal_has_range_query()) {
+    delete query_.range_query_;
+    clear_has_query();
+  }
+}
+inline ::demo::RangeQueryPB* InnerLeafQueryPB::release_range_query() {
+  // @@protoc_insertion_point(field_release:demo.InnerLeafQueryPB.range_query)
+  if (has_range_query()) {
+    clear_has_query();
+      ::demo::RangeQueryPB* temp = query_.range_query_;
+    query_.range_query_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::RangeQueryPB& InnerLeafQueryPB::_internal_range_query() const {
+  return _internal_has_range_query()
+      ? *query_.range_query_
+      : *reinterpret_cast< ::demo::RangeQueryPB*>(&::demo::_RangeQueryPB_default_instance_);
+}
+inline const ::demo::RangeQueryPB& InnerLeafQueryPB::range_query() const {
+  // @@protoc_insertion_point(field_get:demo.InnerLeafQueryPB.range_query)
+  return _internal_range_query();
+}
+inline ::demo::RangeQueryPB* InnerLeafQueryPB::_internal_mutable_range_query() {
+  if (!_internal_has_range_query()) {
+    clear_query();
+    set_has_range_query();
+    query_.range_query_ = CreateMaybeMessage< ::demo::RangeQueryPB >(
+        GetArenaNoVirtual());
+  }
+  return query_.range_query_;
+}
+inline ::demo::RangeQueryPB* InnerLeafQueryPB::mutable_range_query() {
+  // @@protoc_insertion_point(field_mutable:demo.InnerLeafQueryPB.range_query)
+  return _internal_mutable_range_query();
+}
+
+inline bool InnerLeafQueryPB::has_query() const {
+  return query_case() != QUERY_NOT_SET;
+}
+inline void InnerLeafQueryPB::clear_has_query() {
+  _oneof_case_[0] = QUERY_NOT_SET;
+}
+inline InnerLeafQueryPB::QueryCase InnerLeafQueryPB::query_case() const {
+  return InnerLeafQueryPB::QueryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// LeafQueryPB
+
+// .demo.InnerLeafQueryPB query = 1;
+inline bool LeafQueryPB::_internal_has_query() const {
+  return this != internal_default_instance() && query_ != nullptr;
+}
+inline bool LeafQueryPB::has_query() const {
+  return _internal_has_query();
+}
+inline void LeafQueryPB::clear_query() {
+  if (GetArenaNoVirtual() == nullptr && query_ != nullptr) {
+    delete query_;
+  }
+  query_ = nullptr;
+}
+inline const ::demo::InnerLeafQueryPB& LeafQueryPB::_internal_query() const {
+  const ::demo::InnerLeafQueryPB* p = query_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::InnerLeafQueryPB*>(
+      &::demo::_InnerLeafQueryPB_default_instance_);
+}
+inline const ::demo::InnerLeafQueryPB& LeafQueryPB::query() const {
+  // @@protoc_insertion_point(field_get:demo.LeafQueryPB.query)
+  return _internal_query();
+}
+inline ::demo::InnerLeafQueryPB* LeafQueryPB::release_query() {
+  // @@protoc_insertion_point(field_release:demo.LeafQueryPB.query)
+  
+  ::demo::InnerLeafQueryPB* temp = query_;
+  query_ = nullptr;
+  return temp;
+}
+inline ::demo::InnerLeafQueryPB* LeafQueryPB::_internal_mutable_query() {
+  
+  if (query_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::InnerLeafQueryPB>(GetArenaNoVirtual());
+    query_ = p;
+  }
+  return query_;
+}
+inline ::demo::InnerLeafQueryPB* LeafQueryPB::mutable_query() {
+  // @@protoc_insertion_point(field_mutable:demo.LeafQueryPB.query)
+  return _internal_mutable_query();
+}
+inline void LeafQueryPB::set_allocated_query(::demo::InnerLeafQueryPB* query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete query_;
+  }
+  if (query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, query, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  query_ = query;
+  // @@protoc_insertion_point(field_set_allocated:demo.LeafQueryPB.query)
+}
+
+// float boost = 2;
+inline void LeafQueryPB::clear_boost() {
+  boost_ = 0;
+}
+inline float LeafQueryPB::_internal_boost() const {
+  return boost_;
+}
+inline float LeafQueryPB::boost() const {
+  // @@protoc_insertion_point(field_get:demo.LeafQueryPB.boost)
+  return _internal_boost();
+}
+inline void LeafQueryPB::_internal_set_boost(float value) {
+  
+  boost_ = value;
+}
+inline void LeafQueryPB::set_boost(float value) {
+  _internal_set_boost(value);
+  // @@protoc_insertion_point(field_set:demo.LeafQueryPB.boost)
+}
+
+// -------------------------------------------------------------------
+
+// GeneralQueryPB
+
+// .demo.LeafQueryPB leaf = 1;
+inline bool GeneralQueryPB::_internal_has_leaf() const {
+  return query_case() == kLeaf;
+}
+inline bool GeneralQueryPB::has_leaf() const {
+  return _internal_has_leaf();
+}
+inline void GeneralQueryPB::set_has_leaf() {
+  _oneof_case_[0] = kLeaf;
+}
+inline void GeneralQueryPB::clear_leaf() {
+  if (_internal_has_leaf()) {
+    delete query_.leaf_;
+    clear_has_query();
+  }
+}
+inline ::demo::LeafQueryPB* GeneralQueryPB::release_leaf() {
+  // @@protoc_insertion_point(field_release:demo.GeneralQueryPB.leaf)
+  if (has_leaf()) {
+    clear_has_query();
+      ::demo::LeafQueryPB* temp = query_.leaf_;
+    query_.leaf_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::LeafQueryPB& GeneralQueryPB::_internal_leaf() const {
+  return _internal_has_leaf()
+      ? *query_.leaf_
+      : *reinterpret_cast< ::demo::LeafQueryPB*>(&::demo::_LeafQueryPB_default_instance_);
+}
+inline const ::demo::LeafQueryPB& GeneralQueryPB::leaf() const {
+  // @@protoc_insertion_point(field_get:demo.GeneralQueryPB.leaf)
+  return _internal_leaf();
+}
+inline ::demo::LeafQueryPB* GeneralQueryPB::_internal_mutable_leaf() {
+  if (!_internal_has_leaf()) {
+    clear_query();
+    set_has_leaf();
+    query_.leaf_ = CreateMaybeMessage< ::demo::LeafQueryPB >(
+        GetArenaNoVirtual());
+  }
+  return query_.leaf_;
+}
+inline ::demo::LeafQueryPB* GeneralQueryPB::mutable_leaf() {
+  // @@protoc_insertion_point(field_mutable:demo.GeneralQueryPB.leaf)
+  return _internal_mutable_leaf();
+}
+
+// .demo.BinaryQueryPB bin = 2;
+inline bool GeneralQueryPB::_internal_has_bin() const {
+  return query_case() == kBin;
+}
+inline bool GeneralQueryPB::has_bin() const {
+  return _internal_has_bin();
+}
+inline void GeneralQueryPB::set_has_bin() {
+  _oneof_case_[0] = kBin;
+}
+inline void GeneralQueryPB::clear_bin() {
+  if (_internal_has_bin()) {
+    delete query_.bin_;
+    clear_has_query();
+  }
+}
+inline ::demo::BinaryQueryPB* GeneralQueryPB::release_bin() {
+  // @@protoc_insertion_point(field_release:demo.GeneralQueryPB.bin)
+  if (has_bin()) {
+    clear_has_query();
+      ::demo::BinaryQueryPB* temp = query_.bin_;
+    query_.bin_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::BinaryQueryPB& GeneralQueryPB::_internal_bin() const {
+  return _internal_has_bin()
+      ? *query_.bin_
+      : *reinterpret_cast< ::demo::BinaryQueryPB*>(&::demo::_BinaryQueryPB_default_instance_);
+}
+inline const ::demo::BinaryQueryPB& GeneralQueryPB::bin() const {
+  // @@protoc_insertion_point(field_get:demo.GeneralQueryPB.bin)
+  return _internal_bin();
+}
+inline ::demo::BinaryQueryPB* GeneralQueryPB::_internal_mutable_bin() {
+  if (!_internal_has_bin()) {
+    clear_query();
+    set_has_bin();
+    query_.bin_ = CreateMaybeMessage< ::demo::BinaryQueryPB >(
+        GetArenaNoVirtual());
+  }
+  return query_.bin_;
+}
+inline ::demo::BinaryQueryPB* GeneralQueryPB::mutable_bin() {
+  // @@protoc_insertion_point(field_mutable:demo.GeneralQueryPB.bin)
+  return _internal_mutable_bin();
+}
+
+inline bool GeneralQueryPB::has_query() const {
+  return query_case() != QUERY_NOT_SET;
+}
+inline void GeneralQueryPB::clear_has_query() {
+  _oneof_case_[0] = QUERY_NOT_SET;
+}
+inline GeneralQueryPB::QueryCase GeneralQueryPB::query_case() const {
+  return GeneralQueryPB::QueryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// BinaryQueryPB
+
+// .demo.GeneralQueryPB left_query = 1;
+inline bool BinaryQueryPB::_internal_has_left_query() const {
+  return this != internal_default_instance() && left_query_ != nullptr;
+}
+inline bool BinaryQueryPB::has_left_query() const {
+  return _internal_has_left_query();
+}
+inline void BinaryQueryPB::clear_left_query() {
+  if (GetArenaNoVirtual() == nullptr && left_query_ != nullptr) {
+    delete left_query_;
+  }
+  left_query_ = nullptr;
+}
+inline const ::demo::GeneralQueryPB& BinaryQueryPB::_internal_left_query() const {
+  const ::demo::GeneralQueryPB* p = left_query_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::GeneralQueryPB*>(
+      &::demo::_GeneralQueryPB_default_instance_);
+}
+inline const ::demo::GeneralQueryPB& BinaryQueryPB::left_query() const {
+  // @@protoc_insertion_point(field_get:demo.BinaryQueryPB.left_query)
+  return _internal_left_query();
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::release_left_query() {
+  // @@protoc_insertion_point(field_release:demo.BinaryQueryPB.left_query)
+  
+  ::demo::GeneralQueryPB* temp = left_query_;
+  left_query_ = nullptr;
+  return temp;
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::_internal_mutable_left_query() {
+  
+  if (left_query_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::GeneralQueryPB>(GetArenaNoVirtual());
+    left_query_ = p;
+  }
+  return left_query_;
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::mutable_left_query() {
+  // @@protoc_insertion_point(field_mutable:demo.BinaryQueryPB.left_query)
+  return _internal_mutable_left_query();
+}
+inline void BinaryQueryPB::set_allocated_left_query(::demo::GeneralQueryPB* left_query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete left_query_;
+  }
+  if (left_query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      left_query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, left_query, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  left_query_ = left_query;
+  // @@protoc_insertion_point(field_set_allocated:demo.BinaryQueryPB.left_query)
+}
+
+// .demo.GeneralQueryPB right_query = 2;
+inline bool BinaryQueryPB::_internal_has_right_query() const {
+  return this != internal_default_instance() && right_query_ != nullptr;
+}
+inline bool BinaryQueryPB::has_right_query() const {
+  return _internal_has_right_query();
+}
+inline void BinaryQueryPB::clear_right_query() {
+  if (GetArenaNoVirtual() == nullptr && right_query_ != nullptr) {
+    delete right_query_;
+  }
+  right_query_ = nullptr;
+}
+inline const ::demo::GeneralQueryPB& BinaryQueryPB::_internal_right_query() const {
+  const ::demo::GeneralQueryPB* p = right_query_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::GeneralQueryPB*>(
+      &::demo::_GeneralQueryPB_default_instance_);
+}
+inline const ::demo::GeneralQueryPB& BinaryQueryPB::right_query() const {
+  // @@protoc_insertion_point(field_get:demo.BinaryQueryPB.right_query)
+  return _internal_right_query();
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::release_right_query() {
+  // @@protoc_insertion_point(field_release:demo.BinaryQueryPB.right_query)
+  
+  ::demo::GeneralQueryPB* temp = right_query_;
+  right_query_ = nullptr;
+  return temp;
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::_internal_mutable_right_query() {
+  
+  if (right_query_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::GeneralQueryPB>(GetArenaNoVirtual());
+    right_query_ = p;
+  }
+  return right_query_;
+}
+inline ::demo::GeneralQueryPB* BinaryQueryPB::mutable_right_query() {
+  // @@protoc_insertion_point(field_mutable:demo.BinaryQueryPB.right_query)
+  return _internal_mutable_right_query();
+}
+inline void BinaryQueryPB::set_allocated_right_query(::demo::GeneralQueryPB* right_query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete right_query_;
+  }
+  if (right_query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      right_query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, right_query, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  right_query_ = right_query;
+  // @@protoc_insertion_point(field_set_allocated:demo.BinaryQueryPB.right_query)
+}
+
+// .demo.QueryRelation relation = 3;
+inline void BinaryQueryPB::clear_relation() {
+  relation_ = 0;
+}
+inline ::demo::QueryRelation BinaryQueryPB::_internal_relation() const {
+  return static_cast< ::demo::QueryRelation >(relation_);
+}
+inline ::demo::QueryRelation BinaryQueryPB::relation() const {
+  // @@protoc_insertion_point(field_get:demo.BinaryQueryPB.relation)
+  return _internal_relation();
+}
+inline void BinaryQueryPB::_internal_set_relation(::demo::QueryRelation value) {
+  
+  relation_ = value;
+}
+inline void BinaryQueryPB::set_relation(::demo::QueryRelation value) {
+  _internal_set_relation(value);
+  // @@protoc_insertion_point(field_set:demo.BinaryQueryPB.relation)
+}
+
+// float boost = 4;
+inline void BinaryQueryPB::clear_boost() {
+  boost_ = 0;
+}
+inline float BinaryQueryPB::_internal_boost() const {
+  return boost_;
+}
+inline float BinaryQueryPB::boost() const {
+  // @@protoc_insertion_point(field_get:demo.BinaryQueryPB.boost)
+  return _internal_boost();
+}
+inline void BinaryQueryPB::_internal_set_boost(float value) {
+  
+  boost_ = value;
+}
+inline void BinaryQueryPB::set_boost(float value) {
+  _internal_set_boost(value);
+  // @@protoc_insertion_point(field_set:demo.BinaryQueryPB.boost)
+}
+
+// -------------------------------------------------------------------
+
+// QueryRequestPB
+
+// uint64 request_id = 1;
+inline void QueryRequestPB::clear_request_id() {
+  request_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryRequestPB::_internal_request_id() const {
+  return request_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryRequestPB::request_id() const {
+  // @@protoc_insertion_point(field_get:demo.QueryRequestPB.request_id)
+  return _internal_request_id();
+}
+inline void QueryRequestPB::_internal_set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  request_id_ = value;
+}
+inline void QueryRequestPB::set_request_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_request_id(value);
+  // @@protoc_insertion_point(field_set:demo.QueryRequestPB.request_id)
+}
+
+// .demo.GeneralQueryPB query = 2;
+inline bool QueryRequestPB::_internal_has_query() const {
+  return this != internal_default_instance() && query_ != nullptr;
+}
+inline bool QueryRequestPB::has_query() const {
+  return _internal_has_query();
+}
+inline void QueryRequestPB::clear_query() {
+  if (GetArenaNoVirtual() == nullptr && query_ != nullptr) {
+    delete query_;
+  }
+  query_ = nullptr;
+}
+inline const ::demo::GeneralQueryPB& QueryRequestPB::_internal_query() const {
+  const ::demo::GeneralQueryPB* p = query_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::GeneralQueryPB*>(
+      &::demo::_GeneralQueryPB_default_instance_);
+}
+inline const ::demo::GeneralQueryPB& QueryRequestPB::query() const {
+  // @@protoc_insertion_point(field_get:demo.QueryRequestPB.query)
+  return _internal_query();
+}
+inline ::demo::GeneralQueryPB* QueryRequestPB::release_query() {
+  // @@protoc_insertion_point(field_release:demo.QueryRequestPB.query)
+  
+  ::demo::GeneralQueryPB* temp = query_;
+  query_ = nullptr;
+  return temp;
+}
+inline ::demo::GeneralQueryPB* QueryRequestPB::_internal_mutable_query() {
+  
+  if (query_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::GeneralQueryPB>(GetArenaNoVirtual());
+    query_ = p;
+  }
+  return query_;
+}
+inline ::demo::GeneralQueryPB* QueryRequestPB::mutable_query() {
+  // @@protoc_insertion_point(field_mutable:demo.QueryRequestPB.query)
+  return _internal_mutable_query();
+}
+inline void QueryRequestPB::set_allocated_query(::demo::GeneralQueryPB* query) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete query_;
+  }
+  if (query) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      query = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, query, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  query_ = query;
+  // @@protoc_insertion_point(field_set_allocated:demo.QueryRequestPB.query)
+}
+
+// -------------------------------------------------------------------
+
+// QueryResponsePB
+
+// .demo.Status status = 1;
+inline bool QueryResponsePB::_internal_has_status() const {
+  return this != internal_default_instance() && status_ != nullptr;
+}
+inline bool QueryResponsePB::has_status() const {
+  return _internal_has_status();
+}
+inline const ::demo::Status& QueryResponsePB::_internal_status() const {
+  const ::demo::Status* p = status_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::Status*>(
+      &::demo::_Status_default_instance_);
+}
+inline const ::demo::Status& QueryResponsePB::status() const {
+  // @@protoc_insertion_point(field_get:demo.QueryResponsePB.status)
+  return _internal_status();
+}
+inline ::demo::Status* QueryResponsePB::release_status() {
+  // @@protoc_insertion_point(field_release:demo.QueryResponsePB.status)
+  
+  ::demo::Status* temp = status_;
+  status_ = nullptr;
+  return temp;
+}
+inline ::demo::Status* QueryResponsePB::_internal_mutable_status() {
+  
+  if (status_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::Status>(GetArenaNoVirtual());
+    status_ = p;
+  }
+  return status_;
+}
+inline ::demo::Status* QueryResponsePB::mutable_status() {
+  // @@protoc_insertion_point(field_mutable:demo.QueryResponsePB.status)
+  return _internal_mutable_status();
+}
+inline void QueryResponsePB::set_allocated_status(::demo::Status* status) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(status_);
+  }
+  if (status) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      status = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, status, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  status_ = status;
+  // @@protoc_insertion_point(field_set_allocated:demo.QueryResponsePB.status)
+}
+
+// uint64 hits = 2;
+inline void QueryResponsePB::clear_hits() {
+  hits_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryResponsePB::_internal_hits() const {
+  return hits_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryResponsePB::hits() const {
+  // @@protoc_insertion_point(field_get:demo.QueryResponsePB.hits)
+  return _internal_hits();
+}
+inline void QueryResponsePB::_internal_set_hits(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  hits_ = value;
+}
+inline void QueryResponsePB::set_hits(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_hits(value);
+  // @@protoc_insertion_point(field_set:demo.QueryResponsePB.hits)
+}
+
+// repeated int64 ids = 3;
+inline int QueryResponsePB::_internal_ids_size() const {
+  return ids_.size();
+}
+inline int QueryResponsePB::ids_size() const {
+  return _internal_ids_size();
+}
+inline void QueryResponsePB::clear_ids() {
+  ids_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 QueryResponsePB::_internal_ids(int index) const {
+  return ids_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 QueryResponsePB::ids(int index) const {
+  // @@protoc_insertion_point(field_get:demo.QueryResponsePB.ids)
+  return _internal_ids(index);
+}
+inline void QueryResponsePB::set_ids(int index, ::PROTOBUF_NAMESPACE_ID::int64 value) {
+  ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.QueryResponsePB.ids)
+}
+inline void QueryResponsePB::_internal_add_ids(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  ids_.Add(value);
+}
+inline void QueryResponsePB::add_ids(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_add_ids(value);
+  // @@protoc_insertion_point(field_add:demo.QueryResponsePB.ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >&
+QueryResponsePB::_internal_ids() const {
+  return ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >&
+QueryResponsePB::ids() const {
+  // @@protoc_insertion_point(field_list:demo.QueryResponsePB.ids)
+  return _internal_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >*
+QueryResponsePB::_internal_mutable_ids() {
+  return &ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int64 >*
+QueryResponsePB::mutable_ids() {
+  // @@protoc_insertion_point(field_mutable_list:demo.QueryResponsePB.ids)
+  return _internal_mutable_ids();
+}
+
+// repeated float score = 4;
+inline int QueryResponsePB::_internal_score_size() const {
+  return score_.size();
+}
+inline int QueryResponsePB::score_size() const {
+  return _internal_score_size();
+}
+inline void QueryResponsePB::clear_score() {
+  score_.Clear();
+}
+inline float QueryResponsePB::_internal_score(int index) const {
+  return score_.Get(index);
+}
+inline float QueryResponsePB::score(int index) const {
+  // @@protoc_insertion_point(field_get:demo.QueryResponsePB.score)
+  return _internal_score(index);
+}
+inline void QueryResponsePB::set_score(int index, float value) {
+  score_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.QueryResponsePB.score)
+}
+inline void QueryResponsePB::_internal_add_score(float value) {
+  score_.Add(value);
+}
+inline void QueryResponsePB::add_score(float value) {
+  _internal_add_score(value);
+  // @@protoc_insertion_point(field_add:demo.QueryResponsePB.score)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+QueryResponsePB::_internal_score() const {
+  return score_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+QueryResponsePB::score() const {
+  // @@protoc_insertion_point(field_list:demo.QueryResponsePB.score)
+  return _internal_score();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+QueryResponsePB::_internal_mutable_score() {
+  return &score_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+QueryResponsePB::mutable_score() {
+  // @@protoc_insertion_point(field_mutable_list:demo.QueryResponsePB.score)
+  return _internal_mutable_score();
+}
+
+// repeated float distance = 5;
+inline int QueryResponsePB::_internal_distance_size() const {
+  return distance_.size();
+}
+inline int QueryResponsePB::distance_size() const {
+  return _internal_distance_size();
+}
+inline void QueryResponsePB::clear_distance() {
+  distance_.Clear();
+}
+inline float QueryResponsePB::_internal_distance(int index) const {
+  return distance_.Get(index);
+}
+inline float QueryResponsePB::distance(int index) const {
+  // @@protoc_insertion_point(field_get:demo.QueryResponsePB.distance)
+  return _internal_distance(index);
+}
+inline void QueryResponsePB::set_distance(int index, float value) {
+  distance_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.QueryResponsePB.distance)
+}
+inline void QueryResponsePB::_internal_add_distance(float value) {
+  distance_.Add(value);
+}
+inline void QueryResponsePB::add_distance(float value) {
+  _internal_add_distance(value);
+  // @@protoc_insertion_point(field_add:demo.QueryResponsePB.distance)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+QueryResponsePB::_internal_distance() const {
+  return distance_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+QueryResponsePB::distance() const {
+  // @@protoc_insertion_point(field_list:demo.QueryResponsePB.distance)
+  return _internal_distance();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+QueryResponsePB::_internal_mutable_distance() {
+  return &distance_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+QueryResponsePB::mutable_distance() {
+  // @@protoc_insertion_point(field_mutable_list:demo.QueryResponsePB.distance)
+  return _internal_mutable_distance();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -3604,6 +5991,16 @@ template <> struct is_proto_enum< ::demo::DataType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::demo::DataType>() {
   return ::demo::DataType_descriptor();
+}
+template <> struct is_proto_enum< ::demo::CompareOperator> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::demo::CompareOperator>() {
+  return ::demo::CompareOperator_descriptor();
+}
+template <> struct is_proto_enum< ::demo::QueryRelation> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::demo::QueryRelation>() {
+  return ::demo::QueryRelation_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

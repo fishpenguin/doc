@@ -44,16 +44,27 @@ class DemoService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::CreateTableResponsePB>> PrepareAsyncCreateTable(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::CreateTableResponsePB>>(PrepareAsyncCreateTableRaw(context, request, cq));
     }
+    virtual ::grpc::Status Search(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::demo::QueryResponsePB* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>> AsyncSearch(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>>(AsyncSearchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>> PrepareAsyncSearch(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>>(PrepareAsyncSearchRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void CreateTable(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB* request, ::demo::CreateTableResponsePB* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateTable(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::demo::CreateTableResponsePB* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Search(::grpc::ClientContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::demo::QueryResponsePB* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::demo::CreateTableResponsePB>* AsyncCreateTableRaw(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::demo::CreateTableResponsePB>* PrepareAsyncCreateTableRaw(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>* AsyncSearchRaw(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::demo::QueryResponsePB>* PrepareAsyncSearchRaw(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -65,11 +76,20 @@ class DemoService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::CreateTableResponsePB>> PrepareAsyncCreateTable(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::CreateTableResponsePB>>(PrepareAsyncCreateTableRaw(context, request, cq));
     }
+    ::grpc::Status Search(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::demo::QueryResponsePB* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>> AsyncSearch(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>>(AsyncSearchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>> PrepareAsyncSearch(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>>(PrepareAsyncSearchRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void CreateTable(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB* request, ::demo::CreateTableResponsePB* response, std::function<void(::grpc::Status)>) override;
       void CreateTable(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::demo::CreateTableResponsePB* response, std::function<void(::grpc::Status)>) override;
+      void Search(::grpc::ClientContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response, std::function<void(::grpc::Status)>) override;
+      void Search(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::demo::QueryResponsePB* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -83,7 +103,10 @@ class DemoService final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::demo::CreateTableResponsePB>* AsyncCreateTableRaw(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::demo::CreateTableResponsePB>* PrepareAsyncCreateTableRaw(::grpc::ClientContext* context, const ::demo::CreateTableRequestPB& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>* AsyncSearchRaw(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::demo::QueryResponsePB>* PrepareAsyncSearchRaw(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_CreateTable_;
+    const ::grpc::internal::RpcMethod rpcmethod_Search_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -92,6 +115,7 @@ class DemoService final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status CreateTable(::grpc::ServerContext* context, const ::demo::CreateTableRequestPB* request, ::demo::CreateTableResponsePB* response);
+    virtual ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_CreateTable : public BaseClass {
@@ -113,7 +137,27 @@ class DemoService final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreateTable<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Search() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSearch(::grpc::ServerContext* context, ::demo::QueryRequestPB* request, ::grpc::ServerAsyncResponseWriter< ::demo::QueryResponsePB>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_CreateTable<WithAsyncMethod_Search<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CreateTable : public BaseClass {
    private:
@@ -139,7 +183,32 @@ class DemoService final {
     }
     virtual void CreateTable(::grpc::ServerContext* context, const ::demo::CreateTableRequestPB* request, ::demo::CreateTableResponsePB* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_CreateTable<Service > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Search() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::demo::QueryRequestPB, ::demo::QueryResponsePB>(
+          [this](::grpc::ServerContext* context,
+                 const ::demo::QueryRequestPB* request,
+                 ::demo::QueryResponsePB* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Search(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_CreateTable<ExperimentalWithCallbackMethod_Search<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_CreateTable : public BaseClass {
    private:
@@ -153,6 +222,23 @@ class DemoService final {
     }
     // disable synchronous version of this method
     ::grpc::Status CreateTable(::grpc::ServerContext* context, const ::demo::CreateTableRequestPB* request, ::demo::CreateTableResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Search() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -175,6 +261,26 @@ class DemoService final {
     }
     void RequestCreateTable(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Search() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSearch(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -203,6 +309,31 @@ class DemoService final {
     virtual void CreateTable(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Search() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Search(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Search(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_CreateTable : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -222,9 +353,29 @@ class DemoService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedCreateTable(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::demo::CreateTableRequestPB,::demo::CreateTableResponsePB>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CreateTable<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Search : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Search() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::demo::QueryRequestPB, ::demo::QueryResponsePB>(std::bind(&WithStreamedUnaryMethod_Search<BaseClass>::StreamedSearch, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Search() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSearch(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::demo::QueryRequestPB,::demo::QueryResponsePB>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_CreateTable<WithStreamedUnaryMethod_Search<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreateTable<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_CreateTable<WithStreamedUnaryMethod_Search<Service > > StreamedService;
 };
 
 }  // namespace demo
