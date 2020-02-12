@@ -49,7 +49,7 @@ struct TableStruct_common_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,32 +57,56 @@ struct TableStruct_common_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_common_2eproto;
 namespace demo {
+class BinaryVectorValuePB;
+class BinaryVectorValuePBDefaultTypeInternal;
+extern BinaryVectorValuePBDefaultTypeInternal _BinaryVectorValuePB_default_instance_;
 class ColumnSchemaPB;
 class ColumnSchemaPBDefaultTypeInternal;
 extern ColumnSchemaPBDefaultTypeInternal _ColumnSchemaPB_default_instance_;
 class ColumnTypePB;
 class ColumnTypePBDefaultTypeInternal;
 extern ColumnTypePBDefaultTypeInternal _ColumnTypePB_default_instance_;
+class ColumnValuePB;
+class ColumnValuePBDefaultTypeInternal;
+extern ColumnValuePBDefaultTypeInternal _ColumnValuePB_default_instance_;
 class CreateTableRequestPB;
 class CreateTableRequestPBDefaultTypeInternal;
 extern CreateTableRequestPBDefaultTypeInternal _CreateTableRequestPB_default_instance_;
 class CreateTableResponsePB;
 class CreateTableResponsePBDefaultTypeInternal;
 extern CreateTableResponsePBDefaultTypeInternal _CreateTableResponsePB_default_instance_;
+class FloatVectorValuePB;
+class FloatVectorValuePBDefaultTypeInternal;
+extern FloatVectorValuePBDefaultTypeInternal _FloatVectorValuePB_default_instance_;
+class QueryColumnPB;
+class QueryColumnPBDefaultTypeInternal;
+extern QueryColumnPBDefaultTypeInternal _QueryColumnPB_default_instance_;
 class TableSchemaPB;
 class TableSchemaPBDefaultTypeInternal;
 extern TableSchemaPBDefaultTypeInternal _TableSchemaPB_default_instance_;
+class TermQueryPB;
+class TermQueryPBDefaultTypeInternal;
+extern TermQueryPBDefaultTypeInternal _TermQueryPB_default_instance_;
 class VectorColumnInfoPB;
 class VectorColumnInfoPBDefaultTypeInternal;
 extern VectorColumnInfoPBDefaultTypeInternal _VectorColumnInfoPB_default_instance_;
+class VectorColumnValuePB;
+class VectorColumnValuePBDefaultTypeInternal;
+extern VectorColumnValuePBDefaultTypeInternal _VectorColumnValuePB_default_instance_;
 }  // namespace demo
 PROTOBUF_NAMESPACE_OPEN
+template<> ::demo::BinaryVectorValuePB* Arena::CreateMaybeMessage<::demo::BinaryVectorValuePB>(Arena*);
 template<> ::demo::ColumnSchemaPB* Arena::CreateMaybeMessage<::demo::ColumnSchemaPB>(Arena*);
 template<> ::demo::ColumnTypePB* Arena::CreateMaybeMessage<::demo::ColumnTypePB>(Arena*);
+template<> ::demo::ColumnValuePB* Arena::CreateMaybeMessage<::demo::ColumnValuePB>(Arena*);
 template<> ::demo::CreateTableRequestPB* Arena::CreateMaybeMessage<::demo::CreateTableRequestPB>(Arena*);
 template<> ::demo::CreateTableResponsePB* Arena::CreateMaybeMessage<::demo::CreateTableResponsePB>(Arena*);
+template<> ::demo::FloatVectorValuePB* Arena::CreateMaybeMessage<::demo::FloatVectorValuePB>(Arena*);
+template<> ::demo::QueryColumnPB* Arena::CreateMaybeMessage<::demo::QueryColumnPB>(Arena*);
 template<> ::demo::TableSchemaPB* Arena::CreateMaybeMessage<::demo::TableSchemaPB>(Arena*);
+template<> ::demo::TermQueryPB* Arena::CreateMaybeMessage<::demo::TermQueryPB>(Arena*);
 template<> ::demo::VectorColumnInfoPB* Arena::CreateMaybeMessage<::demo::VectorColumnInfoPB>(Arena*);
+template<> ::demo::VectorColumnValuePB* Arena::CreateMaybeMessage<::demo::VectorColumnValuePB>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace demo {
 
@@ -1027,6 +1051,1050 @@ class CreateTableResponsePB :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
 };
+// -------------------------------------------------------------------
+
+class BinaryVectorValuePB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.BinaryVectorValuePB) */ {
+ public:
+  BinaryVectorValuePB();
+  virtual ~BinaryVectorValuePB();
+
+  BinaryVectorValuePB(const BinaryVectorValuePB& from);
+  BinaryVectorValuePB(BinaryVectorValuePB&& from) noexcept
+    : BinaryVectorValuePB() {
+    *this = ::std::move(from);
+  }
+
+  inline BinaryVectorValuePB& operator=(const BinaryVectorValuePB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BinaryVectorValuePB& operator=(BinaryVectorValuePB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BinaryVectorValuePB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BinaryVectorValuePB* internal_default_instance() {
+    return reinterpret_cast<const BinaryVectorValuePB*>(
+               &_BinaryVectorValuePB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(BinaryVectorValuePB& a, BinaryVectorValuePB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BinaryVectorValuePB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BinaryVectorValuePB* New() const final {
+    return CreateMaybeMessage<BinaryVectorValuePB>(nullptr);
+  }
+
+  BinaryVectorValuePB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BinaryVectorValuePB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BinaryVectorValuePB& from);
+  void MergeFrom(const BinaryVectorValuePB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BinaryVectorValuePB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.BinaryVectorValuePB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // repeated int32 value = 1;
+  int value_size() const;
+  private:
+  int _internal_value_size() const;
+  public:
+  void clear_value();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      _internal_value() const;
+  void _internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      _internal_mutable_value();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::int32 value(int index) const;
+  void set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      mutable_value();
+
+  // @@protoc_insertion_point(class_scope:demo.BinaryVectorValuePB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > value_;
+  mutable std::atomic<int> _value_cached_byte_size_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class FloatVectorValuePB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.FloatVectorValuePB) */ {
+ public:
+  FloatVectorValuePB();
+  virtual ~FloatVectorValuePB();
+
+  FloatVectorValuePB(const FloatVectorValuePB& from);
+  FloatVectorValuePB(FloatVectorValuePB&& from) noexcept
+    : FloatVectorValuePB() {
+    *this = ::std::move(from);
+  }
+
+  inline FloatVectorValuePB& operator=(const FloatVectorValuePB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline FloatVectorValuePB& operator=(FloatVectorValuePB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const FloatVectorValuePB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const FloatVectorValuePB* internal_default_instance() {
+    return reinterpret_cast<const FloatVectorValuePB*>(
+               &_FloatVectorValuePB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(FloatVectorValuePB& a, FloatVectorValuePB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(FloatVectorValuePB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FloatVectorValuePB* New() const final {
+    return CreateMaybeMessage<FloatVectorValuePB>(nullptr);
+  }
+
+  FloatVectorValuePB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<FloatVectorValuePB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const FloatVectorValuePB& from);
+  void MergeFrom(const FloatVectorValuePB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FloatVectorValuePB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.FloatVectorValuePB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // repeated int32 value = 1;
+  int value_size() const;
+  private:
+  int _internal_value_size() const;
+  public:
+  void clear_value();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      _internal_value() const;
+  void _internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      _internal_mutable_value();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::int32 value(int index) const;
+  void set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      mutable_value();
+
+  // @@protoc_insertion_point(class_scope:demo.FloatVectorValuePB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > value_;
+  mutable std::atomic<int> _value_cached_byte_size_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class VectorColumnValuePB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.VectorColumnValuePB) */ {
+ public:
+  VectorColumnValuePB();
+  virtual ~VectorColumnValuePB();
+
+  VectorColumnValuePB(const VectorColumnValuePB& from);
+  VectorColumnValuePB(VectorColumnValuePB&& from) noexcept
+    : VectorColumnValuePB() {
+    *this = ::std::move(from);
+  }
+
+  inline VectorColumnValuePB& operator=(const VectorColumnValuePB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline VectorColumnValuePB& operator=(VectorColumnValuePB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const VectorColumnValuePB& default_instance();
+
+  enum ValueCase {
+    kFloatValue = 1,
+    kBinaryValue = 2,
+    VALUE_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const VectorColumnValuePB* internal_default_instance() {
+    return reinterpret_cast<const VectorColumnValuePB*>(
+               &_VectorColumnValuePB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(VectorColumnValuePB& a, VectorColumnValuePB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(VectorColumnValuePB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline VectorColumnValuePB* New() const final {
+    return CreateMaybeMessage<VectorColumnValuePB>(nullptr);
+  }
+
+  VectorColumnValuePB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<VectorColumnValuePB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const VectorColumnValuePB& from);
+  void MergeFrom(const VectorColumnValuePB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(VectorColumnValuePB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.VectorColumnValuePB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFloatValueFieldNumber = 1,
+    kBinaryValueFieldNumber = 2,
+  };
+  // .demo.FloatVectorValuePB float_value = 1;
+  bool has_float_value() const;
+  private:
+  bool _internal_has_float_value() const;
+  public:
+  void clear_float_value();
+  const ::demo::FloatVectorValuePB& float_value() const;
+  ::demo::FloatVectorValuePB* release_float_value();
+  ::demo::FloatVectorValuePB* mutable_float_value();
+  void set_allocated_float_value(::demo::FloatVectorValuePB* float_value);
+  private:
+  const ::demo::FloatVectorValuePB& _internal_float_value() const;
+  ::demo::FloatVectorValuePB* _internal_mutable_float_value();
+  public:
+
+  // .demo.BinaryVectorValuePB binary_value = 2;
+  bool has_binary_value() const;
+  private:
+  bool _internal_has_binary_value() const;
+  public:
+  void clear_binary_value();
+  const ::demo::BinaryVectorValuePB& binary_value() const;
+  ::demo::BinaryVectorValuePB* release_binary_value();
+  ::demo::BinaryVectorValuePB* mutable_binary_value();
+  void set_allocated_binary_value(::demo::BinaryVectorValuePB* binary_value);
+  private:
+  const ::demo::BinaryVectorValuePB& _internal_binary_value() const;
+  ::demo::BinaryVectorValuePB* _internal_mutable_binary_value();
+  public:
+
+  void clear_value();
+  ValueCase value_case() const;
+  // @@protoc_insertion_point(class_scope:demo.VectorColumnValuePB)
+ private:
+  class _Internal;
+  void set_has_float_value();
+  void set_has_binary_value();
+
+  inline bool has_value() const;
+  inline void clear_has_value();
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  union ValueUnion {
+    ValueUnion() {}
+    ::demo::FloatVectorValuePB* float_value_;
+    ::demo::BinaryVectorValuePB* binary_value_;
+  } value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ColumnValuePB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.ColumnValuePB) */ {
+ public:
+  ColumnValuePB();
+  virtual ~ColumnValuePB();
+
+  ColumnValuePB(const ColumnValuePB& from);
+  ColumnValuePB(ColumnValuePB&& from) noexcept
+    : ColumnValuePB() {
+    *this = ::std::move(from);
+  }
+
+  inline ColumnValuePB& operator=(const ColumnValuePB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ColumnValuePB& operator=(ColumnValuePB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ColumnValuePB& default_instance();
+
+  enum ValueCase {
+    kInt8Value = 1,
+    kInt16Value = 2,
+    kInt32Value = 3,
+    kInt64Value = 4,
+    kFloatValue = 5,
+    kDoubleValue = 6,
+    kStringValue = 7,
+    kBoolValue = 8,
+    kVectorValue = 9,
+    VALUE_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ColumnValuePB* internal_default_instance() {
+    return reinterpret_cast<const ColumnValuePB*>(
+               &_ColumnValuePB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(ColumnValuePB& a, ColumnValuePB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ColumnValuePB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ColumnValuePB* New() const final {
+    return CreateMaybeMessage<ColumnValuePB>(nullptr);
+  }
+
+  ColumnValuePB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ColumnValuePB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ColumnValuePB& from);
+  void MergeFrom(const ColumnValuePB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ColumnValuePB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.ColumnValuePB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kInt8ValueFieldNumber = 1,
+    kInt16ValueFieldNumber = 2,
+    kInt32ValueFieldNumber = 3,
+    kInt64ValueFieldNumber = 4,
+    kFloatValueFieldNumber = 5,
+    kDoubleValueFieldNumber = 6,
+    kStringValueFieldNumber = 7,
+    kBoolValueFieldNumber = 8,
+    kVectorValueFieldNumber = 9,
+  };
+  // int32 int8_value = 1;
+  private:
+  bool _internal_has_int8_value() const;
+  public:
+  void clear_int8_value();
+  ::PROTOBUF_NAMESPACE_ID::int32 int8_value() const;
+  void set_int8_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_int8_value() const;
+  void _internal_set_int8_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 int16_value = 2;
+  private:
+  bool _internal_has_int16_value() const;
+  public:
+  void clear_int16_value();
+  ::PROTOBUF_NAMESPACE_ID::int32 int16_value() const;
+  void set_int16_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_int16_value() const;
+  void _internal_set_int16_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 int32_value = 3;
+  private:
+  bool _internal_has_int32_value() const;
+  public:
+  void clear_int32_value();
+  ::PROTOBUF_NAMESPACE_ID::int32 int32_value() const;
+  void set_int32_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_int32_value() const;
+  void _internal_set_int32_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int64 int64_value = 4;
+  private:
+  bool _internal_has_int64_value() const;
+  public:
+  void clear_int64_value();
+  ::PROTOBUF_NAMESPACE_ID::int64 int64_value() const;
+  void set_int64_value(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_int64_value() const;
+  void _internal_set_int64_value(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // float float_value = 5;
+  private:
+  bool _internal_has_float_value() const;
+  public:
+  void clear_float_value();
+  float float_value() const;
+  void set_float_value(float value);
+  private:
+  float _internal_float_value() const;
+  void _internal_set_float_value(float value);
+  public:
+
+  // double double_value = 6;
+  private:
+  bool _internal_has_double_value() const;
+  public:
+  void clear_double_value();
+  double double_value() const;
+  void set_double_value(double value);
+  private:
+  double _internal_double_value() const;
+  void _internal_set_double_value(double value);
+  public:
+
+  // string string_value = 7;
+  private:
+  bool _internal_has_string_value() const;
+  public:
+  void clear_string_value();
+  const std::string& string_value() const;
+  void set_string_value(const std::string& value);
+  void set_string_value(std::string&& value);
+  void set_string_value(const char* value);
+  void set_string_value(const char* value, size_t size);
+  std::string* mutable_string_value();
+  std::string* release_string_value();
+  void set_allocated_string_value(std::string* string_value);
+  private:
+  const std::string& _internal_string_value() const;
+  void _internal_set_string_value(const std::string& value);
+  std::string* _internal_mutable_string_value();
+  public:
+
+  // bool bool_value = 8;
+  private:
+  bool _internal_has_bool_value() const;
+  public:
+  void clear_bool_value();
+  bool bool_value() const;
+  void set_bool_value(bool value);
+  private:
+  bool _internal_bool_value() const;
+  void _internal_set_bool_value(bool value);
+  public:
+
+  // .demo.VectorColumnValuePB vector_value = 9;
+  bool has_vector_value() const;
+  private:
+  bool _internal_has_vector_value() const;
+  public:
+  void clear_vector_value();
+  const ::demo::VectorColumnValuePB& vector_value() const;
+  ::demo::VectorColumnValuePB* release_vector_value();
+  ::demo::VectorColumnValuePB* mutable_vector_value();
+  void set_allocated_vector_value(::demo::VectorColumnValuePB* vector_value);
+  private:
+  const ::demo::VectorColumnValuePB& _internal_vector_value() const;
+  ::demo::VectorColumnValuePB* _internal_mutable_vector_value();
+  public:
+
+  void clear_value();
+  ValueCase value_case() const;
+  // @@protoc_insertion_point(class_scope:demo.ColumnValuePB)
+ private:
+  class _Internal;
+  void set_has_int8_value();
+  void set_has_int16_value();
+  void set_has_int32_value();
+  void set_has_int64_value();
+  void set_has_float_value();
+  void set_has_double_value();
+  void set_has_string_value();
+  void set_has_bool_value();
+  void set_has_vector_value();
+
+  inline bool has_value() const;
+  inline void clear_has_value();
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  union ValueUnion {
+    ValueUnion() {}
+    ::PROTOBUF_NAMESPACE_ID::int32 int8_value_;
+    ::PROTOBUF_NAMESPACE_ID::int32 int16_value_;
+    ::PROTOBUF_NAMESPACE_ID::int32 int32_value_;
+    ::PROTOBUF_NAMESPACE_ID::int64 int64_value_;
+    float float_value_;
+    double double_value_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr string_value_;
+    bool bool_value_;
+    ::demo::VectorColumnValuePB* vector_value_;
+  } value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class QueryColumnPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.QueryColumnPB) */ {
+ public:
+  QueryColumnPB();
+  virtual ~QueryColumnPB();
+
+  QueryColumnPB(const QueryColumnPB& from);
+  QueryColumnPB(QueryColumnPB&& from) noexcept
+    : QueryColumnPB() {
+    *this = ::std::move(from);
+  }
+
+  inline QueryColumnPB& operator=(const QueryColumnPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline QueryColumnPB& operator=(QueryColumnPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const QueryColumnPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const QueryColumnPB* internal_default_instance() {
+    return reinterpret_cast<const QueryColumnPB*>(
+               &_QueryColumnPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(QueryColumnPB& a, QueryColumnPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(QueryColumnPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline QueryColumnPB* New() const final {
+    return CreateMaybeMessage<QueryColumnPB>(nullptr);
+  }
+
+  QueryColumnPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<QueryColumnPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const QueryColumnPB& from);
+  void MergeFrom(const QueryColumnPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(QueryColumnPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.QueryColumnPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .demo.ColumnValuePB value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::demo::ColumnValuePB& value() const;
+  ::demo::ColumnValuePB* release_value();
+  ::demo::ColumnValuePB* mutable_value();
+  void set_allocated_value(::demo::ColumnValuePB* value);
+  private:
+  const ::demo::ColumnValuePB& _internal_value() const;
+  ::demo::ColumnValuePB* _internal_mutable_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.QueryColumnPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::demo::ColumnValuePB* value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TermQueryPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.TermQueryPB) */ {
+ public:
+  TermQueryPB();
+  virtual ~TermQueryPB();
+
+  TermQueryPB(const TermQueryPB& from);
+  TermQueryPB(TermQueryPB&& from) noexcept
+    : TermQueryPB() {
+    *this = ::std::move(from);
+  }
+
+  inline TermQueryPB& operator=(const TermQueryPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TermQueryPB& operator=(TermQueryPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const TermQueryPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TermQueryPB* internal_default_instance() {
+    return reinterpret_cast<const TermQueryPB*>(
+               &_TermQueryPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(TermQueryPB& a, TermQueryPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TermQueryPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TermQueryPB* New() const final {
+    return CreateMaybeMessage<TermQueryPB>(nullptr);
+  }
+
+  TermQueryPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<TermQueryPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const TermQueryPB& from);
+  void MergeFrom(const TermQueryPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TermQueryPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.TermQueryPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValuesFieldNumber = 2,
+    kFieldFieldNumber = 1,
+  };
+  // repeated .demo.ColumnValuePB values = 2;
+  int values_size() const;
+  private:
+  int _internal_values_size() const;
+  public:
+  void clear_values();
+  ::demo::ColumnValuePB* mutable_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB >*
+      mutable_values();
+  private:
+  const ::demo::ColumnValuePB& _internal_values(int index) const;
+  ::demo::ColumnValuePB* _internal_add_values();
+  public:
+  const ::demo::ColumnValuePB& values(int index) const;
+  ::demo::ColumnValuePB* add_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB >&
+      values() const;
+
+  // .demo.QueryColumnPB field = 1;
+  bool has_field() const;
+  private:
+  bool _internal_has_field() const;
+  public:
+  void clear_field();
+  const ::demo::QueryColumnPB& field() const;
+  ::demo::QueryColumnPB* release_field();
+  ::demo::QueryColumnPB* mutable_field();
+  void set_allocated_field(::demo::QueryColumnPB* field);
+  private:
+  const ::demo::QueryColumnPB& _internal_field() const;
+  ::demo::QueryColumnPB* _internal_mutable_field();
+  public:
+
+  // @@protoc_insertion_point(class_scope:demo.TermQueryPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB > values_;
+  ::demo::QueryColumnPB* field_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
 // ===================================================================
 
 
@@ -1652,9 +2720,869 @@ inline void CreateTableResponsePB::set_allocated_schema(::demo::TableSchemaPB* s
   // @@protoc_insertion_point(field_set_allocated:demo.CreateTableResponsePB.schema)
 }
 
+// -------------------------------------------------------------------
+
+// BinaryVectorValuePB
+
+// repeated int32 value = 1;
+inline int BinaryVectorValuePB::_internal_value_size() const {
+  return value_.size();
+}
+inline int BinaryVectorValuePB::value_size() const {
+  return _internal_value_size();
+}
+inline void BinaryVectorValuePB::clear_value() {
+  value_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 BinaryVectorValuePB::_internal_value(int index) const {
+  return value_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 BinaryVectorValuePB::value(int index) const {
+  // @@protoc_insertion_point(field_get:demo.BinaryVectorValuePB.value)
+  return _internal_value(index);
+}
+inline void BinaryVectorValuePB::set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  value_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.BinaryVectorValuePB.value)
+}
+inline void BinaryVectorValuePB::_internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  value_.Add(value);
+}
+inline void BinaryVectorValuePB::add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_value(value);
+  // @@protoc_insertion_point(field_add:demo.BinaryVectorValuePB.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+BinaryVectorValuePB::_internal_value() const {
+  return value_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+BinaryVectorValuePB::value() const {
+  // @@protoc_insertion_point(field_list:demo.BinaryVectorValuePB.value)
+  return _internal_value();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+BinaryVectorValuePB::_internal_mutable_value() {
+  return &value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+BinaryVectorValuePB::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:demo.BinaryVectorValuePB.value)
+  return _internal_mutable_value();
+}
+
+// -------------------------------------------------------------------
+
+// FloatVectorValuePB
+
+// repeated int32 value = 1;
+inline int FloatVectorValuePB::_internal_value_size() const {
+  return value_.size();
+}
+inline int FloatVectorValuePB::value_size() const {
+  return _internal_value_size();
+}
+inline void FloatVectorValuePB::clear_value() {
+  value_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 FloatVectorValuePB::_internal_value(int index) const {
+  return value_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 FloatVectorValuePB::value(int index) const {
+  // @@protoc_insertion_point(field_get:demo.FloatVectorValuePB.value)
+  return _internal_value(index);
+}
+inline void FloatVectorValuePB::set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  value_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.FloatVectorValuePB.value)
+}
+inline void FloatVectorValuePB::_internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  value_.Add(value);
+}
+inline void FloatVectorValuePB::add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_value(value);
+  // @@protoc_insertion_point(field_add:demo.FloatVectorValuePB.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+FloatVectorValuePB::_internal_value() const {
+  return value_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+FloatVectorValuePB::value() const {
+  // @@protoc_insertion_point(field_list:demo.FloatVectorValuePB.value)
+  return _internal_value();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+FloatVectorValuePB::_internal_mutable_value() {
+  return &value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+FloatVectorValuePB::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:demo.FloatVectorValuePB.value)
+  return _internal_mutable_value();
+}
+
+// -------------------------------------------------------------------
+
+// VectorColumnValuePB
+
+// .demo.FloatVectorValuePB float_value = 1;
+inline bool VectorColumnValuePB::_internal_has_float_value() const {
+  return value_case() == kFloatValue;
+}
+inline bool VectorColumnValuePB::has_float_value() const {
+  return _internal_has_float_value();
+}
+inline void VectorColumnValuePB::set_has_float_value() {
+  _oneof_case_[0] = kFloatValue;
+}
+inline void VectorColumnValuePB::clear_float_value() {
+  if (_internal_has_float_value()) {
+    delete value_.float_value_;
+    clear_has_value();
+  }
+}
+inline ::demo::FloatVectorValuePB* VectorColumnValuePB::release_float_value() {
+  // @@protoc_insertion_point(field_release:demo.VectorColumnValuePB.float_value)
+  if (has_float_value()) {
+    clear_has_value();
+      ::demo::FloatVectorValuePB* temp = value_.float_value_;
+    value_.float_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::FloatVectorValuePB& VectorColumnValuePB::_internal_float_value() const {
+  return _internal_has_float_value()
+      ? *value_.float_value_
+      : *reinterpret_cast< ::demo::FloatVectorValuePB*>(&::demo::_FloatVectorValuePB_default_instance_);
+}
+inline const ::demo::FloatVectorValuePB& VectorColumnValuePB::float_value() const {
+  // @@protoc_insertion_point(field_get:demo.VectorColumnValuePB.float_value)
+  return _internal_float_value();
+}
+inline ::demo::FloatVectorValuePB* VectorColumnValuePB::_internal_mutable_float_value() {
+  if (!_internal_has_float_value()) {
+    clear_value();
+    set_has_float_value();
+    value_.float_value_ = CreateMaybeMessage< ::demo::FloatVectorValuePB >(
+        GetArenaNoVirtual());
+  }
+  return value_.float_value_;
+}
+inline ::demo::FloatVectorValuePB* VectorColumnValuePB::mutable_float_value() {
+  // @@protoc_insertion_point(field_mutable:demo.VectorColumnValuePB.float_value)
+  return _internal_mutable_float_value();
+}
+
+// .demo.BinaryVectorValuePB binary_value = 2;
+inline bool VectorColumnValuePB::_internal_has_binary_value() const {
+  return value_case() == kBinaryValue;
+}
+inline bool VectorColumnValuePB::has_binary_value() const {
+  return _internal_has_binary_value();
+}
+inline void VectorColumnValuePB::set_has_binary_value() {
+  _oneof_case_[0] = kBinaryValue;
+}
+inline void VectorColumnValuePB::clear_binary_value() {
+  if (_internal_has_binary_value()) {
+    delete value_.binary_value_;
+    clear_has_value();
+  }
+}
+inline ::demo::BinaryVectorValuePB* VectorColumnValuePB::release_binary_value() {
+  // @@protoc_insertion_point(field_release:demo.VectorColumnValuePB.binary_value)
+  if (has_binary_value()) {
+    clear_has_value();
+      ::demo::BinaryVectorValuePB* temp = value_.binary_value_;
+    value_.binary_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::BinaryVectorValuePB& VectorColumnValuePB::_internal_binary_value() const {
+  return _internal_has_binary_value()
+      ? *value_.binary_value_
+      : *reinterpret_cast< ::demo::BinaryVectorValuePB*>(&::demo::_BinaryVectorValuePB_default_instance_);
+}
+inline const ::demo::BinaryVectorValuePB& VectorColumnValuePB::binary_value() const {
+  // @@protoc_insertion_point(field_get:demo.VectorColumnValuePB.binary_value)
+  return _internal_binary_value();
+}
+inline ::demo::BinaryVectorValuePB* VectorColumnValuePB::_internal_mutable_binary_value() {
+  if (!_internal_has_binary_value()) {
+    clear_value();
+    set_has_binary_value();
+    value_.binary_value_ = CreateMaybeMessage< ::demo::BinaryVectorValuePB >(
+        GetArenaNoVirtual());
+  }
+  return value_.binary_value_;
+}
+inline ::demo::BinaryVectorValuePB* VectorColumnValuePB::mutable_binary_value() {
+  // @@protoc_insertion_point(field_mutable:demo.VectorColumnValuePB.binary_value)
+  return _internal_mutable_binary_value();
+}
+
+inline bool VectorColumnValuePB::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+inline void VectorColumnValuePB::clear_has_value() {
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+inline VectorColumnValuePB::ValueCase VectorColumnValuePB::value_case() const {
+  return VectorColumnValuePB::ValueCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// ColumnValuePB
+
+// int32 int8_value = 1;
+inline bool ColumnValuePB::_internal_has_int8_value() const {
+  return value_case() == kInt8Value;
+}
+inline void ColumnValuePB::set_has_int8_value() {
+  _oneof_case_[0] = kInt8Value;
+}
+inline void ColumnValuePB::clear_int8_value() {
+  if (_internal_has_int8_value()) {
+    value_.int8_value_ = 0;
+    clear_has_value();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::_internal_int8_value() const {
+  if (_internal_has_int8_value()) {
+    return value_.int8_value_;
+  }
+  return 0;
+}
+inline void ColumnValuePB::_internal_set_int8_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  if (!_internal_has_int8_value()) {
+    clear_value();
+    set_has_int8_value();
+  }
+  value_.int8_value_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::int8_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.int8_value)
+  return _internal_int8_value();
+}
+inline void ColumnValuePB::set_int8_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_int8_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.int8_value)
+}
+
+// int32 int16_value = 2;
+inline bool ColumnValuePB::_internal_has_int16_value() const {
+  return value_case() == kInt16Value;
+}
+inline void ColumnValuePB::set_has_int16_value() {
+  _oneof_case_[0] = kInt16Value;
+}
+inline void ColumnValuePB::clear_int16_value() {
+  if (_internal_has_int16_value()) {
+    value_.int16_value_ = 0;
+    clear_has_value();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::_internal_int16_value() const {
+  if (_internal_has_int16_value()) {
+    return value_.int16_value_;
+  }
+  return 0;
+}
+inline void ColumnValuePB::_internal_set_int16_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  if (!_internal_has_int16_value()) {
+    clear_value();
+    set_has_int16_value();
+  }
+  value_.int16_value_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::int16_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.int16_value)
+  return _internal_int16_value();
+}
+inline void ColumnValuePB::set_int16_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_int16_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.int16_value)
+}
+
+// int32 int32_value = 3;
+inline bool ColumnValuePB::_internal_has_int32_value() const {
+  return value_case() == kInt32Value;
+}
+inline void ColumnValuePB::set_has_int32_value() {
+  _oneof_case_[0] = kInt32Value;
+}
+inline void ColumnValuePB::clear_int32_value() {
+  if (_internal_has_int32_value()) {
+    value_.int32_value_ = 0;
+    clear_has_value();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::_internal_int32_value() const {
+  if (_internal_has_int32_value()) {
+    return value_.int32_value_;
+  }
+  return 0;
+}
+inline void ColumnValuePB::_internal_set_int32_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  if (!_internal_has_int32_value()) {
+    clear_value();
+    set_has_int32_value();
+  }
+  value_.int32_value_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ColumnValuePB::int32_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.int32_value)
+  return _internal_int32_value();
+}
+inline void ColumnValuePB::set_int32_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_int32_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.int32_value)
+}
+
+// int64 int64_value = 4;
+inline bool ColumnValuePB::_internal_has_int64_value() const {
+  return value_case() == kInt64Value;
+}
+inline void ColumnValuePB::set_has_int64_value() {
+  _oneof_case_[0] = kInt64Value;
+}
+inline void ColumnValuePB::clear_int64_value() {
+  if (_internal_has_int64_value()) {
+    value_.int64_value_ = PROTOBUF_LONGLONG(0);
+    clear_has_value();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ColumnValuePB::_internal_int64_value() const {
+  if (_internal_has_int64_value()) {
+    return value_.int64_value_;
+  }
+  return PROTOBUF_LONGLONG(0);
+}
+inline void ColumnValuePB::_internal_set_int64_value(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  if (!_internal_has_int64_value()) {
+    clear_value();
+    set_has_int64_value();
+  }
+  value_.int64_value_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ColumnValuePB::int64_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.int64_value)
+  return _internal_int64_value();
+}
+inline void ColumnValuePB::set_int64_value(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_int64_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.int64_value)
+}
+
+// float float_value = 5;
+inline bool ColumnValuePB::_internal_has_float_value() const {
+  return value_case() == kFloatValue;
+}
+inline void ColumnValuePB::set_has_float_value() {
+  _oneof_case_[0] = kFloatValue;
+}
+inline void ColumnValuePB::clear_float_value() {
+  if (_internal_has_float_value()) {
+    value_.float_value_ = 0;
+    clear_has_value();
+  }
+}
+inline float ColumnValuePB::_internal_float_value() const {
+  if (_internal_has_float_value()) {
+    return value_.float_value_;
+  }
+  return 0;
+}
+inline void ColumnValuePB::_internal_set_float_value(float value) {
+  if (!_internal_has_float_value()) {
+    clear_value();
+    set_has_float_value();
+  }
+  value_.float_value_ = value;
+}
+inline float ColumnValuePB::float_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.float_value)
+  return _internal_float_value();
+}
+inline void ColumnValuePB::set_float_value(float value) {
+  _internal_set_float_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.float_value)
+}
+
+// double double_value = 6;
+inline bool ColumnValuePB::_internal_has_double_value() const {
+  return value_case() == kDoubleValue;
+}
+inline void ColumnValuePB::set_has_double_value() {
+  _oneof_case_[0] = kDoubleValue;
+}
+inline void ColumnValuePB::clear_double_value() {
+  if (_internal_has_double_value()) {
+    value_.double_value_ = 0;
+    clear_has_value();
+  }
+}
+inline double ColumnValuePB::_internal_double_value() const {
+  if (_internal_has_double_value()) {
+    return value_.double_value_;
+  }
+  return 0;
+}
+inline void ColumnValuePB::_internal_set_double_value(double value) {
+  if (!_internal_has_double_value()) {
+    clear_value();
+    set_has_double_value();
+  }
+  value_.double_value_ = value;
+}
+inline double ColumnValuePB::double_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.double_value)
+  return _internal_double_value();
+}
+inline void ColumnValuePB::set_double_value(double value) {
+  _internal_set_double_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.double_value)
+}
+
+// string string_value = 7;
+inline bool ColumnValuePB::_internal_has_string_value() const {
+  return value_case() == kStringValue;
+}
+inline void ColumnValuePB::set_has_string_value() {
+  _oneof_case_[0] = kStringValue;
+}
+inline void ColumnValuePB::clear_string_value() {
+  if (_internal_has_string_value()) {
+    value_.string_value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    clear_has_value();
+  }
+}
+inline const std::string& ColumnValuePB::string_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.string_value)
+  return _internal_string_value();
+}
+inline void ColumnValuePB::set_string_value(const std::string& value) {
+  _internal_set_string_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.string_value)
+}
+inline std::string* ColumnValuePB::mutable_string_value() {
+  // @@protoc_insertion_point(field_mutable:demo.ColumnValuePB.string_value)
+  return _internal_mutable_string_value();
+}
+inline const std::string& ColumnValuePB::_internal_string_value() const {
+  if (_internal_has_string_value()) {
+    return value_.string_value_.GetNoArena();
+  }
+  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void ColumnValuePB::_internal_set_string_value(const std::string& value) {
+  if (!_internal_has_string_value()) {
+    clear_value();
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.string_value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void ColumnValuePB::set_string_value(std::string&& value) {
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.string_value)
+  if (!_internal_has_string_value()) {
+    clear_value();
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.string_value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.ColumnValuePB.string_value)
+}
+inline void ColumnValuePB::set_string_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_string_value()) {
+    clear_value();
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.string_value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.ColumnValuePB.string_value)
+}
+inline void ColumnValuePB::set_string_value(const char* value, size_t size) {
+  if (!_internal_has_string_value()) {
+    clear_value();
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.string_value_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.ColumnValuePB.string_value)
+}
+inline std::string* ColumnValuePB::_internal_mutable_string_value() {
+  if (!_internal_has_string_value()) {
+    clear_value();
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return value_.string_value_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* ColumnValuePB::release_string_value() {
+  // @@protoc_insertion_point(field_release:demo.ColumnValuePB.string_value)
+  if (_internal_has_string_value()) {
+    clear_has_value();
+    return value_.string_value_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return nullptr;
+  }
+}
+inline void ColumnValuePB::set_allocated_string_value(std::string* string_value) {
+  if (has_value()) {
+    clear_value();
+  }
+  if (string_value != nullptr) {
+    set_has_string_value();
+    value_.string_value_.UnsafeSetDefault(string_value);
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.ColumnValuePB.string_value)
+}
+
+// bool bool_value = 8;
+inline bool ColumnValuePB::_internal_has_bool_value() const {
+  return value_case() == kBoolValue;
+}
+inline void ColumnValuePB::set_has_bool_value() {
+  _oneof_case_[0] = kBoolValue;
+}
+inline void ColumnValuePB::clear_bool_value() {
+  if (_internal_has_bool_value()) {
+    value_.bool_value_ = false;
+    clear_has_value();
+  }
+}
+inline bool ColumnValuePB::_internal_bool_value() const {
+  if (_internal_has_bool_value()) {
+    return value_.bool_value_;
+  }
+  return false;
+}
+inline void ColumnValuePB::_internal_set_bool_value(bool value) {
+  if (!_internal_has_bool_value()) {
+    clear_value();
+    set_has_bool_value();
+  }
+  value_.bool_value_ = value;
+}
+inline bool ColumnValuePB::bool_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.bool_value)
+  return _internal_bool_value();
+}
+inline void ColumnValuePB::set_bool_value(bool value) {
+  _internal_set_bool_value(value);
+  // @@protoc_insertion_point(field_set:demo.ColumnValuePB.bool_value)
+}
+
+// .demo.VectorColumnValuePB vector_value = 9;
+inline bool ColumnValuePB::_internal_has_vector_value() const {
+  return value_case() == kVectorValue;
+}
+inline bool ColumnValuePB::has_vector_value() const {
+  return _internal_has_vector_value();
+}
+inline void ColumnValuePB::set_has_vector_value() {
+  _oneof_case_[0] = kVectorValue;
+}
+inline void ColumnValuePB::clear_vector_value() {
+  if (_internal_has_vector_value()) {
+    delete value_.vector_value_;
+    clear_has_value();
+  }
+}
+inline ::demo::VectorColumnValuePB* ColumnValuePB::release_vector_value() {
+  // @@protoc_insertion_point(field_release:demo.ColumnValuePB.vector_value)
+  if (has_vector_value()) {
+    clear_has_value();
+      ::demo::VectorColumnValuePB* temp = value_.vector_value_;
+    value_.vector_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::VectorColumnValuePB& ColumnValuePB::_internal_vector_value() const {
+  return _internal_has_vector_value()
+      ? *value_.vector_value_
+      : *reinterpret_cast< ::demo::VectorColumnValuePB*>(&::demo::_VectorColumnValuePB_default_instance_);
+}
+inline const ::demo::VectorColumnValuePB& ColumnValuePB::vector_value() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnValuePB.vector_value)
+  return _internal_vector_value();
+}
+inline ::demo::VectorColumnValuePB* ColumnValuePB::_internal_mutable_vector_value() {
+  if (!_internal_has_vector_value()) {
+    clear_value();
+    set_has_vector_value();
+    value_.vector_value_ = CreateMaybeMessage< ::demo::VectorColumnValuePB >(
+        GetArenaNoVirtual());
+  }
+  return value_.vector_value_;
+}
+inline ::demo::VectorColumnValuePB* ColumnValuePB::mutable_vector_value() {
+  // @@protoc_insertion_point(field_mutable:demo.ColumnValuePB.vector_value)
+  return _internal_mutable_vector_value();
+}
+
+inline bool ColumnValuePB::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+inline void ColumnValuePB::clear_has_value() {
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+inline ColumnValuePB::ValueCase ColumnValuePB::value_case() const {
+  return ColumnValuePB::ValueCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// QueryColumnPB
+
+// string name = 1;
+inline void QueryColumnPB::clear_name() {
+  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& QueryColumnPB::name() const {
+  // @@protoc_insertion_point(field_get:demo.QueryColumnPB.name)
+  return _internal_name();
+}
+inline void QueryColumnPB::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:demo.QueryColumnPB.name)
+}
+inline std::string* QueryColumnPB::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:demo.QueryColumnPB.name)
+  return _internal_mutable_name();
+}
+inline const std::string& QueryColumnPB::_internal_name() const {
+  return name_.GetNoArena();
+}
+inline void QueryColumnPB::_internal_set_name(const std::string& value) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void QueryColumnPB::set_name(std::string&& value) {
+  
+  name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.QueryColumnPB.name)
+}
+inline void QueryColumnPB::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.QueryColumnPB.name)
+}
+inline void QueryColumnPB::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.QueryColumnPB.name)
+}
+inline std::string* QueryColumnPB::_internal_mutable_name() {
+  
+  return name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* QueryColumnPB::release_name() {
+  // @@protoc_insertion_point(field_release:demo.QueryColumnPB.name)
+  
+  return name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void QueryColumnPB::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:demo.QueryColumnPB.name)
+}
+
+// .demo.ColumnValuePB value = 2;
+inline bool QueryColumnPB::_internal_has_value() const {
+  return this != internal_default_instance() && value_ != nullptr;
+}
+inline bool QueryColumnPB::has_value() const {
+  return _internal_has_value();
+}
+inline void QueryColumnPB::clear_value() {
+  if (GetArenaNoVirtual() == nullptr && value_ != nullptr) {
+    delete value_;
+  }
+  value_ = nullptr;
+}
+inline const ::demo::ColumnValuePB& QueryColumnPB::_internal_value() const {
+  const ::demo::ColumnValuePB* p = value_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::ColumnValuePB*>(
+      &::demo::_ColumnValuePB_default_instance_);
+}
+inline const ::demo::ColumnValuePB& QueryColumnPB::value() const {
+  // @@protoc_insertion_point(field_get:demo.QueryColumnPB.value)
+  return _internal_value();
+}
+inline ::demo::ColumnValuePB* QueryColumnPB::release_value() {
+  // @@protoc_insertion_point(field_release:demo.QueryColumnPB.value)
+  
+  ::demo::ColumnValuePB* temp = value_;
+  value_ = nullptr;
+  return temp;
+}
+inline ::demo::ColumnValuePB* QueryColumnPB::_internal_mutable_value() {
+  
+  if (value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::ColumnValuePB>(GetArenaNoVirtual());
+    value_ = p;
+  }
+  return value_;
+}
+inline ::demo::ColumnValuePB* QueryColumnPB::mutable_value() {
+  // @@protoc_insertion_point(field_mutable:demo.QueryColumnPB.value)
+  return _internal_mutable_value();
+}
+inline void QueryColumnPB::set_allocated_value(::demo::ColumnValuePB* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:demo.QueryColumnPB.value)
+}
+
+// -------------------------------------------------------------------
+
+// TermQueryPB
+
+// .demo.QueryColumnPB field = 1;
+inline bool TermQueryPB::_internal_has_field() const {
+  return this != internal_default_instance() && field_ != nullptr;
+}
+inline bool TermQueryPB::has_field() const {
+  return _internal_has_field();
+}
+inline void TermQueryPB::clear_field() {
+  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
+}
+inline const ::demo::QueryColumnPB& TermQueryPB::_internal_field() const {
+  const ::demo::QueryColumnPB* p = field_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::QueryColumnPB*>(
+      &::demo::_QueryColumnPB_default_instance_);
+}
+inline const ::demo::QueryColumnPB& TermQueryPB::field() const {
+  // @@protoc_insertion_point(field_get:demo.TermQueryPB.field)
+  return _internal_field();
+}
+inline ::demo::QueryColumnPB* TermQueryPB::release_field() {
+  // @@protoc_insertion_point(field_release:demo.TermQueryPB.field)
+  
+  ::demo::QueryColumnPB* temp = field_;
+  field_ = nullptr;
+  return temp;
+}
+inline ::demo::QueryColumnPB* TermQueryPB::_internal_mutable_field() {
+  
+  if (field_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::QueryColumnPB>(GetArenaNoVirtual());
+    field_ = p;
+  }
+  return field_;
+}
+inline ::demo::QueryColumnPB* TermQueryPB::mutable_field() {
+  // @@protoc_insertion_point(field_mutable:demo.TermQueryPB.field)
+  return _internal_mutable_field();
+}
+inline void TermQueryPB::set_allocated_field(::demo::QueryColumnPB* field) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete field_;
+  }
+  if (field) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, field, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  field_ = field;
+  // @@protoc_insertion_point(field_set_allocated:demo.TermQueryPB.field)
+}
+
+// repeated .demo.ColumnValuePB values = 2;
+inline int TermQueryPB::_internal_values_size() const {
+  return values_.size();
+}
+inline int TermQueryPB::values_size() const {
+  return _internal_values_size();
+}
+inline void TermQueryPB::clear_values() {
+  values_.Clear();
+}
+inline ::demo::ColumnValuePB* TermQueryPB::mutable_values(int index) {
+  // @@protoc_insertion_point(field_mutable:demo.TermQueryPB.values)
+  return values_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB >*
+TermQueryPB::mutable_values() {
+  // @@protoc_insertion_point(field_mutable_list:demo.TermQueryPB.values)
+  return &values_;
+}
+inline const ::demo::ColumnValuePB& TermQueryPB::_internal_values(int index) const {
+  return values_.Get(index);
+}
+inline const ::demo::ColumnValuePB& TermQueryPB::values(int index) const {
+  // @@protoc_insertion_point(field_get:demo.TermQueryPB.values)
+  return _internal_values(index);
+}
+inline ::demo::ColumnValuePB* TermQueryPB::_internal_add_values() {
+  return values_.Add();
+}
+inline ::demo::ColumnValuePB* TermQueryPB::add_values() {
+  // @@protoc_insertion_point(field_add:demo.TermQueryPB.values)
+  return _internal_add_values();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB >&
+TermQueryPB::values() const {
+  // @@protoc_insertion_point(field_list:demo.TermQueryPB.values)
+  return values_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

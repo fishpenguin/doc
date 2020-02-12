@@ -54,6 +54,45 @@ message CreateTableResponsePB {
     TableSchemaPB schema = 2;
 }
 
+message BinaryVectorValuePB {
+    repeated int32 value = 1;
+}
+
+message FloatVectorValuePB {
+    repeated int32 value = 1;
+}
+
+message VectorColumnValuePB {
+    oneof value {
+        FloatVectorValuePB float_value = 1;
+        BinaryVectorValuePB binary_value = 2;
+    }
+}
+
+message ColumnValuePB {
+    oneof value {
+        int32 int8_value = 1;
+        int32 int16_value = 2;
+        int32 int32_value = 3;
+        int64 int64_value = 4;
+        float float_value = 5;
+        double double_value = 6;
+        string string_value = 7;
+        bool  bool_value = 8;
+        VectorColumnValuePB vector_value = 9;
+    }
+}
+
+message QueryColumnPB {
+    string name = 1;
+    ColumnValuePB value = 2;
+}
+
+message TermQueryPB {
+    QueryColumnPB field = 1;
+    repeated ColumnValuePB values = 2;
+}
+
 service DemoService {
     rpc CreateTable(CreateTableRequestPB) returns (CreateTableResponsePB) {}
 }

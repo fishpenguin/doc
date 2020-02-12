@@ -14,11 +14,16 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BinaryVectorValuePB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnSchemaPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnTypePB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnValuePB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatVectorValuePB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryColumnPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_status_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Status_status_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TableSchemaPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorColumnInfoPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_VectorColumnValuePB_common_2eproto;
 namespace demo {
 class VectorColumnInfoPBDefaultTypeInternal {
  public:
@@ -44,7 +49,56 @@ class CreateTableResponsePBDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateTableResponsePB> _instance;
 } _CreateTableResponsePB_default_instance_;
+class BinaryVectorValuePBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BinaryVectorValuePB> _instance;
+} _BinaryVectorValuePB_default_instance_;
+class FloatVectorValuePBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FloatVectorValuePB> _instance;
+} _FloatVectorValuePB_default_instance_;
+class VectorColumnValuePBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VectorColumnValuePB> _instance;
+  const ::demo::FloatVectorValuePB* float_value_;
+  const ::demo::BinaryVectorValuePB* binary_value_;
+} _VectorColumnValuePB_default_instance_;
+class ColumnValuePBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ColumnValuePB> _instance;
+  ::PROTOBUF_NAMESPACE_ID::int32 int8_value_;
+  ::PROTOBUF_NAMESPACE_ID::int32 int16_value_;
+  ::PROTOBUF_NAMESPACE_ID::int32 int32_value_;
+  ::PROTOBUF_NAMESPACE_ID::int64 int64_value_;
+  float float_value_;
+  double double_value_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr string_value_;
+  bool bool_value_;
+  const ::demo::VectorColumnValuePB* vector_value_;
+} _ColumnValuePB_default_instance_;
+class QueryColumnPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QueryColumnPB> _instance;
+} _QueryColumnPB_default_instance_;
+class TermQueryPBDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TermQueryPB> _instance;
+} _TermQueryPB_default_instance_;
 }  // namespace demo
+static void InitDefaultsscc_info_BinaryVectorValuePB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_BinaryVectorValuePB_default_instance_;
+    new (ptr) ::demo::BinaryVectorValuePB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::BinaryVectorValuePB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BinaryVectorValuePB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BinaryVectorValuePB_common_2eproto}, {}};
+
 static void InitDefaultsscc_info_ColumnSchemaPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -74,6 +128,21 @@ static void InitDefaultsscc_info_ColumnTypePB_common_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnTypePB_common_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ColumnTypePB_common_2eproto}, {
       &scc_info_VectorColumnInfoPB_common_2eproto.base,}};
+
+static void InitDefaultsscc_info_ColumnValuePB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_ColumnValuePB_default_instance_;
+    new (ptr) ::demo::ColumnValuePB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::ColumnValuePB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ColumnValuePB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ColumnValuePB_common_2eproto}, {
+      &scc_info_VectorColumnValuePB_common_2eproto.base,}};
 
 static void InitDefaultsscc_info_CreateTableRequestPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -106,6 +175,35 @@ static void InitDefaultsscc_info_CreateTableResponsePB_common_2eproto() {
       &scc_info_Status_status_2eproto.base,
       &scc_info_TableSchemaPB_common_2eproto.base,}};
 
+static void InitDefaultsscc_info_FloatVectorValuePB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_FloatVectorValuePB_default_instance_;
+    new (ptr) ::demo::FloatVectorValuePB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::FloatVectorValuePB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatVectorValuePB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_FloatVectorValuePB_common_2eproto}, {}};
+
+static void InitDefaultsscc_info_QueryColumnPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_QueryColumnPB_default_instance_;
+    new (ptr) ::demo::QueryColumnPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::QueryColumnPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryColumnPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QueryColumnPB_common_2eproto}, {
+      &scc_info_ColumnValuePB_common_2eproto.base,}};
+
 static void InitDefaultsscc_info_TableSchemaPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -121,6 +219,22 @@ static void InitDefaultsscc_info_TableSchemaPB_common_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TableSchemaPB_common_2eproto}, {
       &scc_info_ColumnSchemaPB_common_2eproto.base,}};
 
+static void InitDefaultsscc_info_TermQueryPB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_TermQueryPB_default_instance_;
+    new (ptr) ::demo::TermQueryPB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::TermQueryPB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_TermQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_TermQueryPB_common_2eproto}, {
+      &scc_info_QueryColumnPB_common_2eproto.base,
+      &scc_info_ColumnValuePB_common_2eproto.base,}};
+
 static void InitDefaultsscc_info_VectorColumnInfoPB_common_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -135,7 +249,23 @@ static void InitDefaultsscc_info_VectorColumnInfoPB_common_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorColumnInfoPB_common_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_VectorColumnInfoPB_common_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_common_2eproto[6];
+static void InitDefaultsscc_info_VectorColumnValuePB_common_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::demo::_VectorColumnValuePB_default_instance_;
+    new (ptr) ::demo::VectorColumnValuePB();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::demo::VectorColumnValuePB::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_VectorColumnValuePB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_VectorColumnValuePB_common_2eproto}, {
+      &scc_info_FloatVectorValuePB_common_2eproto.base,
+      &scc_info_BinaryVectorValuePB_common_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_common_2eproto[12];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_common_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_common_2eproto = nullptr;
 
@@ -184,6 +314,55 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::demo::CreateTableResponsePB, status_),
   PROTOBUF_FIELD_OFFSET(::demo::CreateTableResponsePB, schema_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryVectorValuePB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::BinaryVectorValuePB, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::FloatVectorValuePB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::FloatVectorValuePB, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::VectorColumnValuePB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::demo::VectorColumnValuePB, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::demo::VectorColumnValuePBDefaultTypeInternal, float_value_),
+  offsetof(::demo::VectorColumnValuePBDefaultTypeInternal, binary_value_),
+  PROTOBUF_FIELD_OFFSET(::demo::VectorColumnValuePB, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::ColumnValuePB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::demo::ColumnValuePB, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, int8_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, int16_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, int32_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, int64_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, float_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, double_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, string_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, bool_value_),
+  offsetof(::demo::ColumnValuePBDefaultTypeInternal, vector_value_),
+  PROTOBUF_FIELD_OFFSET(::demo::ColumnValuePB, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryColumnPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::QueryColumnPB, name_),
+  PROTOBUF_FIELD_OFFSET(::demo::QueryColumnPB, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, field_),
+  PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, values_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::demo::VectorColumnInfoPB)},
@@ -192,6 +371,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 22, -1, sizeof(::demo::TableSchemaPB)},
   { 30, -1, sizeof(::demo::CreateTableRequestPB)},
   { 37, -1, sizeof(::demo::CreateTableResponsePB)},
+  { 44, -1, sizeof(::demo::BinaryVectorValuePB)},
+  { 50, -1, sizeof(::demo::FloatVectorValuePB)},
+  { 56, -1, sizeof(::demo::VectorColumnValuePB)},
+  { 64, -1, sizeof(::demo::ColumnValuePB)},
+  { 79, -1, sizeof(::demo::QueryColumnPB)},
+  { 86, -1, sizeof(::demo::TermQueryPB)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -201,6 +386,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_TableSchemaPB_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_CreateTableRequestPB_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_CreateTableResponsePB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_BinaryVectorValuePB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_FloatVectorValuePB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_VectorColumnValuePB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_ColumnValuePB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_QueryColumnPB_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::demo::_TermQueryPB_default_instance_),
 };
 
 const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -217,30 +408,54 @@ const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "\001(\004\022#\n\006schema\030\002 \001(\0132\023.demo.TableSchemaPB"
   "\"Z\n\025CreateTableResponsePB\022\034\n\006status\030\001 \001("
   "\0132\014.demo.Status\022#\n\006schema\030\002 \001(\0132\023.demo.T"
-  "ableSchemaPB*\225\001\n\010DataType\022\010\n\004NULL\020\000\022\010\n\004I"
-  "NT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n"
-  "\n\006STRING\020\024\022\010\n\004BOOL\020\036\022\t\n\005FLOAT\020(\022\r\n\tHALFF"
-  "LOAT\020)\022\n\n\006DOUBLE\020*\022\n\n\006VECTOR\020d\022\014\n\007UNKNOW"
-  "N\020\217Nb\006proto3"
+  "ableSchemaPB\"$\n\023BinaryVectorValuePB\022\r\n\005v"
+  "alue\030\001 \003(\005\"#\n\022FloatVectorValuePB\022\r\n\005valu"
+  "e\030\001 \003(\005\"\202\001\n\023VectorColumnValuePB\022/\n\013float"
+  "_value\030\001 \001(\0132\030.demo.FloatVectorValuePBH\000"
+  "\0221\n\014binary_value\030\002 \001(\0132\031.demo.BinaryVect"
+  "orValuePBH\000B\007\n\005value\"\203\002\n\rColumnValuePB\022\024"
+  "\n\nint8_value\030\001 \001(\005H\000\022\025\n\013int16_value\030\002 \001("
+  "\005H\000\022\025\n\013int32_value\030\003 \001(\005H\000\022\025\n\013int64_valu"
+  "e\030\004 \001(\003H\000\022\025\n\013float_value\030\005 \001(\002H\000\022\026\n\014doub"
+  "le_value\030\006 \001(\001H\000\022\026\n\014string_value\030\007 \001(\tH\000"
+  "\022\024\n\nbool_value\030\010 \001(\010H\000\0221\n\014vector_value\030\t"
+  " \001(\0132\031.demo.VectorColumnValuePBH\000B\007\n\005val"
+  "ue\"A\n\rQueryColumnPB\022\014\n\004name\030\001 \001(\t\022\"\n\005val"
+  "ue\030\002 \001(\0132\023.demo.ColumnValuePB\"V\n\013TermQue"
+  "ryPB\022\"\n\005field\030\001 \001(\0132\023.demo.QueryColumnPB"
+  "\022#\n\006values\030\002 \003(\0132\023.demo.ColumnValuePB*\225\001"
+  "\n\010DataType\022\010\n\004NULL\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020"
+  "\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n\n\006STRING\020\024\022\010\n\004B"
+  "OOL\020\036\022\t\n\005FLOAT\020(\022\r\n\tHALFFLOAT\020)\022\n\n\006DOUBL"
+  "E\020*\022\n\n\006VECTOR\020d\022\014\n\007UNKNOWN\020\217N2W\n\013DemoSer"
+  "vice\022H\n\013CreateTable\022\032.demo.CreateTableRe"
+  "questPB\032\033.demo.CreateTableResponsePB\"\000b\006"
+  "proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_common_2eproto_deps[1] = {
   &::descriptor_table_status_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_common_2eproto_sccs[6] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_common_2eproto_sccs[12] = {
+  &scc_info_BinaryVectorValuePB_common_2eproto.base,
   &scc_info_ColumnSchemaPB_common_2eproto.base,
   &scc_info_ColumnTypePB_common_2eproto.base,
+  &scc_info_ColumnValuePB_common_2eproto.base,
   &scc_info_CreateTableRequestPB_common_2eproto.base,
   &scc_info_CreateTableResponsePB_common_2eproto.base,
+  &scc_info_FloatVectorValuePB_common_2eproto.base,
+  &scc_info_QueryColumnPB_common_2eproto.base,
   &scc_info_TableSchemaPB_common_2eproto.base,
+  &scc_info_TermQueryPB_common_2eproto.base,
   &scc_info_VectorColumnInfoPB_common_2eproto.base,
+  &scc_info_VectorColumnValuePB_common_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_common_2eproto_once;
 static bool descriptor_table_common_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_common_2eproto = {
-  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 692,
-  &descriptor_table_common_2eproto_once, descriptor_table_common_2eproto_sccs, descriptor_table_common_2eproto_deps, 6, 1,
+  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 1406,
+  &descriptor_table_common_2eproto_once, descriptor_table_common_2eproto_sccs, descriptor_table_common_2eproto_deps, 12, 1,
   schemas, file_default_instances, TableStruct_common_2eproto::offsets,
-  file_level_metadata_common_2eproto, 6, file_level_enum_descriptors_common_2eproto, file_level_service_descriptors_common_2eproto,
+  file_level_metadata_common_2eproto, 12, file_level_enum_descriptors_common_2eproto, file_level_service_descriptors_common_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1746,6 +1961,1692 @@ void CreateTableResponsePB::InternalSwap(CreateTableResponsePB* other) {
 }
 
 
+// ===================================================================
+
+void BinaryVectorValuePB::InitAsDefaultInstance() {
+}
+class BinaryVectorValuePB::_Internal {
+ public:
+};
+
+BinaryVectorValuePB::BinaryVectorValuePB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.BinaryVectorValuePB)
+}
+BinaryVectorValuePB::BinaryVectorValuePB(const BinaryVectorValuePB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      value_(from.value_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:demo.BinaryVectorValuePB)
+}
+
+void BinaryVectorValuePB::SharedCtor() {
+}
+
+BinaryVectorValuePB::~BinaryVectorValuePB() {
+  // @@protoc_insertion_point(destructor:demo.BinaryVectorValuePB)
+  SharedDtor();
+}
+
+void BinaryVectorValuePB::SharedDtor() {
+}
+
+void BinaryVectorValuePB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BinaryVectorValuePB& BinaryVectorValuePB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BinaryVectorValuePB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BinaryVectorValuePB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.BinaryVectorValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  value_.Clear();
+  _internal_metadata_.Clear();
+}
+
+const char* BinaryVectorValuePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated int32 value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_value(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+          _internal_add_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BinaryVectorValuePB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.BinaryVectorValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 value = 1;
+  {
+    int byte_size = _value_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          1, _internal_value(), byte_size, target);
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.BinaryVectorValuePB)
+  return target;
+}
+
+size_t BinaryVectorValuePB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.BinaryVectorValuePB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 value = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->value_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _value_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BinaryVectorValuePB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.BinaryVectorValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BinaryVectorValuePB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BinaryVectorValuePB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.BinaryVectorValuePB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.BinaryVectorValuePB)
+    MergeFrom(*source);
+  }
+}
+
+void BinaryVectorValuePB::MergeFrom(const BinaryVectorValuePB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.BinaryVectorValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  value_.MergeFrom(from.value_);
+}
+
+void BinaryVectorValuePB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.BinaryVectorValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BinaryVectorValuePB::CopyFrom(const BinaryVectorValuePB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.BinaryVectorValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BinaryVectorValuePB::IsInitialized() const {
+  return true;
+}
+
+void BinaryVectorValuePB::InternalSwap(BinaryVectorValuePB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  value_.InternalSwap(&other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BinaryVectorValuePB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void FloatVectorValuePB::InitAsDefaultInstance() {
+}
+class FloatVectorValuePB::_Internal {
+ public:
+};
+
+FloatVectorValuePB::FloatVectorValuePB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.FloatVectorValuePB)
+}
+FloatVectorValuePB::FloatVectorValuePB(const FloatVectorValuePB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      value_(from.value_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:demo.FloatVectorValuePB)
+}
+
+void FloatVectorValuePB::SharedCtor() {
+}
+
+FloatVectorValuePB::~FloatVectorValuePB() {
+  // @@protoc_insertion_point(destructor:demo.FloatVectorValuePB)
+  SharedDtor();
+}
+
+void FloatVectorValuePB::SharedDtor() {
+}
+
+void FloatVectorValuePB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FloatVectorValuePB& FloatVectorValuePB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FloatVectorValuePB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FloatVectorValuePB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.FloatVectorValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  value_.Clear();
+  _internal_metadata_.Clear();
+}
+
+const char* FloatVectorValuePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated int32 value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_value(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+          _internal_add_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FloatVectorValuePB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.FloatVectorValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 value = 1;
+  {
+    int byte_size = _value_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          1, _internal_value(), byte_size, target);
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.FloatVectorValuePB)
+  return target;
+}
+
+size_t FloatVectorValuePB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.FloatVectorValuePB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 value = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->value_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _value_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FloatVectorValuePB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.FloatVectorValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FloatVectorValuePB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FloatVectorValuePB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.FloatVectorValuePB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.FloatVectorValuePB)
+    MergeFrom(*source);
+  }
+}
+
+void FloatVectorValuePB::MergeFrom(const FloatVectorValuePB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.FloatVectorValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  value_.MergeFrom(from.value_);
+}
+
+void FloatVectorValuePB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.FloatVectorValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FloatVectorValuePB::CopyFrom(const FloatVectorValuePB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.FloatVectorValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FloatVectorValuePB::IsInitialized() const {
+  return true;
+}
+
+void FloatVectorValuePB::InternalSwap(FloatVectorValuePB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  value_.InternalSwap(&other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FloatVectorValuePB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void VectorColumnValuePB::InitAsDefaultInstance() {
+  ::demo::_VectorColumnValuePB_default_instance_.float_value_ = const_cast< ::demo::FloatVectorValuePB*>(
+      ::demo::FloatVectorValuePB::internal_default_instance());
+  ::demo::_VectorColumnValuePB_default_instance_.binary_value_ = const_cast< ::demo::BinaryVectorValuePB*>(
+      ::demo::BinaryVectorValuePB::internal_default_instance());
+}
+class VectorColumnValuePB::_Internal {
+ public:
+  static const ::demo::FloatVectorValuePB& float_value(const VectorColumnValuePB* msg);
+  static const ::demo::BinaryVectorValuePB& binary_value(const VectorColumnValuePB* msg);
+};
+
+const ::demo::FloatVectorValuePB&
+VectorColumnValuePB::_Internal::float_value(const VectorColumnValuePB* msg) {
+  return *msg->value_.float_value_;
+}
+const ::demo::BinaryVectorValuePB&
+VectorColumnValuePB::_Internal::binary_value(const VectorColumnValuePB* msg) {
+  return *msg->value_.binary_value_;
+}
+void VectorColumnValuePB::set_allocated_float_value(::demo::FloatVectorValuePB* float_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_value();
+  if (float_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      float_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, float_value, submessage_arena);
+    }
+    set_has_float_value();
+    value_.float_value_ = float_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.VectorColumnValuePB.float_value)
+}
+void VectorColumnValuePB::set_allocated_binary_value(::demo::BinaryVectorValuePB* binary_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_value();
+  if (binary_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      binary_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, binary_value, submessage_arena);
+    }
+    set_has_binary_value();
+    value_.binary_value_ = binary_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.VectorColumnValuePB.binary_value)
+}
+VectorColumnValuePB::VectorColumnValuePB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.VectorColumnValuePB)
+}
+VectorColumnValuePB::VectorColumnValuePB(const VectorColumnValuePB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_value();
+  switch (from.value_case()) {
+    case kFloatValue: {
+      _internal_mutable_float_value()->::demo::FloatVectorValuePB::MergeFrom(from._internal_float_value());
+      break;
+    }
+    case kBinaryValue: {
+      _internal_mutable_binary_value()->::demo::BinaryVectorValuePB::MergeFrom(from._internal_binary_value());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.VectorColumnValuePB)
+}
+
+void VectorColumnValuePB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_VectorColumnValuePB_common_2eproto.base);
+  clear_has_value();
+}
+
+VectorColumnValuePB::~VectorColumnValuePB() {
+  // @@protoc_insertion_point(destructor:demo.VectorColumnValuePB)
+  SharedDtor();
+}
+
+void VectorColumnValuePB::SharedDtor() {
+  if (has_value()) {
+    clear_value();
+  }
+}
+
+void VectorColumnValuePB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const VectorColumnValuePB& VectorColumnValuePB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_VectorColumnValuePB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void VectorColumnValuePB::clear_value() {
+// @@protoc_insertion_point(one_of_clear_start:demo.VectorColumnValuePB)
+  switch (value_case()) {
+    case kFloatValue: {
+      delete value_.float_value_;
+      break;
+    }
+    case kBinaryValue: {
+      delete value_.binary_value_;
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
+void VectorColumnValuePB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.VectorColumnValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_value();
+  _internal_metadata_.Clear();
+}
+
+const char* VectorColumnValuePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.FloatVectorValuePB float_value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_float_value(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.BinaryVectorValuePB binary_value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_binary_value(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* VectorColumnValuePB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.VectorColumnValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.FloatVectorValuePB float_value = 1;
+  if (_internal_has_float_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::float_value(this), target, stream);
+  }
+
+  // .demo.BinaryVectorValuePB binary_value = 2;
+  if (_internal_has_binary_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::binary_value(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.VectorColumnValuePB)
+  return target;
+}
+
+size_t VectorColumnValuePB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.VectorColumnValuePB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (value_case()) {
+    // .demo.FloatVectorValuePB float_value = 1;
+    case kFloatValue: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *value_.float_value_);
+      break;
+    }
+    // .demo.BinaryVectorValuePB binary_value = 2;
+    case kBinaryValue: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *value_.binary_value_);
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void VectorColumnValuePB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.VectorColumnValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const VectorColumnValuePB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<VectorColumnValuePB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.VectorColumnValuePB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.VectorColumnValuePB)
+    MergeFrom(*source);
+  }
+}
+
+void VectorColumnValuePB::MergeFrom(const VectorColumnValuePB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.VectorColumnValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.value_case()) {
+    case kFloatValue: {
+      _internal_mutable_float_value()->::demo::FloatVectorValuePB::MergeFrom(from._internal_float_value());
+      break;
+    }
+    case kBinaryValue: {
+      _internal_mutable_binary_value()->::demo::BinaryVectorValuePB::MergeFrom(from._internal_binary_value());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void VectorColumnValuePB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.VectorColumnValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VectorColumnValuePB::CopyFrom(const VectorColumnValuePB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.VectorColumnValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VectorColumnValuePB::IsInitialized() const {
+  return true;
+}
+
+void VectorColumnValuePB::InternalSwap(VectorColumnValuePB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(value_, other->value_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VectorColumnValuePB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void ColumnValuePB::InitAsDefaultInstance() {
+  ::demo::_ColumnValuePB_default_instance_.int8_value_ = 0;
+  ::demo::_ColumnValuePB_default_instance_.int16_value_ = 0;
+  ::demo::_ColumnValuePB_default_instance_.int32_value_ = 0;
+  ::demo::_ColumnValuePB_default_instance_.int64_value_ = PROTOBUF_LONGLONG(0);
+  ::demo::_ColumnValuePB_default_instance_.float_value_ = 0;
+  ::demo::_ColumnValuePB_default_instance_.double_value_ = 0;
+  ::demo::_ColumnValuePB_default_instance_.string_value_.UnsafeSetDefault(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::demo::_ColumnValuePB_default_instance_.bool_value_ = false;
+  ::demo::_ColumnValuePB_default_instance_.vector_value_ = const_cast< ::demo::VectorColumnValuePB*>(
+      ::demo::VectorColumnValuePB::internal_default_instance());
+}
+class ColumnValuePB::_Internal {
+ public:
+  static const ::demo::VectorColumnValuePB& vector_value(const ColumnValuePB* msg);
+};
+
+const ::demo::VectorColumnValuePB&
+ColumnValuePB::_Internal::vector_value(const ColumnValuePB* msg) {
+  return *msg->value_.vector_value_;
+}
+void ColumnValuePB::set_allocated_vector_value(::demo::VectorColumnValuePB* vector_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_value();
+  if (vector_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      vector_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, vector_value, submessage_arena);
+    }
+    set_has_vector_value();
+    value_.vector_value_ = vector_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.ColumnValuePB.vector_value)
+}
+ColumnValuePB::ColumnValuePB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.ColumnValuePB)
+}
+ColumnValuePB::ColumnValuePB(const ColumnValuePB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_value();
+  switch (from.value_case()) {
+    case kInt8Value: {
+      _internal_set_int8_value(from._internal_int8_value());
+      break;
+    }
+    case kInt16Value: {
+      _internal_set_int16_value(from._internal_int16_value());
+      break;
+    }
+    case kInt32Value: {
+      _internal_set_int32_value(from._internal_int32_value());
+      break;
+    }
+    case kInt64Value: {
+      _internal_set_int64_value(from._internal_int64_value());
+      break;
+    }
+    case kFloatValue: {
+      _internal_set_float_value(from._internal_float_value());
+      break;
+    }
+    case kDoubleValue: {
+      _internal_set_double_value(from._internal_double_value());
+      break;
+    }
+    case kStringValue: {
+      _internal_set_string_value(from._internal_string_value());
+      break;
+    }
+    case kBoolValue: {
+      _internal_set_bool_value(from._internal_bool_value());
+      break;
+    }
+    case kVectorValue: {
+      _internal_mutable_vector_value()->::demo::VectorColumnValuePB::MergeFrom(from._internal_vector_value());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.ColumnValuePB)
+}
+
+void ColumnValuePB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ColumnValuePB_common_2eproto.base);
+  clear_has_value();
+}
+
+ColumnValuePB::~ColumnValuePB() {
+  // @@protoc_insertion_point(destructor:demo.ColumnValuePB)
+  SharedDtor();
+}
+
+void ColumnValuePB::SharedDtor() {
+  if (has_value()) {
+    clear_value();
+  }
+}
+
+void ColumnValuePB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ColumnValuePB& ColumnValuePB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ColumnValuePB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ColumnValuePB::clear_value() {
+// @@protoc_insertion_point(one_of_clear_start:demo.ColumnValuePB)
+  switch (value_case()) {
+    case kInt8Value: {
+      // No need to clear
+      break;
+    }
+    case kInt16Value: {
+      // No need to clear
+      break;
+    }
+    case kInt32Value: {
+      // No need to clear
+      break;
+    }
+    case kInt64Value: {
+      // No need to clear
+      break;
+    }
+    case kFloatValue: {
+      // No need to clear
+      break;
+    }
+    case kDoubleValue: {
+      // No need to clear
+      break;
+    }
+    case kStringValue: {
+      value_.string_value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kBoolValue: {
+      // No need to clear
+      break;
+    }
+    case kVectorValue: {
+      delete value_.vector_value_;
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
+void ColumnValuePB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.ColumnValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_value();
+  _internal_metadata_.Clear();
+}
+
+const char* ColumnValuePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 int8_value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _internal_set_int8_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 int16_value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _internal_set_int16_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 int32_value = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _internal_set_int32_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 int64_value = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _internal_set_int64_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float float_value = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
+          _internal_set_float_value(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // double double_value = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          _internal_set_double_value(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // string string_value = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_string_value(), ptr, ctx, "demo.ColumnValuePB.string_value");
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool bool_value = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _internal_set_bool_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.VectorColumnValuePB vector_value = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_vector_value(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ColumnValuePB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.ColumnValuePB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 int8_value = 1;
+  if (_internal_has_int8_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_int8_value(), target);
+  }
+
+  // int32 int16_value = 2;
+  if (_internal_has_int16_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_int16_value(), target);
+  }
+
+  // int32 int32_value = 3;
+  if (_internal_has_int32_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_int32_value(), target);
+  }
+
+  // int64 int64_value = 4;
+  if (_internal_has_int64_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_int64_value(), target);
+  }
+
+  // float float_value = 5;
+  if (_internal_has_float_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_float_value(), target);
+  }
+
+  // double double_value = 6;
+  if (_internal_has_double_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_double_value(), target);
+  }
+
+  // string string_value = 7;
+  if (_internal_has_string_value()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_string_value().data(), static_cast<int>(this->_internal_string_value().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.ColumnValuePB.string_value");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_string_value(), target);
+  }
+
+  // bool bool_value = 8;
+  if (_internal_has_bool_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_bool_value(), target);
+  }
+
+  // .demo.VectorColumnValuePB vector_value = 9;
+  if (_internal_has_vector_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        9, _Internal::vector_value(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.ColumnValuePB)
+  return target;
+}
+
+size_t ColumnValuePB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.ColumnValuePB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (value_case()) {
+    // int32 int8_value = 1;
+    case kInt8Value: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_int8_value());
+      break;
+    }
+    // int32 int16_value = 2;
+    case kInt16Value: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_int16_value());
+      break;
+    }
+    // int32 int32_value = 3;
+    case kInt32Value: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_int32_value());
+      break;
+    }
+    // int64 int64_value = 4;
+    case kInt64Value: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+          this->_internal_int64_value());
+      break;
+    }
+    // float float_value = 5;
+    case kFloatValue: {
+      total_size += 1 + 4;
+      break;
+    }
+    // double double_value = 6;
+    case kDoubleValue: {
+      total_size += 1 + 8;
+      break;
+    }
+    // string string_value = 7;
+    case kStringValue: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_string_value());
+      break;
+    }
+    // bool bool_value = 8;
+    case kBoolValue: {
+      total_size += 1 + 1;
+      break;
+    }
+    // .demo.VectorColumnValuePB vector_value = 9;
+    case kVectorValue: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *value_.vector_value_);
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ColumnValuePB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.ColumnValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ColumnValuePB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ColumnValuePB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.ColumnValuePB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.ColumnValuePB)
+    MergeFrom(*source);
+  }
+}
+
+void ColumnValuePB::MergeFrom(const ColumnValuePB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.ColumnValuePB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.value_case()) {
+    case kInt8Value: {
+      _internal_set_int8_value(from._internal_int8_value());
+      break;
+    }
+    case kInt16Value: {
+      _internal_set_int16_value(from._internal_int16_value());
+      break;
+    }
+    case kInt32Value: {
+      _internal_set_int32_value(from._internal_int32_value());
+      break;
+    }
+    case kInt64Value: {
+      _internal_set_int64_value(from._internal_int64_value());
+      break;
+    }
+    case kFloatValue: {
+      _internal_set_float_value(from._internal_float_value());
+      break;
+    }
+    case kDoubleValue: {
+      _internal_set_double_value(from._internal_double_value());
+      break;
+    }
+    case kStringValue: {
+      _internal_set_string_value(from._internal_string_value());
+      break;
+    }
+    case kBoolValue: {
+      _internal_set_bool_value(from._internal_bool_value());
+      break;
+    }
+    case kVectorValue: {
+      _internal_mutable_vector_value()->::demo::VectorColumnValuePB::MergeFrom(from._internal_vector_value());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void ColumnValuePB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.ColumnValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ColumnValuePB::CopyFrom(const ColumnValuePB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.ColumnValuePB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ColumnValuePB::IsInitialized() const {
+  return true;
+}
+
+void ColumnValuePB::InternalSwap(ColumnValuePB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(value_, other->value_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ColumnValuePB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void QueryColumnPB::InitAsDefaultInstance() {
+  ::demo::_QueryColumnPB_default_instance_._instance.get_mutable()->value_ = const_cast< ::demo::ColumnValuePB*>(
+      ::demo::ColumnValuePB::internal_default_instance());
+}
+class QueryColumnPB::_Internal {
+ public:
+  static const ::demo::ColumnValuePB& value(const QueryColumnPB* msg);
+};
+
+const ::demo::ColumnValuePB&
+QueryColumnPB::_Internal::value(const QueryColumnPB* msg) {
+  return *msg->value_;
+}
+QueryColumnPB::QueryColumnPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.QueryColumnPB)
+}
+QueryColumnPB::QueryColumnPB(const QueryColumnPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from._internal_has_value()) {
+    value_ = new ::demo::ColumnValuePB(*from.value_);
+  } else {
+    value_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.QueryColumnPB)
+}
+
+void QueryColumnPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QueryColumnPB_common_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_ = nullptr;
+}
+
+QueryColumnPB::~QueryColumnPB() {
+  // @@protoc_insertion_point(destructor:demo.QueryColumnPB)
+  SharedDtor();
+}
+
+void QueryColumnPB::SharedDtor() {
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete value_;
+}
+
+void QueryColumnPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QueryColumnPB& QueryColumnPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QueryColumnPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QueryColumnPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.QueryColumnPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && value_ != nullptr) {
+    delete value_;
+  }
+  value_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* QueryColumnPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_name(), ptr, ctx, "demo.QueryColumnPB.name");
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .demo.ColumnValuePB value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QueryColumnPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.QueryColumnPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.QueryColumnPB.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // .demo.ColumnValuePB value = 2;
+  if (this->has_value()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, _Internal::value(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.QueryColumnPB)
+  return target;
+}
+
+size_t QueryColumnPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.QueryColumnPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // .demo.ColumnValuePB value = 2;
+  if (this->has_value()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *value_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QueryColumnPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.QueryColumnPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QueryColumnPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QueryColumnPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.QueryColumnPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.QueryColumnPB)
+    MergeFrom(*source);
+  }
+}
+
+void QueryColumnPB::MergeFrom(const QueryColumnPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.QueryColumnPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.has_value()) {
+    _internal_mutable_value()->::demo::ColumnValuePB::MergeFrom(from._internal_value());
+  }
+}
+
+void QueryColumnPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.QueryColumnPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QueryColumnPB::CopyFrom(const QueryColumnPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.QueryColumnPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryColumnPB::IsInitialized() const {
+  return true;
+}
+
+void QueryColumnPB::InternalSwap(QueryColumnPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(value_, other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QueryColumnPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void TermQueryPB::InitAsDefaultInstance() {
+  ::demo::_TermQueryPB_default_instance_._instance.get_mutable()->field_ = const_cast< ::demo::QueryColumnPB*>(
+      ::demo::QueryColumnPB::internal_default_instance());
+}
+class TermQueryPB::_Internal {
+ public:
+  static const ::demo::QueryColumnPB& field(const TermQueryPB* msg);
+};
+
+const ::demo::QueryColumnPB&
+TermQueryPB::_Internal::field(const TermQueryPB* msg) {
+  return *msg->field_;
+}
+TermQueryPB::TermQueryPB()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:demo.TermQueryPB)
+}
+TermQueryPB::TermQueryPB(const TermQueryPB& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      values_(from.values_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_field()) {
+    field_ = new ::demo::QueryColumnPB(*from.field_);
+  } else {
+    field_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:demo.TermQueryPB)
+}
+
+void TermQueryPB::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TermQueryPB_common_2eproto.base);
+  field_ = nullptr;
+}
+
+TermQueryPB::~TermQueryPB() {
+  // @@protoc_insertion_point(destructor:demo.TermQueryPB)
+  SharedDtor();
+}
+
+void TermQueryPB::SharedDtor() {
+  if (this != internal_default_instance()) delete field_;
+}
+
+void TermQueryPB::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const TermQueryPB& TermQueryPB::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TermQueryPB_common_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void TermQueryPB::Clear() {
+// @@protoc_insertion_point(message_clear_start:demo.TermQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  values_.Clear();
+  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* TermQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .demo.QueryColumnPB field = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_field(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .demo.ColumnValuePB values = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_values(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* TermQueryPB::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:demo.TermQueryPB)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .demo.QueryColumnPB field = 1;
+  if (this->has_field()) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::field(this), target, stream);
+  }
+
+  // repeated .demo.ColumnValuePB values = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_values_size()); i < n; i++) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(2, this->_internal_values(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:demo.TermQueryPB)
+  return target;
+}
+
+size_t TermQueryPB::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:demo.TermQueryPB)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .demo.ColumnValuePB values = 2;
+  total_size += 1UL * this->_internal_values_size();
+  for (const auto& msg : this->values_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .demo.QueryColumnPB field = 1;
+  if (this->has_field()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *field_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void TermQueryPB::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:demo.TermQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  const TermQueryPB* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TermQueryPB>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:demo.TermQueryPB)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:demo.TermQueryPB)
+    MergeFrom(*source);
+  }
+}
+
+void TermQueryPB::MergeFrom(const TermQueryPB& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:demo.TermQueryPB)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  values_.MergeFrom(from.values_);
+  if (from.has_field()) {
+    _internal_mutable_field()->::demo::QueryColumnPB::MergeFrom(from._internal_field());
+  }
+}
+
+void TermQueryPB::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:demo.TermQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TermQueryPB::CopyFrom(const TermQueryPB& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:demo.TermQueryPB)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TermQueryPB::IsInitialized() const {
+  return true;
+}
+
+void TermQueryPB::InternalSwap(TermQueryPB* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  values_.InternalSwap(&other->values_);
+  swap(field_, other->field_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TermQueryPB::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace demo
 PROTOBUF_NAMESPACE_OPEN
@@ -1766,6 +3667,24 @@ template<> PROTOBUF_NOINLINE ::demo::CreateTableRequestPB* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::demo::CreateTableResponsePB* Arena::CreateMaybeMessage< ::demo::CreateTableResponsePB >(Arena* arena) {
   return Arena::CreateInternal< ::demo::CreateTableResponsePB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::BinaryVectorValuePB* Arena::CreateMaybeMessage< ::demo::BinaryVectorValuePB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::BinaryVectorValuePB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::FloatVectorValuePB* Arena::CreateMaybeMessage< ::demo::FloatVectorValuePB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::FloatVectorValuePB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::VectorColumnValuePB* Arena::CreateMaybeMessage< ::demo::VectorColumnValuePB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::VectorColumnValuePB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::ColumnValuePB* Arena::CreateMaybeMessage< ::demo::ColumnValuePB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::ColumnValuePB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::QueryColumnPB* Arena::CreateMaybeMessage< ::demo::QueryColumnPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::QueryColumnPB >(arena);
+}
+template<> PROTOBUF_NOINLINE ::demo::TermQueryPB* Arena::CreateMaybeMessage< ::demo::TermQueryPB >(Arena* arena) {
+  return Arena::CreateInternal< ::demo::TermQueryPB >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
