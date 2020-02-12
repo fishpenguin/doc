@@ -53,3 +53,7 @@ message CreateTableResponsePB {
     Status status = 1;
     TableSchemaPB schema = 2;
 }
+
+service DemoService {
+    rpc CreateTable(CreateTableRequestPB) returns (CreateTableResponsePB) {}
+}
