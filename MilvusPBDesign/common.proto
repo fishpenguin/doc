@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "status.proto";
 package demo;
 
 enum DataType {
@@ -45,5 +46,10 @@ message TableSchemaPB {
 
 message CreateTableRequestPB {
     uint64 request_id = 1;
+    TableSchemaPB schema = 2;
+}
+
+message CreateTableResponsePB {
+    Status status = 1;
     TableSchemaPB schema = 2;
 }
