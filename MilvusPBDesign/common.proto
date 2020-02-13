@@ -59,7 +59,7 @@ message BinaryVectorValuePB {
 }
 
 message FloatVectorValuePB {
-    repeated int32 value = 1;
+    repeated float value = 1;
 }
 
 message VectorColumnValuePB {

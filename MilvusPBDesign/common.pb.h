@@ -1393,26 +1393,26 @@ class FloatVectorValuePB :
   enum : int {
     kValueFieldNumber = 1,
   };
-  // repeated int32 value = 1;
+  // repeated float value = 1;
   int value_size() const;
   private:
   int _internal_value_size() const;
   public:
   void clear_value();
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+  float _internal_value(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
       _internal_value() const;
-  void _internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+  void _internal_add_value(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       _internal_mutable_value();
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 value(int index) const;
-  void set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+  float value(int index) const;
+  void set_value(int index, float value);
+  void add_value(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
       value() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_value();
 
   // @@protoc_insertion_point(class_scope:demo.FloatVectorValuePB)
@@ -1420,7 +1420,7 @@ class FloatVectorValuePB :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > value_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > value_;
   mutable std::atomic<int> _value_cached_byte_size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
@@ -4164,7 +4164,7 @@ BinaryVectorValuePB::mutable_value() {
 
 // FloatVectorValuePB
 
-// repeated int32 value = 1;
+// repeated float value = 1;
 inline int FloatVectorValuePB::_internal_value_size() const {
   return value_.size();
 }
@@ -4174,38 +4174,38 @@ inline int FloatVectorValuePB::value_size() const {
 inline void FloatVectorValuePB::clear_value() {
   value_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 FloatVectorValuePB::_internal_value(int index) const {
+inline float FloatVectorValuePB::_internal_value(int index) const {
   return value_.Get(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 FloatVectorValuePB::value(int index) const {
+inline float FloatVectorValuePB::value(int index) const {
   // @@protoc_insertion_point(field_get:demo.FloatVectorValuePB.value)
   return _internal_value(index);
 }
-inline void FloatVectorValuePB::set_value(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void FloatVectorValuePB::set_value(int index, float value) {
   value_.Set(index, value);
   // @@protoc_insertion_point(field_set:demo.FloatVectorValuePB.value)
 }
-inline void FloatVectorValuePB::_internal_add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void FloatVectorValuePB::_internal_add_value(float value) {
   value_.Add(value);
 }
-inline void FloatVectorValuePB::add_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void FloatVectorValuePB::add_value(float value) {
   _internal_add_value(value);
   // @@protoc_insertion_point(field_add:demo.FloatVectorValuePB.value)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
 FloatVectorValuePB::_internal_value() const {
   return value_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
 FloatVectorValuePB::value() const {
   // @@protoc_insertion_point(field_list:demo.FloatVectorValuePB.value)
   return _internal_value();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
 FloatVectorValuePB::_internal_mutable_value() {
   return &value_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
 FloatVectorValuePB::mutable_value() {
   // @@protoc_insertion_point(field_mutable_list:demo.FloatVectorValuePB.value)
   return _internal_mutable_value();

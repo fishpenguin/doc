@@ -644,7 +644,7 @@ const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "\0132\014.demo.Status\022#\n\006schema\030\002 \001(\0132\023.demo.T"
   "ableSchemaPB\"$\n\023BinaryVectorValuePB\022\r\n\005v"
   "alue\030\001 \003(\005\"#\n\022FloatVectorValuePB\022\r\n\005valu"
-  "e\030\001 \003(\005\"\202\001\n\023VectorColumnValuePB\022/\n\013float"
+  "e\030\001 \003(\002\"\202\001\n\023VectorColumnValuePB\022/\n\013float"
   "_value\030\001 \001(\0132\030.demo.FloatVectorValuePBH\000"
   "\0221\n\014binary_value\030\002 \001(\0132\031.demo.BinaryVect"
   "orValuePBH\000B\007\n\005value\"\203\002\n\rColumnValuePB\022\024"
@@ -2500,14 +2500,14 @@ const char* FloatVectorValuePB::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated int32 value = 1;
+      // repeated float value = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_value(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_value(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
-          _internal_add_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr));
-          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+          _internal_add_value(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
       default: {
@@ -2536,13 +2536,9 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int32 value = 1;
-  {
-    int byte_size = _value_cached_byte_size_.load(std::memory_order_relaxed);
-    if (byte_size > 0) {
-      target = stream->WriteInt32Packed(
-          1, _internal_value(), byte_size, target);
-    }
+  // repeated float value = 1;
+  if (this->_internal_value_size() > 0) {
+    target = stream->WriteFixedPacked(1, _internal_value(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2561,10 +2557,10 @@ size_t FloatVectorValuePB::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated int32 value = 1;
+  // repeated float value = 1;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      Int32Size(this->value_);
+    unsigned int count = static_cast<unsigned int>(this->_internal_value_size());
+    size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
