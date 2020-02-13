@@ -787,10 +787,28 @@ class TableSchemaPB :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 2,
     kColumnsFieldNumber = 3,
+    kNameFieldNumber = 2,
     kIdFieldNumber = 1,
   };
+  // repeated .demo.ColumnSchemaPB columns = 3;
+  int columns_size() const;
+  private:
+  int _internal_columns_size() const;
+  public:
+  void clear_columns();
+  ::demo::ColumnSchemaPB* mutable_columns(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnSchemaPB >*
+      mutable_columns();
+  private:
+  const ::demo::ColumnSchemaPB& _internal_columns(int index) const;
+  ::demo::ColumnSchemaPB* _internal_add_columns();
+  public:
+  const ::demo::ColumnSchemaPB& columns(int index) const;
+  ::demo::ColumnSchemaPB* add_columns();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnSchemaPB >&
+      columns() const;
+
   // string name = 2;
   void clear_name();
   const std::string& name() const;
@@ -807,21 +825,6 @@ class TableSchemaPB :
   std::string* _internal_mutable_name();
   public:
 
-  // .demo.ColumnSchemaPB columns = 3;
-  bool has_columns() const;
-  private:
-  bool _internal_has_columns() const;
-  public:
-  void clear_columns();
-  const ::demo::ColumnSchemaPB& columns() const;
-  ::demo::ColumnSchemaPB* release_columns();
-  ::demo::ColumnSchemaPB* mutable_columns();
-  void set_allocated_columns(::demo::ColumnSchemaPB* columns);
-  private:
-  const ::demo::ColumnSchemaPB& _internal_columns() const;
-  ::demo::ColumnSchemaPB* _internal_mutable_columns();
-  public:
-
   // uint64 id = 1;
   void clear_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 id() const;
@@ -836,8 +839,8 @@ class TableSchemaPB :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnSchemaPB > columns_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::demo::ColumnSchemaPB* columns_;
   ::PROTOBUF_NAMESPACE_ID::uint64 id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
@@ -3865,64 +3868,43 @@ inline void TableSchemaPB::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:demo.TableSchemaPB.name)
 }
 
-// .demo.ColumnSchemaPB columns = 3;
-inline bool TableSchemaPB::_internal_has_columns() const {
-  return this != internal_default_instance() && columns_ != nullptr;
+// repeated .demo.ColumnSchemaPB columns = 3;
+inline int TableSchemaPB::_internal_columns_size() const {
+  return columns_.size();
 }
-inline bool TableSchemaPB::has_columns() const {
-  return _internal_has_columns();
+inline int TableSchemaPB::columns_size() const {
+  return _internal_columns_size();
 }
 inline void TableSchemaPB::clear_columns() {
-  if (GetArenaNoVirtual() == nullptr && columns_ != nullptr) {
-    delete columns_;
-  }
-  columns_ = nullptr;
+  columns_.Clear();
 }
-inline const ::demo::ColumnSchemaPB& TableSchemaPB::_internal_columns() const {
-  const ::demo::ColumnSchemaPB* p = columns_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::demo::ColumnSchemaPB*>(
-      &::demo::_ColumnSchemaPB_default_instance_);
-}
-inline const ::demo::ColumnSchemaPB& TableSchemaPB::columns() const {
-  // @@protoc_insertion_point(field_get:demo.TableSchemaPB.columns)
-  return _internal_columns();
-}
-inline ::demo::ColumnSchemaPB* TableSchemaPB::release_columns() {
-  // @@protoc_insertion_point(field_release:demo.TableSchemaPB.columns)
-  
-  ::demo::ColumnSchemaPB* temp = columns_;
-  columns_ = nullptr;
-  return temp;
-}
-inline ::demo::ColumnSchemaPB* TableSchemaPB::_internal_mutable_columns() {
-  
-  if (columns_ == nullptr) {
-    auto* p = CreateMaybeMessage<::demo::ColumnSchemaPB>(GetArenaNoVirtual());
-    columns_ = p;
-  }
-  return columns_;
-}
-inline ::demo::ColumnSchemaPB* TableSchemaPB::mutable_columns() {
+inline ::demo::ColumnSchemaPB* TableSchemaPB::mutable_columns(int index) {
   // @@protoc_insertion_point(field_mutable:demo.TableSchemaPB.columns)
-  return _internal_mutable_columns();
+  return columns_.Mutable(index);
 }
-inline void TableSchemaPB::set_allocated_columns(::demo::ColumnSchemaPB* columns) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete columns_;
-  }
-  if (columns) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      columns = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, columns, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  columns_ = columns;
-  // @@protoc_insertion_point(field_set_allocated:demo.TableSchemaPB.columns)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnSchemaPB >*
+TableSchemaPB::mutable_columns() {
+  // @@protoc_insertion_point(field_mutable_list:demo.TableSchemaPB.columns)
+  return &columns_;
+}
+inline const ::demo::ColumnSchemaPB& TableSchemaPB::_internal_columns(int index) const {
+  return columns_.Get(index);
+}
+inline const ::demo::ColumnSchemaPB& TableSchemaPB::columns(int index) const {
+  // @@protoc_insertion_point(field_get:demo.TableSchemaPB.columns)
+  return _internal_columns(index);
+}
+inline ::demo::ColumnSchemaPB* TableSchemaPB::_internal_add_columns() {
+  return columns_.Add();
+}
+inline ::demo::ColumnSchemaPB* TableSchemaPB::add_columns() {
+  // @@protoc_insertion_point(field_add:demo.TableSchemaPB.columns)
+  return _internal_add_columns();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnSchemaPB >&
+TableSchemaPB::columns() const {
+  // @@protoc_insertion_point(field_list:demo.TableSchemaPB.columns)
+  return columns_;
 }
 
 // -------------------------------------------------------------------

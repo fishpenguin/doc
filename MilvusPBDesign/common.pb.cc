@@ -637,7 +637,7 @@ const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "L\n\016ColumnSchemaPB\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 "
   "\001(\t\022 \n\004type\030\003 \001(\0132\022.demo.ColumnTypePB\"P\n"
   "\rTableSchemaPB\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t"
-  "\022%\n\007columns\030\003 \001(\0132\024.demo.ColumnSchemaPB\""
+  "\022%\n\007columns\030\003 \003(\0132\024.demo.ColumnSchemaPB\""
   "O\n\024CreateTableRequestPB\022\022\n\nrequest_id\030\001 "
   "\001(\004\022#\n\006schema\030\002 \001(\0132\023.demo.TableSchemaPB"
   "\"Z\n\025CreateTableResponsePB\022\034\n\006status\030\001 \001("
@@ -1506,18 +1506,11 @@ void ColumnSchemaPB::InternalSwap(ColumnSchemaPB* other) {
 // ===================================================================
 
 void TableSchemaPB::InitAsDefaultInstance() {
-  ::demo::_TableSchemaPB_default_instance_._instance.get_mutable()->columns_ = const_cast< ::demo::ColumnSchemaPB*>(
-      ::demo::ColumnSchemaPB::internal_default_instance());
 }
 class TableSchemaPB::_Internal {
  public:
-  static const ::demo::ColumnSchemaPB& columns(const TableSchemaPB* msg);
 };
 
-const ::demo::ColumnSchemaPB&
-TableSchemaPB::_Internal::columns(const TableSchemaPB* msg) {
-  return *msg->columns_;
-}
 TableSchemaPB::TableSchemaPB()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -1525,16 +1518,12 @@ TableSchemaPB::TableSchemaPB()
 }
 TableSchemaPB::TableSchemaPB(const TableSchemaPB& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      columns_(from.columns_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  if (from._internal_has_columns()) {
-    columns_ = new ::demo::ColumnSchemaPB(*from.columns_);
-  } else {
-    columns_ = nullptr;
   }
   id_ = from.id_;
   // @@protoc_insertion_point(copy_constructor:demo.TableSchemaPB)
@@ -1543,9 +1532,7 @@ TableSchemaPB::TableSchemaPB(const TableSchemaPB& from)
 void TableSchemaPB::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TableSchemaPB_common_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&columns_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&id_) -
-      reinterpret_cast<char*>(&columns_)) + sizeof(id_));
+  id_ = PROTOBUF_ULONGLONG(0);
 }
 
 TableSchemaPB::~TableSchemaPB() {
@@ -1555,7 +1542,6 @@ TableSchemaPB::~TableSchemaPB() {
 
 void TableSchemaPB::SharedDtor() {
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete columns_;
 }
 
 void TableSchemaPB::SetCachedSize(int size) const {
@@ -1573,11 +1559,8 @@ void TableSchemaPB::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  columns_.Clear();
   name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && columns_ != nullptr) {
-    delete columns_;
-  }
-  columns_ = nullptr;
   id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
@@ -1603,11 +1586,16 @@ const char* TableSchemaPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .demo.ColumnSchemaPB columns = 3;
+      // repeated .demo.ColumnSchemaPB columns = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_columns(), ptr);
-          CHK_(ptr);
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_columns(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1652,12 +1640,12 @@ failure:
         2, this->_internal_name(), target);
   }
 
-  // .demo.ColumnSchemaPB columns = 3;
-  if (this->has_columns()) {
+  // repeated .demo.ColumnSchemaPB columns = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_columns_size()); i < n; i++) {
     stream->EnsureSpace(&target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        3, _Internal::columns(this), target, stream);
+      InternalWriteMessageToArray(3, this->_internal_columns(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1676,18 +1664,18 @@ size_t TableSchemaPB::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated .demo.ColumnSchemaPB columns = 3;
+  total_size += 1UL * this->_internal_columns_size();
+  for (const auto& msg : this->columns_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   // string name = 2;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
-  }
-
-  // .demo.ColumnSchemaPB columns = 3;
-  if (this->has_columns()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *columns_);
   }
 
   // uint64 id = 1;
@@ -1728,12 +1716,10 @@ void TableSchemaPB::MergeFrom(const TableSchemaPB& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  columns_.MergeFrom(from.columns_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  if (from.has_columns()) {
-    _internal_mutable_columns()->::demo::ColumnSchemaPB::MergeFrom(from._internal_columns());
   }
   if (from.id() != 0) {
     _internal_set_id(from._internal_id());
@@ -1761,9 +1747,9 @@ bool TableSchemaPB::IsInitialized() const {
 void TableSchemaPB::InternalSwap(TableSchemaPB* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  columns_.InternalSwap(&other->columns_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(columns_, other->columns_);
   swap(id_, other->id_);
 }
 

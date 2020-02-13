@@ -41,7 +41,7 @@ message ColumnSchemaPB {
 message TableSchemaPB {
     uint64 id = 1;
     string name = 2;
-    ColumnSchemaPB columns = 3;
+    repeated ColumnSchemaPB columns = 3;
 }
 
 message CreateTableRequestPB {
