@@ -1,0 +1,231 @@
+{
+    "query": {
+        "bool": {
+            "must":[
+                {"term": {"field_0": []}},
+                {"term": {"field_1": []}}
+            ],
+            "should": [
+                {"term": {"field_2": []}},
+                {"term": {"field_3": []}}
+            ],
+            "must_not": [
+                {"range" : {
+                    "<field3>" : {"gte": "<min value>", "lte": "<max value>"}
+                }
+                }
+            ]
+        },
+        "vector": {
+            "head": {
+                "nprobe": 64,
+                "topk": 100,
+                "nq": 2,
+                "query": [
+                    [0.1, 0.2, "..."],
+                    "..."
+                ],
+                "boost": 5.0,
+                "min_score": 2.0
+            }
+        }
+    },
+    "min_score": "<min score limit>",
+    "sort": ["<field1>", "<field2>"],
+    "from": "<offset from first>",
+    "size": "<fetch size>"
+}
+
+
+
+{
+    "vector_1": {
+        "type": "vector",
+        "metric_type": "IP",
+        "dimension": 512
+    },
+    "vector_2": {
+        "type": "vector",
+        "metric_type": "L1",
+        "dimension": 256,
+        "index": {
+            "type": "IVF_SQ8",
+            "nlist": "8792"
+        }
+    },
+   "body_img_vec": {
+        "type": "vector",
+        "dimension": 8,
+        "datatype": "float"
+    },
+    "age": {
+        "type": "int64",
+        "boost": 2.0,
+    }
+}
+  
+
+{
+    "docs": [ 
+        {
+            "uid_0": "<id>",
+            "field_0": "<field value>",
+            "field_1": "<field value>",
+            "score": "score value"
+        },
+        {
+            "uid_1": "<id>",
+            "field_0": "<field value>",
+            "field_1": "<field value>",
+            "score": "score value"
+        }
+    ]
+}
+
+{
+    "error": {
+        "code": 0,
+        "reason": "created",
+        "result": {
+            "_id": 87566639989444,
+            "_index": "my-index",
+            "_seq_no": 1,
+            "_type": "_doc",
+            "_version": 1,
+            "_code": "0",
+            "_reason": ""
+        }
+    }
+}
+
+
+
+
+
+{
+    "<field1>": "<value1>",
+    "<field2>": "<value2>",
+    "..." : "...",
+    "<fieldN>": "<valueN>"
+}
+
+
+
+{
+    "code": 0,
+    "reason": "created",
+    "result": {
+        "_id": 87566639989444,
+        "_index": "my-index",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_version": 1,
+        "_code": "0",
+        "_reason": ""
+    }
+}
+
+
+{
+    "code": "<error code>",
+    "reason": "<error reason>",
+    "details": [
+      {
+        "_id": "<id>",
+        "_index": "<index>",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_code": "<error code>",
+        "_reason": "<error reason>"
+      },
+      "..."
+    ]
+}
+
+{
+    "acknowledged": true
+}
+
+{
+    "error": {
+        "index": "my-index",
+        "index_uuid": "_na_",
+        "reason": "no such index [my-index]",
+        "root_cause": [
+            {
+                "index": "my-index",
+                "index_uuid": "_na_",
+                "reason": "no such index [my-index]",
+                "type": "index_not_found_exception"
+            }
+        ],
+        "type": "index_not_found_exception"
+    },
+    "status": 404
+}
+
+
+
+{
+    "my-index": {
+        "mappings": {
+            "properties": {
+                "face_img_vec": {
+                    "type": "vector",
+                    "dimension": 4,
+                    "metric_type": "L2",
+                    "datatype": "float",
+                    "index": {
+                        "type": "ivf_sq8",
+                        "nlist": 8792
+                    },
+                    "boost": 1.5
+                }
+            }
+        }
+    }
+}
+
+
+{
+    "mappings": {
+        "properties": {
+            "face_img_vec": {
+                "type": "vector",
+                "dimension": 4,
+                "metric_type": "L2",
+                "datatype": "float",
+                "index": {
+                    "type": "ivf_sq8",
+                    "nlist": 8792
+                },
+                "boost": 1.5
+            }
+        }
+    }
+}
+
+
+{
+    "code": 0,
+    "reason": "created",
+    "result": {
+        "_id": 87566639989444,
+        "_index": "my-index",
+        "_seq_no": 1,
+        "_type": "_doc",
+        "_version": 1,
+        "_code": "0",
+        "_reason": ""
+    }
+}
+
+
+{
+    "code": 0,
+    "reason": "created",
+    "result": {
+        "field_name": "face_img_vec",
+        "..."
+    }
+}
