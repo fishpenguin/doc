@@ -89,7 +89,7 @@ message QueryColumnPB {
 }
 
 message TermQueryPB {
-    QueryColumnPB field = 1;
+    string field_name = 1;
     repeated ColumnValuePB values = 2;
 }
 
@@ -108,13 +108,12 @@ message CompareExprPB {
 }
 
 message RangeQueryPB {
-    QueryColumnPB field = 1;
+    string field_name = 1;
     repeated CompareExprPB operand = 2;
-    repeated string CompareValue = 3;
 }
 
 message VectorQueryPB {
-    QueryColumnPB field = 1;
+    string field_name = 1;
     string vector_query_param = 2;
     int64 topk = 3;
     int64 nq = 4;
