@@ -1,3 +1,0 @@
-repository='external project URL'
-module='https://github.com/youny626/grpc-milvus/archive/master.zip'
-tag=''
