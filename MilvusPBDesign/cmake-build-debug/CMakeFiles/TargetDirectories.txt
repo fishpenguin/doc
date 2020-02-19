@@ -1,0 +1,12 @@
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/install/local.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/install.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/grpc_ep.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/lint.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/milvuspb_sdk.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/clang-format.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/zlib_ep.dir
+/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/check-clang-format.dir

@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/interface/Status.cpp.o -c /home/yukun/test/doc/MilvusPBDesign/interface/Status.cpp",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/interface/Status.cpp"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/client/BooleanQuery.cpp.o -c /home/yukun/test/doc/MilvusPBDesign/client/BooleanQuery.cpp",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/client/BooleanQuery.cpp"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/client/GeneralQuery.cpp.o -c /home/yukun/test/doc/MilvusPBDesign/client/GeneralQuery.cpp",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/client/GeneralQuery.cpp"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/grpc-gen/gen-common/common.grpc.pb.cc.o -c /home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common/common.grpc.pb.cc",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common/common.grpc.pb.cc"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/grpc-gen/gen-common/common.pb.cc.o -c /home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common/common.pb.cc",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common/common.pb.cc"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/grpc-gen/gen-status/status.grpc.pb.cc.o -c /home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status/status.grpc.pb.cc",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status/status.grpc.pb.cc"
+},
+{
+  "directory": "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug",
+  "command": "/usr/bin/c++  -Dmilvuspb_sdk_EXPORTS -I/home/yukun/test/doc/MilvusPBDesign -I/home/yukun/test/doc/MilvusPBDesign/include -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-common -I/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/install/include -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep/third_party/protobuf/src -isystem /home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/zlib_ep-prefix/src/zlib_ep/include   -O0 -g -fPIC -g -fPIC   -std=gnu++14 -o CMakeFiles/milvuspb_sdk.dir/grpc-gen/gen-status/status.pb.cc.o -c /home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status/status.pb.cc",
+  "file": "/home/yukun/test/doc/MilvusPBDesign/grpc-gen/gen-status/status.pb.cc"
+}
+]

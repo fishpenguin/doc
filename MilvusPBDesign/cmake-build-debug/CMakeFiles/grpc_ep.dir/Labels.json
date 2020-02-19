@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/grpc_ep"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/grpc_ep.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/CMakeFiles/grpc_ep-complete.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-install.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-mkdir.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-download.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-update.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-patch.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-configure.rule"
+		},
+		{
+			"file" : "/home/yukun/test/doc/MilvusPBDesign/cmake-build-debug/grpc_ep-prefix/src/grpc_ep-stamp/grpc_ep-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"grpc_ep"
+		],
+		"name" : "grpc_ep"
+	}
+}

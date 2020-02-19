@@ -1,16 +1,15 @@
 #include "Status.h"
 #include "GeneralQuery.h"
-#include <vector>
 
 enum class Occur {
-    uint64_t MUST = 0;
-    uint64_t MUST_NOT;
-    uint64_t SHOULD;
-}
+    MUST = 0,
+    MUST_NOT,
+    SHOULD,
+};
 
 class BooleanClause {
  public:
-    add();
+    void add();
 
     Occur getOccur() {
         return occur_;
@@ -29,15 +28,15 @@ class BooleanClause {
     }
 
     bool isMust() {
-        return occur_ == MUST;
+        return occur_ == Occur::MUST;
     }
 
     bool isMustNot() {
-        return occur_ == MUST_NOT;
+        return occur_ == Occur::MUST_NOT;
     }
 
     bool isShould() {
-        return occur_ == SHOULD;
+        return occur_ == Occur::SHOULD;
     }
 
  private:
@@ -46,21 +45,17 @@ class BooleanClause {
     std::vector<LeafQueryPtr> leaf_queries_;
     BinaryQueryPtr binary_query_;
 }
-std::shared_ptr<BooleanClause> BooleanClausePtr;
+using BooleanClausePtr = std::shared_ptr<BooleanClause>;
 
 
 class BooleanQuery {
  public:
-    void add(BooleanClause clause) {
-        clauses_.emplace_bach(clause);
+    void add(BooleanClause boolean_clause) {
+        clauses_.emplace_back(boolean_clause);
     }
 
-    void getLeafQueries() {
-        return leaf_queries;
-    }
-
-    BinaryQuery GenBinaryQuery(std::vector<BooleanClause> clauses);
+    Status GenBinaryQuery(BooleanClausePtr clauses, BinaryQueryPtr binary_query);
     
  private:
-    std::vector<LeafQueryPtr> leaf_queries;    
+    std::vector<BooleanClause> clauses_;
 }

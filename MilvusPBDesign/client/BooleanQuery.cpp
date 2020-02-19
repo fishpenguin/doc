@@ -1,7 +1,7 @@
 #include "BooleanQuery.h"
 
 BinaryQueryPtr
-ConstructBinTree(std::vector<BooleanClause> clauses, QueryRelation relation) {
+ConstructBinTree(std::vector<BooleanClausePtr> clauses, QueryRelation relation) {
     if(clauses.empty()) {
         return nullptr;
     } else if(clauses.size() == 1) {
@@ -11,7 +11,7 @@ ConstructBinTree(std::vector<BooleanClause> clauses, QueryRelation relation) {
         bquery->relation = relation;
         bquery->left_query = clauses[clauses.size()-1]->getBinaryQuery();
         clauses.pop_back();
-        bquery->right_query = ConstructBinTree(must_clauses);
+        bquery->right_query = ConstructBinTree(clauses, relation);
         return bquery;
     }
 }
@@ -45,14 +45,14 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     if(clause->getBooleanClauses().size() == 1) {
         auto bc = clause->getBooleanClauses()[0];
         switch (bc->getOccur()) {
-            case MUST: {
-                binary_query->relation = AND;
+            case Occur::MUST: {
+                binary_query->relation = QueryRelation::AND;
                 Status s = GenBinaryQuery(bc, binary_query->left_query);
                 return s;
             }
-            case MUST_NOT: 
-            case SHOULD: {
-                binary_query->relation = OR;
+            case Occur::MUST_NOT:
+            case Occur::SHOULD: {
+                binary_query->relation = QueryRelation::OR;
                 Status s = GenBinaryQuery(bc, binary_query->left_query);
                 return s;
             }
@@ -65,10 +65,10 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     std::vector<std::shared_ptr<BooleanClause> > should_clauses;
     for (auto& _clause : clause->getBooleanClauses()) {
         Status s = GenBinaryQuery(_clause, _clause->getBinaryQuery());
-        if (_clause->getOccur() == MUST) {
+        if (_clause->getOccur() == Occur::MUST) {
             must_clauses.emplace_back(_clause);
         }
-        else if(_clause->getOccur == MUST_NOT) {
+        else if(_clause->getOccur() == Occur::MUST_NOT) {
             must_not_clauses.emplace_back(_clause);
         }
         else {
@@ -81,39 +81,39 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     uint64_t bquery_num = 0;
     if(must_clauses.size() > 1) {
         // Construct a must binary tree
-        must_bquery = ConstructBinTree(must_clauses, R1);
+        must_bquery = ConstructBinTree(must_clauses, QueryRelation::R1);
         ++bquery_num;
     }
     if(should_clauses.size() > 1) {
         //Construct a should binary tree 
-        should_bquery = ConstructBinTree(should_clauses, R2);
+        should_bquery = ConstructBinTree(should_clauses, QueryRelation::R2);
         ++bquery_num;
     }
     if(must_not_clauses.size() > 1) {
         // Construct a must_not binary tree
-        must_not_bquery = ConstructBinTree(must_not_clauses, R1);
+        must_not_bquery = ConstructBinTree(must_not_clauses, QueryRelation::R1);
         ++bquery_num;
     }
     
     if(bquery_num == 3) {
         BinaryQueryPtr must_should_query;
-        must_should_query->relation = R3;
+        must_should_query->relation = QueryRelation::R3;
         must_should_query->left_query = must_bquery;
         must_should_query->right_query = should_bquery;
-        binary_query->relation = R1
+        binary_query->relation = QueryRelation::R1;
         binary_query->left_query = must_should_query;
         binary_query->right_query = must_not_bquery;
     } else if (bquery_num == 2) {
         if(must_bquery == nullptr) {
-            binary_query->relation = R3;
+            binary_query->relation = QueryRelation::R3;
             binary_query->left_query = must_not_bquery;
             binary_query->right_query = should_bquery;
         } else if (should_bquery == nullptr) {
-            binary_query->relation = R4;
+            binary_query->relation = QueryRelation::R4;
             binary_query->left_query = must_bquery;
             binary_query->right_query = should_bquery;
         } else {
-            binary_query->relation = R3;
+            binary_query->relation = QueryRelation::R3;
             binary_query->left_query = must_bquery;
             binary_query->right_query = should_bquery;
         }
