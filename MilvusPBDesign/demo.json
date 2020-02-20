@@ -229,3 +229,54 @@
         "..."
     }
 }
+
+{
+    "query" : {
+       "match" : {
+          "message" : {
+             "operator" : "or",
+             "query" : "the quick brown"
+          }
+       }
+    },
+    "rescore" : {
+       "window_size" : 50,
+       "query" : {
+          "rescore_query" : {
+             "match_phrase" : {
+                "message" : {
+                   "query" : "the quick brown",
+                   "slop" : 2
+                }
+             }
+          },
+          "query_weight" : 0.7,
+          "rescore_query_weight" : 1.2
+       }
+    }
+ }
+
+{
+    "query": {
+        "bool": {
+            "must":[
+                {"term": {"field_1": []}}
+            ],
+        },
+    },
+    "rescore": {
+        "windows_size": 1000,
+        "rescore_query": {
+            "should": [
+                {"term": {"field_2": []}}
+            ]
+        },
+        "query_boost": 1.0,
+        "rescore_query_boost": 2.0,
+        "score_mode": "total"
+    },
+    "min_score": "<min score limit>",
+    "sort": ["<field1>", "<field2>"],
+    "from": "<offset from first>",
+    "size": "<fetch size>"
+}

@@ -9,7 +9,7 @@ enum class Occur {
 
 class BooleanClause {
  public:
-    void add();
+    BooleanClause()
 
     Occur getOccur() {
         return occur_;
@@ -48,14 +48,5 @@ class BooleanClause {
 using BooleanClausePtr = std::shared_ptr<BooleanClause>;
 
 
-class BooleanQuery {
- public:
-    void add(BooleanClause boolean_clause) {
-        clauses_.emplace_back(boolean_clause);
-    }
-
-    Status GenBinaryQuery(BooleanClausePtr clauses, BinaryQueryPtr binary_query);
-    
- private:
-    std::vector<BooleanClause> clauses_;
-}
+Status
+GenBinaryQuery(BooleanClausePtr boolean_clause, BinaryQueryPtr binary_query);

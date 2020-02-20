@@ -1,11 +1,16 @@
 #pragma once
 
-#include "GeneralQuery.h"
+#include "BinaryQuery.h"
 #include "Status.h"
 
 #include <memory>
 #include <string>
 #include <vector>
+
+struct ConnectParam {
+    std::string ip_address;  ///< Server IP address
+    std::string port;        ///< Server PORT
+};
 
 template <typename T>
 struct VectorColumn {
@@ -16,12 +21,13 @@ struct VectorColumn {
 struct ColumnSchema {
     uint64_t id;
     std::string name;
-    
+    std::string column_type;
 };
 
 struct CollectionSchema {
     uint64_t id;
     std::string name;
+    std::vector<ColumnSchema> columns;
 };
 
 struct QueryResponse {
@@ -42,10 +48,16 @@ struct QueryClause {
 
 class Connection {
  public:
-    static std::shared_ptr<Connection>
-    create();
+    virtual Status
+    Connect(const std::string uri);
 
-    uint64_t CreateCollection();
+    virtual Status
+    Connect(const ConnectParam)
 
-    QueryResponse Query(QueryClause);
+    virtual Status
+    CreateCollection(uint64_t request_id,
+                     CollectionSchema collection_schema);
+
+    virtual QueryResponse
+    Query(BooleanClause query_clause);
 };

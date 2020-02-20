@@ -28,8 +28,10 @@ message VectorColumnInfoPB {
 }
 
 message ColumnTypePB {
-    DataType type = 1;
-    VectorColumnInfoPB info = 2;
+    oneof value {
+        DataType type = 1;
+        VectorColumnInfoPB info = 2;
+    }
 }
 
 message ColumnSchemaPB {
