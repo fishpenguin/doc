@@ -24,9 +24,6 @@ ClientProxy::Connect(const ConnectParam& param) {
 
 Status
 ClientProxy::Connect(const std::string& uri) {
-    if (!UriCheck(uri)) {
-        return Status(StatusCode::InvalidAgument, "Invalid uri");
-    }
     size_t index = uri.find_first_of(':', 0);
 
     ConnectParam param;
@@ -41,16 +38,18 @@ ClientProxy::CreateCollection(uint64_t id, CollectionSchema collection_schema) {
     
 }
 
+template <typename T>
 void
-ConvertBinaryQueryToProto(BinaryQueryPtr binary_query, ::demo::GeneralQueryPB query_pb) {
+ConvertBinaryQueryToProto(BinaryQueryPtr<T> binary_query, ::demo::BinaryQueryPB query_pb) {
     query_pb.set_relation(binary_query->relation);
-    ConvertBinaryQueryToProto(binary_query->left_query, query_pb.left_query);
-    ConvertBinaryQueryToProto(binary_query->right_query, query_pb.right_query);
+    ConvertBinaryQueryToProto(binary_query->left_query, query_pb.left_query());
+    ConvertBinaryQueryToProto(binary_query->right_query, query_pb.right_query());
 }
 
+template <typename T>
 QueryResponse
-ClientProxy::Query(BooleanClausePtr boolean_clause) {
-    BinaryQueryPtr binary_query_ptr;
+ClientProxy::Query(BooleanClausePtr<T> boolean_clause) {
+    BinaryQueryPtr<T> binary_query_ptr;
     Status s = GenBinaryQuery(boolean_clause, binary_query_ptr);
     
     //Convert BinaryQuery to proto::GeneralQueryPB

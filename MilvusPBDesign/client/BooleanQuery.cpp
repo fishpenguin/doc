@@ -1,13 +1,14 @@
 #include "BooleanQuery.h"
 
-BinaryQueryPtr
-ConstructBinTree(std::vector<BooleanClausePtr> clauses, QueryRelation relation) {
+template <typename T>
+BinaryQueryPtr<T>
+ConstructBinTree(std::vector<BooleanClausePtr<T>> clauses, QueryRelation relation) {
     if(clauses.empty()) {
         return nullptr;
     } else if(clauses.size() == 1) {
         return clauses[0]->getBinaryQuery();
     } else {
-        BinaryQueryPtr bquery;
+        BinaryQueryPtr<T> bquery;
         bquery->relation = relation;
         bquery->left_query = clauses[clauses.size()-1]->getBinaryQuery();
         clauses.pop_back();
@@ -16,15 +17,16 @@ ConstructBinTree(std::vector<BooleanClausePtr> clauses, QueryRelation relation) 
     }
 }
 
+template <typename T>
 Status
-ConstructLeafBinTree(std::vector<LeafQueryPtr> leaf_clauses, BinaryQueryPtr binary_query) {
+ConstructLeafBinTree(std::vector<LeafQueryPtr<T>> leaf_clauses, BinaryQueryPtr<T> binary_query) {
     if(leaf_clauses.empty()) {
         return Status::OK();
     } else if (leaf_clauses.size() == 1) {
         binary_query->left_query = leaf_clauses[0];
         return Status::OK();
     } else {
-        BinaryQueryPtr bquery;
+        BinaryQueryPtr<T> bquery;
         bquery->relation = binary_query->relation;
         bquery->left_query = leaf_clauses[leaf_clauses.size() - 1];
         leaf_clauses.pop_back();
@@ -33,9 +35,9 @@ ConstructLeafBinTree(std::vector<LeafQueryPtr> leaf_clauses, BinaryQueryPtr bina
     }
 }
 
-Status
-BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
-    BinaryQueryPtr binary_query) {
+template<typename T>
+Status GenBinaryQuery(BooleanClausePtr<T> clause,
+    BinaryQueryPtr<T> binary_query) {
     if(clause->getBooleanClauses().size() == 0) {
         // Judge leafquery
         // Relation is ready
@@ -60,9 +62,9 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     }
 
     // Construct binary query for every single boolean query
-    std::vector<std::shared_ptr<BooleanClause> > must_clauses;
-    std::vector<std::shared_ptr<BooleanClause> > must_not_clauses;
-    std::vector<std::shared_ptr<BooleanClause> > should_clauses;
+    std::vector<BooleanClausePtr<T>> must_clauses;
+    std::vector<BooleanClausePtr<T>> must_not_clauses;
+    std::vector<BooleanClausePtr<T>> should_clauses;
     for (auto& _clause : clause->getBooleanClauses()) {
         Status s = GenBinaryQuery(_clause, _clause->getBinaryQuery());
         if (_clause->getOccur() == Occur::MUST) {
@@ -77,7 +79,7 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     }
 
     // Construct binary query for combine boolean queries
-    BinaryQueryPtr must_bquery, should_bquery, must_not_bquery;
+    BinaryQueryPtr<T> must_bquery, should_bquery, must_not_bquery;
     uint64_t bquery_num = 0;
     if(must_clauses.size() > 1) {
         // Construct a must binary tree
@@ -96,7 +98,7 @@ BooleanQuery::GenBinaryQuery(BooleanClausePtr clause,
     }
     
     if(bquery_num == 3) {
-        BinaryQueryPtr must_should_query;
+        BinaryQueryPtr<T> must_should_query;
         must_should_query->relation = QueryRelation::R3;
         must_should_query->left_query = must_bquery;
         must_should_query->right_query = should_bquery;

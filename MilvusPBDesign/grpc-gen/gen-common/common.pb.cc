@@ -25,13 +25,12 @@ extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatVectorValuePB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_InnerLeafQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LeafQueryPB_common_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QueryColumnPB_common_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQueryPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RangeQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_status_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Status_status_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_TermQueryPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TermQueryPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorColumnInfoPB_common_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_VectorColumnValuePB_common_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_VectorQueryPB_common_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_common_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorQueryPB_common_2eproto;
 namespace demo {
 class VectorColumnInfoPBDefaultTypeInternal {
  public:
@@ -40,6 +39,8 @@ class VectorColumnInfoPBDefaultTypeInternal {
 class ColumnTypePBDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ColumnTypePB> _instance;
+  int type_;
+  const ::demo::VectorColumnInfoPB* info_;
 } _ColumnTypePB_default_instance_;
 class ColumnSchemaPBDefaultTypeInternal {
  public:
@@ -509,9 +510,8 @@ static void InitDefaultsscc_info_RangeQueryPB_common_2eproto() {
   ::demo::RangeQueryPB::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQueryPB_common_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsscc_info_RangeQueryPB_common_2eproto}, {
-      &scc_info_QueryColumnPB_common_2eproto.base,
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RangeQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_RangeQueryPB_common_2eproto}, {
       &scc_info_CompareExprPB_common_2eproto.base,}};
 
 static void InitDefaultsscc_info_TermQueryPB_common_2eproto() {
@@ -525,9 +525,8 @@ static void InitDefaultsscc_info_TermQueryPB_common_2eproto() {
   ::demo::TermQueryPB::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_TermQueryPB_common_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsscc_info_TermQueryPB_common_2eproto}, {
-      &scc_info_QueryColumnPB_common_2eproto.base,
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TermQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_TermQueryPB_common_2eproto}, {
       &scc_info_ColumnValuePB_common_2eproto.base,}};
 
 static void InitDefaultsscc_info_VectorColumnInfoPB_common_2eproto() {
@@ -571,9 +570,8 @@ static void InitDefaultsscc_info_VectorQueryPB_common_2eproto() {
   ::demo::VectorQueryPB::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_VectorQueryPB_common_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_VectorQueryPB_common_2eproto}, {
-      &scc_info_QueryColumnPB_common_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorQueryPB_common_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_VectorQueryPB_common_2eproto}, {}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_common_2eproto[28];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_common_2eproto[3];
@@ -590,10 +588,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::ColumnTypePB, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  PROTOBUF_FIELD_OFFSET(::demo::ColumnTypePB, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::demo::ColumnTypePB, type_),
-  PROTOBUF_FIELD_OFFSET(::demo::ColumnTypePB, info_),
+  offsetof(::demo::ColumnTypePBDefaultTypeInternal, type_),
+  offsetof(::demo::ColumnTypePBDefaultTypeInternal, info_),
+  PROTOBUF_FIELD_OFFSET(::demo::ColumnTypePB, value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::ColumnSchemaPB, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -671,7 +670,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, field_),
+  PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, field_name_),
   PROTOBUF_FIELD_OFFSET(::demo::TermQueryPB, values_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::CompareExprPB, _internal_metadata_),
@@ -685,15 +684,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, field_),
+  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, field_name_),
   PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, operand_),
-  PROTOBUF_FIELD_OFFSET(::demo::RangeQueryPB, comparevalue_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, field_),
+  PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, field_name_),
   PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, vector_query_param_),
   PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, topk_),
   PROTOBUF_FIELD_OFFSET(::demo::VectorQueryPB, nq_),
@@ -800,18 +798,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_common_2eproto::offsets[] PROT
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::demo::VectorColumnInfoPB)},
   { 7, -1, sizeof(::demo::ColumnTypePB)},
-  { 14, -1, sizeof(::demo::ColumnSchemaPB)},
-  { 22, -1, sizeof(::demo::CollectionSchemaPB)},
-  { 30, -1, sizeof(::demo::CreateCollectionRequestPB)},
-  { 37, -1, sizeof(::demo::CollectionSchemaResponsePB)},
-  { 44, -1, sizeof(::demo::BinaryVectorValuePB)},
-  { 50, -1, sizeof(::demo::FloatVectorValuePB)},
-  { 56, -1, sizeof(::demo::VectorColumnValuePB)},
-  { 64, -1, sizeof(::demo::ColumnValuePB)},
-  { 79, -1, sizeof(::demo::QueryColumnPB)},
-  { 86, -1, sizeof(::demo::TermQueryPB)},
-  { 93, -1, sizeof(::demo::CompareExprPB)},
-  { 100, -1, sizeof(::demo::RangeQueryPB)},
+  { 15, -1, sizeof(::demo::ColumnSchemaPB)},
+  { 23, -1, sizeof(::demo::CollectionSchemaPB)},
+  { 31, -1, sizeof(::demo::CreateCollectionRequestPB)},
+  { 38, -1, sizeof(::demo::CollectionSchemaResponsePB)},
+  { 45, -1, sizeof(::demo::BinaryVectorValuePB)},
+  { 51, -1, sizeof(::demo::FloatVectorValuePB)},
+  { 57, -1, sizeof(::demo::VectorColumnValuePB)},
+  { 65, -1, sizeof(::demo::ColumnValuePB)},
+  { 80, -1, sizeof(::demo::QueryColumnPB)},
+  { 87, -1, sizeof(::demo::TermQueryPB)},
+  { 94, -1, sizeof(::demo::CompareExprPB)},
+  { 101, -1, sizeof(::demo::RangeQueryPB)},
   { 108, -1, sizeof(::demo::VectorQueryPB)},
   { 118, -1, sizeof(::demo::InnerLeafQueryPB)},
   { 127, -1, sizeof(::demo::LeafQueryPB)},
@@ -862,94 +860,93 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_common_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014common.proto\022\004demo\032\014status.proto\"M\n\022Ve"
   "ctorColumnInfoPB\022\021\n\tdimension\030\001 \001(\003\022$\n\014e"
-  "lement_type\030\002 \001(\0162\016.demo.DataType\"T\n\014Col"
-  "umnTypePB\022\034\n\004type\030\001 \001(\0162\016.demo.DataType\022"
-  "&\n\004info\030\002 \001(\0132\030.demo.VectorColumnInfoPB\""
-  "L\n\016ColumnSchemaPB\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 "
-  "\001(\t\022 \n\004type\030\003 \001(\0132\022.demo.ColumnTypePB\"U\n"
-  "\022CollectionSchemaPB\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030"
-  "\002 \001(\t\022%\n\007columns\030\003 \003(\0132\024.demo.ColumnSche"
-  "maPB\"Y\n\031CreateCollectionRequestPB\022\022\n\nreq"
-  "uest_id\030\001 \001(\004\022(\n\006schema\030\002 \001(\0132\030.demo.Col"
-  "lectionSchemaPB\"d\n\032CollectionSchemaRespo"
-  "nsePB\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022(\n\006s"
-  "chema\030\002 \001(\0132\030.demo.CollectionSchemaPB\"$\n"
-  "\023BinaryVectorValuePB\022\r\n\005value\030\001 \003(\005\"#\n\022F"
-  "loatVectorValuePB\022\r\n\005value\030\001 \003(\002\"\202\001\n\023Vec"
-  "torColumnValuePB\022/\n\013float_value\030\001 \001(\0132\030."
-  "demo.FloatVectorValuePBH\000\0221\n\014binary_valu"
-  "e\030\002 \001(\0132\031.demo.BinaryVectorValuePBH\000B\007\n\005"
-  "value\"\203\002\n\rColumnValuePB\022\024\n\nint8_value\030\001 "
-  "\001(\005H\000\022\025\n\013int16_value\030\002 \001(\005H\000\022\025\n\013int32_va"
-  "lue\030\003 \001(\005H\000\022\025\n\013int64_value\030\004 \001(\003H\000\022\025\n\013fl"
-  "oat_value\030\005 \001(\002H\000\022\026\n\014double_value\030\006 \001(\001H"
-  "\000\022\026\n\014string_value\030\007 \001(\tH\000\022\024\n\nbool_value\030"
-  "\010 \001(\010H\000\0221\n\014vector_value\030\t \001(\0132\031.demo.Vec"
-  "torColumnValuePBH\000B\007\n\005value\"A\n\rQueryColu"
-  "mnPB\022\014\n\004name\030\001 \001(\t\022\"\n\005value\030\002 \001(\0132\023.demo"
-  ".ColumnValuePB\"V\n\013TermQueryPB\022\"\n\005field\030\001"
-  " \001(\0132\023.demo.QueryColumnPB\022#\n\006values\030\002 \003("
-  "\0132\023.demo.ColumnValuePB\"^\n\rCompareExprPB\022"
-  "\'\n\010operator\030\001 \001(\0162\025.demo.CompareOperator"
-  "\022$\n\007operand\030\002 \001(\0132\023.demo.ColumnValuePB\"n"
-  "\n\014RangeQueryPB\022\"\n\005field\030\001 \001(\0132\023.demo.Que"
-  "ryColumnPB\022$\n\007operand\030\002 \003(\0132\023.demo.Compa"
-  "reExprPB\022\024\n\014CompareValue\030\003 \003(\t\"~\n\rVector"
-  "QueryPB\022\"\n\005field\030\001 \001(\0132\023.demo.QueryColum"
-  "nPB\022\032\n\022vector_query_param\030\002 \001(\t\022\014\n\004topk\030"
-  "\003 \001(\003\022\n\n\002nq\030\004 \001(\003\022\023\n\013query_boost\030\005 \001(\002\"\234"
-  "\001\n\020InnerLeafQueryPB\022\'\n\nterm_query\030\001 \001(\0132"
-  "\021.demo.TermQueryPBH\000\022)\n\013range_query\030\002 \001("
-  "\0132\022.demo.RangeQueryPBH\000\022+\n\014vector_query\030"
-  "\003 \001(\0132\023.demo.VectorQueryPBH\000B\007\n\005query\"C\n"
-  "\013LeafQueryPB\022%\n\005query\030\001 \001(\0132\026.demo.Inner"
-  "LeafQueryPB\022\r\n\005boost\030\002 \001(\002\"`\n\016GeneralQue"
-  "ryPB\022!\n\004leaf\030\001 \001(\0132\021.demo.LeafQueryPBH\000\022"
-  "\"\n\003bin\030\002 \001(\0132\023.demo.BinaryQueryPBH\000B\007\n\005q"
-  "uery\"\232\001\n\rBinaryQueryPB\022(\n\nleft_query\030\001 \001"
-  "(\0132\024.demo.GeneralQueryPB\022)\n\013right_query\030"
-  "\002 \001(\0132\024.demo.GeneralQueryPB\022%\n\010relation\030"
-  "\003 \001(\0162\023.demo.QueryRelation\022\r\n\005boost\030\004 \001("
-  "\002\"I\n\016QueryRequestPB\022\022\n\nrequest_id\030\001 \001(\004\022"
-  "#\n\005query\030\002 \001(\0132\024.demo.GeneralQueryPB\"k\n\017"
-  "QueryResponsePB\022\034\n\006status\030\001 \001(\0132\014.demo.S"
-  "tatus\022\014\n\004hits\030\002 \001(\004\022\013\n\003ids\030\003 \003(\003\022\r\n\005scor"
-  "e\030\004 \003(\002\022\020\n\010distance\030\005 \003(\002\"\030\n\tCommandPB\022\013"
-  "\n\003cmd\030\001 \001(\t\"p\n\026CollectionSchemaListPB\022\034\n"
-  "\006status\030\001 \001(\0132\014.demo.Status\0228\n\026Collectio"
-  "n_schema_list\030\002 \003(\0132\030.demo.CollectionSch"
-  "emaPB\"P\n\017InsertRequestPB\022\022\n\nfield_name\030\001"
-  " \003(\t\022)\n\014column_value\030\002 \003(\0132\023.demo.Column"
-  "ValuePB\"+\n\020CollectionNamePB\022\027\n\017Collectio"
-  "n_name\030\001 \001(\t\"8\n\010ConfigPB\022\034\n\006status\030\001 \001(\013"
-  "2\014.demo.Status\022\016\n\006config\030\002 \001(\t\"Z\n\014IndexP"
-  "aramPB\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\027\n\017"
-  "collection_name\030\002 \001(\t\022\023\n\013index_param\030\003 \001"
-  "(\t\"A\n\021GeneralResponsePB\022\034\n\006status\030\001 \001(\0132"
-  "\014.demo.Status\022\016\n\006result\030\002 \001(\t*\225\001\n\010DataTy"
-  "pe\022\010\n\004NULL\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT"
-  "32\020\003\022\t\n\005INT64\020\004\022\n\n\006STRING\020\024\022\010\n\004BOOL\020\036\022\t\n"
-  "\005FLOAT\020(\022\r\n\tHALFFLOAT\020)\022\n\n\006DOUBLE\020*\022\n\n\006V"
-  "ECTOR\020d\022\014\n\007UNKNOWN\020\217N*C\n\017CompareOperator"
-  "\022\006\n\002LT\020\000\022\007\n\003LTE\020\001\022\006\n\002EQ\020\002\022\006\n\002GT\020\003\022\007\n\003GTE"
-  "\020\004\022\006\n\002NE\020\005*/\n\rQueryRelation\022\006\n\002R1\020\000\022\006\n\002R"
-  "2\020\001\022\006\n\002R3\020\002\022\006\n\002R4\020\0032\202\005\n\013DemoService\0227\n\006S"
-  "earch\022\024.demo.QueryRequestPB\032\025.demo.Query"
-  "ResponsePB\"\000\022W\n\020CreateCollection\022\037.demo."
-  "CreateCollectionRequestPB\032 .demo.Collect"
-  "ionSchemaResponsePB\"\000\022B\n\017ShowCollections"
-  "\022\017.demo.CommandPB\032\034.demo.CollectionSchem"
-  "aListPB\"\000\022C\n\016DropCollection\022\026.demo.Colle"
-  "ctionNamePB\032\027.demo.GeneralResponsePB\"\000\022>"
-  "\n\nInsertDocs\022\025.demo.InsertRequestPB\032\027.de"
-  "mo.GeneralResponsePB\"\000\022<\n\013CreateIndex\022\022."
-  "demo.IndexParamPB\032\027.demo.GeneralResponse"
-  "PB\"\000\022>\n\tDropIndex\022\026.demo.CollectionNameP"
-  "B\032\027.demo.GeneralResponsePB\"\000\022=\n\rDescribe"
-  "Index\022\026.demo.CollectionNamePB\032\022.demo.Ind"
-  "exParamPB\"\000\022.\n\tGetConfig\022\017.demo.CommandP"
-  "B\032\016.demo.ConfigPB\"\000\022+\n\tSetConfig\022\016.demo."
-  "ConfigPB\032\014.demo.Status\"\000b\006proto3"
+  "lement_type\030\002 \001(\0162\016.demo.DataType\"a\n\014Col"
+  "umnTypePB\022\036\n\004type\030\001 \001(\0162\016.demo.DataTypeH"
+  "\000\022(\n\004info\030\002 \001(\0132\030.demo.VectorColumnInfoP"
+  "BH\000B\007\n\005value\"L\n\016ColumnSchemaPB\022\n\n\002id\030\001 \001"
+  "(\004\022\014\n\004name\030\002 \001(\t\022 \n\004type\030\003 \001(\0132\022.demo.Co"
+  "lumnTypePB\"U\n\022CollectionSchemaPB\022\n\n\002id\030\001"
+  " \001(\004\022\014\n\004name\030\002 \001(\t\022%\n\007columns\030\003 \003(\0132\024.de"
+  "mo.ColumnSchemaPB\"Y\n\031CreateCollectionReq"
+  "uestPB\022\022\n\nrequest_id\030\001 \001(\004\022(\n\006schema\030\002 \001"
+  "(\0132\030.demo.CollectionSchemaPB\"d\n\032Collecti"
+  "onSchemaResponsePB\022\034\n\006status\030\001 \001(\0132\014.dem"
+  "o.Status\022(\n\006schema\030\002 \001(\0132\030.demo.Collecti"
+  "onSchemaPB\"$\n\023BinaryVectorValuePB\022\r\n\005val"
+  "ue\030\001 \003(\005\"#\n\022FloatVectorValuePB\022\r\n\005value\030"
+  "\001 \003(\002\"\202\001\n\023VectorColumnValuePB\022/\n\013float_v"
+  "alue\030\001 \001(\0132\030.demo.FloatVectorValuePBH\000\0221"
+  "\n\014binary_value\030\002 \001(\0132\031.demo.BinaryVector"
+  "ValuePBH\000B\007\n\005value\"\203\002\n\rColumnValuePB\022\024\n\n"
+  "int8_value\030\001 \001(\005H\000\022\025\n\013int16_value\030\002 \001(\005H"
+  "\000\022\025\n\013int32_value\030\003 \001(\005H\000\022\025\n\013int64_value\030"
+  "\004 \001(\003H\000\022\025\n\013float_value\030\005 \001(\002H\000\022\026\n\014double"
+  "_value\030\006 \001(\001H\000\022\026\n\014string_value\030\007 \001(\tH\000\022\024"
+  "\n\nbool_value\030\010 \001(\010H\000\0221\n\014vector_value\030\t \001"
+  "(\0132\031.demo.VectorColumnValuePBH\000B\007\n\005value"
+  "\"A\n\rQueryColumnPB\022\014\n\004name\030\001 \001(\t\022\"\n\005value"
+  "\030\002 \001(\0132\023.demo.ColumnValuePB\"F\n\013TermQuery"
+  "PB\022\022\n\nfield_name\030\001 \001(\t\022#\n\006values\030\002 \003(\0132\023"
+  ".demo.ColumnValuePB\"^\n\rCompareExprPB\022\'\n\010"
+  "operator\030\001 \001(\0162\025.demo.CompareOperator\022$\n"
+  "\007operand\030\002 \001(\0132\023.demo.ColumnValuePB\"H\n\014R"
+  "angeQueryPB\022\022\n\nfield_name\030\001 \001(\t\022$\n\007opera"
+  "nd\030\002 \003(\0132\023.demo.CompareExprPB\"n\n\rVectorQ"
+  "ueryPB\022\022\n\nfield_name\030\001 \001(\t\022\032\n\022vector_que"
+  "ry_param\030\002 \001(\t\022\014\n\004topk\030\003 \001(\003\022\n\n\002nq\030\004 \001(\003"
+  "\022\023\n\013query_boost\030\005 \001(\002\"\234\001\n\020InnerLeafQuery"
+  "PB\022\'\n\nterm_query\030\001 \001(\0132\021.demo.TermQueryP"
+  "BH\000\022)\n\013range_query\030\002 \001(\0132\022.demo.RangeQue"
+  "ryPBH\000\022+\n\014vector_query\030\003 \001(\0132\023.demo.Vect"
+  "orQueryPBH\000B\007\n\005query\"C\n\013LeafQueryPB\022%\n\005q"
+  "uery\030\001 \001(\0132\026.demo.InnerLeafQueryPB\022\r\n\005bo"
+  "ost\030\002 \001(\002\"`\n\016GeneralQueryPB\022!\n\004leaf\030\001 \001("
+  "\0132\021.demo.LeafQueryPBH\000\022\"\n\003bin\030\002 \001(\0132\023.de"
+  "mo.BinaryQueryPBH\000B\007\n\005query\"\232\001\n\rBinaryQu"
+  "eryPB\022(\n\nleft_query\030\001 \001(\0132\024.demo.General"
+  "QueryPB\022)\n\013right_query\030\002 \001(\0132\024.demo.Gene"
+  "ralQueryPB\022%\n\010relation\030\003 \001(\0162\023.demo.Quer"
+  "yRelation\022\r\n\005boost\030\004 \001(\002\"I\n\016QueryRequest"
+  "PB\022\022\n\nrequest_id\030\001 \001(\004\022#\n\005query\030\002 \001(\0132\024."
+  "demo.GeneralQueryPB\"k\n\017QueryResponsePB\022\034"
+  "\n\006status\030\001 \001(\0132\014.demo.Status\022\014\n\004hits\030\002 \001"
+  "(\004\022\013\n\003ids\030\003 \003(\003\022\r\n\005score\030\004 \003(\002\022\020\n\010distan"
+  "ce\030\005 \003(\002\"\030\n\tCommandPB\022\013\n\003cmd\030\001 \001(\t\"p\n\026Co"
+  "llectionSchemaListPB\022\034\n\006status\030\001 \001(\0132\014.d"
+  "emo.Status\0228\n\026Collection_schema_list\030\002 \003"
+  "(\0132\030.demo.CollectionSchemaPB\"P\n\017InsertRe"
+  "questPB\022\022\n\nfield_name\030\001 \003(\t\022)\n\014column_va"
+  "lue\030\002 \003(\0132\023.demo.ColumnValuePB\"+\n\020Collec"
+  "tionNamePB\022\027\n\017Collection_name\030\001 \001(\t\"8\n\010C"
+  "onfigPB\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\016\n"
+  "\006config\030\002 \001(\t\"Z\n\014IndexParamPB\022\034\n\006status\030"
+  "\001 \001(\0132\014.demo.Status\022\027\n\017collection_name\030\002"
+  " \001(\t\022\023\n\013index_param\030\003 \001(\t\"A\n\021GeneralResp"
+  "onsePB\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\016\n\006"
+  "result\030\002 \001(\t*\225\001\n\010DataType\022\010\n\004NULL\020\000\022\010\n\004I"
+  "NT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n"
+  "\n\006STRING\020\024\022\010\n\004BOOL\020\036\022\t\n\005FLOAT\020(\022\r\n\tHALFF"
+  "LOAT\020)\022\n\n\006DOUBLE\020*\022\n\n\006VECTOR\020d\022\014\n\007UNKNOW"
+  "N\020\217N*C\n\017CompareOperator\022\006\n\002LT\020\000\022\007\n\003LTE\020\001"
+  "\022\006\n\002EQ\020\002\022\006\n\002GT\020\003\022\007\n\003GTE\020\004\022\006\n\002NE\020\005*/\n\rQue"
+  "ryRelation\022\006\n\002R1\020\000\022\006\n\002R2\020\001\022\006\n\002R3\020\002\022\006\n\002R4"
+  "\020\0032\202\005\n\013DemoService\0227\n\006Search\022\024.demo.Quer"
+  "yRequestPB\032\025.demo.QueryResponsePB\"\000\022W\n\020C"
+  "reateCollection\022\037.demo.CreateCollectionR"
+  "equestPB\032 .demo.CollectionSchemaResponse"
+  "PB\"\000\022B\n\017ShowCollections\022\017.demo.CommandPB"
+  "\032\034.demo.CollectionSchemaListPB\"\000\022C\n\016Drop"
+  "Collection\022\026.demo.CollectionNamePB\032\027.dem"
+  "o.GeneralResponsePB\"\000\022>\n\nInsertDocs\022\025.de"
+  "mo.InsertRequestPB\032\027.demo.GeneralRespons"
+  "ePB\"\000\022<\n\013CreateIndex\022\022.demo.IndexParamPB"
+  "\032\027.demo.GeneralResponsePB\"\000\022>\n\tDropIndex"
+  "\022\026.demo.CollectionNamePB\032\027.demo.GeneralR"
+  "esponsePB\"\000\022=\n\rDescribeIndex\022\026.demo.Coll"
+  "ectionNamePB\032\022.demo.IndexParamPB\"\000\022.\n\tGe"
+  "tConfig\022\017.demo.CommandPB\032\016.demo.ConfigPB"
+  "\"\000\022+\n\tSetConfig\022\016.demo.ConfigPB\032\014.demo.S"
+  "tatus\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_common_2eproto_deps[1] = {
   &::descriptor_table_status_2eproto,
@@ -986,7 +983,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_com
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_common_2eproto_once;
 static bool descriptor_table_common_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_common_2eproto = {
-  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 3592,
+  &descriptor_table_common_2eproto_initialized, descriptor_table_protodef_common_2eproto, "common.proto", 3535,
   &descriptor_table_common_2eproto_once, descriptor_table_common_2eproto_sccs, descriptor_table_common_2eproto_deps, 27, 1,
   schemas, file_default_instances, TableStruct_common_2eproto::offsets,
   file_level_metadata_common_2eproto, 28, file_level_enum_descriptors_common_2eproto, file_level_service_descriptors_common_2eproto,
@@ -1356,7 +1353,8 @@ void VectorColumnInfoPB::InternalSwap(VectorColumnInfoPB* other) {
 // ===================================================================
 
 void ColumnTypePB::InitAsDefaultInstance() {
-  ::demo::_ColumnTypePB_default_instance_._instance.get_mutable()->info_ = const_cast< ::demo::VectorColumnInfoPB*>(
+  ::demo::_ColumnTypePB_default_instance_.type_ = 0;
+  ::demo::_ColumnTypePB_default_instance_.info_ = const_cast< ::demo::VectorColumnInfoPB*>(
       ::demo::VectorColumnInfoPB::internal_default_instance());
 }
 class ColumnTypePB::_Internal {
@@ -1366,7 +1364,21 @@ class ColumnTypePB::_Internal {
 
 const ::demo::VectorColumnInfoPB&
 ColumnTypePB::_Internal::info(const ColumnTypePB* msg) {
-  return *msg->info_;
+  return *msg->value_.info_;
+}
+void ColumnTypePB::set_allocated_info(::demo::VectorColumnInfoPB* info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_value();
+  if (info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, info, submessage_arena);
+    }
+    set_has_info();
+    value_.info_ = info;
+  }
+  // @@protoc_insertion_point(field_set_allocated:demo.ColumnTypePB.info)
 }
 ColumnTypePB::ColumnTypePB()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -1377,20 +1389,26 @@ ColumnTypePB::ColumnTypePB(const ColumnTypePB& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_info()) {
-    info_ = new ::demo::VectorColumnInfoPB(*from.info_);
-  } else {
-    info_ = nullptr;
+  clear_has_value();
+  switch (from.value_case()) {
+    case kType: {
+      set_type(from.type());
+      break;
+    }
+    case kInfo: {
+      mutable_info()->::demo::VectorColumnInfoPB::MergeFrom(from.info());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
   }
-  type_ = from.type_;
   // @@protoc_insertion_point(copy_constructor:demo.ColumnTypePB)
 }
 
 void ColumnTypePB::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ColumnTypePB_common_2eproto.base);
-  ::memset(&info_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
-      reinterpret_cast<char*>(&info_)) + sizeof(type_));
+  clear_has_value();
 }
 
 ColumnTypePB::~ColumnTypePB() {
@@ -1399,7 +1417,9 @@ ColumnTypePB::~ColumnTypePB() {
 }
 
 void ColumnTypePB::SharedDtor() {
-  if (this != internal_default_instance()) delete info_;
+  if (has_value()) {
+    clear_value();
+  }
 }
 
 void ColumnTypePB::SetCachedSize(int size) const {
@@ -1411,17 +1431,32 @@ const ColumnTypePB& ColumnTypePB::default_instance() {
 }
 
 
+void ColumnTypePB::clear_value() {
+// @@protoc_insertion_point(one_of_clear_start:demo.ColumnTypePB)
+  switch (value_case()) {
+    case kType: {
+      // No need to clear
+      break;
+    }
+    case kInfo: {
+      delete value_.info_;
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
 void ColumnTypePB::Clear() {
 // @@protoc_insertion_point(message_clear_start:demo.ColumnTypePB)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
-    delete info_;
-  }
-  info_ = nullptr;
-  type_ = 0;
+  clear_value();
   _internal_metadata_.Clear();
 }
 
@@ -1531,13 +1566,13 @@ void ColumnTypePB::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .demo.DataType type = 1;
-  if (this->type() != 0) {
+  if (has_type()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
   }
 
   // .demo.VectorColumnInfoPB info = 2;
-  if (this->has_info()) {
+  if (has_info()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, _Internal::info(this), output);
   }
@@ -1556,13 +1591,13 @@ void ColumnTypePB::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   // .demo.DataType type = 1;
-  if (this->type() != 0) {
+  if (has_type()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
   }
 
   // .demo.VectorColumnInfoPB info = 2;
-  if (this->has_info()) {
+  if (has_info()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
         2, _Internal::info(this), target);
@@ -1589,19 +1624,24 @@ size_t ColumnTypePB::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .demo.VectorColumnInfoPB info = 2;
-  if (this->has_info()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *info_);
+  switch (value_case()) {
+    // .demo.DataType type = 1;
+    case kType: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->type());
+      break;
+    }
+    // .demo.VectorColumnInfoPB info = 2;
+    case kInfo: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *value_.info_);
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
   }
-
-  // .demo.DataType type = 1;
-  if (this->type() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->type());
-  }
-
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1629,11 +1669,18 @@ void ColumnTypePB::MergeFrom(const ColumnTypePB& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_info()) {
-    mutable_info()->::demo::VectorColumnInfoPB::MergeFrom(from.info());
-  }
-  if (from.type() != 0) {
-    set_type(from.type());
+  switch (from.value_case()) {
+    case kType: {
+      set_type(from.type());
+      break;
+    }
+    case kInfo: {
+      mutable_info()->::demo::VectorColumnInfoPB::MergeFrom(from.info());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
   }
 }
 
@@ -1658,8 +1705,8 @@ bool ColumnTypePB::IsInitialized() const {
 void ColumnTypePB::InternalSwap(ColumnTypePB* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(info_, other->info_);
-  swap(type_, other->type_);
+  swap(value_, other->value_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnTypePB::GetMetadata() const {
@@ -5039,18 +5086,11 @@ void QueryColumnPB::InternalSwap(QueryColumnPB* other) {
 // ===================================================================
 
 void TermQueryPB::InitAsDefaultInstance() {
-  ::demo::_TermQueryPB_default_instance_._instance.get_mutable()->field_ = const_cast< ::demo::QueryColumnPB*>(
-      ::demo::QueryColumnPB::internal_default_instance());
 }
 class TermQueryPB::_Internal {
  public:
-  static const ::demo::QueryColumnPB& field(const TermQueryPB* msg);
 };
 
-const ::demo::QueryColumnPB&
-TermQueryPB::_Internal::field(const TermQueryPB* msg) {
-  return *msg->field_;
-}
 TermQueryPB::TermQueryPB()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -5061,17 +5101,16 @@ TermQueryPB::TermQueryPB(const TermQueryPB& from)
       _internal_metadata_(nullptr),
       values_(from.values_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_field()) {
-    field_ = new ::demo::QueryColumnPB(*from.field_);
-  } else {
-    field_ = nullptr;
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from.field_name().empty()) {
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
   }
   // @@protoc_insertion_point(copy_constructor:demo.TermQueryPB)
 }
 
 void TermQueryPB::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TermQueryPB_common_2eproto.base);
-  field_ = nullptr;
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 TermQueryPB::~TermQueryPB() {
@@ -5080,7 +5119,7 @@ TermQueryPB::~TermQueryPB() {
 }
 
 void TermQueryPB::SharedDtor() {
-  if (this != internal_default_instance()) delete field_;
+  field_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void TermQueryPB::SetCachedSize(int size) const {
@@ -5099,10 +5138,7 @@ void TermQueryPB::Clear() {
   (void) cached_has_bits;
 
   values_.Clear();
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -5114,10 +5150,10 @@ const char* TermQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(mutable_field(), ptr);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_field_name(), ptr, ctx, "demo.TermQueryPB.field_name");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5163,11 +5199,15 @@ bool TermQueryPB::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
-               input, mutable_field()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_field_name()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->field_name().data(), static_cast<int>(this->field_name().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "demo.TermQueryPB.field_name"));
         } else {
           goto handle_unusual;
         }
@@ -5212,10 +5252,14 @@ void TermQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, _Internal::field(this), output);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.TermQueryPB.field_name");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->field_name(), output);
   }
 
   // repeated .demo.ColumnValuePB values = 2;
@@ -5240,11 +5284,15 @@ void TermQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, _Internal::field(this), target);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.TermQueryPB.field_name");
+    target =
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+        1, this->field_name(), target);
   }
 
   // repeated .demo.ColumnValuePB values = 2;
@@ -5287,11 +5335,11 @@ size_t TermQueryPB::ByteSizeLong() const {
     }
   }
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *field_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->field_name());
   }
 
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
@@ -5322,8 +5370,9 @@ void TermQueryPB::MergeFrom(const TermQueryPB& from) {
   (void) cached_has_bits;
 
   values_.MergeFrom(from.values_);
-  if (from.has_field()) {
-    mutable_field()->::demo::QueryColumnPB::MergeFrom(from.field());
+  if (from.field_name().size() > 0) {
+
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
   }
 }
 
@@ -5349,7 +5398,8 @@ void TermQueryPB::InternalSwap(TermQueryPB* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&values_)->InternalSwap(CastToBase(&other->values_));
-  swap(field_, other->field_);
+  field_name_.Swap(&other->field_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TermQueryPB::GetMetadata() const {
@@ -5674,18 +5724,11 @@ void CompareExprPB::InternalSwap(CompareExprPB* other) {
 // ===================================================================
 
 void RangeQueryPB::InitAsDefaultInstance() {
-  ::demo::_RangeQueryPB_default_instance_._instance.get_mutable()->field_ = const_cast< ::demo::QueryColumnPB*>(
-      ::demo::QueryColumnPB::internal_default_instance());
 }
 class RangeQueryPB::_Internal {
  public:
-  static const ::demo::QueryColumnPB& field(const RangeQueryPB* msg);
 };
 
-const ::demo::QueryColumnPB&
-RangeQueryPB::_Internal::field(const RangeQueryPB* msg) {
-  return *msg->field_;
-}
 RangeQueryPB::RangeQueryPB()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -5694,20 +5737,18 @@ RangeQueryPB::RangeQueryPB()
 RangeQueryPB::RangeQueryPB(const RangeQueryPB& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr),
-      operand_(from.operand_),
-      comparevalue_(from.comparevalue_) {
+      operand_(from.operand_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_field()) {
-    field_ = new ::demo::QueryColumnPB(*from.field_);
-  } else {
-    field_ = nullptr;
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from.field_name().empty()) {
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
   }
   // @@protoc_insertion_point(copy_constructor:demo.RangeQueryPB)
 }
 
 void RangeQueryPB::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RangeQueryPB_common_2eproto.base);
-  field_ = nullptr;
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 RangeQueryPB::~RangeQueryPB() {
@@ -5716,7 +5757,7 @@ RangeQueryPB::~RangeQueryPB() {
 }
 
 void RangeQueryPB::SharedDtor() {
-  if (this != internal_default_instance()) delete field_;
+  field_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void RangeQueryPB::SetCachedSize(int size) const {
@@ -5735,11 +5776,7 @@ void RangeQueryPB::Clear() {
   (void) cached_has_bits;
 
   operand_.Clear();
-  comparevalue_.Clear();
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -5751,10 +5788,10 @@ const char* RangeQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(mutable_field(), ptr);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_field_name(), ptr, ctx, "demo.RangeQueryPB.field_name");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5768,18 +5805,6 @@ const char* RangeQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 18);
-        } else goto handle_unusual;
-        continue;
-      // repeated string CompareValue = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(add_comparevalue(), ptr, ctx, "demo.RangeQueryPB.CompareValue");
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 26);
         } else goto handle_unusual;
         continue;
       default: {
@@ -5812,11 +5837,15 @@ bool RangeQueryPB::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
-               input, mutable_field()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_field_name()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->field_name().data(), static_cast<int>(this->field_name().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "demo.RangeQueryPB.field_name"));
         } else {
           goto handle_unusual;
         }
@@ -5828,22 +5857,6 @@ bool RangeQueryPB::MergePartialFromCodedStream(
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
                 input, add_operand()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated string CompareValue = 3;
-      case 3: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
-                input, this->add_comparevalue()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->comparevalue(this->comparevalue_size() - 1).data(),
-            static_cast<int>(this->comparevalue(this->comparevalue_size() - 1).length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "demo.RangeQueryPB.CompareValue"));
         } else {
           goto handle_unusual;
         }
@@ -5877,10 +5890,14 @@ void RangeQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, _Internal::field(this), output);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.RangeQueryPB.field_name");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->field_name(), output);
   }
 
   // repeated .demo.CompareExprPB operand = 2;
@@ -5890,16 +5907,6 @@ void RangeQueryPB::SerializeWithCachedSizes(
       2,
       this->operand(static_cast<int>(i)),
       output);
-  }
-
-  // repeated string CompareValue = 3;
-  for (int i = 0, n = this->comparevalue_size(); i < n; i++) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->comparevalue(i).data(), static_cast<int>(this->comparevalue(i).length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.RangeQueryPB.CompareValue");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteString(
-      3, this->comparevalue(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5915,11 +5922,15 @@ void RangeQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, _Internal::field(this), target);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.RangeQueryPB.field_name");
+    target =
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+        1, this->field_name(), target);
   }
 
   // repeated .demo.CompareExprPB operand = 2;
@@ -5928,16 +5939,6 @@ void RangeQueryPB::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
         2, this->operand(static_cast<int>(i)), target);
-  }
-
-  // repeated string CompareValue = 3;
-  for (int i = 0, n = this->comparevalue_size(); i < n; i++) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->comparevalue(i).data(), static_cast<int>(this->comparevalue(i).length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.RangeQueryPB.CompareValue");
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      WriteStringToArray(3, this->comparevalue(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5972,19 +5973,11 @@ size_t RangeQueryPB::ByteSizeLong() const {
     }
   }
 
-  // repeated string CompareValue = 3;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->comparevalue_size());
-  for (int i = 0, n = this->comparevalue_size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      this->comparevalue(i));
-  }
-
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *field_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->field_name());
   }
 
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
@@ -6015,9 +6008,9 @@ void RangeQueryPB::MergeFrom(const RangeQueryPB& from) {
   (void) cached_has_bits;
 
   operand_.MergeFrom(from.operand_);
-  comparevalue_.MergeFrom(from.comparevalue_);
-  if (from.has_field()) {
-    mutable_field()->::demo::QueryColumnPB::MergeFrom(from.field());
+  if (from.field_name().size() > 0) {
+
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
   }
 }
 
@@ -6043,8 +6036,8 @@ void RangeQueryPB::InternalSwap(RangeQueryPB* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&operand_)->InternalSwap(CastToBase(&other->operand_));
-  comparevalue_.InternalSwap(CastToBase(&other->comparevalue_));
-  swap(field_, other->field_);
+  field_name_.Swap(&other->field_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RangeQueryPB::GetMetadata() const {
@@ -6055,18 +6048,11 @@ void RangeQueryPB::InternalSwap(RangeQueryPB* other) {
 // ===================================================================
 
 void VectorQueryPB::InitAsDefaultInstance() {
-  ::demo::_VectorQueryPB_default_instance_._instance.get_mutable()->field_ = const_cast< ::demo::QueryColumnPB*>(
-      ::demo::QueryColumnPB::internal_default_instance());
 }
 class VectorQueryPB::_Internal {
  public:
-  static const ::demo::QueryColumnPB& field(const VectorQueryPB* msg);
 };
 
-const ::demo::QueryColumnPB&
-VectorQueryPB::_Internal::field(const VectorQueryPB* msg) {
-  return *msg->field_;
-}
 VectorQueryPB::VectorQueryPB()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -6076,14 +6062,13 @@ VectorQueryPB::VectorQueryPB(const VectorQueryPB& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from.field_name().empty()) {
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
+  }
   vector_query_param_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from.vector_query_param().empty()) {
     vector_query_param_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.vector_query_param_);
-  }
-  if (from.has_field()) {
-    field_ = new ::demo::QueryColumnPB(*from.field_);
-  } else {
-    field_ = nullptr;
   }
   ::memcpy(&topk_, &from.topk_,
     static_cast<size_t>(reinterpret_cast<char*>(&query_boost_) -
@@ -6093,10 +6078,11 @@ VectorQueryPB::VectorQueryPB(const VectorQueryPB& from)
 
 void VectorQueryPB::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_VectorQueryPB_common_2eproto.base);
+  field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   vector_query_param_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&field_, 0, static_cast<size_t>(
+  ::memset(&topk_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&query_boost_) -
-      reinterpret_cast<char*>(&field_)) + sizeof(query_boost_));
+      reinterpret_cast<char*>(&topk_)) + sizeof(query_boost_));
 }
 
 VectorQueryPB::~VectorQueryPB() {
@@ -6105,8 +6091,8 @@ VectorQueryPB::~VectorQueryPB() {
 }
 
 void VectorQueryPB::SharedDtor() {
+  field_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   vector_query_param_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete field_;
 }
 
 void VectorQueryPB::SetCachedSize(int size) const {
@@ -6124,11 +6110,8 @@ void VectorQueryPB::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   vector_query_param_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
   ::memset(&topk_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&query_boost_) -
       reinterpret_cast<char*>(&topk_)) + sizeof(query_boost_));
@@ -6143,10 +6126,10 @@ const char* VectorQueryPB::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(mutable_field(), ptr);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_field_name(), ptr, ctx, "demo.VectorQueryPB.field_name");
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6208,11 +6191,15 @@ bool VectorQueryPB::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .demo.QueryColumnPB field = 1;
+      // string field_name = 1;
       case 1: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
-               input, mutable_field()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_field_name()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->field_name().data(), static_cast<int>(this->field_name().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "demo.VectorQueryPB.field_name"));
         } else {
           goto handle_unusual;
         }
@@ -6300,10 +6287,14 @@ void VectorQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, _Internal::field(this), output);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.VectorQueryPB.field_name");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->field_name(), output);
   }
 
   // string vector_query_param = 2;
@@ -6344,11 +6335,15 @@ void VectorQueryPB::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, _Internal::field(this), target);
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->field_name().data(), static_cast<int>(this->field_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "demo.VectorQueryPB.field_name");
+    target =
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+        1, this->field_name(), target);
   }
 
   // string vector_query_param = 2;
@@ -6398,18 +6393,18 @@ size_t VectorQueryPB::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // string field_name = 1;
+  if (this->field_name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->field_name());
+  }
+
   // string vector_query_param = 2;
   if (this->vector_query_param().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->vector_query_param());
-  }
-
-  // .demo.QueryColumnPB field = 1;
-  if (this->has_field()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *field_);
   }
 
   // int64 topk = 3;
@@ -6458,12 +6453,13 @@ void VectorQueryPB::MergeFrom(const VectorQueryPB& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.field_name().size() > 0) {
+
+    field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
+  }
   if (from.vector_query_param().size() > 0) {
 
     vector_query_param_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.vector_query_param_);
-  }
-  if (from.has_field()) {
-    mutable_field()->::demo::QueryColumnPB::MergeFrom(from.field());
   }
   if (from.topk() != 0) {
     set_topk(from.topk());
@@ -6497,9 +6493,10 @@ bool VectorQueryPB::IsInitialized() const {
 void VectorQueryPB::InternalSwap(VectorQueryPB* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  field_name_.Swap(&other->field_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   vector_query_param_.Swap(&other->vector_query_param_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(field_, other->field_);
   swap(topk_, other->topk_);
   swap(nq_, other->nq_);
   swap(query_boost_, other->query_boost_);

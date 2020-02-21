@@ -441,6 +441,12 @@ class ColumnTypePB :
   }
   static const ColumnTypePB& default_instance();
 
+  enum ValueCase {
+    kType = 1,
+    kInfo = 2,
+    VALUE_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const ColumnTypePB* internal_default_instance() {
     return reinterpret_cast<const ColumnTypePB*>(
@@ -518,9 +524,17 @@ class ColumnTypePB :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kInfoFieldNumber = 2,
     kTypeFieldNumber = 1,
+    kInfoFieldNumber = 2,
   };
+  // .demo.DataType type = 1;
+  private:
+  bool has_type() const;
+  public:
+  void clear_type();
+  ::demo::DataType type() const;
+  void set_type(::demo::DataType value);
+
   // .demo.VectorColumnInfoPB info = 2;
   bool has_info() const;
   void clear_info();
@@ -529,19 +543,26 @@ class ColumnTypePB :
   ::demo::VectorColumnInfoPB* mutable_info();
   void set_allocated_info(::demo::VectorColumnInfoPB* info);
 
-  // .demo.DataType type = 1;
-  void clear_type();
-  ::demo::DataType type() const;
-  void set_type(::demo::DataType value);
-
+  void clear_value();
+  ValueCase value_case() const;
   // @@protoc_insertion_point(class_scope:demo.ColumnTypePB)
  private:
   class _Internal;
+  void set_has_type();
+  void set_has_info();
+
+  inline bool has_value() const;
+  inline void clear_has_value();
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::demo::VectorColumnInfoPB* info_;
-  int type_;
+  union ValueUnion {
+    ValueUnion() {}
+    int type_;
+    ::demo::VectorColumnInfoPB* info_;
+  } value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_common_2eproto;
 };
 // -------------------------------------------------------------------
@@ -2093,7 +2114,7 @@ class TermQueryPB :
 
   enum : int {
     kValuesFieldNumber = 2,
-    kFieldFieldNumber = 1,
+    kFieldNameFieldNumber = 1,
   };
   // repeated .demo.ColumnValuePB values = 2;
   int values_size() const;
@@ -2106,13 +2127,16 @@ class TermQueryPB :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB >&
       values() const;
 
-  // .demo.QueryColumnPB field = 1;
-  bool has_field() const;
-  void clear_field();
-  const ::demo::QueryColumnPB& field() const;
-  ::demo::QueryColumnPB* release_field();
-  ::demo::QueryColumnPB* mutable_field();
-  void set_allocated_field(::demo::QueryColumnPB* field);
+  // string field_name = 1;
+  void clear_field_name();
+  const std::string& field_name() const;
+  void set_field_name(const std::string& value);
+  void set_field_name(std::string&& value);
+  void set_field_name(const char* value);
+  void set_field_name(const char* value, size_t size);
+  std::string* mutable_field_name();
+  std::string* release_field_name();
+  void set_allocated_field_name(std::string* field_name);
 
   // @@protoc_insertion_point(class_scope:demo.TermQueryPB)
  private:
@@ -2120,7 +2144,7 @@ class TermQueryPB :
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::ColumnValuePB > values_;
-  ::demo::QueryColumnPB* field_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
 };
@@ -2381,8 +2405,7 @@ class RangeQueryPB :
 
   enum : int {
     kOperandFieldNumber = 2,
-    kCompareValueFieldNumber = 3,
-    kFieldFieldNumber = 1,
+    kFieldNameFieldNumber = 1,
   };
   // repeated .demo.CompareExprPB operand = 2;
   int operand_size() const;
@@ -2395,30 +2418,16 @@ class RangeQueryPB :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB >&
       operand() const;
 
-  // repeated string CompareValue = 3;
-  int comparevalue_size() const;
-  void clear_comparevalue();
-  const std::string& comparevalue(int index) const;
-  std::string* mutable_comparevalue(int index);
-  void set_comparevalue(int index, const std::string& value);
-  void set_comparevalue(int index, std::string&& value);
-  void set_comparevalue(int index, const char* value);
-  void set_comparevalue(int index, const char* value, size_t size);
-  std::string* add_comparevalue();
-  void add_comparevalue(const std::string& value);
-  void add_comparevalue(std::string&& value);
-  void add_comparevalue(const char* value);
-  void add_comparevalue(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& comparevalue() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_comparevalue();
-
-  // .demo.QueryColumnPB field = 1;
-  bool has_field() const;
-  void clear_field();
-  const ::demo::QueryColumnPB& field() const;
-  ::demo::QueryColumnPB* release_field();
-  ::demo::QueryColumnPB* mutable_field();
-  void set_allocated_field(::demo::QueryColumnPB* field);
+  // string field_name = 1;
+  void clear_field_name();
+  const std::string& field_name() const;
+  void set_field_name(const std::string& value);
+  void set_field_name(std::string&& value);
+  void set_field_name(const char* value);
+  void set_field_name(const char* value, size_t size);
+  std::string* mutable_field_name();
+  std::string* release_field_name();
+  void set_allocated_field_name(std::string* field_name);
 
   // @@protoc_insertion_point(class_scope:demo.RangeQueryPB)
  private:
@@ -2426,8 +2435,7 @@ class RangeQueryPB :
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExprPB > operand_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> comparevalue_;
-  ::demo::QueryColumnPB* field_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_common_2eproto;
 };
@@ -2546,12 +2554,23 @@ class VectorQueryPB :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kFieldNameFieldNumber = 1,
     kVectorQueryParamFieldNumber = 2,
-    kFieldFieldNumber = 1,
     kTopkFieldNumber = 3,
     kNqFieldNumber = 4,
     kQueryBoostFieldNumber = 5,
   };
+  // string field_name = 1;
+  void clear_field_name();
+  const std::string& field_name() const;
+  void set_field_name(const std::string& value);
+  void set_field_name(std::string&& value);
+  void set_field_name(const char* value);
+  void set_field_name(const char* value, size_t size);
+  std::string* mutable_field_name();
+  std::string* release_field_name();
+  void set_allocated_field_name(std::string* field_name);
+
   // string vector_query_param = 2;
   void clear_vector_query_param();
   const std::string& vector_query_param() const;
@@ -2562,14 +2581,6 @@ class VectorQueryPB :
   std::string* mutable_vector_query_param();
   std::string* release_vector_query_param();
   void set_allocated_vector_query_param(std::string* vector_query_param);
-
-  // .demo.QueryColumnPB field = 1;
-  bool has_field() const;
-  void clear_field();
-  const ::demo::QueryColumnPB& field() const;
-  ::demo::QueryColumnPB* release_field();
-  ::demo::QueryColumnPB* mutable_field();
-  void set_allocated_field(::demo::QueryColumnPB* field);
 
   // int64 topk = 3;
   void clear_topk();
@@ -2591,8 +2602,8 @@ class VectorQueryPB :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vector_query_param_;
-  ::demo::QueryColumnPB* field_;
   ::PROTOBUF_NAMESPACE_ID::int64 topk_;
   ::PROTOBUF_NAMESPACE_ID::int64 nq_;
   float query_boost_;
@@ -4633,70 +4644,84 @@ inline void VectorColumnInfoPB::set_element_type(::demo::DataType value) {
 // ColumnTypePB
 
 // .demo.DataType type = 1;
+inline bool ColumnTypePB::has_type() const {
+  return value_case() == kType;
+}
+inline void ColumnTypePB::set_has_type() {
+  _oneof_case_[0] = kType;
+}
 inline void ColumnTypePB::clear_type() {
-  type_ = 0;
+  if (has_type()) {
+    value_.type_ = 0;
+    clear_has_value();
+  }
 }
 inline ::demo::DataType ColumnTypePB::type() const {
   // @@protoc_insertion_point(field_get:demo.ColumnTypePB.type)
-  return static_cast< ::demo::DataType >(type_);
+  if (has_type()) {
+    return static_cast< ::demo::DataType >(value_.type_);
+  }
+  return static_cast< ::demo::DataType >(0);
 }
 inline void ColumnTypePB::set_type(::demo::DataType value) {
-  
-  type_ = value;
+  if (!has_type()) {
+    clear_value();
+    set_has_type();
+  }
+  value_.type_ = value;
   // @@protoc_insertion_point(field_set:demo.ColumnTypePB.type)
 }
 
 // .demo.VectorColumnInfoPB info = 2;
 inline bool ColumnTypePB::has_info() const {
-  return this != internal_default_instance() && info_ != nullptr;
+  return value_case() == kInfo;
+}
+inline void ColumnTypePB::set_has_info() {
+  _oneof_case_[0] = kInfo;
 }
 inline void ColumnTypePB::clear_info() {
-  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
-    delete info_;
+  if (has_info()) {
+    delete value_.info_;
+    clear_has_value();
   }
-  info_ = nullptr;
-}
-inline const ::demo::VectorColumnInfoPB& ColumnTypePB::info() const {
-  const ::demo::VectorColumnInfoPB* p = info_;
-  // @@protoc_insertion_point(field_get:demo.ColumnTypePB.info)
-  return p != nullptr ? *p : *reinterpret_cast<const ::demo::VectorColumnInfoPB*>(
-      &::demo::_VectorColumnInfoPB_default_instance_);
 }
 inline ::demo::VectorColumnInfoPB* ColumnTypePB::release_info() {
   // @@protoc_insertion_point(field_release:demo.ColumnTypePB.info)
-  
-  ::demo::VectorColumnInfoPB* temp = info_;
-  info_ = nullptr;
-  return temp;
+  if (has_info()) {
+    clear_has_value();
+      ::demo::VectorColumnInfoPB* temp = value_.info_;
+    value_.info_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::demo::VectorColumnInfoPB& ColumnTypePB::info() const {
+  // @@protoc_insertion_point(field_get:demo.ColumnTypePB.info)
+  return has_info()
+      ? *value_.info_
+      : *reinterpret_cast< ::demo::VectorColumnInfoPB*>(&::demo::_VectorColumnInfoPB_default_instance_);
 }
 inline ::demo::VectorColumnInfoPB* ColumnTypePB::mutable_info() {
-  
-  if (info_ == nullptr) {
-    auto* p = CreateMaybeMessage<::demo::VectorColumnInfoPB>(GetArenaNoVirtual());
-    info_ = p;
+  if (!has_info()) {
+    clear_value();
+    set_has_info();
+    value_.info_ = CreateMaybeMessage< ::demo::VectorColumnInfoPB >(
+        GetArenaNoVirtual());
   }
   // @@protoc_insertion_point(field_mutable:demo.ColumnTypePB.info)
-  return info_;
-}
-inline void ColumnTypePB::set_allocated_info(::demo::VectorColumnInfoPB* info) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete info_;
-  }
-  if (info) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, info, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  info_ = info;
-  // @@protoc_insertion_point(field_set_allocated:demo.ColumnTypePB.info)
+  return value_.info_;
 }
 
+inline bool ColumnTypePB::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+inline void ColumnTypePB::clear_has_value() {
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+inline ColumnTypePB::ValueCase ColumnTypePB::value_case() const {
+  return ColumnTypePB::ValueCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // ColumnSchemaPB
@@ -5705,55 +5730,55 @@ inline void QueryColumnPB::set_allocated_value(::demo::ColumnValuePB* value) {
 
 // TermQueryPB
 
-// .demo.QueryColumnPB field = 1;
-inline bool TermQueryPB::has_field() const {
-  return this != internal_default_instance() && field_ != nullptr;
+// string field_name = 1;
+inline void TermQueryPB::clear_field_name() {
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void TermQueryPB::clear_field() {
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
+inline const std::string& TermQueryPB::field_name() const {
+  // @@protoc_insertion_point(field_get:demo.TermQueryPB.field_name)
+  return field_name_.GetNoArena();
 }
-inline const ::demo::QueryColumnPB& TermQueryPB::field() const {
-  const ::demo::QueryColumnPB* p = field_;
-  // @@protoc_insertion_point(field_get:demo.TermQueryPB.field)
-  return p != nullptr ? *p : *reinterpret_cast<const ::demo::QueryColumnPB*>(
-      &::demo::_QueryColumnPB_default_instance_);
-}
-inline ::demo::QueryColumnPB* TermQueryPB::release_field() {
-  // @@protoc_insertion_point(field_release:demo.TermQueryPB.field)
+inline void TermQueryPB::set_field_name(const std::string& value) {
   
-  ::demo::QueryColumnPB* temp = field_;
-  field_ = nullptr;
-  return temp;
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:demo.TermQueryPB.field_name)
 }
-inline ::demo::QueryColumnPB* TermQueryPB::mutable_field() {
+inline void TermQueryPB::set_field_name(std::string&& value) {
   
-  if (field_ == nullptr) {
-    auto* p = CreateMaybeMessage<::demo::QueryColumnPB>(GetArenaNoVirtual());
-    field_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:demo.TermQueryPB.field)
-  return field_;
+  field_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.TermQueryPB.field_name)
 }
-inline void TermQueryPB::set_allocated_field(::demo::QueryColumnPB* field) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete field_;
-  }
-  if (field) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, field, submessage_arena);
-    }
+inline void TermQueryPB::set_field_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.TermQueryPB.field_name)
+}
+inline void TermQueryPB::set_field_name(const char* value, size_t size) {
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.TermQueryPB.field_name)
+}
+inline std::string* TermQueryPB::mutable_field_name() {
+  
+  // @@protoc_insertion_point(field_mutable:demo.TermQueryPB.field_name)
+  return field_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* TermQueryPB::release_field_name() {
+  // @@protoc_insertion_point(field_release:demo.TermQueryPB.field_name)
+  
+  return field_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void TermQueryPB::set_allocated_field_name(std::string* field_name) {
+  if (field_name != nullptr) {
     
   } else {
     
   }
-  field_ = field;
-  // @@protoc_insertion_point(field_set_allocated:demo.TermQueryPB.field)
+  field_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), field_name);
+  // @@protoc_insertion_point(field_set_allocated:demo.TermQueryPB.field_name)
 }
 
 // repeated .demo.ColumnValuePB values = 2;
@@ -5859,55 +5884,55 @@ inline void CompareExprPB::set_allocated_operand(::demo::ColumnValuePB* operand)
 
 // RangeQueryPB
 
-// .demo.QueryColumnPB field = 1;
-inline bool RangeQueryPB::has_field() const {
-  return this != internal_default_instance() && field_ != nullptr;
+// string field_name = 1;
+inline void RangeQueryPB::clear_field_name() {
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void RangeQueryPB::clear_field() {
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
+inline const std::string& RangeQueryPB::field_name() const {
+  // @@protoc_insertion_point(field_get:demo.RangeQueryPB.field_name)
+  return field_name_.GetNoArena();
 }
-inline const ::demo::QueryColumnPB& RangeQueryPB::field() const {
-  const ::demo::QueryColumnPB* p = field_;
-  // @@protoc_insertion_point(field_get:demo.RangeQueryPB.field)
-  return p != nullptr ? *p : *reinterpret_cast<const ::demo::QueryColumnPB*>(
-      &::demo::_QueryColumnPB_default_instance_);
-}
-inline ::demo::QueryColumnPB* RangeQueryPB::release_field() {
-  // @@protoc_insertion_point(field_release:demo.RangeQueryPB.field)
+inline void RangeQueryPB::set_field_name(const std::string& value) {
   
-  ::demo::QueryColumnPB* temp = field_;
-  field_ = nullptr;
-  return temp;
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:demo.RangeQueryPB.field_name)
 }
-inline ::demo::QueryColumnPB* RangeQueryPB::mutable_field() {
+inline void RangeQueryPB::set_field_name(std::string&& value) {
   
-  if (field_ == nullptr) {
-    auto* p = CreateMaybeMessage<::demo::QueryColumnPB>(GetArenaNoVirtual());
-    field_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:demo.RangeQueryPB.field)
-  return field_;
+  field_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.RangeQueryPB.field_name)
 }
-inline void RangeQueryPB::set_allocated_field(::demo::QueryColumnPB* field) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete field_;
-  }
-  if (field) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, field, submessage_arena);
-    }
+inline void RangeQueryPB::set_field_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.RangeQueryPB.field_name)
+}
+inline void RangeQueryPB::set_field_name(const char* value, size_t size) {
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.RangeQueryPB.field_name)
+}
+inline std::string* RangeQueryPB::mutable_field_name() {
+  
+  // @@protoc_insertion_point(field_mutable:demo.RangeQueryPB.field_name)
+  return field_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* RangeQueryPB::release_field_name() {
+  // @@protoc_insertion_point(field_release:demo.RangeQueryPB.field_name)
+  
+  return field_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void RangeQueryPB::set_allocated_field_name(std::string* field_name) {
+  if (field_name != nullptr) {
     
   } else {
     
   }
-  field_ = field;
-  // @@protoc_insertion_point(field_set_allocated:demo.RangeQueryPB.field)
+  field_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), field_name);
+  // @@protoc_insertion_point(field_set_allocated:demo.RangeQueryPB.field_name)
 }
 
 // repeated .demo.CompareExprPB operand = 2;
@@ -5940,124 +5965,59 @@ RangeQueryPB::operand() const {
   return operand_;
 }
 
-// repeated string CompareValue = 3;
-inline int RangeQueryPB::comparevalue_size() const {
-  return comparevalue_.size();
-}
-inline void RangeQueryPB::clear_comparevalue() {
-  comparevalue_.Clear();
-}
-inline const std::string& RangeQueryPB::comparevalue(int index) const {
-  // @@protoc_insertion_point(field_get:demo.RangeQueryPB.CompareValue)
-  return comparevalue_.Get(index);
-}
-inline std::string* RangeQueryPB::mutable_comparevalue(int index) {
-  // @@protoc_insertion_point(field_mutable:demo.RangeQueryPB.CompareValue)
-  return comparevalue_.Mutable(index);
-}
-inline void RangeQueryPB::set_comparevalue(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:demo.RangeQueryPB.CompareValue)
-  comparevalue_.Mutable(index)->assign(value);
-}
-inline void RangeQueryPB::set_comparevalue(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:demo.RangeQueryPB.CompareValue)
-  comparevalue_.Mutable(index)->assign(std::move(value));
-}
-inline void RangeQueryPB::set_comparevalue(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  comparevalue_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:demo.RangeQueryPB.CompareValue)
-}
-inline void RangeQueryPB::set_comparevalue(int index, const char* value, size_t size) {
-  comparevalue_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:demo.RangeQueryPB.CompareValue)
-}
-inline std::string* RangeQueryPB::add_comparevalue() {
-  // @@protoc_insertion_point(field_add_mutable:demo.RangeQueryPB.CompareValue)
-  return comparevalue_.Add();
-}
-inline void RangeQueryPB::add_comparevalue(const std::string& value) {
-  comparevalue_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:demo.RangeQueryPB.CompareValue)
-}
-inline void RangeQueryPB::add_comparevalue(std::string&& value) {
-  comparevalue_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:demo.RangeQueryPB.CompareValue)
-}
-inline void RangeQueryPB::add_comparevalue(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  comparevalue_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:demo.RangeQueryPB.CompareValue)
-}
-inline void RangeQueryPB::add_comparevalue(const char* value, size_t size) {
-  comparevalue_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:demo.RangeQueryPB.CompareValue)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-RangeQueryPB::comparevalue() const {
-  // @@protoc_insertion_point(field_list:demo.RangeQueryPB.CompareValue)
-  return comparevalue_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-RangeQueryPB::mutable_comparevalue() {
-  // @@protoc_insertion_point(field_mutable_list:demo.RangeQueryPB.CompareValue)
-  return &comparevalue_;
-}
-
 // -------------------------------------------------------------------
 
 // VectorQueryPB
 
-// .demo.QueryColumnPB field = 1;
-inline bool VectorQueryPB::has_field() const {
-  return this != internal_default_instance() && field_ != nullptr;
+// string field_name = 1;
+inline void VectorQueryPB::clear_field_name() {
+  field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void VectorQueryPB::clear_field() {
-  if (GetArenaNoVirtual() == nullptr && field_ != nullptr) {
-    delete field_;
-  }
-  field_ = nullptr;
+inline const std::string& VectorQueryPB::field_name() const {
+  // @@protoc_insertion_point(field_get:demo.VectorQueryPB.field_name)
+  return field_name_.GetNoArena();
 }
-inline const ::demo::QueryColumnPB& VectorQueryPB::field() const {
-  const ::demo::QueryColumnPB* p = field_;
-  // @@protoc_insertion_point(field_get:demo.VectorQueryPB.field)
-  return p != nullptr ? *p : *reinterpret_cast<const ::demo::QueryColumnPB*>(
-      &::demo::_QueryColumnPB_default_instance_);
-}
-inline ::demo::QueryColumnPB* VectorQueryPB::release_field() {
-  // @@protoc_insertion_point(field_release:demo.VectorQueryPB.field)
+inline void VectorQueryPB::set_field_name(const std::string& value) {
   
-  ::demo::QueryColumnPB* temp = field_;
-  field_ = nullptr;
-  return temp;
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:demo.VectorQueryPB.field_name)
 }
-inline ::demo::QueryColumnPB* VectorQueryPB::mutable_field() {
+inline void VectorQueryPB::set_field_name(std::string&& value) {
   
-  if (field_ == nullptr) {
-    auto* p = CreateMaybeMessage<::demo::QueryColumnPB>(GetArenaNoVirtual());
-    field_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:demo.VectorQueryPB.field)
-  return field_;
+  field_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.VectorQueryPB.field_name)
 }
-inline void VectorQueryPB::set_allocated_field(::demo::QueryColumnPB* field) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete field_;
-  }
-  if (field) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, field, submessage_arena);
-    }
+inline void VectorQueryPB::set_field_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.VectorQueryPB.field_name)
+}
+inline void VectorQueryPB::set_field_name(const char* value, size_t size) {
+  
+  field_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.VectorQueryPB.field_name)
+}
+inline std::string* VectorQueryPB::mutable_field_name() {
+  
+  // @@protoc_insertion_point(field_mutable:demo.VectorQueryPB.field_name)
+  return field_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* VectorQueryPB::release_field_name() {
+  // @@protoc_insertion_point(field_release:demo.VectorQueryPB.field_name)
+  
+  return field_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void VectorQueryPB::set_allocated_field_name(std::string* field_name) {
+  if (field_name != nullptr) {
     
   } else {
     
   }
-  field_ = field;
-  // @@protoc_insertion_point(field_set_allocated:demo.VectorQueryPB.field)
+  field_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), field_name);
+  // @@protoc_insertion_point(field_set_allocated:demo.VectorQueryPB.field_name)
 }
 
 // string vector_query_param = 2;

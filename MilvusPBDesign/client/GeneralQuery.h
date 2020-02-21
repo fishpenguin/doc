@@ -35,14 +35,14 @@ struct TermQuery {
 
 template <typename T>
 struct CompareExpr {
-    CompareOperator operator;
+    CompareOperator compare_operator;
     T operand;
 };
 
 template <typename T>
 struct RangeQuery {
     std::string field_name;
-    std::vector<CompareExpr> compare_expr;
+    std::vector<CompareExpr<T>> compare_expr;
 };
 
 struct VectorQuery {
@@ -54,27 +54,39 @@ struct VectorQuery {
     // query vector???
 };
 
+template <typename T>
 union InnerLeafQuery {
-    TermQuery term_query;
-    RangeQuery range_query;
+    TermQuery<T> term_query;
+    RangeQuery<T> range_query;
     VectorQuery vector_query;
 };
 
+template <typename T>
+struct LeafQuery;
+template <typename T>
+using LeafQueryPtr = std::shared_ptr<LeafQuery<T>>;
+
+template <typename T>
+struct BinaryQuery;
+template <typename T>
+using BinaryQueryPtr = std::shared_ptr<BinaryQuery<T>>;
+
+template <typename T>
+union GeneralQuery {
+    LeafQueryPtr<T> leaf;
+    BinaryQueryPtr<T> bin;
+};
+
+template<typename T>
 struct LeafQuery {
-    InnerLeafQuery query;
+    InnerLeafQuery<T> query;
     float query_boost;
 };
-using LeafQueryPtr = std::shared_ptr<LeafQuery>;
 
+template <typename T>
 struct BinaryQuery {
-    GeneralQuery left_query;
-    GeneralQuery right_query;
+    GeneralQuery<T> left_query;
+    GeneralQuery<T> right_query;
     QueryRelation relation;
     float query_boost;
-};
-using BinaryQueryPtr = std::shared_ptr<BinaryQuery>;
-
-union GeneralQuery {
-    LeafQueryPtr leaf;
-    BinaryQueryPtr bin;
 };

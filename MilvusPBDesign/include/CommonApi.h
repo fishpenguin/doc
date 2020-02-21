@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BinaryQuery.h"
+#include "client/BooleanQuery.h"
 #include "Status.h"
 
 #include <memory>
@@ -37,14 +37,14 @@ struct QueryResponse {
     std::vector<uint64_t> distances;
 };
 
-struct QueryClause {
-    std::vector<TermQuery> term_queries;
-    std::vector<RangeQuery> range_queries;
-    std::vector<VectorQuery> vector_queries;
-    std::vector<QueryClause> must_queries;
-    std::vector<QueryClause> must_not_queries;
-    std::vector<QueryClause> should_queries;
-};
+//struct QueryClause {
+//    std::vector<TermQuery> term_queries;
+//    std::vector<RangeQuery> range_queries;
+//    std::vector<VectorQuery> vector_queries;
+//    std::vector<QueryClause> must_queries;
+//    std::vector<QueryClause> must_not_queries;
+//    std::vector<QueryClause> should_queries;
+//};
 
 class Connection {
  public:
@@ -52,12 +52,13 @@ class Connection {
     Connect(const std::string uri);
 
     virtual Status
-    Connect(const ConnectParam)
+    Connect(const ConnectParam& connect_param);
 
     virtual Status
     CreateCollection(uint64_t request_id,
                      CollectionSchema collection_schema);
 
-    virtual QueryResponse
-    Query(BooleanClause query_clause);
+    template<typename T>
+    QueryResponse
+    Query(BooleanClause<T> query_clause);
 };

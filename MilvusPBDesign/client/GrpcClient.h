@@ -1,3 +1,5 @@
+#pragma once
+
 #include "CommonApi.h"
 #include "BooleanQuery.h"
 #include "grpc-gen/gen-common/common.grpc.pb.h"
@@ -14,7 +16,7 @@
 
 class GrpcClient {
  public:
-    explicit GrpcClient(std::shared_ptr<::demo::Channel>& channel);
+    explicit GrpcClient(std::shared_ptr<::grpc::Channel>& channel);
 
     virtual ~GrpcClient();
 
@@ -23,4 +25,4 @@ class GrpcClient {
 
     QueryResponse
     Search(::demo::QueryRequestPB);
-}
+};

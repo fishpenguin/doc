@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Status.h"
 #include "GeneralQuery.h"
 
@@ -7,9 +9,10 @@ enum class Occur {
     SHOULD,
 };
 
+template<typename T>
 class BooleanClause {
  public:
-    BooleanClause()
+    BooleanClause();
 
     Occur getOccur() {
         return occur_;
@@ -19,11 +22,11 @@ class BooleanClause {
         return boolean_clauses_;
     }
  
-    BinaryQueryPtr getBinaryQuery() {
+    BinaryQueryPtr<T> getBinaryQuery() {
         return binary_query_;
     }
 
-    std::vector<LeafQueryPtr> getLeafQueries() {
+    std::vector<LeafQueryPtr<T>> getLeafQueries() {
         return leaf_queries_;
     }
 
@@ -42,11 +45,12 @@ class BooleanClause {
  private:
     Occur occur_;
     std::vector<std::shared_ptr<BooleanClause> > boolean_clauses_;
-    std::vector<LeafQueryPtr> leaf_queries_;
-    BinaryQueryPtr binary_query_;
-}
-using BooleanClausePtr = std::shared_ptr<BooleanClause>;
+    std::vector<LeafQueryPtr<T>> leaf_queries_;
+    BinaryQueryPtr<T> binary_query_;
+};
+template <typename T>
+using BooleanClausePtr = std::shared_ptr<BooleanClause<T>>;
 
-
+template<typename T>
 Status
-GenBinaryQuery(BooleanClausePtr boolean_clause, BinaryQueryPtr binary_query);
+GenBinaryQuery(BooleanClausePtr<T> boolean_clause, BinaryQueryPtr<T> binary_query);
