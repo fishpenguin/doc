@@ -23,6 +23,9 @@ class GrpcClient {
     ::demo::CollectionSchemaResponsePB
     CreateCollection(::demo::CreateCollectionRequestPB);
 
-    QueryResponse
-    Search(::demo::QueryRequestPB);
+    Status
+    Search(::demo::QueryRequestPB& request, ::demo::QueryResponsePB& response);
+
+ private:
+    std::unique_ptr<::demo::DemoService::Stub> stub_;
 };

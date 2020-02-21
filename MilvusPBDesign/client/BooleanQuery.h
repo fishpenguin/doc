@@ -14,8 +14,18 @@ class BooleanClause {
  public:
     BooleanClause();
 
+    BooleanClause(Occur occur) : occur_(occur) {}
+
     Occur getOccur() {
         return occur_;
+    }
+
+    void AddBooleanClauses(std::shared_ptr<BooleanClause> boolean_clause) {
+        boolean_clauses_.emplace_back(boolean_clause);
+    }
+
+    void AddLeafQueries(LeafQueryPtr<T> leaf_query) {
+        leaf_queries_.emplace_back(leaf_query);
     }
 
     std::vector<std::shared_ptr<BooleanClause> > getBooleanClauses() {
