@@ -45,20 +45,20 @@ struct QueryResponse {
 //    std::vector<QueryClause> must_not_queries;
 //    std::vector<QueryClause> should_queries;
 //};
+//
+//class Connection {
+// public:
+//    virtual Status
+//    Connect(const std::string uri);
+//
+//    virtual Status
+//    Connect(const ConnectParam& connect_param);
+//
+//    virtual Status
+//    CreateCollection(uint64_t request_id,
+//                     CollectionSchema collection_schema);
 
-class Connection {
- public:
-    virtual Status
-    Connect(const std::string uri);
-
-    virtual Status
-    Connect(const ConnectParam& connect_param);
-
-    virtual Status
-    CreateCollection(uint64_t request_id,
-                     CollectionSchema collection_schema);
-
-    template<typename T>
-    QueryResponse
-    Query(BooleanClause<T> query_clause);
-};
+//    template<typename T>
+//    QueryResponse
+//    Query(BooleanClause<T> query_clause);
+//};

@@ -1,10 +1,4 @@
 #include "ClientProxy.h"
-#include "BooleanQuery.h"
-#include "grpc-gen/gen-common/common.grpc.pb.h"
-
-#include <memory>
-#include <string>
-#include <vector>
 
 Status
 ClientProxy::Connect(const ConnectParam& param) {
@@ -38,21 +32,30 @@ ClientProxy::CreateCollection(uint64_t id, CollectionSchema collection_schema) {
     
 }
 
-template <typename T>
-void
-ConvertBinaryQueryToProto(BinaryQueryPtr<T> binary_query, ::demo::BinaryQueryPB query_pb) {
-    query_pb.set_relation(binary_query->relation);
-    ConvertBinaryQueryToProto(binary_query->left_query, query_pb.left_query());
-    ConvertBinaryQueryToProto(binary_query->right_query, query_pb.right_query());
-}
 
-template <typename T>
-QueryResponse
-ClientProxy::Query(BooleanClausePtr<T> boolean_clause) {
-    BinaryQueryPtr<T> binary_query_ptr;
-    Status s = GenBinaryQuery(boolean_clause, binary_query_ptr);
-    
-    //Convert BinaryQuery to proto::GeneralQueryPB
-    ::demo::GeneralQueryPB query_pb;
-    ConvertBinaryQueryToProto(binary_query_ptr, query_pb);
-}
+//template <typename T>
+//QueryResponse
+//ClientProxy::Query(BooleanClausePtr<T> boolean_clause) {
+//    BinaryQueryPtr<T> binary_query_ptr;
+//    Status s = GenBinaryQuery(boolean_clause, binary_query_ptr);
+//
+//    //Convert BinaryQuery to proto::GeneralQueryPB
+//    ::demo::GeneralQueryPB query_pb;
+//    ConvertBinaryQueryToProto(binary_query_ptr, query_pb);
+//    ::demo::QueryRequestPB request;
+//    //id?????????????????
+//    request.set_request_id(1);
+//    request.set_allocated_query(&query_pb);
+//    ::demo::QueryResponsePB response;
+//    s = client_ptr_->Search(request, response);
+//    QueryResponse query_response;
+//    uint64_t size = response.ids().size();
+//    query_response.ids.resize(size);
+//    query_response.distances.resize(size);
+//    query_response.score.resize(size);
+//    memcpy(query_response.ids.data(), response.ids().data(), sizeof(uint64_t) * size);
+//    memcpy(query_response.distances.data(), response.distance().data(), sizeof(float) * size);
+//    memcpy(query_response.score.data(), response.distance().data(), sizeof(float) * size);
+//    query_response.hits = response.hits();
+//    return query_response;
+//}

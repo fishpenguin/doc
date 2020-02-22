@@ -104,7 +104,7 @@ target_link_libraries(milvuspb_sdk
 
 install(TARGETS milvuspb_sdk DESTINATION lib)
 
-#add_subdirectory(example)
+add_subdirectory(examples)
 
 find_package(Python COMPONENTS Interpreter Development)
 find_package(ClangTools)

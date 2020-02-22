@@ -55,10 +55,12 @@ struct VectorQuery {
 };
 
 template <typename T>
-union InnerLeafQuery {
+struct InnerLeafQuery {
+//    InnerLeafQuery() {}
     TermQuery<T> term_query;
     RangeQuery<T> range_query;
     VectorQuery vector_query;
+//    ~InnerLeafQuery() {}
 };
 
 template <typename T>
@@ -72,10 +74,12 @@ template <typename T>
 using BinaryQueryPtr = std::shared_ptr<BinaryQuery<T>>;
 
 template <typename T>
-union GeneralQuery {
+struct GeneralQuery {
     LeafQueryPtr<T> leaf;
     BinaryQueryPtr<T> bin;
 };
+template <typename T>
+using GeneralQueryPtr = std::shared_ptr<GeneralQuery<T>>;
 
 template<typename T>
 struct LeafQuery {
@@ -85,8 +89,8 @@ struct LeafQuery {
 
 template <typename T>
 struct BinaryQuery {
-    GeneralQuery<T> left_query;
-    GeneralQuery<T> right_query;
+    GeneralQueryPtr<T> left_query;
+    GeneralQueryPtr<T> right_query;
     QueryRelation relation;
     float query_boost;
 };
