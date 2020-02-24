@@ -20,7 +20,7 @@
 #include <vector>
 
 #include "GrpcRequestHandler.h"
-#include "grpc/gen-common/common.grpc.pb.h"
+#include "grpc-gen/gen-common/common.grpc.pb.h"
 
 constexpr int64_t MESSAGE_SIZE = -1;
 
@@ -76,8 +76,7 @@ GrpcServer::StartService() {
     builder.SetDefaultCompressionAlgorithm(GRPC_COMPRESS_STREAM_GZIP);
     builder.SetDefaultCompressionLevel(GRPC_COMPRESS_LEVEL_NONE);
 
-    GrpcRequestHandler service(opentracing::Tracer::Global());
-    service.RegisterRequestHandler(RequestHandler());
+    GrpcRequestHandler service;
 
     builder.AddListeningPort(server_address, ::grpc::InsecureServerCredentials());
     builder.RegisterService(&service);

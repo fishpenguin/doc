@@ -17,7 +17,7 @@
 # under the License.
 #-------------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.12)
-project(milvuspb_sdk LANGUAGES CXX C)
+project(milvuspb LANGUAGES CXX C)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -74,6 +74,7 @@ endif ()
 
 aux_source_directory(sdk/interface interface_files)
 aux_source_directory(sdk/client grpc_client_files)
+aux_source_directory(server/utils server_util_files)
 aux_source_directory(server server_files)
 
 set(grpc_service_files
@@ -91,6 +92,15 @@ set(grpc_lib
         grpc_protoc
         )
 
+set(server_libs
+        ${grpc_lib}
+        zlib
+        dl
+        z
+        pthread
+        )
+
+
 add_library(milvuspb_sdk SHARED
         ${interface_files}
         ${grpc_client_files}
@@ -106,20 +116,31 @@ target_link_libraries(milvuspb_sdk
 
 install(TARGETS milvuspb_sdk DESTINATION lib)
 
+add_library(milvuspb_engine SHARED
+        ${server_files}
+        ${server_util_files}
+        ${grpc_service_files}
+        )
+
+target_link_libraries(milvuspb_engine
+        ${grpc_lib}
+        zlib
+        dl
+        z
+        )
+
+install(TARGETS milvuspb_engine DESTINATION lib)
+
 add_executable(milvuspb_server
-    ${server_files}
-)
+        ${server_files}
+    )
 
 target_link_libraries(milvuspb_server
-    ${grpc_lib}
-    zlib
-    dl
-    z
-)
+        milvuspb_engine
+        pthread
+        )
 
-install(TARGETS milvuspb_server DESTINATION lib)
-
-add_subdirectory(examples)
+add_subdirectory(sdk/examples)
 
 find_package(Python COMPONENTS Interpreter Development)
 find_package(ClangTools)
