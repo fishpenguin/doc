@@ -27,9 +27,10 @@ include(BuildUtils)
 include(ThirdPartyPackages)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(include)
+include_directories(sdk/include)
 include_directories(grpc-gen/gen-common)
 include_directories(grpc-gen/gen-status)
+include_directories(server/utils)
 
 # set build type
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -71,8 +72,9 @@ if ("${MAKE}" STREQUAL "")
     endif ()
 endif ()
 
-aux_source_directory(interface interface_files)
-aux_source_directory(client grpc_client_files)
+aux_source_directory(sdk/interface interface_files)
+aux_source_directory(sdk/client grpc_client_files)
+aux_source_directory(server server_files)
 
 set(grpc_service_files
         grpc-gen/gen-common/common.grpc.pb.cc
@@ -103,6 +105,19 @@ target_link_libraries(milvuspb_sdk
         )
 
 install(TARGETS milvuspb_sdk DESTINATION lib)
+
+add_executable(milvuspb_server
+    ${server_files}
+)
+
+target_link_libraries(milvuspb_server
+    ${grpc_lib}
+    zlib
+    dl
+    z
+)
+
+install(TARGETS milvuspb_server DESTINATION lib)
 
 add_subdirectory(examples)
 
