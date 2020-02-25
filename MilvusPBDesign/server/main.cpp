@@ -7,5 +7,7 @@
 #include "GrpcServer.h"
 
 int main() {
+//    GrpcServer::GetInstance().Start();
+    std::cout<<"Milvuspb serer started!" << std::endl;
     GrpcServer::GetInstance().Start();
 }

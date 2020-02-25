@@ -11,5 +11,5 @@
  class GrpcRequestHandler final : public ::demo::DemoService::Service {
  public:
     ::grpc::Status
-    Search(::grpc::ClientContext* context, const ::demo::QueryRequestPB& request, ::demo::QueryResponsePB* response);
+    Search(::grpc::ServerContext* context, const ::demo::QueryRequestPB* request, ::demo::QueryResponsePB* response) override ;
 };

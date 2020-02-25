@@ -1,6 +1,6 @@
 #pragma once
 
-#include "client/BooleanQuery.h"
+#include "sdk/client/BooleanQuery.h"
 #include "Status.h"
 
 #include <memory>

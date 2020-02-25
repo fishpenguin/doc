@@ -40,16 +40,17 @@ class NoReusePortOption : public ::grpc::ServerBuilderOption {
 
 void
 GrpcServer::Start() {
-    thread_ptr_ = std::make_shared<std::thread>(&GrpcServer::StartService, this);
+//    thread_ptr_ = std::make_shared<std::thread>(&GrpcServer::StartService, this);
+    GrpcServer::StartService();
 }
 
 void
 GrpcServer::Stop() {
     StopService();
-    if (thread_ptr_) {
-        thread_ptr_->join();
-        thread_ptr_ = nullptr;
-    }
+//    if (thread_ptr_) {
+//        thread_ptr_->join();
+//        thread_ptr_ = nullptr;
+//    }
 }
 
 Status

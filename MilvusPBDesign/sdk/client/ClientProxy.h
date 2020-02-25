@@ -16,11 +16,27 @@
 template <typename T>
 void
 ConvertBinaryQueryToProto(GeneralQueryPtr<T> general_query, ::demo::GeneralQueryPB* query_pb) {
-    query_pb->mutable_bin()->set_relation((::demo::QueryRelation)(general_query->bin->relation));
-    general_query->bin->left_query = std::make_shared<GeneralQuery<T>>();
-    general_query->bin->right_query = std::make_shared<GeneralQuery<T>>();
-    ConvertBinaryQueryToProto<T>((general_query->bin->left_query), query_pb->mutable_bin()->mutable_left_query());
-    ConvertBinaryQueryToProto<T>(general_query->bin->right_query, query_pb->mutable_bin()->mutable_right_query());
+    if (general_query->leaf == nullptr) {
+        if(general_query->bin->left_query != nullptr) {
+            ConvertBinaryQueryToProto<T>(general_query->bin->left_query, query_pb->mutable_bin()->mutable_left_query());
+        }
+        if(general_query->bin->right_query != nullptr) {
+            ConvertBinaryQueryToProto<T>(general_query->bin->right_query, query_pb->mutable_bin()->mutable_right_query());
+        }
+        query_pb->mutable_bin()->set_relation((::demo::QueryRelation)(general_query->bin->relation));
+    } else {
+        query_pb->mutable_leaf()->set_boost(general_query->leaf->query_boost);
+        if(!(general_query->leaf->query->term_query.field_name.empty())) {
+//            query_pb->mutable_leaf()->mutable_query()->mutable_term_query()->set_field_name(general_query->leaf->)
+            std::cout << "term" << std::endl;
+        }
+        if(!(general_query->leaf->query->range_query.field_name.empty())) {
+            //assign range
+        }
+        if(!(general_query->leaf->query->vector_query.field_name.empty())) {
+            //assign vector
+        }
+    }
 }
 
 class ClientProxy {
@@ -41,14 +57,14 @@ class ClientProxy {
         Status s = GenBinaryQuery(boolean_clause, binary_query_ptr);
 
         //Convert BinaryQuery to proto::GeneralQueryPB
-        ::demo::GeneralQueryPB query_pb;
+        ::demo::QueryRequestPB request;
+//        ::demo::GeneralQueryPB query_pb;
         GeneralQueryPtr<T> general_query = std::make_shared<GeneralQuery<T>>();
         general_query->bin = binary_query_ptr;
-        ConvertBinaryQueryToProto<T>(general_query, &query_pb);
-        ::demo::QueryRequestPB request;
+        ConvertBinaryQueryToProto<T>(general_query, request.mutable_query());
         //id?????????????????
         request.set_request_id(1);
-        request.set_allocated_query(&query_pb);
+
         ::demo::QueryResponsePB response;
         s = client_ptr_->Search(request, response);
         QueryResponse query_response;

@@ -4,7 +4,8 @@
 #include "GeneralQuery.h"
 
 enum class Occur {
-    MUST = 0,
+    INVALID = 0,
+    MUST,
     MUST_NOT,
     SHOULD,
 };
@@ -53,8 +54,8 @@ class BooleanClause {
     }
 
  private:
-    Occur occur_;
-    std::vector<std::shared_ptr<BooleanClause> > boolean_clauses_;
+    Occur occur_ = Occur::INVALID;
+    std::vector<std::shared_ptr<BooleanClause<T>>> boolean_clauses_;
     std::vector<LeafQueryPtr<T>> leaf_queries_;
     BinaryQueryPtr<T> binary_query_;
 };
@@ -72,6 +73,7 @@ ConstructBinTree(std::vector<BooleanClausePtr<T>> clauses, QueryRelation relatio
     } else {
         BinaryQueryPtr<T> bquery = std::make_shared<BinaryQuery<T>>();
         bquery->relation = relation;
+        bquery->left_query = std::make_shared<GeneralQuery<T>>();
         bquery->left_query->bin = clauses[clauses.size()-1]->getBinaryQuery();
         clauses.pop_back();
         bquery->right_query->bin = ConstructBinTree(clauses, relation);
@@ -84,7 +86,12 @@ Status
 ConstructLeafBinTree(std::vector<LeafQueryPtr<T>> leaf_clauses, BinaryQueryPtr<T> binary_query) {
     if(leaf_clauses.empty()) {
         return Status::OK();
-    } else if (leaf_clauses.size() == 1) {
+    }
+
+    binary_query->left_query = std::make_shared<GeneralQuery<T>>();
+
+    if (leaf_clauses.size() == 1) {
+//        binary_query->left_query = std::make_shared<GeneralQuery<T>>();
         binary_query->left_query->leaf = leaf_clauses[0];
         return Status::OK();
     } else {
@@ -108,16 +115,20 @@ Status GenBinaryQuery(BooleanClausePtr<T> clause,
 
     if(clause->getBooleanClauses().size() == 1) {
         auto bc = clause->getBooleanClauses()[0];
+        binary_query->left_query = std::make_shared<GeneralQuery<T>>();
         switch (bc->getOccur()) {
             case Occur::MUST: {
                 binary_query->relation = QueryRelation::AND;
-                Status s = GenBinaryQuery(bc, binary_query->left_query->bin);
+//                binary_query->left_query->bin = std::make_shared<BinaryQuery<T>>();
+                Status s = GenBinaryQuery<T>(bc, binary_query->left_query->bin);
                 return s;
             }
             case Occur::MUST_NOT:
             case Occur::SHOULD: {
                 binary_query->relation = QueryRelation::OR;
-                Status s = GenBinaryQuery(bc, binary_query->left_query->bin);
+//                binary_query->left_query = std::make_shared<GeneralQuery<T>>();
+//                binary_query->left_query->bin = std::make_shared<BinaryQuery<T>>();
+                Status s = GenBinaryQuery<T>(bc, binary_query->left_query->bin);
                 return s;
             }
         }
