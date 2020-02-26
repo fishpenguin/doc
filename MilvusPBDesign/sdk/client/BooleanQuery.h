@@ -21,12 +21,16 @@ class BooleanClause {
         return occur_;
     }
 
-    void AddBooleanClauses(std::shared_ptr<BooleanClause> boolean_clause) {
+    void AddBooleanClause(std::shared_ptr<BooleanClause> boolean_clause) {
         boolean_clauses_.emplace_back(boolean_clause);
     }
 
-    void AddLeafQueries(LeafQueryPtr<T> leaf_query) {
+    void AddLeafQuery(LeafQueryPtr<T> leaf_query) {
         leaf_queries_.emplace_back(leaf_query);
+    }
+
+    void SetLeafQuery(std::vector<LeafQueryPtr<T>> leaf_queries) {
+        leaf_queries_ = leaf_queries;
     }
 
     std::vector<std::shared_ptr<BooleanClause> > getBooleanClauses() {
