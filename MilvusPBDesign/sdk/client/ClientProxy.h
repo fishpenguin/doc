@@ -31,10 +31,12 @@ ConvertBinaryQueryToProto(GeneralQueryPtr<T> general_query, ::demo::GeneralQuery
             std::cout << "term" << std::endl;
         }
         if(!(general_query->leaf->query->range_query.field_name.empty())) {
+            std::cout << "range" << std::endl;
             //assign range
         }
         if(!(general_query->leaf->query->vector_query.field_name.empty())) {
             //assign vector
+            std::cout << "vector" << std::endl;
         }
     }
 }
@@ -76,6 +78,7 @@ class ClientProxy {
         memcpy(query_response.distances.data(), response.distance().data(), sizeof(float) * size);
         memcpy(query_response.score.data(), response.distance().data(), sizeof(float) * size);
         query_response.hits = response.hits();
+        std::cout << "*********************************************************"<<std::endl;
         return query_response;
     }
 
