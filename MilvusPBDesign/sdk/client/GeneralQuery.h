@@ -51,6 +51,7 @@ struct VectorQuery {
     uint64_t nq;
     uint64_t topk;
     float query_boost;
+    std::vector<std::vector<float>> query_vector;
     // query vector???
 };
 

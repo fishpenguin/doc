@@ -114,12 +114,17 @@ message RangeQueryPB {
     repeated CompareExprPB operand = 2;
 }
 
+message RowRecordPB {
+    repeated float data = 1;
+}
+
 message VectorQueryPB {
     string field_name = 1;
     string vector_query_param = 2;
     int64 topk = 3;
     int64 nq = 4;
     float query_boost = 5;
+    repeated RowRecordPB records = 6;
 }
 
 message InnerLeafQueryPB {

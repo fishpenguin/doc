@@ -10,8 +10,20 @@
 
 std::string general_field_name = "age";
 std::string vector_field_name = "face_img";
+uint64_t NQ = 1000;
+uint64_t TOPK = 10000;
+uint64_t DIMENSION = 1024
 std::shared_ptr<ClientProxy> proxy;
 
+void ConstructVector(uint64_t nq, uint64_t dimension, std::vector<std::vector<float>>& query_vector) {
+    query_vector.resize(nq);
+    for (uint64_t i = 0; i < nq; ++i) {
+        query_vector[i].resize(dimension);
+        for (uint64_t j = 0; j < dimesion; ++j) {
+            query_vector[i][j] = (float)(i / (j + 1));
+        }
+    }
+}
 
 std::vector<LeafQueryPtr<uint64_t>> GenLeafQuery() {
     //Construct TermQuery
@@ -24,8 +36,10 @@ std::vector<LeafQueryPtr<uint64_t>> GenLeafQuery() {
     RangeQuery<uint64_t> rq = {general_field_name, ces};
 
     //Construct VectorQuery
+    std::vector<std::vector<uint64_t>> query_vector;
+    ConstructVector(NQ, DIMENSION, query_vector);
     std::string vector_query_param = "vector_query_param";
-    VectorQuery vq = {vector_field_name, vector_query_param, 100, 10, 1.0};
+    VectorQuery vq = {vector_field_name, vector_query_param, NQ, TOPK, 1.0, query_vector};
 
     std::vector<LeafQueryPtr<uint64_t>> lq;
     LeafQueryPtr<uint64_t> lq1 = std::make_shared<LeafQuery<uint64_t>>();
