@@ -49,7 +49,7 @@ struct TableStruct_common_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[28]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[29]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -129,6 +129,9 @@ extern QueryResponsePBDefaultTypeInternal _QueryResponsePB_default_instance_;
 class RangeQueryPB;
 class RangeQueryPBDefaultTypeInternal;
 extern RangeQueryPBDefaultTypeInternal _RangeQueryPB_default_instance_;
+class RowRecordPB;
+class RowRecordPBDefaultTypeInternal;
+extern RowRecordPBDefaultTypeInternal _RowRecordPB_default_instance_;
 class TermQueryPB;
 class TermQueryPBDefaultTypeInternal;
 extern TermQueryPBDefaultTypeInternal _TermQueryPB_default_instance_;
@@ -167,6 +170,7 @@ template<> ::demo::QueryColumnPB* Arena::CreateMaybeMessage<::demo::QueryColumnP
 template<> ::demo::QueryRequestPB* Arena::CreateMaybeMessage<::demo::QueryRequestPB>(Arena*);
 template<> ::demo::QueryResponsePB* Arena::CreateMaybeMessage<::demo::QueryResponsePB>(Arena*);
 template<> ::demo::RangeQueryPB* Arena::CreateMaybeMessage<::demo::RangeQueryPB>(Arena*);
+template<> ::demo::RowRecordPB* Arena::CreateMaybeMessage<::demo::RowRecordPB>(Arena*);
 template<> ::demo::TermQueryPB* Arena::CreateMaybeMessage<::demo::TermQueryPB>(Arena*);
 template<> ::demo::VectorColumnInfoPB* Arena::CreateMaybeMessage<::demo::VectorColumnInfoPB>(Arena*);
 template<> ::demo::VectorColumnValuePB* Arena::CreateMaybeMessage<::demo::VectorColumnValuePB>(Arena*);
@@ -2441,6 +2445,144 @@ class RangeQueryPB :
 };
 // -------------------------------------------------------------------
 
+class RowRecordPB :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.RowRecordPB) */ {
+ public:
+  RowRecordPB();
+  virtual ~RowRecordPB();
+
+  RowRecordPB(const RowRecordPB& from);
+  RowRecordPB(RowRecordPB&& from) noexcept
+    : RowRecordPB() {
+    *this = ::std::move(from);
+  }
+
+  inline RowRecordPB& operator=(const RowRecordPB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RowRecordPB& operator=(RowRecordPB&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const RowRecordPB& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RowRecordPB* internal_default_instance() {
+    return reinterpret_cast<const RowRecordPB*>(
+               &_RowRecordPB_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(RowRecordPB& a, RowRecordPB& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RowRecordPB* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RowRecordPB* New() const final {
+    return CreateMaybeMessage<RowRecordPB>(nullptr);
+  }
+
+  RowRecordPB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RowRecordPB>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RowRecordPB& from);
+  void MergeFrom(const RowRecordPB& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RowRecordPB* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "demo.RowRecordPB";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_common_2eproto);
+    return ::descriptor_table_common_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataFieldNumber = 1,
+  };
+  // repeated float data = 1;
+  int data_size() const;
+  void clear_data();
+  float data(int index) const;
+  void set_data(int index, float value);
+  void add_data(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      data() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_data();
+
+  // @@protoc_insertion_point(class_scope:demo.RowRecordPB)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > data_;
+  mutable std::atomic<int> _data_cached_byte_size_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_common_2eproto;
+};
+// -------------------------------------------------------------------
+
 class VectorQueryPB :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:demo.VectorQueryPB) */ {
  public:
@@ -2483,7 +2625,7 @@ class VectorQueryPB :
                &_VectorQueryPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(VectorQueryPB& a, VectorQueryPB& b) {
     a.Swap(&b);
@@ -2554,12 +2696,24 @@ class VectorQueryPB :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kRecordsFieldNumber = 6,
     kFieldNameFieldNumber = 1,
     kVectorQueryParamFieldNumber = 2,
     kTopkFieldNumber = 3,
     kNqFieldNumber = 4,
     kQueryBoostFieldNumber = 5,
   };
+  // repeated .demo.RowRecordPB records = 6;
+  int records_size() const;
+  void clear_records();
+  ::demo::RowRecordPB* mutable_records(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::RowRecordPB >*
+      mutable_records();
+  const ::demo::RowRecordPB& records(int index) const;
+  ::demo::RowRecordPB* add_records();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::RowRecordPB >&
+      records() const;
+
   // string field_name = 1;
   void clear_field_name();
   const std::string& field_name() const;
@@ -2602,6 +2756,7 @@ class VectorQueryPB :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::RowRecordPB > records_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vector_query_param_;
   ::PROTOBUF_NAMESPACE_ID::int64 topk_;
@@ -2661,7 +2816,7 @@ class InnerLeafQueryPB :
                &_InnerLeafQueryPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(InnerLeafQueryPB& a, InnerLeafQueryPB& b) {
     a.Swap(&b);
@@ -2828,7 +2983,7 @@ class LeafQueryPB :
                &_LeafQueryPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(LeafQueryPB& a, LeafQueryPB& b) {
     a.Swap(&b);
@@ -2975,7 +3130,7 @@ class GeneralQueryPB :
                &_GeneralQueryPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(GeneralQueryPB& a, GeneralQueryPB& b) {
     a.Swap(&b);
@@ -3131,7 +3286,7 @@ class BinaryQueryPB :
                &_BinaryQueryPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(BinaryQueryPB& a, BinaryQueryPB& b) {
     a.Swap(&b);
@@ -3289,7 +3444,7 @@ class QueryRequestPB :
                &_QueryRequestPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(QueryRequestPB& a, QueryRequestPB& b) {
     a.Swap(&b);
@@ -3430,7 +3585,7 @@ class QueryResponsePB :
                &_QueryResponsePB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(QueryResponsePB& a, QueryResponsePB& b) {
     a.Swap(&b);
@@ -3613,7 +3768,7 @@ class CommandPB :
                &_CommandPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CommandPB& a, CommandPB& b) {
     a.Swap(&b);
@@ -3750,7 +3905,7 @@ class CollectionSchemaListPB :
                &_CollectionSchemaListPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CollectionSchemaListPB& a, CollectionSchemaListPB& b) {
     a.Swap(&b);
@@ -3897,7 +4052,7 @@ class InsertRequestPB :
                &_InsertRequestPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(InsertRequestPB& a, InsertRequestPB& b) {
     a.Swap(&b);
@@ -4053,7 +4208,7 @@ class CollectionNamePB :
                &_CollectionNamePB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CollectionNamePB& a, CollectionNamePB& b) {
     a.Swap(&b);
@@ -4190,7 +4345,7 @@ class ConfigPB :
                &_ConfigPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(ConfigPB& a, ConfigPB& b) {
     a.Swap(&b);
@@ -4337,7 +4492,7 @@ class IndexParamPB :
                &_IndexParamPB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(IndexParamPB& a, IndexParamPB& b) {
     a.Swap(&b);
@@ -4497,7 +4652,7 @@ class GeneralResponsePB :
                &_GeneralResponsePB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(GeneralResponsePB& a, GeneralResponsePB& b) {
     a.Swap(&b);
@@ -5967,6 +6122,40 @@ RangeQueryPB::operand() const {
 
 // -------------------------------------------------------------------
 
+// RowRecordPB
+
+// repeated float data = 1;
+inline int RowRecordPB::data_size() const {
+  return data_.size();
+}
+inline void RowRecordPB::clear_data() {
+  data_.Clear();
+}
+inline float RowRecordPB::data(int index) const {
+  // @@protoc_insertion_point(field_get:demo.RowRecordPB.data)
+  return data_.Get(index);
+}
+inline void RowRecordPB::set_data(int index, float value) {
+  data_.Set(index, value);
+  // @@protoc_insertion_point(field_set:demo.RowRecordPB.data)
+}
+inline void RowRecordPB::add_data(float value) {
+  data_.Add(value);
+  // @@protoc_insertion_point(field_add:demo.RowRecordPB.data)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+RowRecordPB::data() const {
+  // @@protoc_insertion_point(field_list:demo.RowRecordPB.data)
+  return data_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+RowRecordPB::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:demo.RowRecordPB.data)
+  return &data_;
+}
+
+// -------------------------------------------------------------------
+
 // VectorQueryPB
 
 // string field_name = 1;
@@ -6111,6 +6300,36 @@ inline void VectorQueryPB::set_query_boost(float value) {
   
   query_boost_ = value;
   // @@protoc_insertion_point(field_set:demo.VectorQueryPB.query_boost)
+}
+
+// repeated .demo.RowRecordPB records = 6;
+inline int VectorQueryPB::records_size() const {
+  return records_.size();
+}
+inline void VectorQueryPB::clear_records() {
+  records_.Clear();
+}
+inline ::demo::RowRecordPB* VectorQueryPB::mutable_records(int index) {
+  // @@protoc_insertion_point(field_mutable:demo.VectorQueryPB.records)
+  return records_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::RowRecordPB >*
+VectorQueryPB::mutable_records() {
+  // @@protoc_insertion_point(field_mutable_list:demo.VectorQueryPB.records)
+  return &records_;
+}
+inline const ::demo::RowRecordPB& VectorQueryPB::records(int index) const {
+  // @@protoc_insertion_point(field_get:demo.VectorQueryPB.records)
+  return records_.Get(index);
+}
+inline ::demo::RowRecordPB* VectorQueryPB::add_records() {
+  // @@protoc_insertion_point(field_add:demo.VectorQueryPB.records)
+  return records_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::RowRecordPB >&
+VectorQueryPB::records() const {
+  // @@protoc_insertion_point(field_list:demo.VectorQueryPB.records)
+  return records_;
 }
 
 // -------------------------------------------------------------------
@@ -7411,6 +7630,8 @@ inline void GeneralResponsePB::set_allocated_result(std::string* result) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

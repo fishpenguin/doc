@@ -8,19 +8,23 @@
 #include <utility>
 #include <vector>
 
+#include <iomanip>
+#include <ctime>
+#include <chrono>
+
 std::string general_field_name = "age";
 std::string vector_field_name = "face_img";
-uint64_t NQ = 1000;
+uint64_t NQ = 100000;
 uint64_t TOPK = 10000;
-uint64_t DIMENSION = 1024
+uint64_t DIMENSION = 1024;
 std::shared_ptr<ClientProxy> proxy;
 
 void ConstructVector(uint64_t nq, uint64_t dimension, std::vector<std::vector<float>>& query_vector) {
     query_vector.resize(nq);
     for (uint64_t i = 0; i < nq; ++i) {
         query_vector[i].resize(dimension);
-        for (uint64_t j = 0; j < dimesion; ++j) {
-            query_vector[i][j] = (float)(i / (j + 1));
+        for (uint64_t j = 0; j < dimension; ++j) {
+            query_vector[i][j] = (float)((i + 100) / (j + 1));
         }
     }
 }
@@ -36,7 +40,7 @@ std::vector<LeafQueryPtr<uint64_t>> GenLeafQuery() {
     RangeQuery<uint64_t> rq = {general_field_name, ces};
 
     //Construct VectorQuery
-    std::vector<std::vector<uint64_t>> query_vector;
+    std::vector<std::vector<float >> query_vector;
     ConstructVector(NQ, DIMENSION, query_vector);
     std::string vector_query_param = "vector_query_param";
     VectorQuery vq = {vector_field_name, vector_query_param, NQ, TOPK, 1.0, query_vector};
@@ -60,6 +64,57 @@ std::vector<LeafQueryPtr<uint64_t>> GenLeafQuery() {
     lq3->query = inner_q3;
     lq1->query_boost = 1.0;
     return lq;
+}
+
+void test_performance() {
+    std::vector<std::vector<float >> query_vector;
+    uint64_t nq = 10000;
+    uint64_t dimension = 512;
+    ConstructVector(nq, dimension, query_vector);
+    std::string vector_query_param = "vector_query_param";
+    VectorQuery vq = {vector_field_name, vector_query_param, NQ, TOPK, 1.0, query_vector};
+    LeafQueryPtr<uint64_t> lq = std::make_shared<LeafQuery<uint64_t>>();
+    InnerLeafQueryPtr<uint64_t> inner_q = std::make_shared<InnerLeafQuery<uint64_t>>();
+    inner_q->vector_query = vq;
+    lq->query = inner_q;
+    lq->query_boost = 1.0;
+
+    std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+    auto duration = now.time_since_epoch();
+
+    typedef std::chrono::duration<int, std::ratio_multiply<std::chrono::hours::period, std::ratio<8>>::type> Days; /* UTC: +8:00 */
+
+    Days days = std::chrono::duration_cast<Days>(duration);
+    duration -= days;
+    auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
+    duration -= hours;
+    auto minutes = std::chrono::duration_cast<std::chrono::minutes>(duration);
+    duration -= minutes;
+    auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
+    duration -= seconds;
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(duration);
+    duration -= milliseconds;
+    auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(duration);
+    duration -= microseconds;
+    auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration);
+
+    std::cout << hours.count() << ":"
+              << minutes.count() << ":"
+              << seconds.count() << ":"
+              << milliseconds.count() << ":"
+              << microseconds.count() << std::endl;
+
+    auto fff = std::make_shared<BooleanClause<uint64_t>>();
+    auto ff = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto final_clause = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto boolean_clause = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    //must
+    auto must_clause = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    must_clause->AddLeafQuery(lq);
+    final_clause->AddBooleanClause(must_clause);
+    ff->AddBooleanClause(final_clause);
+    fff->AddBooleanClause(ff);
+    auto must_response = proxy->Query(must_clause);
 }
 
 void
@@ -239,20 +294,8 @@ ClientTest::Test(const std::string& address, const std::string& port) {
 
 //    _1_query_case();
 
-    _2_query_case();
+//    _2_query_case();
 
-    //Construct a BooleanClause
-//     auto final_clause = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
-//     auto clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
-//     LeafQueryPtr<uint64_t> lq1 = std::make_shared<LeafQuery<uint64_t>>();
-//     InnerLeafQueryPtr<uint64_t> inner_tq1 = std::make_shared<InnerLeafQuery<uint64_t>>();
-//     std::vector<uint64_t> field_value{10, 20, 30};
-//     TermQuery<uint64_t> tq1 = {"age", field_value};
-//     inner_tq1->term_query = tq1;
-//     lq1->query = inner_tq1;
-//     lq1->query_boost = 1.0;
-//     clause1->AddLeafQuery(lq1);
-//     final_clause->AddBooleanClause(clause1);
+    test_performance();
 
-//    QueryResponse response = proxy->Query(final_clause);
 }
