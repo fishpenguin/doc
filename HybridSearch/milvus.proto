@@ -1,0 +1,320 @@
+syntax = "proto3";
+
+import "status.proto";
+package demo;
+
+enum DataType {
+    NULL = 0;
+    INT16 = 2;
+    INT32 = 3;
+    INT64 = 4;
+
+    STRING = 20;
+
+    BOOL = 30;
+
+    FLOAT = 40;
+    DOUBLE = 41;
+
+    VECTOR = 100;
+    UNKNOWN = 9999;
+}
+
+message KeyValuePair {
+    string key = 1;
+    string value = 2;
+}
+
+///////////////////////////////////////////////////////////////////
+
+message VectorColumnInfo {
+    int64 dimension = 1;
+    DataType element_type = 2;
+}
+
+message ColumnType {
+    oneof value {
+        DataType type = 1;
+        VectorColumnInfo info = 2;
+    }
+}
+
+message ColumnSchema {
+    uint64 id = 1;
+    string name = 2;
+    ColumnType type = 3;
+}
+
+message VectorColumnValue {
+    repeated float value = 1;
+    bytes value = 1;
+}
+
+message ColumnValue {
+    oneof value {
+        int32 int32_value = 1;
+        int64 int64_value = 2;
+        float float_value = 3;
+        double double_value = 4;
+        string string_value = 5;
+        bool  bool_value = 6;
+        VectorColumnValue vector_value = 7;
+    }
+}
+
+///////////////////////////////////////////////////////////////////
+
+message CollectionName {
+    string collection_name = 1;
+}
+
+message CollectionSchema {
+    uint64 id = 1;
+    string name = 2;
+    repeated ColumnSchema columns = 3;
+}
+
+message CollectionSchemaList {
+    Status status = 1;
+    repeated CollectionSchema Collection_schema_list = 2;
+}
+
+///////////////////////////////////////////////////////////////////
+
+message TermQuery {
+    string field_name = 1;
+    repeated ColumnValue values = 2;
+    float boost = 3;
+}
+
+enum CompareOperator {
+    LT = 0;
+    LTE = 1; 
+    EQ = 2;
+    GT = 3;
+    GTE = 4;
+    NE = 5;
+}
+
+message CompareExpr {
+    CompareOperator operator = 1;
+    ColumnValue operand = 2;
+}
+
+message RangeQuery {
+    string field_name = 1;
+    repeated CompareExpr operand = 2;
+    float boost = 3;
+}
+
+message RowRecord {
+    repeated float data = 1;
+    bytes binary_data = 2;
+}
+
+message VectorQuery {
+    string field_name = 1;
+    int64 topk = 2;
+    float query_boost = 3;
+    repeated RowRecord records = 4;
+    string vector_query_param = 5;
+}
+
+enum Occur {
+    INVALID = 0;
+    MUST = 1;
+    SHOULD = 2;
+    MUST_NOT = 3;
+}
+
+message BooleanQuery {
+    Occur occur = 1;
+    repeated GeneralQuery general_query = 2;
+}
+
+message GeneralQuery {
+    oneof query {
+        BooleanQuery boolean_query = 1;
+        TermQuery term_query = 2;
+        RangeQuery range_query = 3;
+        VectorQuery vector_query = 4;
+    }
+}
+
+message SearchParam {
+    string collection_name = 1;
+    repeated string partition_tag_array = 2;
+    repeated GeneralQuery general_query = 3;
+    repeated KeyValuePair extra_params = 4;
+}
+
+message SearchInFilesParam {
+    repeated string file_id_array = 1;
+    SearchParam search_param = 2;
+}
+
+///////////////////////////////////////////////////////////////////
+
+message DocRecord {
+    Status status = 1;
+    int64 doc_id = 2;
+    repeated string field_names = 3;
+    repeated ColumnValue values = 4;
+}
+
+message QueryResult {
+    Status status = 1;
+    repeated DocRecord doc_record = 2;
+    int64 row_num = 3;
+    repeated float score = 4;
+    repeated float distance = 5;
+}
+
+message InsertParam {
+    string collection_name = 1;
+    string partition_tag = 2;
+    repeated DocRecord doc_records = 3;
+    repeated int64 row_id_array = 4;
+    repeated extra_params = 5;
+}
+
+message DocIdentity {
+    string collection_name = 1;
+    int64 id = 2;
+}
+
+message DocIDs {
+    Status status = 1;
+    repeated int64 doc_id_array = 2;
+}
+
+message GetDocIDsParam {
+    string collection_name = 1;
+    string segment_name = 2;
+}
+
+message DeleteByIDParam {
+    string collection_name = 1;
+    repeated int64 id_array = 2;
+}
+
+///////////////////////////////////////////////////////////////////
+
+message PartitionParam {
+    string collection_name = 1;
+    string tag = 2;
+}
+
+message PartitionList {
+    Status status = 1;
+    repeated string partition_tag_array = 2;
+}
+
+///////////////////////////////////////////////////////////////////
+
+message BoolReply {
+    Status status = 1;
+    bool bool_reply = 2;
+}
+
+message CollectionRowCount {
+    Status status = 1;
+    int64 collection_row_count = 2;
+}
+
+message SegmentStat {
+    string segment_name = 1;
+    int64 row_count = 2;
+    string index_name = 3;
+    int64 data_size = 4;
+}
+
+message PartitionStat {
+    string tag = 1;
+    int64 total_row_count = 2;
+    repeated SegmentStat segments_stat = 3;
+}
+
+message CollectionInfo {
+    Status status = 1;
+    int64 total_row_count = 2;
+    repeated PartitionStat partitions_stat = 3;
+}
+
+message IndexParam {
+    Status status = 1;
+    string collection_name = 2;
+    int32_t index_type = 3;
+    repeated KeyValuePair extra_params = 4;
+}
+
+message Command {
+    string cmd = 1;
+}
+
+message StringReply {
+    Status status = 1;
+    string string_reply = 2;
+}
+
+message FlushParam {
+    repeated string collection_name_array = 1;
+}
+
+
+service DemoService {
+    rpc CreateCollection(CollectionSchema) returns (Status) {}
+
+    rpc HasCollection(CollectionName) returns (BoolReply) {}
+
+    rpc DropCollection(CollectionName) returns (Status) {}
+
+    rpc DescribeCollection(CollectionName) returns (CollectionSchema) {}
+
+    rpc CountCollection(CollectionName) returns (CollectionRowCount) {}
+
+    rpc ShowCollections(Command) returns (CollectionSchemaList) {}
+
+    rpc ShowCollectionInfo (CollectionName) returns (CollectionInfo) {}
+
+    rpc PreloadCollection(CollectionName) returns (Status) {}
+
+///////////////////////////////////////////////////////////////////
+
+    rpc CreateIndex(IndexParam) returns (Status) {}
+
+    rpc DescribeIndex(CollectionName) returns (IndexParam) {}
+
+    rpc DropIndex(CollectionName) returns (Status) {}
+
+///////////////////////////////////////////////////////////////////
+
+    rpc Insert(InsertParam) returns (DocIDs) {}
+
+    rpc Search(SearchParam) returns (QueryResult) {}
+
+    rpc SearchInFiles(SearchInFilesParam) returns (QueryResult) {}
+
+    rpc GetDocByID(DocIdentity) returns (DocRecord) {}
+
+    rpc GetDocIDs(GetDocIDsParam) returns (DocIDs) {}
+
+    rpc DeleteByID(DeleteByIDParam) returns (Status) {}
+
+///////////////////////////////////////////////////////////////////
+
+    rpc CreatePartition(PartitionParam) returns (Status) {}
+
+    rpc ShowPartitions(CollectionName) returns (PartitionList) {}
+
+    rpc DropPartition(PartitionParam) returns (Status) {}
+
+///////////////////////////////////////////////////////////////////
+
+    rpc Cmd(Command) returns (StringReply) {}
+
+    rpc Flush(FlushParam) returns (Status) {}
+
+    rpc Compact(CollectionName) returns (Status) {}
+
+}
