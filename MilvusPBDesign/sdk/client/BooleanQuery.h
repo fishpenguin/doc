@@ -203,8 +203,10 @@ Status GenBinaryQuery(BooleanClausePtr<T> clause,
 
     binary_query->left_query = std::make_shared<GeneralQuery<T>>();
     binary_query->right_query = std::make_shared<GeneralQuery<T>>();
+    BinaryQueryPtr<T> must_should_query = std::make_shared<BinaryQuery<T>>();
+    must_should_query->left_query = std::make_shared<GeneralQuery<T>>();
+    must_should_query->right_query = std::make_shared<GeneralQuery<T>>();
     if(bquery_num == 3) {
-        BinaryQueryPtr<T> must_should_query = std::make_shared<BinaryQuery<T>>();
         must_should_query->relation = QueryRelation::R3;
         must_should_query->left_query->bin = must_bquery;
         must_should_query->right_query->bin = should_bquery;
@@ -219,7 +221,7 @@ Status GenBinaryQuery(BooleanClausePtr<T> clause,
         } else if (should_bquery == nullptr) {
             binary_query->relation = QueryRelation::R4;
             binary_query->left_query->bin = must_bquery;
-            binary_query->right_query->bin = should_bquery;
+            binary_query->right_query->bin = must_not_bquery;
         } else {
             binary_query->relation = QueryRelation::R3;
             binary_query->left_query->bin = must_bquery;

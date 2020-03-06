@@ -13,7 +13,8 @@ enum class CompareOperator {
 };
 
 enum class QueryRelation {
-    R1 = 0,
+    INVALID = 0,
+    R1,
     R2,
     R3,
     R4,

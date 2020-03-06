@@ -8,6 +8,6 @@
 
 int main() {
 //    GrpcServer::GetInstance().Start();
-    std::cout<<"Milvuspb serer started!" << std::endl;
+    std::cout<<"Milvuspb server started!" << std::endl;
     GrpcServer::GetInstance().Start();
 }
