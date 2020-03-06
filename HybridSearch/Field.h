@@ -7,7 +7,7 @@
 struct Field {
     std::string field_name;
     std::string field_type;
-    int64_t boost;
+    float boost;
     std::string extram_params;
 }
 

@@ -30,6 +30,7 @@ message KeyValuePair {
 message VectorColumnInfo {
     int64 dimension = 1;
     DataType element_type = 2;
+    int32  distance_metric = 3;
 }
 
 message ColumnType {

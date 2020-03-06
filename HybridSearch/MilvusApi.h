@@ -38,7 +38,7 @@ struct ConnectParam {
  * @brief Column Type ?????????????????????????????????????????????????????????
  */
 struct ColumnType {
-    Field field;
+    Field numeric_field;
     VectorField vector_field;
 }
 
@@ -84,15 +84,6 @@ struct DocRecord {
     std::map<std::string, double>  double_value;
     std::map<std::string, std::string> string_value;
 }
-
-// /**
-//  * @brief TopK query result
-//  */
-// struct QueryResult {
-//     std::vector<int64_t> ids;      ///< Query ids result
-//     std::vector<float> distances;  ///< Query distances result
-// };
-// using TopKQueryResult = std::vector<QueryResult>;  ///< Topk query result
 
 /**
  * @brief Query result
@@ -303,6 +294,7 @@ class Connection {
     Insert(const std::string& table_name, const std::string& partition_tag, const std::vector<RowRecord>& record_array,
            std::vector<int64_t>& id_array) = 0;
 
+    // Insert replaced by InsertDocument
     virtual Status
     InsertDocument(const std::string& table_name, const std::string& partition_tag, std::vector<DocRecord> doc_records,
             std::vector<uint64_t>& id_array) = 0;
@@ -321,9 +313,6 @@ class Connection {
      */
     virtual Status
     GetVectorByID(const std::string& table_name, int64_t vector_id, RowRecord& vector_data) = 0;
-
-    virtual Status
-    GetVectorByID(const std::string& table_name, int64_t doc_id, RowRecord& vector_data) = 0;
 
     virtual Status
     GetDocByID(const std::string& table_name, int64_t doc_id, DocRecord& doc_record) = 0;
