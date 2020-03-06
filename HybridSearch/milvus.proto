@@ -27,31 +27,31 @@ message KeyValuePair {
 
 ///////////////////////////////////////////////////////////////////
 
-message VectorColumnInfo {
+message VectorFieldInfo {
     int64 dimension = 1;
     DataType element_type = 2;
     int32  distance_metric = 3;
 }
 
-message ColumnType {
+message FieldType {
     oneof value {
         DataType type = 1;
-        VectorColumnInfo info = 2;
+        VectorFieldInfo info = 2;
     }
 }
 
-message ColumnSchema {
+message FieldMapping {
     uint64 id = 1;
     string name = 2;
-    ColumnType type = 3;
+    FieldType type = 3;
 }
 
-message VectorColumnValue {
+message VectorFieldValue {
     repeated float value = 1;
     bytes value = 1;
 }
 
-message ColumnValue {
+message FieldValue {
     oneof value {
         int32 int32_value = 1;
         int64 int64_value = 2;
@@ -59,7 +59,7 @@ message ColumnValue {
         double double_value = 4;
         string string_value = 5;
         bool  bool_value = 6;
-        VectorColumnValue vector_value = 7;
+        VectorFieldValue vector_value = 7;
     }
 }
 
@@ -69,22 +69,22 @@ message CollectionName {
     string collection_name = 1;
 }
 
-message CollectionSchema {
+message CollectionMapping {
     uint64 id = 1;
     string name = 2;
-    repeated ColumnSchema columns = 3;
+    repeated FieldMapping fields = 3;
 }
 
-message CollectionSchemaList {
+message CollectionMappingList {
     Status status = 1;
-    repeated CollectionSchema Collection_schema_list = 2;
+    repeated CollectionMapping Collection_mapping_list = 2;
 }
 
 ///////////////////////////////////////////////////////////////////
 
 message TermQuery {
     string field_name = 1;
-    repeated ColumnValue values = 2;
+    repeated FieldValue values = 2;
     float boost = 3;
 }
 
@@ -99,7 +99,7 @@ enum CompareOperator {
 
 message CompareExpr {
     CompareOperator operator = 1;
-    ColumnValue operand = 2;
+    FieldValue operand = 2;
 }
 
 message RangeQuery {
@@ -156,16 +156,16 @@ message SearchInFilesParam {
 
 ///////////////////////////////////////////////////////////////////
 
-message DocRecord {
+message EntityRecord {
     Status status = 1;
-    int64 doc_id = 2;
+    int64 entity_id = 2;
     repeated string field_names = 3;
-    repeated ColumnValue values = 4;
+    repeated FieldValue values = 4;
 }
 
 message QueryResult {
     Status status = 1;
-    repeated DocRecord doc_record = 2;
+    repeated EntityRecord entity_record = 2;
     int64 row_num = 3;
     repeated float score = 4;
     repeated float distance = 5;
@@ -174,22 +174,22 @@ message QueryResult {
 message InsertParam {
     string collection_name = 1;
     string partition_tag = 2;
-    repeated DocRecord doc_records = 3;
+    repeated EntityRecord entity_records = 3;
     repeated int64 row_id_array = 4;
     repeated extra_params = 5;
 }
 
-message DocIdentity {
+message EntityIdentity {
     string collection_name = 1;
     int64 id = 2;
 }
 
-message DocIDs {
+message EntityIDs {
     Status status = 1;
-    repeated int64 doc_id_array = 2;
+    repeated int64 entity_id_array = 2;
 }
 
-message GetDocIDsParam {
+message GetEntityIDsParam {
     string collection_name = 1;
     string segment_name = 2;
 }
@@ -264,17 +264,17 @@ message FlushParam {
 
 
 service DemoService {
-    rpc CreateCollection(CollectionSchema) returns (Status) {}
+    rpc CreateCollection(CollectionMapping) returns (Status) {}
 
     rpc HasCollection(CollectionName) returns (BoolReply) {}
 
     rpc DropCollection(CollectionName) returns (Status) {}
 
-    rpc DescribeCollection(CollectionName) returns (CollectionSchema) {}
+    rpc DescribeCollection(CollectionName) returns (CollectionMapping) {}
 
     rpc CountCollection(CollectionName) returns (CollectionRowCount) {}
 
-    rpc ShowCollections(Command) returns (CollectionSchemaList) {}
+    rpc ShowCollections(Command) returns (CollectionMappingList) {}
 
     rpc ShowCollectionInfo (CollectionName) returns (CollectionInfo) {}
 
@@ -290,15 +290,15 @@ service DemoService {
 
 ///////////////////////////////////////////////////////////////////
 
-    rpc Insert(InsertParam) returns (DocIDs) {}
+    rpc Insert(InsertParam) returns (EntityIDs) {}
 
     rpc Search(SearchParam) returns (QueryResult) {}
 
     rpc SearchInFiles(SearchInFilesParam) returns (QueryResult) {}
 
-    rpc GetDocByID(DocIdentity) returns (DocRecord) {}
+    rpc GetEntityByID(EntityIdentity) returns (EntityRecord) {}
 
-    rpc GetDocIDs(GetDocIDsParam) returns (DocIDs) {}
+    rpc GetEntityIDs(GetEntityIDsParam) returns (EntityIDs) {}
 
     rpc DeleteByID(DeleteByIDParam) returns (Status) {}
 

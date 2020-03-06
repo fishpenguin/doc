@@ -35,29 +35,29 @@ struct ConnectParam {
 };
 
 /**
- * @brief Column Type ?????????????????????????????????????????????????????????
+ * @brief Field Type ?????????????????????????????????????????????????????????
  */
-struct ColumnType {
+struct FieldType {
     Field numeric_field;
     VectorField vector_field;
 }
 
 /**
- * @brief Column Schema
+ * @brief Field Mapping
  */
-struct ColumnSchema {
-    uint64_t column_id;
-    string column_name;
-    ColumnType column_type;     ///< vector or numerica(int64_t, float...)
+struct FieldMapping {
+    uint64_t field_id;
+    string field_name;
+    FieldType field_type;     ///< vector or numerica(int64_t, float...)
 }
 
 /**
- * @brief Collection Schema
+ * @brief Collection Mapping
  */
-struct CollectionSchema {
+struct CollectionMapping {
     uint64_t collection_id;                        ///< Collection id
     std::string collection_name;                   ///< Collection name
-    std::vector<ColumnSchema> columns;        ///< Columns
+    std::vector<FieldMapping> fields;        ///< Fields
 };
 
 /**
@@ -69,10 +69,10 @@ struct RowRecord {
 };
 
 /**
- * @brief Document Record inserted
+ * @brief Entity Record inserted
  */
-struct DocRecord {
-    uint64_t doc_id;
+struct EntityRecord {
+    uint64_t entity_id;
     // list all kinds fields?
     // Or use string, user can input whatever kind of value they want,
     // and the value will be describe as a json string
@@ -89,7 +89,7 @@ struct DocRecord {
  * @brief Query result
  */
 struct QueryResult {
-    DocRecord doc_record;
+    EntityRecord entity_record;
     float score;
     float distance;
 };
@@ -233,7 +233,7 @@ class Connection {
      * @return Indicate if collection is created successfully
      */
     virtual Status
-    CreateCollection(const CollectionSchema& param) = 0;
+    CreateCollection(const CollectionMapping& param) = 0;
 
     /**
      * @brief Test collection existence method
@@ -294,9 +294,9 @@ class Connection {
     Insert(const std::string& collection_name, const std::string& partition_tag, const std::vector<RowRecord>& record_array,
            std::vector<int64_t>& id_array) = 0;
 
-    // Insert replaced by InsertDocument
+    // Insert replaced by InsertEntity
     virtual Status
-    InsertDocument(const std::string& collection_name, const std::string& partition_tag, std::vector<DocRecord> doc_records,
+    InsertEntity(const std::string& collection_name, const std::string& partition_tag, std::vector<EntityRecord> entity_records,
             std::vector<uint64_t>& id_array) = 0;
 
     /**
@@ -315,7 +315,7 @@ class Connection {
     GetVectorByID(const std::string& collection_name, int64_t vector_id, RowRecord& vector_data) = 0;
 
     virtual Status
-    GetDocByID(const std::string& collection_name, int64_t doc_id, DocRecord& doc_record) = 0;
+    GetEntityByID(const std::string& collection_name, int64_t entity_id, EntityRecord& entity_record) = 0;
 
     /**
      * @brief Get vector ids from a segment
@@ -361,12 +361,12 @@ class Connection {
      * This method is used to show collection information.
      *
      * @param collection_name, target collection's name.
-     * @param collection_schema, collection_schema is given when operation is successful.
+     * @param collection_mapping, collection_mapping is given when operation is successful.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DescribeCollection(const std::string& collection_name, CollectionSchema& collection_schema) = 0;
+    DescribeCollection(const std::string& collection_name, CollectionMapping& collection_mapping) = 0;
 
     /**
      * @brief Get collection row count
@@ -444,7 +444,7 @@ class Connection {
      * @return Task information in taskcollections.
      */
     virtual std::string
-    DumpTaskTables() const = 0;
+    DumpTaskTabless() const = 0;
 
     /**
      * [deprecated]
@@ -459,7 +459,7 @@ class Connection {
      */
     virtual Status
     DeleteByID(const std::string& collection_name, const std::vector<int64_t>& id_array) = 0;
-    // Delete documents by doc ids
+    // Delete entitys by entity ids
 
     /**
      * @brief preload collection
