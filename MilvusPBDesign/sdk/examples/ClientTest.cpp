@@ -14,9 +14,9 @@
 
 std::string general_field_name = "age";
 std::string vector_field_name = "face_img";
-uint64_t NQ = 100000;
+uint64_t NQ = 10000;
 uint64_t TOPK = 10000;
-uint64_t DIMENSION = 1024;
+uint64_t DIMENSION = 512;
 std::shared_ptr<ClientProxy> proxy;
 
 void ConstructVector(uint64_t nq, uint64_t dimension, std::vector<std::vector<float>>& query_vector) {
@@ -215,33 +215,33 @@ _3_query_case() {
     must_not_clause2->SetLeafQuery(leaf_queries);
     must_not_clause3->SetLeafQuery(leaf_queries);
 
-//    //must+must+must
-//    auto mmm = std::make_shared<BooleanClause<uint64_t>>();
-//    mmm->AddBooleanClause(must_clause1);
-//    mmm->AddBooleanClause(must_clause2);
-//    mmm->AddBooleanClause(must_clause3);
-//    auto mmm_res = proxy->Query(mmm);
-//
-//    //should+should+should
-//    auto sss = std::make_shared<BooleanClause<uint64_t>>();
-//    sss->AddBooleanClause(should_clause1);
-//    sss->AddBooleanClause(should_clause2);
-//    sss->AddBooleanClause(should_clause3);
-//    auto sss_res = proxy->Query(sss);
-//
-//    //must_not+must_not+must_not
-//    auto mmmnnn = std::make_shared<BooleanClause<uint64_t>>();
-//    mmmnnn->AddBooleanClause(must_not_clause1);
-//    mmmnnn->AddBooleanClause(must_not_clause2);
-//    mmmnnn->AddBooleanClause(must_not_clause3);
-//    auto mmmnnn_res = proxy->Query(mmmnnn);
-//
-//    //m+m+s
-//    auto mms = std::make_shared<BooleanClause<uint64_t>>();
-//    mms->AddBooleanClause(must_clause1);
-//    mms->AddBooleanClause(must_clause2);
-//    mms->AddBooleanClause(should_clause1);
-//    auto mms_res = proxy->Query(mms);
+    //must+must+must
+    auto mmm = std::make_shared<BooleanClause<uint64_t>>();
+    mmm->AddBooleanClause(must_clause1);
+    mmm->AddBooleanClause(must_clause2);
+    mmm->AddBooleanClause(must_clause3);
+    auto mmm_res = proxy->Query(mmm);
+
+    //should+should+should
+    auto sss = std::make_shared<BooleanClause<uint64_t>>();
+    sss->AddBooleanClause(should_clause1);
+    sss->AddBooleanClause(should_clause2);
+    sss->AddBooleanClause(should_clause3);
+    auto sss_res = proxy->Query(sss);
+
+    //must_not+must_not+must_not
+    auto mmmnnn = std::make_shared<BooleanClause<uint64_t>>();
+    mmmnnn->AddBooleanClause(must_not_clause1);
+    mmmnnn->AddBooleanClause(must_not_clause2);
+    mmmnnn->AddBooleanClause(must_not_clause3);
+    auto mmmnnn_res = proxy->Query(mmmnnn);
+
+    //m+m+s
+    auto mms = std::make_shared<BooleanClause<uint64_t>>();
+    mms->AddBooleanClause(must_clause1);
+    mms->AddBooleanClause(must_clause2);
+    mms->AddBooleanClause(should_clause1);
+    auto mms_res = proxy->Query(mms);
 
     //m+m+mn
     auto mmmn = std::make_shared<BooleanClause<uint64_t>>();
@@ -286,6 +286,59 @@ _3_query_case() {
     auto msmn_res = proxy->Query(msmn);
 }
 
+void other_query_cases() {
+    auto leaf_queries = GenLeafQuery();
+    auto must_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause2 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause3 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause4 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause5 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause6 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause7 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause8 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause9 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    auto must_clause10 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    must_clause1->SetLeafQuery(leaf_queries);
+    must_clause2->SetLeafQuery(leaf_queries);
+    must_clause3->SetLeafQuery(leaf_queries);
+    must_clause4->SetLeafQuery(leaf_queries);
+    must_clause5->SetLeafQuery(leaf_queries);
+    must_clause6->SetLeafQuery(leaf_queries);
+    must_clause7->SetLeafQuery(leaf_queries);
+    must_clause8->SetLeafQuery(leaf_queries);
+    must_clause9->SetLeafQuery(leaf_queries);
+    must_clause10->SetLeafQuery(leaf_queries);
+
+    auto should_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause2 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause3 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    should_clause1->SetLeafQuery(leaf_queries);
+    should_clause2->SetLeafQuery(leaf_queries);
+    should_clause3->SetLeafQuery(leaf_queries);
+
+    auto must_not_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause2 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause3 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    must_not_clause1->SetLeafQuery(leaf_queries);
+    must_not_clause2->SetLeafQuery(leaf_queries);
+    must_not_clause3->SetLeafQuery(leaf_queries);
+
+    auto case1 = std::make_shared<BooleanClause<uint64_t>>();
+    case1->AddBooleanClause(must_clause1);
+    case1->AddBooleanClause(must_clause2);
+    case1->AddBooleanClause(must_clause3);
+    case1->AddBooleanClause(must_clause4);
+    case1->AddBooleanClause(must_clause5);
+    case1->AddBooleanClause(must_clause6);
+    case1->AddBooleanClause(must_clause7);
+    case1->AddBooleanClause(must_clause8);
+    case1->AddBooleanClause(must_clause9);
+    case1->AddBooleanClause(must_clause10);
+    case1->AddBooleanClause(should_clause1);
+    case1->AddBooleanClause(must_not_clause1);
+    auto res1 = proxy->Query(case1);
+
+}
 
 void
 ClientTest::Test(const std::string& address, const std::string& port) {
@@ -298,7 +351,9 @@ ClientTest::Test(const std::string& address, const std::string& port) {
 
 //    _2_query_case();
 
-    _3_query_case();
+//    _3_query_case();
+
+    other_query_cases();
 
 //    test_performance();
 
