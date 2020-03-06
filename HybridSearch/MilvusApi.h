@@ -52,11 +52,11 @@ struct ColumnSchema {
 }
 
 /**
- * @brief Table Schema
+ * @brief Collection Schema
  */
-struct TableSchema {
-    uint64_t table_id;                        ///< Table id
-    std::string table_name;                   ///< Table name
+struct CollectionSchema {
+    uint64_t collection_id;                        ///< Collection id
+    std::string collection_name;                   ///< Collection name
     std::vector<ColumnSchema> columns;        ///< Columns
 };
 
@@ -105,7 +105,7 @@ using TopkQueryResult = std::vector<QueryResult>;
  *       HNSW  "{M: '16', ef_construct:'500'}"
  */
 struct IndexParam {
-    std::string table_name;             ///< Table name for create index
+    std::string collection_name;             ///< Collection name for create index
     IndexType index_type;               ///< Index type
     std::string extra_params;           ///< Extra parameters according to different index type, must be json format
 };
@@ -114,7 +114,7 @@ struct IndexParam {
  * @brief partition parameters
  */
 struct PartitionParam {
-    std::string table_name;
+    std::string collection_name;
     std::string partition_tag;
 };
 
@@ -140,11 +140,11 @@ struct PartitionStat {
 };
 
 /**
- * @brief table info
+ * @brief collection info
  */
-struct TableInfo {
-    int64_t total_row_count;                  ///< Table total row count
-    std::vector<PartitionStat> partitions_stat;   ///< Table's partitions statistics
+struct CollectionInfo {
+    int64_t total_row_count;                  ///< Collection total row count
+    std::vector<PartitionStat> partitions_stat;   ///< Collection's partitions statistics
 };
 
 /**
@@ -224,48 +224,48 @@ class Connection {
     Disconnect() = 0;
 
     /**
-     * @brief Create table method
+     * @brief Create collection method
      *
-     * This method is used to create table.
+     * This method is used to create collection.
      *
-     * @param param, use to provide table information to be created.
+     * @param param, use to provide collection information to be created.
      *
-     * @return Indicate if table is created successfully
+     * @return Indicate if collection is created successfully
      */
     virtual Status
-    CreateTable(const TableSchema& param) = 0;
+    CreateCollection(const CollectionSchema& param) = 0;
 
     /**
-     * @brief Test table existence method
+     * @brief Test collection existence method
      *
-     * This method is used to create table.
+     * This method is used to create collection.
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      *
-     * @return Indicate if table is cexist
+     * @return Indicate if collection is cexist
      */
     virtual bool
-    HasTable(const std::string& table_name) = 0;
+    HasCollection(const std::string& collection_name) = 0;
 
     /**
-     * @brief Drop table method
+     * @brief Drop collection method
      *
-     * This method is used to drop table(and its partitions).
+     * This method is used to drop collection(and its partitions).
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      *
-     * @return Indicate if table is drop successfully.
+     * @return Indicate if collection is drop successfully.
      */
     virtual Status
-    DropTable(const std::string& table_name) = 0;
+    DropCollection(const std::string& collection_name) = 0;
 
     /**
      * @brief Create index method
      *
-     * This method is used to create index for whole table(and its partitions).
+     * This method is used to create index for whole collection(and its partitions).
      *
      * @param IndexParam
-     *  table_name, table name is going to be create index.
+     *  collection_name, collection name is going to be create index.
      *  index type,
      *  nlist,
      *  index file size
@@ -276,11 +276,11 @@ class Connection {
     CreateIndex(const IndexParam& index_param) = 0;
 
     /**
-     * @brief Insert vector to table
+     * @brief Insert vector to collection
      *
-     * This method is used to insert vector array to table.
+     * This method is used to insert vector array to collection.
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param partition_tag, target partition's tag, keep empty if no partition.
      * @param record_array, vector array is inserted.
      * @param id_array,
@@ -291,31 +291,31 @@ class Connection {
      * @return Indicate if vector array are inserted successfully
      */
     virtual Status
-    Insert(const std::string& table_name, const std::string& partition_tag, const std::vector<RowRecord>& record_array,
+    Insert(const std::string& collection_name, const std::string& partition_tag, const std::vector<RowRecord>& record_array,
            std::vector<int64_t>& id_array) = 0;
 
     // Insert replaced by InsertDocument
     virtual Status
-    InsertDocument(const std::string& table_name, const std::string& partition_tag, std::vector<DocRecord> doc_records,
+    InsertDocument(const std::string& collection_name, const std::string& partition_tag, std::vector<DocRecord> doc_records,
             std::vector<uint64_t>& id_array) = 0;
 
     /**
      * @brief Get vector data by id
      *
-     * This method is used to get vector data by id from a table.
+     * This method is used to get vector data by id from a collection.
      * Return the first found vector if there are vectors with duplicated id
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param vector_id, target vector id.
      * @param vector_data, returned vector data.
      *
      * @return Indicate if the operation is succeed.
      */
     virtual Status
-    GetVectorByID(const std::string& table_name, int64_t vector_id, RowRecord& vector_data) = 0;
+    GetVectorByID(const std::string& collection_name, int64_t vector_id, RowRecord& vector_data) = 0;
 
     virtual Status
-    GetDocByID(const std::string& table_name, int64_t doc_id, DocRecord& doc_record) = 0;
+    GetDocByID(const std::string& collection_name, int64_t doc_id, DocRecord& doc_record) = 0;
 
     /**
      * @brief Get vector ids from a segment
@@ -323,21 +323,21 @@ class Connection {
      * This method is used to get vector ids from a segment
      * Return all vector(not deleted) ids
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param segment_name, target segment name.
      * @param id_array, returned vector id array.
      *
      * @return Indicate if the operation is succeed.
      */
     virtual Status
-    GetIDsInSegment(const std::string& table_name, const std::string& segment_name, std::vector<int64_t>& id_array) = 0;
+    GetIDsInSegment(const std::string& collection_name, const std::string& segment_name, std::vector<int64_t>& id_array) = 0;
 
     /**
      * @brief Search vector
      *
-     * This method is used to query vector in table.
+     * This method is used to query vector in collection.
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param partition_tags, target partitions, keep empty if no partition.
      * @param query_record_array, vectors to be queried.
      * @param topk, how many similarity vectors will be searched.
@@ -347,64 +347,64 @@ class Connection {
      * @return Indicate if query is successful.
      */
     virtual Status
-    Search(const std::string& table_name, const std::vector<std::string>& partition_tags,
+    Search(const std::string& collection_name, const std::vector<std::string>& partition_tags,
            const std::vector<RowRecord>& query_record_array, int64_t topk,
            int64_t nprobe, TopKQueryResult& topk_query_result) = 0;
     
     virtual Status
-    Search(const std::string& table_name, const std::vector<std::string>& partition_tags,
+    Search(const std::string& collection_name, const std::vector<std::string>& partition_tags,
             const std::vector<BooleanQueryPtr> boolean_queries, TopkQueryResult& topk_query_result) = 0;
 
     /**
-     * @brief Show table description
+     * @brief Show collection description
      *
-     * This method is used to show table information.
+     * This method is used to show collection information.
      *
-     * @param table_name, target table's name.
-     * @param table_schema, table_schema is given when operation is successful.
+     * @param collection_name, target collection's name.
+     * @param collection_schema, collection_schema is given when operation is successful.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DescribeTable(const std::string& table_name, TableSchema& table_schema) = 0;
+    DescribeCollection(const std::string& collection_name, CollectionSchema& collection_schema) = 0;
 
     /**
-     * @brief Get table row count
+     * @brief Get collection row count
      *
-     * This method is used to get table row count.
+     * This method is used to get collection row count.
      *
-     * @param table_name, target table's name.
-     * @param row_count, table total row count(including partitions).
+     * @param collection_name, target collection's name.
+     * @param row_count, collection total row count(including partitions).
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    CountTable(const std::string& table_name, int64_t& row_count) = 0;
+    CountCollection(const std::string& collection_name, int64_t& row_count) = 0;
 
     /**
-     * @brief Show all tables in database
+     * @brief Show all collections in database
      *
-     * This method is used to list all tables.
+     * This method is used to list all collections.
      *
-     * @param table_array, all tables in database.
+     * @param collection_array, all collections in database.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    ShowTables(std::vector<std::string>& table_array) = 0;
+    ShowCollections(std::vector<std::string>& collection_array) = 0;
 
     /**
-     * @brief Show table information
+     * @brief Show collection information
      *
-     * This method is used to get detail information of a table.
+     * This method is used to get detail information of a collection.
      *
-     * @param table_name, target table's name.
-     * @param table_info, target table's information
+     * @param collection_name, target collection's name.
+     * @param collection_info, target collection's information
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    ShowTableInfo(const std::string& table_name, TableInfo& table_info) = 0;
+    ShowCollectionInfo(const std::string& collection_name, CollectionInfo& collection_info) = 0;
 
     /**
      * @brief Give the client version
@@ -441,73 +441,73 @@ class Connection {
      *
      * This method is internal used.
      *
-     * @return Task information in tasktables.
+     * @return Task information in taskcollections.
      */
     virtual std::string
     DumpTaskTables() const = 0;
 
     /**
      * [deprecated]
-     * @brief delete tables by vector id
+     * @brief delete collections by vector id
      *
-     * This method is used to delete table data by date range.
+     * This method is used to delete collection data by date range.
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param id_array, vector ids to deleted.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DeleteByID(const std::string& table_name, const std::vector<int64_t>& id_array) = 0;
+    DeleteByID(const std::string& collection_name, const std::vector<int64_t>& id_array) = 0;
     // Delete documents by doc ids
 
     /**
-     * @brief preload table
+     * @brief preload collection
      *
-     * This method is used to preload table
+     * This method is used to preload collection
      *
-     * @param table_name
+     * @param collection_name
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    PreloadTable(const std::string& table_name) const = 0;
+    PreloadCollection(const std::string& collection_name) const = 0;
 
     /**
      * @brief describe index
      *
      * This method is used to describe index
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      * @param index_param, returned index information.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DescribeIndex(const std::string& table_name, IndexParam& index_param) const = 0;
+    DescribeIndex(const std::string& collection_name, IndexParam& index_param) const = 0;
 
     virtual Status
-    DescribeIndex(const std::string& table_name, std::vector<std::string>& field_name_array, IndexParam& index_param) const = 0;
+    DescribeIndex(const std::string& collection_name, std::vector<std::string>& field_name_array, IndexParam& index_param) const = 0;
 
     /**
      * @brief drop index
      *
-     * This method is used to drop index of table(and its partitions)
+     * This method is used to drop index of collection(and its partitions)
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DropIndex(const std::string& table_name) const = 0;
+    DropIndex(const std::string& collection_name) const = 0;
 
     virtual Status
-    DropIndex(const std::string & table_name, std::vector<std::string>& field_name_array) const = 0;
+    DropIndex(const std::string & collection_name, std::vector<std::string>& field_name_array) const = 0;
 
     /**
      * @brief Create partition method
      *
-     * This method is used to create table partition
+     * This method is used to create collection partition
      *
      * @param param, use to provide partition information to be created.
      *
@@ -517,26 +517,26 @@ class Connection {
     CreatePartition(const PartitionParam& param) = 0;
 
     /**
-     * @brief Test table existence method
+     * @brief Test collection existence method
      *
-     * This method is used to create table
+     * This method is used to create collection
      *
-     * @param table_name, table name is going to be tested.
-     * @param partition_array, partition tag array of the table.
+     * @param collection_name, collection name is going to be tested.
+     * @param partition_array, partition tag array of the collection.
      *
      * @return Indicate if this operation is successful
      */
     virtual Status
-    ShowPartitions(const std::string& table_name, PartitionTagList& partition_array) const = 0;
+    ShowPartitions(const std::string& collection_name, PartitionTagList& partition_array) const = 0;
 
     /**
      * @brief Delete partition method
      *
-     * This method is used to delete table partition.
+     * This method is used to delete collection partition.
      *
      * @param param, target partition to be deleted.
-     *      NOTE: if param.table_name is empty, you must specify param.partition_name,
-     *          else you can specify param.table_name and param.tag and let the param.partition_name be empty
+     *      NOTE: if param.collection_name is empty, you must specify param.partition_name,
+     *          else you can specify param.collection_name and param.tag and let the param.partition_name be empty
      *
      * @return Indicate if partition is delete successfully.
      */
@@ -570,21 +570,21 @@ class Connection {
     SetConfig(const std::string& node_name, const std::string& value) const = 0;
 
     /**
-     * @brief flush table buffer into storage
+     * @brief flush collection buffer into storage
      *
-     * This method is used to flush table buffer into storage
+     * This method is used to flush collection buffer into storage
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    FlushTable(const std::string& table_name) = 0;
+    FlushCollection(const std::string& collection_name) = 0;
 
     /**
      * @brief flush all buffer into storage
      *
-     * This method is used to all table buffer into storage
+     * This method is used to all collection buffer into storage
      *
      * @return Indicate if this operation is successful.
      */
@@ -592,16 +592,16 @@ class Connection {
     Flush() = 0;
 
     /**
-     * @brief compact table, remove deleted vectors
+     * @brief compact collection, remove deleted vectors
      *
-     * This method is used to compact table
+     * This method is used to compact collection
      *
-     * @param table_name, target table's name.
+     * @param collection_name, target collection's name.
      *
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    CompactTable(const std::string& table_name) = 0;
+    CompactCollection(const std::string& collection_name) = 0;
 };
 
 }  // namespace milvus
