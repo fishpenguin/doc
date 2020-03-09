@@ -54,7 +54,7 @@ struct FieldMapping {
 /**
  * @brief Collection Mapping
  */
-struct CollectionMapping {
+struct Mapping {
     uint64_t collection_id;                        ///< Collection id
     std::string collection_name;                   ///< Collection name
     std::vector<FieldMapping> fields;        ///< Fields
@@ -233,7 +233,7 @@ class Connection {
      * @return Indicate if collection is created successfully
      */
     virtual Status
-    CreateCollection(const CollectionMapping& param) = 0;
+    CreateCollection(const Mapping& param) = 0;
 
     /**
      * @brief Test collection existence method
@@ -366,7 +366,7 @@ class Connection {
      * @return Indicate if this operation is successful.
      */
     virtual Status
-    DescribeCollection(const std::string& collection_name, CollectionMapping& collection_mapping) = 0;
+    DescribeCollection(const std::string& collection_name, Mapping& collection_mapping) = 0;
 
     /**
      * @brief Get collection row count

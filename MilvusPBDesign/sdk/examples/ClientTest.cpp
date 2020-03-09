@@ -14,7 +14,7 @@
 
 std::string general_field_name = "age";
 std::string vector_field_name = "face_img";
-uint64_t NQ = 10000;
+uint64_t NQ = 1000;
 uint64_t TOPK = 10000;
 uint64_t DIMENSION = 512;
 std::shared_ptr<ClientProxy> proxy;
@@ -65,6 +65,53 @@ std::vector<LeafQueryPtr<uint64_t>> GenLeafQuery() {
     lq1->query_boost = 1.0;
     lq2->query_boost = 2.0;
     lq3->query_boost = 3.0;
+    return lq;
+}
+
+std::vector<LeafQueryPtr<uint64_t>> GenSpecLeafQuery(uint64_t term_num, uint64_t range_num, uint64_t vector_num) {
+
+    std::vector<TermQuery<uint64_t>> tqs;
+    std::vector<RangeQuery<uint64_t>> rqs;
+    std::vector<VectorQuery> vqs;
+    tqs.resize(term_num);
+    rqs.resize(range_num);
+    vqs.resize(vector_num);
+
+    std::vector<LeafQueryPtr<uint64_t>> lq;
+    lq.resize(term_num + range_num + vector_num);
+
+    std::vector<InnerLeafQueryPtr<uint64_t>> inner_queries;
+    inner_queries.resize(term_num + range_num + vector_num);
+    for (uint64_t i = 0; i < term_num + range_num + vector_num; ++i) {
+        lq[i] = std::make_shared<LeafQuery<uint64_t>>();
+        inner_queries[i] = std::make_shared<InnerLeafQuery<uint64_t>>();
+    }
+
+    uint64_t i = 0;
+    for (i = 0; i < term_num; i++) {
+        std::vector<uint64_t> field_value{10, 20, 30};
+        TermQuery<uint64_t> tq = {general_field_name, field_value};
+        inner_queries[i]->term_query = tq;
+    }
+    for (; i < term_num + range_num; ++i) {
+        CompareExpr<uint64_t> ce1 = {CompareOperator::LTE, 20}, ce2 = {CompareOperator::GTE, 10};
+        std::vector<CompareExpr<uint64_t>> ces{ce1, ce2};
+        RangeQuery<uint64_t> rq = {general_field_name, ces};
+        inner_queries[i]->range_query = rq;
+    }
+    for (; i < term_num + range_num + vector_num; ++i) {
+        std::vector<std::vector<float >> query_vector;
+        ConstructVector(NQ, DIMENSION, query_vector);
+        std::string vector_query_param = "vector_query_param";
+        VectorQuery vq = {vector_field_name, vector_query_param, NQ, TOPK, 1.0, query_vector};
+        inner_queries[i]->vector_query = vq;
+    }
+
+    for (uint64_t j = 0; j < term_num + range_num + vector_num; ++j) {
+        lq[j]->query = inner_queries[j];
+        lq[j]->query_boost = j + 1;
+    }
+
     return lq;
 }
 
@@ -123,6 +170,16 @@ void
 _1_query_case() {
     auto boolean_clause = std::make_shared<BooleanClause<uint64_t>>();
     auto leaf_queries = GenLeafQuery();
+
+    // Gen leaf_query with different template
+    std::vector<std::string> field_value{"10", "20", "30"};
+    TermQuery<std::string> tq = {general_field_name, field_value};
+    LeafQueryPtr<std::string> tlq = std::make_shared<LeafQuery<std::string>>();
+    InnerLeafQueryPtr<std::string> tilq = std::make_shared<InnerLeafQuery<std::string>>();
+    tilq->term_query = tq;
+    tlq->query_boost = 123456;
+    tlq->query = tilq;
+
     //must
     auto must_clause = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
     must_clause->AddLeafQuery(leaf_queries[0]);
@@ -312,16 +369,44 @@ void other_query_cases() {
     auto should_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
     auto should_clause2 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
     auto should_clause3 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause4 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause5 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause6 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause7 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause8 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause9 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    auto should_clause10 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
     should_clause1->SetLeafQuery(leaf_queries);
     should_clause2->SetLeafQuery(leaf_queries);
     should_clause3->SetLeafQuery(leaf_queries);
+    should_clause4->SetLeafQuery(leaf_queries);
+    should_clause5->SetLeafQuery(leaf_queries);
+    should_clause6->SetLeafQuery(leaf_queries);
+    should_clause7->SetLeafQuery(leaf_queries);
+    should_clause8->SetLeafQuery(leaf_queries);
+    should_clause9->SetLeafQuery(leaf_queries);
+    should_clause10->SetLeafQuery(leaf_queries);
 
     auto must_not_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
     auto must_not_clause2 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
     auto must_not_clause3 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause4 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause5 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause6 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause7 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause8 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause9 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
+    auto must_not_clause10 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST_NOT);
     must_not_clause1->SetLeafQuery(leaf_queries);
     must_not_clause2->SetLeafQuery(leaf_queries);
     must_not_clause3->SetLeafQuery(leaf_queries);
+    must_not_clause4->SetLeafQuery(leaf_queries);
+    must_not_clause5->SetLeafQuery(leaf_queries);
+    must_not_clause6->SetLeafQuery(leaf_queries);
+    must_not_clause7->SetLeafQuery(leaf_queries);
+    must_not_clause8->SetLeafQuery(leaf_queries);
+    must_not_clause9->SetLeafQuery(leaf_queries);
+    must_not_clause10->SetLeafQuery(leaf_queries);
 
     auto case1 = std::make_shared<BooleanClause<uint64_t>>();
     case1->AddBooleanClause(must_clause1);
@@ -336,8 +421,54 @@ void other_query_cases() {
     case1->AddBooleanClause(must_clause10);
     case1->AddBooleanClause(should_clause1);
     case1->AddBooleanClause(must_not_clause1);
-    auto res1 = proxy->Query(case1);
+//    auto res1 = proxy->Query(case1);
 
+    auto case2 = std::make_shared<BooleanClause<uint64_t>>();
+    case2->AddBooleanClause(must_clause1);
+    case2->AddBooleanClause(must_clause2);
+    case2->AddBooleanClause(must_clause3);
+    case2->AddBooleanClause(must_clause4);
+    case2->AddBooleanClause(must_clause5);
+    case2->AddBooleanClause(must_clause6);
+    case2->AddBooleanClause(must_clause7);
+    case2->AddBooleanClause(must_clause8);
+    case2->AddBooleanClause(must_clause9);
+    case2->AddBooleanClause(must_clause10);
+
+    case2->AddBooleanClause(should_clause1);
+    case2->AddBooleanClause(should_clause2);
+    case2->AddBooleanClause(should_clause3);
+    case2->AddBooleanClause(should_clause4);
+    case2->AddBooleanClause(should_clause5);
+    case2->AddBooleanClause(should_clause6);
+    case2->AddBooleanClause(should_clause7);
+    case2->AddBooleanClause(should_clause8);
+    case2->AddBooleanClause(should_clause9);
+    case2->AddBooleanClause(should_clause10);
+
+    case2->AddBooleanClause(must_not_clause1);
+    case2->AddBooleanClause(must_not_clause2);
+    case2->AddBooleanClause(must_not_clause3);
+    case2->AddBooleanClause(must_not_clause4);
+    case2->AddBooleanClause(must_not_clause5);
+    case2->AddBooleanClause(must_not_clause6);
+    case2->AddBooleanClause(must_not_clause7);
+    case2->AddBooleanClause(must_not_clause8);
+    case2->AddBooleanClause(must_not_clause9);
+    case2->AddBooleanClause(must_not_clause10);
+    auto res2 = proxy->Query(case2);
+}
+
+void leaf_query_case(uint64_t term_num, uint64_t range_num, uint64_t vector_num) {
+    auto leaf_queries = GenSpecLeafQuery(term_num, range_num, vector_num);
+    auto ms = std::make_shared<BooleanClause<uint64_t>>();
+    auto must_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::MUST);
+    must_clause1->SetLeafQuery(leaf_queries);
+    auto should_clause1 = std::make_shared<BooleanClause<uint64_t>>(Occur::SHOULD);
+    should_clause1->SetLeafQuery(leaf_queries);
+    ms->AddBooleanClause(must_clause1);
+    ms->AddBooleanClause(should_clause1);
+    auto res = proxy->Query(ms);
 }
 
 void
@@ -353,7 +484,9 @@ ClientTest::Test(const std::string& address, const std::string& port) {
 
 //    _3_query_case();
 
-    other_query_cases();
+//    other_query_cases();
+
+    leaf_query_case(2, 2, 2);
 
 //    test_performance();
 

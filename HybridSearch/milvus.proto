@@ -69,15 +69,15 @@ message CollectionName {
     string collection_name = 1;
 }
 
-message CollectionMapping {
+message Mapping {
     uint64 id = 1;
     string name = 2;
     repeated FieldMapping fields = 3;
 }
 
-message CollectionMappingList {
+message MappingList {
     Status status = 1;
-    repeated CollectionMapping Collection_mapping_list = 2;
+    repeated Mapping Collection_mapping_list = 2;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -264,17 +264,17 @@ message FlushParam {
 
 
 service DemoService {
-    rpc CreateCollection(CollectionMapping) returns (Status) {}
+    rpc CreateCollection(Mapping) returns (Status) {}
 
     rpc HasCollection(CollectionName) returns (BoolReply) {}
 
     rpc DropCollection(CollectionName) returns (Status) {}
 
-    rpc DescribeCollection(CollectionName) returns (CollectionMapping) {}
+    rpc DescribeCollection(CollectionName) returns (Mapping) {}
 
     rpc CountCollection(CollectionName) returns (CollectionRowCount) {}
 
-    rpc ShowCollections(Command) returns (CollectionMappingList) {}
+    rpc ShowCollections(Command) returns (MappingList) {}
 
     rpc ShowCollectionInfo (CollectionName) returns (CollectionInfo) {}
 
