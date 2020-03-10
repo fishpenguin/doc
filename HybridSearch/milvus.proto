@@ -29,8 +29,8 @@ message KeyValuePair {
 
 message VectorFieldInfo {
     int64 dimension = 1;
-    DataType element_type = 2;
-    int32  distance_metric = 3;
+    string element_type = 2;
+    int64  distance_metric = 3;
 }
 
 message FieldType {
@@ -40,28 +40,28 @@ message FieldType {
     }
 }
 
-message FieldMapping {
+message FieldParam {
     uint64 id = 1;
     string name = 2;
     FieldType type = 3;
 }
 
 message VectorFieldValue {
-    repeated float value = 1;
-    bytes value = 1;
+    repeated float float_value = 1;
+    bytes binary_value = 2;
 }
 
-message FieldValue {
-    oneof value {
-        int32 int32_value = 1;
-        int64 int64_value = 2;
-        float float_value = 3;
-        double double_value = 4;
-        string string_value = 5;
-        bool  bool_value = 6;
-        VectorFieldValue vector_value = 7;
-    }
-}
+//message FieldValue {
+//    oneof value {
+//        int32 int32_value = 1;
+//        int64 int64_value = 2;
+//        float float_value = 3;
+//        double double_value = 4;
+//        string string_value = 5;
+//        bool  bool_value = 6;
+//        VectorFieldValue vector_value = 7;
+//    }
+//}
 
 ///////////////////////////////////////////////////////////////////
 
@@ -72,19 +72,19 @@ message CollectionName {
 message Mapping {
     uint64 id = 1;
     string name = 2;
-    repeated FieldMapping fields = 3;
+    repeated FieldParam fields = 3;
 }
 
 message MappingList {
     Status status = 1;
-    repeated Mapping Collection_mapping_list = 2;
+    repeated Mapping mapping_list = 2;
 }
 
 ///////////////////////////////////////////////////////////////////
 
 message TermQuery {
     string field_name = 1;
-    repeated FieldValue values = 2;
+    repeated string values = 2;
     float boost = 3;
 }
 
@@ -99,7 +99,7 @@ enum CompareOperator {
 
 message CompareExpr {
     CompareOperator operator = 1;
-    FieldValue operand = 2;
+    string operand = 2;
 }
 
 message RangeQuery {
@@ -108,7 +108,7 @@ message RangeQuery {
     float boost = 3;
 }
 
-message RowRecord {
+message VectorRecord {
     repeated float data = 1;
     bytes binary_data = 2;
 }
@@ -117,8 +117,8 @@ message VectorQuery {
     string field_name = 1;
     int64 topk = 2;
     float query_boost = 3;
-    repeated RowRecord records = 4;
-    string vector_query_param = 5;
+    repeated VectorRecord records = 4;
+    repeated KeyValuePair extra_params = 5;
 }
 
 enum Occur {
@@ -156,16 +156,16 @@ message SearchInFilesParam {
 
 ///////////////////////////////////////////////////////////////////
 
-message EntityRecord {
+message Entity {
     Status status = 1;
     int64 entity_id = 2;
     repeated string field_names = 3;
-    repeated FieldValue values = 4;
+    repeated string vaules = 4;
 }
 
 message QueryResult {
     Status status = 1;
-    repeated EntityRecord entity_record = 2;
+    repeated Entity entities = 2;
     int64 row_num = 3;
     repeated float score = 4;
     repeated float distance = 5;
@@ -174,9 +174,9 @@ message QueryResult {
 message InsertParam {
     string collection_name = 1;
     string partition_tag = 2;
-    repeated EntityRecord entity_records = 3;
-    repeated int64 row_id_array = 4;
-    repeated extra_params = 5;
+    repeated Entity entities = 3;
+    repeated int64 entity_id_array = 4;
+    repeated KeyValuePair extra_params = 5;
 }
 
 message EntityIdentity {
@@ -245,7 +245,7 @@ message CollectionInfo {
 message IndexParam {
     Status status = 1;
     string collection_name = 2;
-    int32_t index_type = 3;
+    int32 index_type = 3;
     repeated KeyValuePair extra_params = 4;
 }
 

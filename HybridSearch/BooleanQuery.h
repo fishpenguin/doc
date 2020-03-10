@@ -7,7 +7,6 @@ enum class Occur {
     SHOULD,
 };
 
-template <typename T>
 class BooleanQuery : Query {
  public:
     BooleanQuery() {}
@@ -18,7 +17,7 @@ class BooleanQuery : Query {
         leaf_queries.emplace_back(leaf_query);
     }
 
-    AddBooleanQuery(Occur occur, std::shared_ptr<BooleanQuery<T>> boolean_query) {
+    AddBooleanQuery(Occur occur, std::shared_ptr<BooleanQuery> boolean_query) {
         boolean_queries.emplace_back(boolean_query);
     }
 
@@ -29,7 +28,6 @@ class BooleanQuery : Query {
  private:
     Occur occur_;
     std:vector<std::shared_ptr<BooleanQuery>> boolean_queries_;
-    std::vector<LeafQueryPtr<T>> leaf_queries_;
+    std::vector<LeafQueryPtr> leaf_queries_;
 }
-template <typename T>
-using BooleanQueryPtr = std::shared_ptr<BooleanQuery<T>>();
+using BooleanQueryPtr = std::shared_ptr<BooleanQuery>();

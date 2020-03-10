@@ -27,31 +27,25 @@ enum class CompareOperator {
     NE,
 };
 
-template <typename T>
 struct QueryColumn {
     std::string name;
-    T column_value;
+    std::string column_value;
 };
 
-template <typename T>
 struct TermQuery : Query {
-    std::vector<T> field_value;
+    std::vector<std::string> field_value;
 };
-template <typename T>
-using TermQueryPtr = std::shared_ptr<TermQuery<T>>();
+using TermQueryPtr = std::shared_ptr<TermQuery>();
 
-template <typename T>
 struct CompareExpr {
     CompareOperator compare_operator;
-    T operand;
+    std::string operand;
 };
 
-template <typename T>
 struct RangeQuery : Query {
-    std::vector<CompareExpr<T>> compare_expr;
+    std::vector<CompareExpr> compare_expr;
 };
-template <typename T>
-using RangeQueryPtr = std::shared_ptr<RangeQuery<T>>();
+using RangeQueryPtr = std::shared_ptr<RangeQuery>();
 
 struct RowRecord {
     std::vector<float> float_data;
@@ -59,20 +53,17 @@ struct RowRecord {
 }
 
 struct VectorQuery : Query {
-    std::string vector_query_param;
     uint64_t topk;
     float query_boost;
     std::vector<RowRecord> query_vector;
+    std::string extra_params;
 };
-template <typename T>
-using VectorQueryPtr = std::shared_ptr<VectorQuery<T>>();
+using VectorQueryPtr = std::shared_ptr<VectorQuery>();
 
-template <typename T>
 struct LeafQuery {
-    TermQueryPtr<T> term_query_ptr;
-    RangeQueryPtr<T> range_query_ptr;
+    TermQueryPtr term_query_ptr;
+    RangeQueryPtr range_query_ptr;
     VectorQueryPtr vector_query_ptr;
     float query_boost;
 }
-template <typename T>
-using LeafQueryPtr = std::shared_ptr<LeafQuery<T>>();
+using LeafQueryPtr = std::shared_ptr<LeafQuery>();

@@ -45,7 +45,7 @@ struct FieldType {
 /**
  * @brief Field Mapping
  */
-struct FieldMapping {
+struct FieldParam {
     uint64_t field_id;
     string field_name;
     FieldType field_type;     ///< vector or numerica(int64_t, float...)
@@ -57,13 +57,13 @@ struct FieldMapping {
 struct Mapping {
     uint64_t collection_id;                        ///< Collection id
     std::string collection_name;                   ///< Collection name
-    std::vector<FieldMapping> fields;        ///< Fields
+    std::vector<FieldParam> fields;        ///< Fields
 };
 
 /**
  * @brief Record inserted
  */
-struct RowRecord {
+struct VectorRecord {
     std::vector<float> float_data;     ///< Vector raw float data
     std::vector<uint8_t> binary_data;  ///< Vector raw binary data
 };
@@ -71,25 +71,20 @@ struct RowRecord {
 /**
  * @brief Entity Record inserted
  */
-struct EntityRecord {
+struct Entity {
     uint64_t entity_id;
     // list all kinds fields?
     // Or use string, user can input whatever kind of value they want,
     // and the value will be describe as a json string
-    std::map<std::string, RowRecord> vector_field_value;
-    std::map<std::string, int64_t> int64_value;
-    std::map<std::string, int32_t> int32_value;
-    std::map<std::string, short>   short_value;
-    std::map<std::string, float>   float_value;
-    std::map<std::string, double>  double_value;
-    std::map<std::string, std::string> string_value;
+    std::map<std::string, std::string> int64_value;
+    std::map<std::string, VectorRecord> vector_field_value;
 }
 
 /**
  * @brief Query result
  */
 struct QueryResult {
-    EntityRecord entity_record;
+    Entity entity;
     float score;
     float distance;
 };
@@ -290,9 +285,9 @@ class Connection {
      *
      * @return Indicate if vector array are inserted successfully
      */
-    virtual Status
-    Insert(const std::string& collection_name, const std::string& partition_tag, const std::vector<RowRecord>& record_array,
-           std::vector<int64_t>& id_array) = 0;
+//    virtual Status
+//    Insert(const std::string& collection_name, const std::string& partition_tag, const std::vector<VectorRecord>& record_array,
+//           std::vector<int64_t>& id_array) = 0;
 
     // Insert replaced by InsertEntity
     virtual Status
@@ -311,8 +306,8 @@ class Connection {
      *
      * @return Indicate if the operation is succeed.
      */
-    virtual Status
-    GetVectorByID(const std::string& collection_name, int64_t vector_id, RowRecord& vector_data) = 0;
+//    virtual Status
+//    GetVectorByID(const std::string& collection_name, int64_t vector_id, VectorRecord& vector_data) = 0;
 
     virtual Status
     GetEntityByID(const std::string& collection_name, int64_t entity_id, EntityRecord& entity_record) = 0;
@@ -346,10 +341,10 @@ class Connection {
      *
      * @return Indicate if query is successful.
      */
-    virtual Status
-    Search(const std::string& collection_name, const std::vector<std::string>& partition_tags,
-           const std::vector<RowRecord>& query_record_array, int64_t topk,
-           int64_t nprobe, TopKQueryResult& topk_query_result) = 0;
+//    virtual Status
+//    Search(const std::string& collection_name, const std::vector<std::string>& partition_tags,
+//           const std::vector<VectorRecord>& query_record_array, int64_t topk,
+//           int64_t nprobe, TopKQueryResult& topk_query_result) = 0;
     
     virtual Status
     Search(const std::string& collection_name, const std::vector<std::string>& partition_tags,
@@ -483,8 +478,8 @@ class Connection {
      *
      * @return Indicate if this operation is successful.
      */
-    virtual Status
-    DescribeIndex(const std::string& collection_name, IndexParam& index_param) const = 0;
+//    virtual Status
+//    DescribeIndex(const std::string& collection_name, IndexParam& index_param) const = 0;
 
     virtual Status
     DescribeIndex(const std::string& collection_name, std::vector<std::string>& field_name_array, IndexParam& index_param) const = 0;
@@ -498,8 +493,8 @@ class Connection {
      *
      * @return Indicate if this operation is successful.
      */
-    virtual Status
-    DropIndex(const std::string& collection_name) const = 0;
+//    virtual Status
+//    DropIndex(const std::string& collection_name) const = 0;
 
     virtual Status
     DropIndex(const std::string & collection_name, std::vector<std::string>& field_name_array) const = 0;
