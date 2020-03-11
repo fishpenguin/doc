@@ -296,7 +296,7 @@ service DemoService {
 
     rpc SearchInFiles(SearchInFilesParam) returns (QueryResult) {}
 
-    rpc GetEntityByID(EntityIdentity) returns (EntityRecord) {}
+    rpc GetEntityByID(EntityIdentity) returns (Entity) {}
 
     rpc GetEntityIDs(GetEntityIDsParam) returns (EntityIDs) {}
 
