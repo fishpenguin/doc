@@ -3,7 +3,7 @@
 * Field
 ```
 Field is defined in Field.h
-Fieled include struct field and vectorfield. we use struct field as the definition of numerica
+Field include struct field and vectorfield. we use struct field as the definition of numerica
 field. Field will be used in CollecionSchema
 ```
 * Query
@@ -19,11 +19,12 @@ then call search function.
 CollectionSchema: include numerica fields and vector fields
 ```
 
-* About Document
+* About Entity
 ```
-Insert: replaced by InsertDocument
-GetVectorByID: replaced by GetDocByID
-DeleteByID: delete documents by doc ids
-Search: use a BooleanQuery object as parameter
-
+Entity: vector -> structure data and vector
+Changed APIs:
+    Insert: replaced by InsertEntity
+    GetEntityByID
+    DeleteByID
+    Search: use a BooleanQuery object as parameter
 ```
