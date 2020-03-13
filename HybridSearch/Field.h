@@ -11,6 +11,7 @@ struct Field {
     float boost;
     std::string extram_params;
 }
+using FieldPtr = std::shared_ptr<Field>();
 
 // DistanceMetric
 enum class DistanceMetric {
@@ -27,3 +28,4 @@ struct VectorField : Field {
     uint64_t dimension;
     uint64_t index_file_size;
 }
+using VectorFieldPtr = std::shared_ptr<VectorField>();
