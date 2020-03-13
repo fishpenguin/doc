@@ -21,13 +21,13 @@ extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FieldParam_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FieldType_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_KeyValuePair_milvus_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Mapping_milvus_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Mapping_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PartitionStat_milvus_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RangeQuery_milvus_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQuery_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SearchParam_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SegmentStat_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_status_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Status_status_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TermQuery_milvus_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TermQuery_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorFieldInfo_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_VectorQuery_milvus_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_milvus_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorRecord_milvus_2eproto;
@@ -463,8 +463,9 @@ static void InitDefaultsscc_info_Mapping_milvus_2eproto() {
   ::demo::Mapping::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Mapping_milvus_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_Mapping_milvus_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Mapping_milvus_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsscc_info_Mapping_milvus_2eproto}, {
+      &scc_info_Status_status_2eproto.base,
       &scc_info_FieldParam_milvus_2eproto.base,}};
 
 static void InitDefaultsscc_info_MappingList_milvus_2eproto() {
@@ -554,9 +555,10 @@ static void InitDefaultsscc_info_RangeQuery_milvus_2eproto() {
   ::demo::RangeQuery::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RangeQuery_milvus_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_RangeQuery_milvus_2eproto}, {
-      &scc_info_CompareExpr_milvus_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RangeQuery_milvus_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsscc_info_RangeQuery_milvus_2eproto}, {
+      &scc_info_CompareExpr_milvus_2eproto.base,
+      &scc_info_KeyValuePair_milvus_2eproto.base,}};
 
 static void InitDefaultsscc_info_SearchInFilesParam_milvus_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -629,8 +631,9 @@ static void InitDefaultsscc_info_TermQuery_milvus_2eproto() {
   ::demo::TermQuery::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TermQuery_milvus_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_TermQuery_milvus_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TermQuery_milvus_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_TermQuery_milvus_2eproto}, {
+      &scc_info_KeyValuePair_milvus_2eproto.base,}};
 
 static void InitDefaultsscc_info_VectorFieldInfo_milvus_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -708,8 +711,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_milvus_2eproto::offsets[] PROT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::demo::VectorFieldInfo, dimension_),
-  PROTOBUF_FIELD_OFFSET(::demo::VectorFieldInfo, element_type_),
   PROTOBUF_FIELD_OFFSET(::demo::VectorFieldInfo, distance_metric_),
+  PROTOBUF_FIELD_OFFSET(::demo::VectorFieldInfo, index_file_size_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::FieldType, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -744,8 +747,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_milvus_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::demo::Mapping, id_),
-  PROTOBUF_FIELD_OFFSET(::demo::Mapping, name_),
+  PROTOBUF_FIELD_OFFSET(::demo::Mapping, status_),
+  PROTOBUF_FIELD_OFFSET(::demo::Mapping, collection_id_),
+  PROTOBUF_FIELD_OFFSET(::demo::Mapping, collection_name_),
   PROTOBUF_FIELD_OFFSET(::demo::Mapping, fields_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::MappingList, _internal_metadata_),
@@ -762,6 +766,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_milvus_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::demo::TermQuery, field_name_),
   PROTOBUF_FIELD_OFFSET(::demo::TermQuery, values_),
   PROTOBUF_FIELD_OFFSET(::demo::TermQuery, boost_),
+  PROTOBUF_FIELD_OFFSET(::demo::TermQuery, extra_params_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::CompareExpr, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -777,6 +782,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_milvus_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::demo::RangeQuery, field_name_),
   PROTOBUF_FIELD_OFFSET(::demo::RangeQuery, operand_),
   PROTOBUF_FIELD_OFFSET(::demo::RangeQuery, boost_),
+  PROTOBUF_FIELD_OFFSET(::demo::RangeQuery, extra_params_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::demo::VectorRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -974,34 +980,34 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 31, -1, sizeof(::demo::VectorFieldValue)},
   { 38, -1, sizeof(::demo::CollectionName)},
   { 44, -1, sizeof(::demo::Mapping)},
-  { 52, -1, sizeof(::demo::MappingList)},
-  { 59, -1, sizeof(::demo::TermQuery)},
-  { 67, -1, sizeof(::demo::CompareExpr)},
-  { 74, -1, sizeof(::demo::RangeQuery)},
-  { 82, -1, sizeof(::demo::VectorRecord)},
-  { 89, -1, sizeof(::demo::VectorQuery)},
-  { 99, -1, sizeof(::demo::BooleanQuery)},
-  { 106, -1, sizeof(::demo::GeneralQuery)},
-  { 116, -1, sizeof(::demo::SearchParam)},
-  { 125, -1, sizeof(::demo::SearchInFilesParam)},
-  { 132, -1, sizeof(::demo::Entity)},
-  { 141, -1, sizeof(::demo::QueryResult)},
-  { 151, -1, sizeof(::demo::InsertParam)},
-  { 161, -1, sizeof(::demo::EntityIdentity)},
-  { 168, -1, sizeof(::demo::EntityIDs)},
-  { 175, -1, sizeof(::demo::GetEntityIDsParam)},
-  { 182, -1, sizeof(::demo::DeleteByIDParam)},
-  { 189, -1, sizeof(::demo::PartitionParam)},
-  { 196, -1, sizeof(::demo::PartitionList)},
-  { 203, -1, sizeof(::demo::BoolReply)},
-  { 210, -1, sizeof(::demo::CollectionRowCount)},
-  { 217, -1, sizeof(::demo::SegmentStat)},
-  { 226, -1, sizeof(::demo::PartitionStat)},
-  { 234, -1, sizeof(::demo::CollectionInfo)},
-  { 242, -1, sizeof(::demo::IndexParam)},
-  { 251, -1, sizeof(::demo::Command)},
-  { 257, -1, sizeof(::demo::StringReply)},
-  { 264, -1, sizeof(::demo::FlushParam)},
+  { 53, -1, sizeof(::demo::MappingList)},
+  { 60, -1, sizeof(::demo::TermQuery)},
+  { 69, -1, sizeof(::demo::CompareExpr)},
+  { 76, -1, sizeof(::demo::RangeQuery)},
+  { 85, -1, sizeof(::demo::VectorRecord)},
+  { 92, -1, sizeof(::demo::VectorQuery)},
+  { 102, -1, sizeof(::demo::BooleanQuery)},
+  { 109, -1, sizeof(::demo::GeneralQuery)},
+  { 119, -1, sizeof(::demo::SearchParam)},
+  { 128, -1, sizeof(::demo::SearchInFilesParam)},
+  { 135, -1, sizeof(::demo::Entity)},
+  { 144, -1, sizeof(::demo::QueryResult)},
+  { 154, -1, sizeof(::demo::InsertParam)},
+  { 164, -1, sizeof(::demo::EntityIdentity)},
+  { 171, -1, sizeof(::demo::EntityIDs)},
+  { 178, -1, sizeof(::demo::GetEntityIDsParam)},
+  { 185, -1, sizeof(::demo::DeleteByIDParam)},
+  { 192, -1, sizeof(::demo::PartitionParam)},
+  { 199, -1, sizeof(::demo::PartitionList)},
+  { 206, -1, sizeof(::demo::BoolReply)},
+  { 213, -1, sizeof(::demo::CollectionRowCount)},
+  { 220, -1, sizeof(::demo::SegmentStat)},
+  { 229, -1, sizeof(::demo::PartitionStat)},
+  { 237, -1, sizeof(::demo::CollectionInfo)},
+  { 245, -1, sizeof(::demo::IndexParam)},
+  { 254, -1, sizeof(::demo::Command)},
+  { 260, -1, sizeof(::demo::StringReply)},
+  { 267, -1, sizeof(::demo::FlushParam)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1044,120 +1050,124 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_milvus_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014milvus.proto\022\004demo\032\014status.proto\"*\n\014Ke"
-  "yValuePair\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"S"
-  "\n\017VectorFieldInfo\022\021\n\tdimension\030\001 \001(\003\022\024\n\014"
-  "element_type\030\002 \001(\t\022\027\n\017distance_metric\030\003 "
-  "\001(\003\"[\n\tFieldType\022\036\n\004type\030\001 \001(\0162\016.demo.Da"
-  "taTypeH\000\022%\n\004info\030\002 \001(\0132\025.demo.VectorFiel"
-  "dInfoH\000B\007\n\005value\"E\n\nFieldParam\022\n\n\002id\030\001 \001"
-  "(\004\022\014\n\004name\030\002 \001(\t\022\035\n\004type\030\003 \001(\0132\017.demo.Fi"
-  "eldType\"=\n\020VectorFieldValue\022\023\n\013float_val"
-  "ue\030\001 \003(\002\022\024\n\014binary_value\030\002 \001(\014\")\n\016Collec"
-  "tionName\022\027\n\017collection_name\030\001 \001(\t\"E\n\007Map"
-  "ping\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022 \n\006fields"
-  "\030\003 \003(\0132\020.demo.FieldParam\"P\n\013MappingList\022"
-  "\034\n\006status\030\001 \001(\0132\014.demo.Status\022#\n\014mapping"
-  "_list\030\002 \003(\0132\r.demo.Mapping\">\n\tTermQuery\022"
-  "\022\n\nfield_name\030\001 \001(\t\022\016\n\006values\030\002 \003(\t\022\r\n\005b"
-  "oost\030\003 \001(\002\"G\n\013CompareExpr\022\'\n\010operator\030\001 "
-  "\001(\0162\025.demo.CompareOperator\022\017\n\007operand\030\002 "
-  "\001(\t\"S\n\nRangeQuery\022\022\n\nfield_name\030\001 \001(\t\022\"\n"
-  "\007operand\030\002 \003(\0132\021.demo.CompareExpr\022\r\n\005boo"
-  "st\030\003 \001(\002\"7\n\014VectorRecord\022\022\n\nfloat_data\030\001"
-  " \003(\002\022\023\n\013binary_data\030\002 \001(\014\"\223\001\n\013VectorQuer"
-  "y\022\022\n\nfield_name\030\001 \001(\t\022\014\n\004topk\030\002 \001(\003\022\023\n\013q"
-  "uery_boost\030\003 \001(\002\022#\n\007records\030\004 \003(\0132\022.demo"
-  ".VectorRecord\022(\n\014extra_params\030\005 \003(\0132\022.de"
-  "mo.KeyValuePair\"U\n\014BooleanQuery\022\032\n\005occur"
-  "\030\001 \001(\0162\013.demo.Occur\022)\n\rgeneral_query\030\002 \003"
-  "(\0132\022.demo.GeneralQuery\"\277\001\n\014GeneralQuery\022"
-  "+\n\rboolean_query\030\001 \001(\0132\022.demo.BooleanQue"
-  "ryH\000\022%\n\nterm_query\030\002 \001(\0132\017.demo.TermQuer"
-  "yH\000\022\'\n\013range_query\030\003 \001(\0132\020.demo.RangeQue"
-  "ryH\000\022)\n\014vector_query\030\004 \001(\0132\021.demo.Vector"
-  "QueryH\000B\007\n\005query\"\230\001\n\013SearchParam\022\027\n\017coll"
-  "ection_name\030\001 \001(\t\022\033\n\023partition_tag_array"
-  "\030\002 \003(\t\022)\n\rgeneral_query\030\003 \003(\0132\022.demo.Gen"
-  "eralQuery\022(\n\014extra_params\030\004 \003(\0132\022.demo.K"
-  "eyValuePair\"T\n\022SearchInFilesParam\022\025\n\rfil"
-  "e_id_array\030\001 \003(\t\022\'\n\014search_param\030\002 \001(\0132\021"
-  ".demo.SearchParam\"^\n\006Entity\022\034\n\006status\030\001 "
-  "\001(\0132\014.demo.Status\022\021\n\tentity_id\030\002 \001(\003\022\023\n\013"
-  "field_names\030\003 \003(\t\022\016\n\006vaules\030\004 \003(\t\"}\n\013Que"
-  "ryResult\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\036"
-  "\n\010entities\030\002 \003(\0132\014.demo.Entity\022\017\n\007row_nu"
-  "m\030\003 \001(\003\022\r\n\005score\030\004 \003(\002\022\020\n\010distance\030\005 \003(\002"
-  "\"\240\001\n\013InsertParam\022\027\n\017collection_name\030\001 \001("
-  "\t\022\025\n\rpartition_tag\030\002 \001(\t\022\036\n\010entities\030\003 \003"
-  "(\0132\014.demo.Entity\022\027\n\017entity_id_array\030\004 \003("
-  "\003\022(\n\014extra_params\030\005 \003(\0132\022.demo.KeyValueP"
-  "air\"5\n\016EntityIdentity\022\027\n\017collection_name"
-  "\030\001 \001(\t\022\n\n\002id\030\002 \001(\003\"B\n\tEntityIDs\022\034\n\006statu"
-  "s\030\001 \001(\0132\014.demo.Status\022\027\n\017entity_id_array"
-  "\030\002 \003(\003\"B\n\021GetEntityIDsParam\022\027\n\017collectio"
-  "n_name\030\001 \001(\t\022\024\n\014segment_name\030\002 \001(\t\"<\n\017De"
-  "leteByIDParam\022\027\n\017collection_name\030\001 \001(\t\022\020"
-  "\n\010id_array\030\002 \003(\003\"6\n\016PartitionParam\022\027\n\017co"
-  "llection_name\030\001 \001(\t\022\013\n\003tag\030\002 \001(\t\"J\n\rPart"
-  "itionList\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022"
-  "\033\n\023partition_tag_array\030\002 \003(\t\"=\n\tBoolRepl"
-  "y\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\022\n\nbool_"
-  "reply\030\002 \001(\010\"P\n\022CollectionRowCount\022\034\n\006sta"
-  "tus\030\001 \001(\0132\014.demo.Status\022\034\n\024collection_ro"
-  "w_count\030\002 \001(\003\"]\n\013SegmentStat\022\024\n\014segment_"
-  "name\030\001 \001(\t\022\021\n\trow_count\030\002 \001(\003\022\022\n\nindex_n"
-  "ame\030\003 \001(\t\022\021\n\tdata_size\030\004 \001(\003\"_\n\rPartitio"
-  "nStat\022\013\n\003tag\030\001 \001(\t\022\027\n\017total_row_count\030\002 "
-  "\001(\003\022(\n\rsegments_stat\030\003 \003(\0132\021.demo.Segmen"
-  "tStat\"u\n\016CollectionInfo\022\034\n\006status\030\001 \001(\0132"
-  "\014.demo.Status\022\027\n\017total_row_count\030\002 \001(\003\022,"
-  "\n\017partitions_stat\030\003 \003(\0132\023.demo.Partition"
-  "Stat\"\201\001\n\nIndexParam\022\034\n\006status\030\001 \001(\0132\014.de"
-  "mo.Status\022\027\n\017collection_name\030\002 \001(\t\022\022\n\nin"
-  "dex_type\030\003 \001(\005\022(\n\014extra_params\030\004 \003(\0132\022.d"
-  "emo.KeyValuePair\"\026\n\007Command\022\013\n\003cmd\030\001 \001(\t"
-  "\"A\n\013StringReply\022\034\n\006status\030\001 \001(\0132\014.demo.S"
-  "tatus\022\024\n\014string_reply\030\002 \001(\t\"+\n\nFlushPara"
-  "m\022\035\n\025collection_name_array\030\001 \003(\t*|\n\010Data"
-  "Type\022\010\n\004NULL\020\000\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005"
-  "INT64\020\004\022\n\n\006STRING\020\024\022\010\n\004BOOL\020\036\022\t\n\005FLOAT\020("
-  "\022\n\n\006DOUBLE\020)\022\n\n\006VECTOR\020d\022\014\n\007UNKNOWN\020\217N*C"
-  "\n\017CompareOperator\022\006\n\002LT\020\000\022\007\n\003LTE\020\001\022\006\n\002EQ"
-  "\020\002\022\006\n\002GT\020\003\022\007\n\003GTE\020\004\022\006\n\002NE\020\005*8\n\005Occur\022\013\n\007"
-  "INVALID\020\000\022\010\n\004MUST\020\001\022\n\n\006SHOULD\020\002\022\014\n\010MUST_"
-  "NOT\020\0032\211\n\n\013DemoService\0221\n\020CreateCollectio"
-  "n\022\r.demo.Mapping\032\014.demo.Status\"\000\0228\n\rHasC"
-  "ollection\022\024.demo.CollectionName\032\017.demo.B"
-  "oolReply\"\000\0226\n\016DropCollection\022\024.demo.Coll"
-  "ectionName\032\014.demo.Status\"\000\022;\n\022DescribeCo"
-  "llection\022\024.demo.CollectionName\032\r.demo.Ma"
-  "pping\"\000\022C\n\017CountCollection\022\024.demo.Collec"
-  "tionName\032\030.demo.CollectionRowCount\"\000\0225\n\017"
-  "ShowCollections\022\r.demo.Command\032\021.demo.Ma"
-  "ppingList\"\000\022B\n\022ShowCollectionInfo\022\024.demo"
-  ".CollectionName\032\024.demo.CollectionInfo\"\000\022"
-  "9\n\021PreloadCollection\022\024.demo.CollectionNa"
-  "me\032\014.demo.Status\"\000\022/\n\013CreateIndex\022\020.demo"
-  ".IndexParam\032\014.demo.Status\"\000\0229\n\rDescribeI"
-  "ndex\022\024.demo.CollectionName\032\020.demo.IndexP"
-  "aram\"\000\0221\n\tDropIndex\022\024.demo.CollectionNam"
-  "e\032\014.demo.Status\"\000\022.\n\006Insert\022\021.demo.Inser"
-  "tParam\032\017.demo.EntityIDs\"\000\0220\n\006Search\022\021.de"
-  "mo.SearchParam\032\021.demo.QueryResult\"\000\022>\n\rS"
-  "earchInFiles\022\030.demo.SearchInFilesParam\032\021"
-  ".demo.QueryResult\"\000\0225\n\rGetEntityByID\022\024.d"
-  "emo.EntityIdentity\032\014.demo.Entity\"\000\022:\n\014Ge"
-  "tEntityIDs\022\027.demo.GetEntityIDsParam\032\017.de"
-  "mo.EntityIDs\"\000\0223\n\nDeleteByID\022\025.demo.Dele"
-  "teByIDParam\032\014.demo.Status\"\000\0227\n\017CreatePar"
-  "tition\022\024.demo.PartitionParam\032\014.demo.Stat"
-  "us\"\000\022=\n\016ShowPartitions\022\024.demo.Collection"
-  "Name\032\023.demo.PartitionList\"\000\0225\n\rDropParti"
-  "tion\022\024.demo.PartitionParam\032\014.demo.Status"
-  "\"\000\022)\n\003Cmd\022\r.demo.Command\032\021.demo.StringRe"
-  "ply\"\000\022)\n\005Flush\022\020.demo.FlushParam\032\014.demo."
-  "Status\"\000\022/\n\007Compact\022\024.demo.CollectionNam"
-  "e\032\014.demo.Status\"\000b\006proto3"
+  "yValuePair\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"V"
+  "\n\017VectorFieldInfo\022\021\n\tdimension\030\001 \001(\003\022\027\n\017"
+  "distance_metric\030\002 \001(\003\022\027\n\017index_file_size"
+  "\030\003 \001(\003\"[\n\tFieldType\022\036\n\004type\030\001 \001(\0162\016.demo"
+  ".DataTypeH\000\022%\n\004info\030\002 \001(\0132\025.demo.VectorF"
+  "ieldInfoH\000B\007\n\005value\"E\n\nFieldParam\022\n\n\002id\030"
+  "\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\035\n\004type\030\003 \001(\0132\017.demo"
+  ".FieldType\"=\n\020VectorFieldValue\022\023\n\013float_"
+  "value\030\001 \003(\002\022\024\n\014binary_value\030\002 \001(\014\")\n\016Col"
+  "lectionName\022\027\n\017collection_name\030\001 \001(\t\"y\n\007"
+  "Mapping\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\025\n"
+  "\rcollection_id\030\002 \001(\004\022\027\n\017collection_name\030"
+  "\003 \001(\t\022 \n\006fields\030\004 \003(\0132\020.demo.FieldParam\""
+  "P\n\013MappingList\022\034\n\006status\030\001 \001(\0132\014.demo.St"
+  "atus\022#\n\014mapping_list\030\002 \003(\0132\r.demo.Mappin"
+  "g\"h\n\tTermQuery\022\022\n\nfield_name\030\001 \001(\t\022\016\n\006va"
+  "lues\030\002 \003(\t\022\r\n\005boost\030\003 \001(\002\022(\n\014extra_param"
+  "s\030\004 \003(\0132\022.demo.KeyValuePair\"G\n\013CompareEx"
+  "pr\022\'\n\010operator\030\001 \001(\0162\025.demo.CompareOpera"
+  "tor\022\017\n\007operand\030\002 \001(\t\"}\n\nRangeQuery\022\022\n\nfi"
+  "eld_name\030\001 \001(\t\022\"\n\007operand\030\002 \003(\0132\021.demo.C"
+  "ompareExpr\022\r\n\005boost\030\003 \001(\002\022(\n\014extra_param"
+  "s\030\004 \003(\0132\022.demo.KeyValuePair\"7\n\014VectorRec"
+  "ord\022\022\n\nfloat_data\030\001 \003(\002\022\023\n\013binary_data\030\002"
+  " \001(\014\"\223\001\n\013VectorQuery\022\022\n\nfield_name\030\001 \001(\t"
+  "\022\014\n\004topk\030\002 \001(\003\022\023\n\013query_boost\030\003 \001(\002\022#\n\007r"
+  "ecords\030\004 \003(\0132\022.demo.VectorRecord\022(\n\014extr"
+  "a_params\030\005 \003(\0132\022.demo.KeyValuePair\"U\n\014Bo"
+  "oleanQuery\022\032\n\005occur\030\001 \001(\0162\013.demo.Occur\022)"
+  "\n\rgeneral_query\030\002 \003(\0132\022.demo.GeneralQuer"
+  "y\"\277\001\n\014GeneralQuery\022+\n\rboolean_query\030\001 \001("
+  "\0132\022.demo.BooleanQueryH\000\022%\n\nterm_query\030\002 "
+  "\001(\0132\017.demo.TermQueryH\000\022\'\n\013range_query\030\003 "
+  "\001(\0132\020.demo.RangeQueryH\000\022)\n\014vector_query\030"
+  "\004 \001(\0132\021.demo.VectorQueryH\000B\007\n\005query\"\230\001\n\013"
+  "SearchParam\022\027\n\017collection_name\030\001 \001(\t\022\033\n\023"
+  "partition_tag_array\030\002 \003(\t\022)\n\rgeneral_que"
+  "ry\030\003 \003(\0132\022.demo.GeneralQuery\022(\n\014extra_pa"
+  "rams\030\004 \003(\0132\022.demo.KeyValuePair\"T\n\022Search"
+  "InFilesParam\022\025\n\rfile_id_array\030\001 \003(\t\022\'\n\014s"
+  "earch_param\030\002 \001(\0132\021.demo.SearchParam\"^\n\006"
+  "Entity\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\021\n\t"
+  "entity_id\030\002 \001(\003\022\023\n\013field_names\030\003 \003(\t\022\016\n\006"
+  "vaules\030\004 \003(\t\"}\n\013QueryResult\022\034\n\006status\030\001 "
+  "\001(\0132\014.demo.Status\022\036\n\010entities\030\002 \003(\0132\014.de"
+  "mo.Entity\022\017\n\007row_num\030\003 \001(\003\022\r\n\005score\030\004 \003("
+  "\002\022\020\n\010distance\030\005 \003(\002\"\240\001\n\013InsertParam\022\027\n\017c"
+  "ollection_name\030\001 \001(\t\022\025\n\rpartition_tag\030\002 "
+  "\001(\t\022\036\n\010entities\030\003 \003(\0132\014.demo.Entity\022\027\n\017e"
+  "ntity_id_array\030\004 \003(\003\022(\n\014extra_params\030\005 \003"
+  "(\0132\022.demo.KeyValuePair\"5\n\016EntityIdentity"
+  "\022\027\n\017collection_name\030\001 \001(\t\022\n\n\002id\030\002 \001(\003\"B\n"
+  "\tEntityIDs\022\034\n\006status\030\001 \001(\0132\014.demo.Status"
+  "\022\027\n\017entity_id_array\030\002 \003(\003\"B\n\021GetEntityID"
+  "sParam\022\027\n\017collection_name\030\001 \001(\t\022\024\n\014segme"
+  "nt_name\030\002 \001(\t\"<\n\017DeleteByIDParam\022\027\n\017coll"
+  "ection_name\030\001 \001(\t\022\020\n\010id_array\030\002 \003(\003\"6\n\016P"
+  "artitionParam\022\027\n\017collection_name\030\001 \001(\t\022\013"
+  "\n\003tag\030\002 \001(\t\"J\n\rPartitionList\022\034\n\006status\030\001"
+  " \001(\0132\014.demo.Status\022\033\n\023partition_tag_arra"
+  "y\030\002 \003(\t\"=\n\tBoolReply\022\034\n\006status\030\001 \001(\0132\014.d"
+  "emo.Status\022\022\n\nbool_reply\030\002 \001(\010\"P\n\022Collec"
+  "tionRowCount\022\034\n\006status\030\001 \001(\0132\014.demo.Stat"
+  "us\022\034\n\024collection_row_count\030\002 \001(\003\"]\n\013Segm"
+  "entStat\022\024\n\014segment_name\030\001 \001(\t\022\021\n\trow_cou"
+  "nt\030\002 \001(\003\022\022\n\nindex_name\030\003 \001(\t\022\021\n\tdata_siz"
+  "e\030\004 \001(\003\"_\n\rPartitionStat\022\013\n\003tag\030\001 \001(\t\022\027\n"
+  "\017total_row_count\030\002 \001(\003\022(\n\rsegments_stat\030"
+  "\003 \003(\0132\021.demo.SegmentStat\"u\n\016CollectionIn"
+  "fo\022\034\n\006status\030\001 \001(\0132\014.demo.Status\022\027\n\017tota"
+  "l_row_count\030\002 \001(\003\022,\n\017partitions_stat\030\003 \003"
+  "(\0132\023.demo.PartitionStat\"\201\001\n\nIndexParam\022\034"
+  "\n\006status\030\001 \001(\0132\014.demo.Status\022\027\n\017collecti"
+  "on_name\030\002 \001(\t\022\022\n\nindex_type\030\003 \001(\005\022(\n\014ext"
+  "ra_params\030\004 \003(\0132\022.demo.KeyValuePair\"\026\n\007C"
+  "ommand\022\013\n\003cmd\030\001 \001(\t\"A\n\013StringReply\022\034\n\006st"
+  "atus\030\001 \001(\0132\014.demo.Status\022\024\n\014string_reply"
+  "\030\002 \001(\t\"+\n\nFlushParam\022\035\n\025collection_name_"
+  "array\030\001 \003(\t*|\n\010DataType\022\010\n\004NULL\020\000\022\t\n\005INT"
+  "16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\n\n\006STRING\020\024\022\010"
+  "\n\004BOOL\020\036\022\t\n\005FLOAT\020(\022\n\n\006DOUBLE\020)\022\n\n\006VECTO"
+  "R\020d\022\014\n\007UNKNOWN\020\217N*C\n\017CompareOperator\022\006\n\002"
+  "LT\020\000\022\007\n\003LTE\020\001\022\006\n\002EQ\020\002\022\006\n\002GT\020\003\022\007\n\003GTE\020\004\022\006"
+  "\n\002NE\020\005*8\n\005Occur\022\013\n\007INVALID\020\000\022\010\n\004MUST\020\001\022\n"
+  "\n\006SHOULD\020\002\022\014\n\010MUST_NOT\020\0032\211\n\n\013DemoService"
+  "\0221\n\020CreateCollection\022\r.demo.Mapping\032\014.de"
+  "mo.Status\"\000\0228\n\rHasCollection\022\024.demo.Coll"
+  "ectionName\032\017.demo.BoolReply\"\000\0226\n\016DropCol"
+  "lection\022\024.demo.CollectionName\032\014.demo.Sta"
+  "tus\"\000\022;\n\022DescribeCollection\022\024.demo.Colle"
+  "ctionName\032\r.demo.Mapping\"\000\022C\n\017CountColle"
+  "ction\022\024.demo.CollectionName\032\030.demo.Colle"
+  "ctionRowCount\"\000\0225\n\017ShowCollections\022\r.dem"
+  "o.Command\032\021.demo.MappingList\"\000\022B\n\022ShowCo"
+  "llectionInfo\022\024.demo.CollectionName\032\024.dem"
+  "o.CollectionInfo\"\000\0229\n\021PreloadCollection\022"
+  "\024.demo.CollectionName\032\014.demo.Status\"\000\022/\n"
+  "\013CreateIndex\022\020.demo.IndexParam\032\014.demo.St"
+  "atus\"\000\0229\n\rDescribeIndex\022\024.demo.Collectio"
+  "nName\032\020.demo.IndexParam\"\000\0221\n\tDropIndex\022\024"
+  ".demo.CollectionName\032\014.demo.Status\"\000\022.\n\006"
+  "Insert\022\021.demo.InsertParam\032\017.demo.EntityI"
+  "Ds\"\000\0220\n\006Search\022\021.demo.SearchParam\032\021.demo"
+  ".QueryResult\"\000\022>\n\rSearchInFiles\022\030.demo.S"
+  "earchInFilesParam\032\021.demo.QueryResult\"\000\0225"
+  "\n\rGetEntityByID\022\024.demo.EntityIdentity\032\014."
+  "demo.Entity\"\000\022:\n\014GetEntityIDs\022\027.demo.Get"
+  "EntityIDsParam\032\017.demo.EntityIDs\"\000\0223\n\nDel"
+  "eteByID\022\025.demo.DeleteByIDParam\032\014.demo.St"
+  "atus\"\000\0227\n\017CreatePartition\022\024.demo.Partiti"
+  "onParam\032\014.demo.Status\"\000\022=\n\016ShowPartition"
+  "s\022\024.demo.CollectionName\032\023.demo.Partition"
+  "List\"\000\0225\n\rDropPartition\022\024.demo.Partition"
+  "Param\032\014.demo.Status\"\000\022)\n\003Cmd\022\r.demo.Comm"
+  "and\032\021.demo.StringReply\"\000\022)\n\005Flush\022\020.demo"
+  ".FlushParam\032\014.demo.Status\"\000\022/\n\007Compact\022\024"
+  ".demo.CollectionName\032\014.demo.Status\"\000b\006pr"
+  "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_milvus_2eproto_deps[1] = {
   &::descriptor_table_status_2eproto,
@@ -1201,7 +1211,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mil
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_milvus_2eproto_once;
 static bool descriptor_table_milvus_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_milvus_2eproto = {
-  &descriptor_table_milvus_2eproto_initialized, descriptor_table_protodef_milvus_2eproto, "milvus.proto", 4585,
+  &descriptor_table_milvus_2eproto_initialized, descriptor_table_protodef_milvus_2eproto, "milvus.proto", 4724,
   &descriptor_table_milvus_2eproto_once, descriptor_table_milvus_2eproto_sccs, descriptor_table_milvus_2eproto_deps, 34, 1,
   schemas, file_default_instances, TableStruct_milvus_2eproto::offsets,
   file_level_metadata_milvus_2eproto, 35, file_level_enum_descriptors_milvus_2eproto, file_level_service_descriptors_milvus_2eproto,
@@ -1616,22 +1626,16 @@ VectorFieldInfo::VectorFieldInfo(const VectorFieldInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  element_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from.element_type().empty()) {
-    element_type_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.element_type_);
-  }
   ::memcpy(&dimension_, &from.dimension_,
-    static_cast<size_t>(reinterpret_cast<char*>(&distance_metric_) -
-    reinterpret_cast<char*>(&dimension_)) + sizeof(distance_metric_));
+    static_cast<size_t>(reinterpret_cast<char*>(&index_file_size_) -
+    reinterpret_cast<char*>(&dimension_)) + sizeof(index_file_size_));
   // @@protoc_insertion_point(copy_constructor:demo.VectorFieldInfo)
 }
 
 void VectorFieldInfo::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_VectorFieldInfo_milvus_2eproto.base);
-  element_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&dimension_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&distance_metric_) -
-      reinterpret_cast<char*>(&dimension_)) + sizeof(distance_metric_));
+      reinterpret_cast<char*>(&index_file_size_) -
+      reinterpret_cast<char*>(&dimension_)) + sizeof(index_file_size_));
 }
 
 VectorFieldInfo::~VectorFieldInfo() {
@@ -1640,7 +1644,6 @@ VectorFieldInfo::~VectorFieldInfo() {
 }
 
 void VectorFieldInfo::SharedDtor() {
-  element_type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void VectorFieldInfo::SetCachedSize(int size) const {
@@ -1658,10 +1661,9 @@ void VectorFieldInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  element_type_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&dimension_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&distance_metric_) -
-      reinterpret_cast<char*>(&dimension_)) + sizeof(distance_metric_));
+      reinterpret_cast<char*>(&index_file_size_) -
+      reinterpret_cast<char*>(&dimension_)) + sizeof(index_file_size_));
   _internal_metadata_.Clear();
 }
 
@@ -1680,17 +1682,17 @@ const char* VectorFieldInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string element_type = 2;
+      // int64 distance_metric = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_element_type(), ptr, ctx, "demo.VectorFieldInfo.element_type");
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          distance_metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int64 distance_metric = 3;
+      // int64 index_file_size = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          distance_metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          index_file_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1737,28 +1739,26 @@ bool VectorFieldInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // string element_type = 2;
+      // int64 distance_metric = 2;
       case 2: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
-                input, this->mutable_element_type()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->element_type().data(), static_cast<int>(this->element_type().length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "demo.VectorFieldInfo.element_type"));
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   ::PROTOBUF_NAMESPACE_ID::int64, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64>(
+                 input, &distance_metric_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // int64 distance_metric = 3;
+      // int64 index_file_size = 3;
       case 3: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (24 & 0xFF)) {
 
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    ::PROTOBUF_NAMESPACE_ID::int64, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64>(
-                 input, &distance_metric_)));
+                 input, &index_file_size_)));
         } else {
           goto handle_unusual;
         }
@@ -1797,19 +1797,14 @@ void VectorFieldInfo::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(1, this->dimension(), output);
   }
 
-  // string element_type = 2;
-  if (this->element_type().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->element_type().data(), static_cast<int>(this->element_type().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.VectorFieldInfo.element_type");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->element_type(), output);
+  // int64 distance_metric = 2;
+  if (this->distance_metric() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(2, this->distance_metric(), output);
   }
 
-  // int64 distance_metric = 3;
-  if (this->distance_metric() != 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(3, this->distance_metric(), output);
+  // int64 index_file_size = 3;
+  if (this->index_file_size() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(3, this->index_file_size(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1830,20 +1825,14 @@ void VectorFieldInfo::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->dimension(), target);
   }
 
-  // string element_type = 2;
-  if (this->element_type().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->element_type().data(), static_cast<int>(this->element_type().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.VectorFieldInfo.element_type");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
-        2, this->element_type(), target);
+  // int64 distance_metric = 2;
+  if (this->distance_metric() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->distance_metric(), target);
   }
 
-  // int64 distance_metric = 3;
-  if (this->distance_metric() != 0) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->distance_metric(), target);
+  // int64 index_file_size = 3;
+  if (this->index_file_size() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->index_file_size(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1867,13 +1856,6 @@ size_t VectorFieldInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string element_type = 2;
-  if (this->element_type().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->element_type());
-  }
-
   // int64 dimension = 1;
   if (this->dimension() != 0) {
     total_size += 1 +
@@ -1881,11 +1863,18 @@ size_t VectorFieldInfo::ByteSizeLong() const {
         this->dimension());
   }
 
-  // int64 distance_metric = 3;
+  // int64 distance_metric = 2;
   if (this->distance_metric() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->distance_metric());
+  }
+
+  // int64 index_file_size = 3;
+  if (this->index_file_size() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->index_file_size());
   }
 
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
@@ -1915,15 +1904,14 @@ void VectorFieldInfo::MergeFrom(const VectorFieldInfo& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.element_type().size() > 0) {
-
-    element_type_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.element_type_);
-  }
   if (from.dimension() != 0) {
     set_dimension(from.dimension());
   }
   if (from.distance_metric() != 0) {
     set_distance_metric(from.distance_metric());
+  }
+  if (from.index_file_size() != 0) {
+    set_index_file_size(from.index_file_size());
   }
 }
 
@@ -1948,10 +1936,9 @@ bool VectorFieldInfo::IsInitialized() const {
 void VectorFieldInfo::InternalSwap(VectorFieldInfo* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  element_type_.Swap(&other->element_type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
   swap(dimension_, other->dimension_);
   swap(distance_metric_, other->distance_metric_);
+  swap(index_file_size_, other->index_file_size_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata VectorFieldInfo::GetMetadata() const {
@@ -3293,11 +3280,24 @@ void CollectionName::InternalSwap(CollectionName* other) {
 // ===================================================================
 
 void Mapping::InitAsDefaultInstance() {
+  ::demo::_Mapping_default_instance_._instance.get_mutable()->status_ = const_cast< ::demo::Status*>(
+      ::demo::Status::internal_default_instance());
 }
 class Mapping::_Internal {
  public:
+  static const ::demo::Status& status(const Mapping* msg);
 };
 
+const ::demo::Status&
+Mapping::_Internal::status(const Mapping* msg) {
+  return *msg->status_;
+}
+void Mapping::clear_status() {
+  if (GetArenaNoVirtual() == nullptr && status_ != nullptr) {
+    delete status_;
+  }
+  status_ = nullptr;
+}
 Mapping::Mapping()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -3308,18 +3308,25 @@ Mapping::Mapping(const Mapping& from)
       _internal_metadata_(nullptr),
       fields_(from.fields_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from.name().empty()) {
-    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+  collection_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from.collection_name().empty()) {
+    collection_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.collection_name_);
   }
-  id_ = from.id_;
+  if (from.has_status()) {
+    status_ = new ::demo::Status(*from.status_);
+  } else {
+    status_ = nullptr;
+  }
+  collection_id_ = from.collection_id_;
   // @@protoc_insertion_point(copy_constructor:demo.Mapping)
 }
 
 void Mapping::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Mapping_milvus_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_ = PROTOBUF_ULONGLONG(0);
+  collection_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&status_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&collection_id_) -
+      reinterpret_cast<char*>(&status_)) + sizeof(collection_id_));
 }
 
 Mapping::~Mapping() {
@@ -3328,7 +3335,8 @@ Mapping::~Mapping() {
 }
 
 void Mapping::SharedDtor() {
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  collection_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete status_;
 }
 
 void Mapping::SetCachedSize(int size) const {
@@ -3347,8 +3355,12 @@ void Mapping::Clear() {
   (void) cached_has_bits;
 
   fields_.Clear();
-  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_ = PROTOBUF_ULONGLONG(0);
+  collection_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && status_ != nullptr) {
+    delete status_;
+  }
+  status_ = nullptr;
+  collection_id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
 
@@ -3360,30 +3372,37 @@ const char* Mapping::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 id = 1;
+      // .demo.Status status = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(mutable_status(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string name = 2;
+      // uint64 collection_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_name(), ptr, ctx, "demo.Mapping.name");
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          collection_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .demo.FieldParam fields = 3;
+      // string collection_name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_collection_name(), ptr, ctx, "demo.Mapping.collection_name");
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .demo.FieldParam fields = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(add_fields(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 26);
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 34);
         } else goto handle_unusual;
         continue;
       default: {
@@ -3416,37 +3435,48 @@ bool Mapping::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 id = 1;
+      // .demo.Status status = 1;
       case 1: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+               input, mutable_status()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 collection_id = 2;
+      case 2: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (16 & 0xFF)) {
 
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    ::PROTOBUF_NAMESPACE_ID::uint64, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &id_)));
+                 input, &collection_id_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string name = 2;
-      case 2: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->name().data(), static_cast<int>(this->name().length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "demo.Mapping.name"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated .demo.FieldParam fields = 3;
+      // string collection_name = 3;
       case 3: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_collection_name()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->collection_name().data(), static_cast<int>(this->collection_name().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "demo.Mapping.collection_name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .demo.FieldParam fields = 4;
+      case 4: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (34 & 0xFF)) {
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
                 input, add_fields()));
         } else {
@@ -3482,26 +3512,32 @@ void Mapping::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 id = 1;
-  if (this->id() != 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
+  // .demo.Status status = 1;
+  if (this->has_status()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, _Internal::status(this), output);
   }
 
-  // string name = 2;
-  if (this->name().size() > 0) {
+  // uint64 collection_id = 2;
+  if (this->collection_id() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64(2, this->collection_id(), output);
+  }
+
+  // string collection_name = 3;
+  if (this->collection_name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), static_cast<int>(this->name().length()),
+      this->collection_name().data(), static_cast<int>(this->collection_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.Mapping.name");
+      "demo.Mapping.collection_name");
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->name(), output);
+      3, this->collection_name(), output);
   }
 
-  // repeated .demo.FieldParam fields = 3;
+  // repeated .demo.FieldParam fields = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->fields_size()); i < n; i++) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3,
+      4,
       this->fields(static_cast<int>(i)),
       output);
   }
@@ -3519,28 +3555,35 @@ void Mapping::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 id = 1;
-  if (this->id() != 0) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
+  // .demo.Status status = 1;
+  if (this->has_status()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, _Internal::status(this), target);
   }
 
-  // string name = 2;
-  if (this->name().size() > 0) {
+  // uint64 collection_id = 2;
+  if (this->collection_id() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->collection_id(), target);
+  }
+
+  // string collection_name = 3;
+  if (this->collection_name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), static_cast<int>(this->name().length()),
+      this->collection_name().data(), static_cast<int>(this->collection_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "demo.Mapping.name");
+      "demo.Mapping.collection_name");
     target =
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        3, this->collection_name(), target);
   }
 
-  // repeated .demo.FieldParam fields = 3;
+  // repeated .demo.FieldParam fields = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->fields_size()); i < n; i++) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, this->fields(static_cast<int>(i)), target);
+        4, this->fields(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3564,7 +3607,7 @@ size_t Mapping::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .demo.FieldParam fields = 3;
+  // repeated .demo.FieldParam fields = 4;
   {
     unsigned int count = static_cast<unsigned int>(this->fields_size());
     total_size += 1UL * count;
@@ -3575,18 +3618,25 @@ size_t Mapping::ByteSizeLong() const {
     }
   }
 
-  // string name = 2;
-  if (this->name().size() > 0) {
+  // string collection_name = 3;
+  if (this->collection_name().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->name());
+        this->collection_name());
   }
 
-  // uint64 id = 1;
-  if (this->id() != 0) {
+  // .demo.Status status = 1;
+  if (this->has_status()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *status_);
+  }
+
+  // uint64 collection_id = 2;
+  if (this->collection_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->id());
+        this->collection_id());
   }
 
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
@@ -3617,12 +3667,15 @@ void Mapping::MergeFrom(const Mapping& from) {
   (void) cached_has_bits;
 
   fields_.MergeFrom(from.fields_);
-  if (from.name().size() > 0) {
+  if (from.collection_name().size() > 0) {
 
-    name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.name_);
+    collection_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.collection_name_);
   }
-  if (from.id() != 0) {
-    set_id(from.id());
+  if (from.has_status()) {
+    mutable_status()->::demo::Status::MergeFrom(from.status());
+  }
+  if (from.collection_id() != 0) {
+    set_collection_id(from.collection_id());
   }
 }
 
@@ -3648,9 +3701,10 @@ void Mapping::InternalSwap(Mapping* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&fields_)->InternalSwap(CastToBase(&other->fields_));
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  collection_name_.Swap(&other->collection_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(id_, other->id_);
+  swap(status_, other->status_);
+  swap(collection_id_, other->collection_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Mapping::GetMetadata() const {
@@ -4001,7 +4055,8 @@ TermQuery::TermQuery()
 TermQuery::TermQuery(const TermQuery& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr),
-      values_(from.values_) {
+      values_(from.values_),
+      extra_params_(from.extra_params_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from.field_name().empty()) {
@@ -4042,6 +4097,7 @@ void TermQuery::Clear() {
   (void) cached_has_bits;
 
   values_.Clear();
+  extra_params_.Clear();
   field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   boost_ = 0;
   _internal_metadata_.Clear();
@@ -4079,6 +4135,18 @@ const char* TermQuery::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
           boost_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated .demo.KeyValuePair extra_params = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(add_extra_params(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 34);
         } else goto handle_unusual;
         continue;
       default: {
@@ -4155,6 +4223,17 @@ bool TermQuery::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated .demo.KeyValuePair extra_params = 4;
+      case 4: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+                input, add_extra_params()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -4207,6 +4286,15 @@ void TermQuery::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloat(3, this->boost(), output);
   }
 
+  // repeated .demo.KeyValuePair extra_params = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->extra_params_size()); i < n; i++) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4,
+      this->extra_params(static_cast<int>(i)),
+      output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -4246,6 +4334,14 @@ void TermQuery::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->boost(), target);
   }
 
+  // repeated .demo.KeyValuePair extra_params = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->extra_params_size()); i < n; i++) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, this->extra_params(static_cast<int>(i)), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -4273,6 +4369,17 @@ size_t TermQuery::ByteSizeLong() const {
   for (int i = 0, n = this->values_size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
       this->values(i));
+  }
+
+  // repeated .demo.KeyValuePair extra_params = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->extra_params_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          this->extra_params(static_cast<int>(i)));
+    }
   }
 
   // string field_name = 1;
@@ -4315,6 +4422,7 @@ void TermQuery::MergeFrom(const TermQuery& from) {
   (void) cached_has_bits;
 
   values_.MergeFrom(from.values_);
+  extra_params_.MergeFrom(from.extra_params_);
   if (from.field_name().size() > 0) {
 
     field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
@@ -4346,6 +4454,7 @@ void TermQuery::InternalSwap(TermQuery* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   values_.InternalSwap(CastToBase(&other->values_));
+  CastToBase(&extra_params_)->InternalSwap(CastToBase(&other->extra_params_));
   field_name_.Swap(&other->field_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(boost_, other->boost_);
@@ -4688,7 +4797,8 @@ RangeQuery::RangeQuery()
 RangeQuery::RangeQuery(const RangeQuery& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr),
-      operand_(from.operand_) {
+      operand_(from.operand_),
+      extra_params_(from.extra_params_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   field_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from.field_name().empty()) {
@@ -4729,6 +4839,7 @@ void RangeQuery::Clear() {
   (void) cached_has_bits;
 
   operand_.Clear();
+  extra_params_.Clear();
   field_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   boost_ = 0;
   _internal_metadata_.Clear();
@@ -4766,6 +4877,18 @@ const char* RangeQuery::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
           boost_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated .demo.KeyValuePair extra_params = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(add_extra_params(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 34);
         } else goto handle_unusual;
         continue;
       default: {
@@ -4837,6 +4960,17 @@ bool RangeQuery::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated .demo.KeyValuePair extra_params = 4;
+      case 4: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+                input, add_extra_params()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -4888,6 +5022,15 @@ void RangeQuery::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloat(3, this->boost(), output);
   }
 
+  // repeated .demo.KeyValuePair extra_params = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->extra_params_size()); i < n; i++) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4,
+      this->extra_params(static_cast<int>(i)),
+      output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -4925,6 +5068,14 @@ void RangeQuery::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->boost(), target);
   }
 
+  // repeated .demo.KeyValuePair extra_params = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->extra_params_size()); i < n; i++) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, this->extra_params(static_cast<int>(i)), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -4954,6 +5105,17 @@ size_t RangeQuery::ByteSizeLong() const {
       total_size +=
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           this->operand(static_cast<int>(i)));
+    }
+  }
+
+  // repeated .demo.KeyValuePair extra_params = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->extra_params_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          this->extra_params(static_cast<int>(i)));
     }
   }
 
@@ -4997,6 +5159,7 @@ void RangeQuery::MergeFrom(const RangeQuery& from) {
   (void) cached_has_bits;
 
   operand_.MergeFrom(from.operand_);
+  extra_params_.MergeFrom(from.extra_params_);
   if (from.field_name().size() > 0) {
 
     field_name_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.field_name_);
@@ -5028,6 +5191,7 @@ void RangeQuery::InternalSwap(RangeQuery* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&operand_)->InternalSwap(CastToBase(&other->operand_));
+  CastToBase(&extra_params_)->InternalSwap(CastToBase(&other->extra_params_));
   field_name_.Swap(&other->field_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(boost_, other->boost_);

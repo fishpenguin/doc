@@ -35,20 +35,11 @@ struct ConnectParam {
 };
 
 /**
- * @brief Field Type ?????????????????????????????????????????????????????????
- */
-struct FieldType {
-    Field numeric_field;
-    VectorField vector_field;
-}
-
-/**
  * @brief Field Mapping
  */
 struct FieldParam {
-    uint64_t field_id;
-    string field_name;
-    FieldType field_type;     ///< vector or numerica(int64_t, float...)
+    Field numeric_field;
+    VectorField vector_field;
 }
 
 /**
@@ -61,7 +52,7 @@ struct Mapping {
 };
 
 /**
- * @brief Record inserted
+ * @brief Vector record
  */
 struct VectorRecord {
     std::vector<float> float_data;     ///< Vector raw float data
@@ -73,9 +64,6 @@ struct VectorRecord {
  */
 struct Entity {
     uint64_t entity_id;
-    // list all kinds fields?
-    // Or use string, user can input whatever kind of value they want,
-    // and the value will be describe as a json string
     std::map<std::string, std::string> int64_value;
     std::map<std::string, VectorRecord> vector_field_value;
 }
@@ -279,6 +267,7 @@ class Connection {
      * @param partition_tag, target partition's tag, keep empty if no partition.
      * @param record_array, vector array is inserted.
      * @param id_array,
+     *
      *  specify id for each vector,
      *  if this array is empty, milvus will generate unique id for each vector,
      *  and return all ids by this parameter.

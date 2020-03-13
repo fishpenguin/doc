@@ -15,7 +15,7 @@ struct Query {
     int64_t size;
     Sort sort;
     float min_score;
-    int64_t boost;
+    float boost;
 }
 
 enum class CompareOperator {
@@ -54,6 +54,7 @@ struct RowRecord {
 
 struct VectorQuery : Query {
     uint64_t topk;
+    float distance_limitation;
     float query_boost;
     std::vector<RowRecord> query_vector;
     std::string extra_params;

@@ -29,8 +29,8 @@ message KeyValuePair {
 
 message VectorFieldInfo {
     int64 dimension = 1;
-    string element_type = 2;
-    int64  distance_metric = 3;
+    int64  distance_metric = 2;
+    int64 index_file_size = 3;
 }
 
 message FieldType {
@@ -70,9 +70,10 @@ message CollectionName {
 }
 
 message Mapping {
-    uint64 id = 1;
-    string name = 2;
-    repeated FieldParam fields = 3;
+    Status status = 1;
+    uint64 collection_id = 2;
+    string collection_name = 3;
+    repeated FieldParam fields = 4;
 }
 
 message MappingList {
@@ -86,6 +87,7 @@ message TermQuery {
     string field_name = 1;
     repeated string values = 2;
     float boost = 3;
+    repeated KeyValuePair extra_params = 4;
 }
 
 enum CompareOperator {
@@ -106,6 +108,7 @@ message RangeQuery {
     string field_name = 1;
     repeated CompareExpr operand = 2;
     float boost = 3;
+    repeated KeyValuePair extra_params = 4;
 }
 
 message VectorRecord {
@@ -178,6 +181,7 @@ message InsertParam {
     repeated int64 entity_id_array = 4;
     repeated KeyValuePair extra_params = 5;
 }
+
 
 message EntityIdentity {
     string collection_name = 1;
@@ -296,7 +300,7 @@ service DemoService {
 
     rpc SearchInFiles(SearchInFilesParam) returns (QueryResult) {}
 
-    rpc GetEntityByID(EntityIdentity) returns (EntityRecord) {}
+    rpc GetEntityByID(EntityIdentity) returns (Entity) {}
 
     rpc GetEntityIDs(GetEntityIDsParam) returns (EntityIDs) {}
 

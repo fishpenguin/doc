@@ -5,6 +5,7 @@
 
 // Base struct of all fields
 struct Field {
+    uint64_t field_id;
     std::string field_name;
     std::string field_type;
     float boost;

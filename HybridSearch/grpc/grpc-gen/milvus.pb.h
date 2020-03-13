@@ -556,39 +556,33 @@ class VectorFieldInfo :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kElementTypeFieldNumber = 2,
     kDimensionFieldNumber = 1,
-    kDistanceMetricFieldNumber = 3,
+    kDistanceMetricFieldNumber = 2,
+    kIndexFileSizeFieldNumber = 3,
   };
-  // string element_type = 2;
-  void clear_element_type();
-  const std::string& element_type() const;
-  void set_element_type(const std::string& value);
-  void set_element_type(std::string&& value);
-  void set_element_type(const char* value);
-  void set_element_type(const char* value, size_t size);
-  std::string* mutable_element_type();
-  std::string* release_element_type();
-  void set_allocated_element_type(std::string* element_type);
-
   // int64 dimension = 1;
   void clear_dimension();
   ::PROTOBUF_NAMESPACE_ID::int64 dimension() const;
   void set_dimension(::PROTOBUF_NAMESPACE_ID::int64 value);
 
-  // int64 distance_metric = 3;
+  // int64 distance_metric = 2;
   void clear_distance_metric();
   ::PROTOBUF_NAMESPACE_ID::int64 distance_metric() const;
   void set_distance_metric(::PROTOBUF_NAMESPACE_ID::int64 value);
+
+  // int64 index_file_size = 3;
+  void clear_index_file_size();
+  ::PROTOBUF_NAMESPACE_ID::int64 index_file_size() const;
+  void set_index_file_size(::PROTOBUF_NAMESPACE_ID::int64 value);
 
   // @@protoc_insertion_point(class_scope:demo.VectorFieldInfo)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr element_type_;
   ::PROTOBUF_NAMESPACE_ID::int64 dimension_;
   ::PROTOBUF_NAMESPACE_ID::int64 distance_metric_;
+  ::PROTOBUF_NAMESPACE_ID::int64 index_file_size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_milvus_2eproto;
 };
@@ -1311,11 +1305,12 @@ class Mapping :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFieldsFieldNumber = 3,
-    kNameFieldNumber = 2,
-    kIdFieldNumber = 1,
+    kFieldsFieldNumber = 4,
+    kCollectionNameFieldNumber = 3,
+    kStatusFieldNumber = 1,
+    kCollectionIdFieldNumber = 2,
   };
-  // repeated .demo.FieldParam fields = 3;
+  // repeated .demo.FieldParam fields = 4;
   int fields_size() const;
   void clear_fields();
   ::demo::FieldParam* mutable_fields(int index);
@@ -1326,21 +1321,29 @@ class Mapping :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::FieldParam >&
       fields() const;
 
-  // string name = 2;
-  void clear_name();
-  const std::string& name() const;
-  void set_name(const std::string& value);
-  void set_name(std::string&& value);
-  void set_name(const char* value);
-  void set_name(const char* value, size_t size);
-  std::string* mutable_name();
-  std::string* release_name();
-  void set_allocated_name(std::string* name);
+  // string collection_name = 3;
+  void clear_collection_name();
+  const std::string& collection_name() const;
+  void set_collection_name(const std::string& value);
+  void set_collection_name(std::string&& value);
+  void set_collection_name(const char* value);
+  void set_collection_name(const char* value, size_t size);
+  std::string* mutable_collection_name();
+  std::string* release_collection_name();
+  void set_allocated_collection_name(std::string* collection_name);
 
-  // uint64 id = 1;
-  void clear_id();
-  ::PROTOBUF_NAMESPACE_ID::uint64 id() const;
-  void set_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  // .demo.Status status = 1;
+  bool has_status() const;
+  void clear_status();
+  const ::demo::Status& status() const;
+  ::demo::Status* release_status();
+  ::demo::Status* mutable_status();
+  void set_allocated_status(::demo::Status* status);
+
+  // uint64 collection_id = 2;
+  void clear_collection_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 collection_id() const;
+  void set_collection_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
 
   // @@protoc_insertion_point(class_scope:demo.Mapping)
  private:
@@ -1348,8 +1351,9 @@ class Mapping :
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::FieldParam > fields_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr collection_name_;
+  ::demo::Status* status_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 collection_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_milvus_2eproto;
 };
@@ -1616,6 +1620,7 @@ class TermQuery :
 
   enum : int {
     kValuesFieldNumber = 2,
+    kExtraParamsFieldNumber = 4,
     kFieldNameFieldNumber = 1,
     kBoostFieldNumber = 3,
   };
@@ -1635,6 +1640,17 @@ class TermQuery :
   void add_values(const char* value, size_t size);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& values() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_values();
+
+  // repeated .demo.KeyValuePair extra_params = 4;
+  int extra_params_size() const;
+  void clear_extra_params();
+  ::demo::KeyValuePair* mutable_extra_params(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >*
+      mutable_extra_params();
+  const ::demo::KeyValuePair& extra_params(int index) const;
+  ::demo::KeyValuePair* add_extra_params();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >&
+      extra_params() const;
 
   // string field_name = 1;
   void clear_field_name();
@@ -1658,6 +1674,7 @@ class TermQuery :
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> values_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair > extra_params_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   float boost_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1923,6 +1940,7 @@ class RangeQuery :
 
   enum : int {
     kOperandFieldNumber = 2,
+    kExtraParamsFieldNumber = 4,
     kFieldNameFieldNumber = 1,
     kBoostFieldNumber = 3,
   };
@@ -1936,6 +1954,17 @@ class RangeQuery :
   ::demo::CompareExpr* add_operand();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExpr >&
       operand() const;
+
+  // repeated .demo.KeyValuePair extra_params = 4;
+  int extra_params_size() const;
+  void clear_extra_params();
+  ::demo::KeyValuePair* mutable_extra_params(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >*
+      mutable_extra_params();
+  const ::demo::KeyValuePair& extra_params(int index) const;
+  ::demo::KeyValuePair* add_extra_params();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >&
+      extra_params() const;
 
   // string field_name = 1;
   void clear_field_name();
@@ -1959,6 +1988,7 @@ class RangeQuery :
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::CompareExpr > operand_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair > extra_params_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_name_;
   float boost_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5886,58 +5916,7 @@ inline void VectorFieldInfo::set_dimension(::PROTOBUF_NAMESPACE_ID::int64 value)
   // @@protoc_insertion_point(field_set:demo.VectorFieldInfo.dimension)
 }
 
-// string element_type = 2;
-inline void VectorFieldInfo::clear_element_type() {
-  element_type_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& VectorFieldInfo::element_type() const {
-  // @@protoc_insertion_point(field_get:demo.VectorFieldInfo.element_type)
-  return element_type_.GetNoArena();
-}
-inline void VectorFieldInfo::set_element_type(const std::string& value) {
-  
-  element_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:demo.VectorFieldInfo.element_type)
-}
-inline void VectorFieldInfo::set_element_type(std::string&& value) {
-  
-  element_type_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:demo.VectorFieldInfo.element_type)
-}
-inline void VectorFieldInfo::set_element_type(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  element_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:demo.VectorFieldInfo.element_type)
-}
-inline void VectorFieldInfo::set_element_type(const char* value, size_t size) {
-  
-  element_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:demo.VectorFieldInfo.element_type)
-}
-inline std::string* VectorFieldInfo::mutable_element_type() {
-  
-  // @@protoc_insertion_point(field_mutable:demo.VectorFieldInfo.element_type)
-  return element_type_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* VectorFieldInfo::release_element_type() {
-  // @@protoc_insertion_point(field_release:demo.VectorFieldInfo.element_type)
-  
-  return element_type_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void VectorFieldInfo::set_allocated_element_type(std::string* element_type) {
-  if (element_type != nullptr) {
-    
-  } else {
-    
-  }
-  element_type_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), element_type);
-  // @@protoc_insertion_point(field_set_allocated:demo.VectorFieldInfo.element_type)
-}
-
-// int64 distance_metric = 3;
+// int64 distance_metric = 2;
 inline void VectorFieldInfo::clear_distance_metric() {
   distance_metric_ = PROTOBUF_LONGLONG(0);
 }
@@ -5949,6 +5928,20 @@ inline void VectorFieldInfo::set_distance_metric(::PROTOBUF_NAMESPACE_ID::int64 
   
   distance_metric_ = value;
   // @@protoc_insertion_point(field_set:demo.VectorFieldInfo.distance_metric)
+}
+
+// int64 index_file_size = 3;
+inline void VectorFieldInfo::clear_index_file_size() {
+  index_file_size_ = PROTOBUF_LONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 VectorFieldInfo::index_file_size() const {
+  // @@protoc_insertion_point(field_get:demo.VectorFieldInfo.index_file_size)
+  return index_file_size_;
+}
+inline void VectorFieldInfo::set_index_file_size(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  index_file_size_ = value;
+  // @@protoc_insertion_point(field_set:demo.VectorFieldInfo.index_file_size)
 }
 
 // -------------------------------------------------------------------
@@ -6298,72 +6291,117 @@ inline void CollectionName::set_allocated_collection_name(std::string* collectio
 
 // Mapping
 
-// uint64 id = 1;
-inline void Mapping::clear_id() {
-  id_ = PROTOBUF_ULONGLONG(0);
+// .demo.Status status = 1;
+inline bool Mapping::has_status() const {
+  return this != internal_default_instance() && status_ != nullptr;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 Mapping::id() const {
-  // @@protoc_insertion_point(field_get:demo.Mapping.id)
-  return id_;
+inline const ::demo::Status& Mapping::status() const {
+  const ::demo::Status* p = status_;
+  // @@protoc_insertion_point(field_get:demo.Mapping.status)
+  return p != nullptr ? *p : *reinterpret_cast<const ::demo::Status*>(
+      &::demo::_Status_default_instance_);
 }
-inline void Mapping::set_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline ::demo::Status* Mapping::release_status() {
+  // @@protoc_insertion_point(field_release:demo.Mapping.status)
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:demo.Mapping.id)
+  ::demo::Status* temp = status_;
+  status_ = nullptr;
+  return temp;
 }
-
-// string name = 2;
-inline void Mapping::clear_name() {
-  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline const std::string& Mapping::name() const {
-  // @@protoc_insertion_point(field_get:demo.Mapping.name)
-  return name_.GetNoArena();
-}
-inline void Mapping::set_name(const std::string& value) {
+inline ::demo::Status* Mapping::mutable_status() {
   
-  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:demo.Mapping.name)
+  if (status_ == nullptr) {
+    auto* p = CreateMaybeMessage<::demo::Status>(GetArenaNoVirtual());
+    status_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:demo.Mapping.status)
+  return status_;
 }
-inline void Mapping::set_name(std::string&& value) {
-  
-  name_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:demo.Mapping.name)
-}
-inline void Mapping::set_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:demo.Mapping.name)
-}
-inline void Mapping::set_name(const char* value, size_t size) {
-  
-  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:demo.Mapping.name)
-}
-inline std::string* Mapping::mutable_name() {
-  
-  // @@protoc_insertion_point(field_mutable:demo.Mapping.name)
-  return name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline std::string* Mapping::release_name() {
-  // @@protoc_insertion_point(field_release:demo.Mapping.name)
-  
-  return name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-inline void Mapping::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void Mapping::set_allocated_status(::demo::Status* status) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(status_);
+  }
+  if (status) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      status = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, status, submessage_arena);
+    }
     
   } else {
     
   }
-  name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:demo.Mapping.name)
+  status_ = status;
+  // @@protoc_insertion_point(field_set_allocated:demo.Mapping.status)
 }
 
-// repeated .demo.FieldParam fields = 3;
+// uint64 collection_id = 2;
+inline void Mapping::clear_collection_id() {
+  collection_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Mapping::collection_id() const {
+  // @@protoc_insertion_point(field_get:demo.Mapping.collection_id)
+  return collection_id_;
+}
+inline void Mapping::set_collection_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  collection_id_ = value;
+  // @@protoc_insertion_point(field_set:demo.Mapping.collection_id)
+}
+
+// string collection_name = 3;
+inline void Mapping::clear_collection_name() {
+  collection_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& Mapping::collection_name() const {
+  // @@protoc_insertion_point(field_get:demo.Mapping.collection_name)
+  return collection_name_.GetNoArena();
+}
+inline void Mapping::set_collection_name(const std::string& value) {
+  
+  collection_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:demo.Mapping.collection_name)
+}
+inline void Mapping::set_collection_name(std::string&& value) {
+  
+  collection_name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:demo.Mapping.collection_name)
+}
+inline void Mapping::set_collection_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  collection_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:demo.Mapping.collection_name)
+}
+inline void Mapping::set_collection_name(const char* value, size_t size) {
+  
+  collection_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:demo.Mapping.collection_name)
+}
+inline std::string* Mapping::mutable_collection_name() {
+  
+  // @@protoc_insertion_point(field_mutable:demo.Mapping.collection_name)
+  return collection_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* Mapping::release_collection_name() {
+  // @@protoc_insertion_point(field_release:demo.Mapping.collection_name)
+  
+  return collection_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void Mapping::set_allocated_collection_name(std::string* collection_name) {
+  if (collection_name != nullptr) {
+    
+  } else {
+    
+  }
+  collection_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), collection_name);
+  // @@protoc_insertion_point(field_set_allocated:demo.Mapping.collection_name)
+}
+
+// repeated .demo.FieldParam fields = 4;
 inline int Mapping::fields_size() const {
   return fields_.size();
 }
@@ -6606,6 +6644,36 @@ inline void TermQuery::set_boost(float value) {
   // @@protoc_insertion_point(field_set:demo.TermQuery.boost)
 }
 
+// repeated .demo.KeyValuePair extra_params = 4;
+inline int TermQuery::extra_params_size() const {
+  return extra_params_.size();
+}
+inline void TermQuery::clear_extra_params() {
+  extra_params_.Clear();
+}
+inline ::demo::KeyValuePair* TermQuery::mutable_extra_params(int index) {
+  // @@protoc_insertion_point(field_mutable:demo.TermQuery.extra_params)
+  return extra_params_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >*
+TermQuery::mutable_extra_params() {
+  // @@protoc_insertion_point(field_mutable_list:demo.TermQuery.extra_params)
+  return &extra_params_;
+}
+inline const ::demo::KeyValuePair& TermQuery::extra_params(int index) const {
+  // @@protoc_insertion_point(field_get:demo.TermQuery.extra_params)
+  return extra_params_.Get(index);
+}
+inline ::demo::KeyValuePair* TermQuery::add_extra_params() {
+  // @@protoc_insertion_point(field_add:demo.TermQuery.extra_params)
+  return extra_params_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >&
+TermQuery::extra_params() const {
+  // @@protoc_insertion_point(field_list:demo.TermQuery.extra_params)
+  return extra_params_;
+}
+
 // -------------------------------------------------------------------
 
 // CompareExpr
@@ -6772,6 +6840,36 @@ inline void RangeQuery::set_boost(float value) {
   
   boost_ = value;
   // @@protoc_insertion_point(field_set:demo.RangeQuery.boost)
+}
+
+// repeated .demo.KeyValuePair extra_params = 4;
+inline int RangeQuery::extra_params_size() const {
+  return extra_params_.size();
+}
+inline void RangeQuery::clear_extra_params() {
+  extra_params_.Clear();
+}
+inline ::demo::KeyValuePair* RangeQuery::mutable_extra_params(int index) {
+  // @@protoc_insertion_point(field_mutable:demo.RangeQuery.extra_params)
+  return extra_params_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >*
+RangeQuery::mutable_extra_params() {
+  // @@protoc_insertion_point(field_mutable_list:demo.RangeQuery.extra_params)
+  return &extra_params_;
+}
+inline const ::demo::KeyValuePair& RangeQuery::extra_params(int index) const {
+  // @@protoc_insertion_point(field_get:demo.RangeQuery.extra_params)
+  return extra_params_.Get(index);
+}
+inline ::demo::KeyValuePair* RangeQuery::add_extra_params() {
+  // @@protoc_insertion_point(field_add:demo.RangeQuery.extra_params)
+  return extra_params_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::demo::KeyValuePair >&
+RangeQuery::extra_params() const {
+  // @@protoc_insertion_point(field_list:demo.RangeQuery.extra_params)
+  return extra_params_;
 }
 
 // -------------------------------------------------------------------

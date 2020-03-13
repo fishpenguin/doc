@@ -47,7 +47,7 @@ void DeSerialization(const ::demo::GeneralQuery& general_query, BooleanClausePtr
         vector_query.query_vector.resize(general_query.vector_query().records_size());
         for (uint64_t i = 0; i < general_query.vector_query().records_size(); ++i) {
             vector_query.query_vector[i].float_data.resize(general_query.vector_query().records(i).float_data_size());
-            vector_query.query_vector[i].binary_data.resize(general_query.vector_query().records(i).binary_data().size() / 8)
+            vector_query.query_vector[i].binary_data.resize(general_query.vector_query().records(i).binary_data().size() / 8);
             memcpy(vector_query.query_vector[i].float_data.data(), general_query.vector_query().records(i).float_data().data(),
                    sizeof(float) * general_query.vector_query().records(i).float_data_size());
             memcpy(vector_query.query_vector[i].binary_data.data(),

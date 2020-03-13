@@ -29,8 +29,8 @@ message KeyValuePair {
 
 message VectorFieldInfo {
     int64 dimension = 1;
-    string element_type = 2;
-    int64  distance_metric = 3;
+    int64  distance_metric = 2;
+    int64 index_file_size = 3;
 }
 
 message FieldType {
@@ -70,9 +70,10 @@ message CollectionName {
 }
 
 message Mapping {
-    uint64 id = 1;
-    string name = 2;
-    repeated FieldParam fields = 3;
+    Status status = 1;
+    uint64 collection_id = 2;
+    string collection_name = 3;
+    repeated FieldParam fields = 4;
 }
 
 message MappingList {
@@ -86,11 +87,12 @@ message TermQuery {
     string field_name = 1;
     repeated string values = 2;
     float boost = 3;
+    repeated KeyValuePair extra_params = 4;
 }
 
 enum CompareOperator {
     LT = 0;
-    LTE = 1; 
+    LTE = 1;
     EQ = 2;
     GT = 3;
     GTE = 4;
@@ -106,6 +108,7 @@ message RangeQuery {
     string field_name = 1;
     repeated CompareExpr operand = 2;
     float boost = 3;
+    repeated KeyValuePair extra_params = 4;
 }
 
 message VectorRecord {
@@ -280,7 +283,7 @@ service DemoService {
 
     rpc PreloadCollection(CollectionName) returns (Status) {}
 
-///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
     rpc CreateIndex(IndexParam) returns (Status) {}
 
@@ -288,7 +291,7 @@ service DemoService {
 
     rpc DropIndex(CollectionName) returns (Status) {}
 
-///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
     rpc Insert(InsertParam) returns (EntityIDs) {}
 
@@ -302,7 +305,7 @@ service DemoService {
 
     rpc DeleteByID(DeleteByIDParam) returns (Status) {}
 
-///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
     rpc CreatePartition(PartitionParam) returns (Status) {}
 
@@ -310,7 +313,7 @@ service DemoService {
 
     rpc DropPartition(PartitionParam) returns (Status) {}
 
-///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
     rpc Cmd(Command) returns (StringReply) {}
 
