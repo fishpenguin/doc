@@ -35,9 +35,10 @@ struct ConnectParam {
 };
 
 /**
- * @brief Field Mapping
+ * @brief Field Mapping ?????????????????????????????????????????
  */
 struct FieldParam {
+    // uint64_t type;
     Field numeric_field;
     VectorField vector_field;
 }
@@ -46,9 +47,9 @@ struct FieldParam {
  * @brief Collection Mapping
  */
 struct Mapping {
-    uint64_t collection_id;                        ///< Collection id
+    uint64_t collection_id;                        ///< Collection id, read-only
     std::string collection_name;                   ///< Collection name
-    std::vector<FieldParam> fields;        ///< Fields
+    std::vector<FieldParam> fields;                ///< Fields
 };
 
 /**
@@ -64,7 +65,7 @@ struct VectorRecord {
  */
 struct Entity {
     uint64_t entity_id;
-    std::map<std::string, std::string> int64_value;
+    std::map<std::string, std::string> numerica_value;
     std::map<std::string, VectorRecord> vector_field_value;
 }
 
